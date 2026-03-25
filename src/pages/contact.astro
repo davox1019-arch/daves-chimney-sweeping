@@ -1,0 +1,160 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Contact Daves Chimney Sweeping Melbourne"
+  description="Contact Daves Chimney Sweeping for a fast quote on chimney sweeping, flue cleaning and wood heater cleaning."
+  clusterBase="Melbourne"
+  clusterRegion="Melbourne and surrounding suburbs"
+  homeHref="/"
+servicePageHref="/chimney-sweeping"
+servicePageLabel="Chimney Sweeping"
+>
+  <section class="hero">
+    <h1>Contact Daves Chimney Sweeping</h1>
+    <p>
+      Need a fast quote for chimney sweeping, flue cleaning or wood heater cleaning?
+      Fill out the form below and we’ll get back to you.
+    </p>
+
+    <div class="button-row">
+      <a class="btn btn-primary" href="tel:0476302729">Call 0476 302 729</a>
+      <a class="btn btn-secondary" href="/chimney-sweeping">View Services</a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Request a Quote</h2>
+
+    <form action="https://formspree.io/f/maqlwkpr" method="POST" class="quote-form">
+      <div class="form-grid">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input id="name" type="text" name="name" required />
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input id="phone" type="tel" name="phone" required />
+        </div>
+
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input id="email" type="email" name="email" />
+        </div>
+
+        <div class="field">
+          <label for="suburb">Suburb</label>
+          <input id="suburb" type="text" name="suburb" required />
+        </div>
+
+        <div class="field">
+          <label for="service">Service Needed</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="Chimney Sweeping">Chimney Sweeping</option>
+            <option value="Flue Cleaning">Flue Cleaning</option>
+            <option value="Wood Heater Cleaning">Wood Heater Cleaning</option>
+            <option value="Fireplace Cleaning">Fireplace Cleaning</option>
+            <option value="Bird Nest / Blockage Removal">Bird Nest / Blockage Removal</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="heater-type">Fireplace or Heater Type</label>
+          <input id="heater-type" type="text" name="heater_type" placeholder="Optional" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          placeholder="Tell us what you need cleaned and any details that may help with your quote."
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Enquiry</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Business Details</h2>
+    <p><strong>Business Name:</strong> Daves Chimney Sweeping</p>
+    <p><strong>Phone:</strong> <a href="tel:0476302729">0476 302 729</a></p>
+    <p><strong>Service Area:</strong> Melbourne and surrounding suburbs</p>
+  </section>
+
+  <style>
+    .quote-form {
+      margin-top: 8px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #dcdcdc;
+      border-radius: 12px;
+      padding: 14px 14px;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #222;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #2a2a2a;
+    }
+
+    @media (max-width: 700px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .submit-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</MainLayout>

@@ -1,0 +1,149 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Daves Chimney Sweeping",
+  telephone: "+61 476 302 729",
+  areaServed: [
+    "Melbourne VIC",
+    "Melton VIC 3337",
+    "Melton South VIC 3338",
+    "Melton West VIC 3337",
+    "Brookfield VIC 3338",
+    "Kurunjang VIC 3337",
+    "Harkness VIC 3337",
+    "Cobblebank VIC 3338",
+    "Sunbury VIC 3429",
+    "Diggers Rest VIC 3427",
+    "Gisborne VIC 3437",
+    "Riddells Creek VIC 3431",
+    "Bacchus Marsh VIC 3340",
+    "Darley VIC 3340",
+    "Maddingley VIC 3340",
+    "Ballan VIC 3342"
+  ],
+  url: "https://daveschimneysweeping.com.au/chimney-sweeping",
+  description:
+    "Daves Chimney Sweeping provides chimney sweeping, flue cleaning, wood heater cleaning and fireplace cleaning across Melbourne and surrounding suburbs.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Melbourne",
+    addressRegion: "VIC",
+    addressCountry: "AU"
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      opens: "08:00",
+      closes: "18:00"
+    }
+  ]
+};
+---
+
+<MainLayout
+  title="Chimney Sweeping Melbourne | Daves Chimney Sweeping"
+  description="Need chimney sweeping in Melbourne? Daves Chimney Sweeping provides professional chimney cleaning, flue cleaning and wood heater cleaning across Melbourne."
+  clusterBase="Melbourne"
+  clusterRegion="Melbourne and surrounding suburbs"
+  homeHref="/"
+  servicePageHref="/chimney-sweeping"
+  servicePageLabel="Chimney Sweeping"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+  <section class="hero">
+    <h1>Chimney Sweeping Melbourne</h1>
+    <p>
+      Looking for chimney sweeping in Melbourne? Daves Chimney Sweeping provides
+      professional chimney cleaning, flue cleaning and wood heater cleaning
+      across Melbourne and surrounding suburbs.
+    </p>
+    <p>
+      We provide straightforward local service, fast quotes and reliable
+      workmanship.
+    </p>
+
+    <div class="button-row">
+      <a class="btn btn-primary" href="/contact">Get a Quote</a>
+      <a class="btn btn-secondary" href="tel:0476302729">Call 0476 302 729</a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>What Our Chimney Sweeping Service Includes</h2>
+    <ul>
+      <li>Chimney sweeping</li>
+      <li>Flue cleaning</li>
+      <li>Wood heater cleaning</li>
+      <li>Fireplace cleaning</li>
+      <li>Soot and ash buildup removal</li>
+      <li>Bird nest and blockage removal</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>When Homeowners Book Chimney Sweeping</h2>
+    <p>
+      Many homeowners book chimney sweeping before winter, after a season of
+      regular fireplace use, or when they notice smoke drift, soot buildup,
+      unusual smells or reduced airflow.
+    </p>
+    <p>
+      Keeping the chimney and flue clean can help your fireplace or wood heater
+      work more smoothly during the colder months.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Melton and Nearby Suburbs</h2>
+    <ul>
+      <li><a href="/chimney-sweeping/melton">Chimney Sweeping Melton</a></li>
+      <li><a href="/chimney-sweeping/melton-south">Chimney Sweeping Melton South</a></li>
+      <li><a href="/chimney-sweeping/melton-west">Chimney Sweeping Melton West</a></li>
+      <li><a href="/chimney-sweeping/brookfield">Chimney Sweeping Brookfield</a></li>
+      <li><a href="/chimney-sweeping/kurunjang">Chimney Sweeping Kurunjang</a></li>
+      <li><a href="/chimney-sweeping/harkness">Chimney Sweeping Harkness</a></li>
+      <li><a href="/chimney-sweeping/cobblebank">Chimney Sweeping Cobblebank</a></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Sunbury and Nearby Suburbs</h2>
+    <ul>
+      <li><a href="/chimney-sweeping/sunbury">Chimney Sweeping Sunbury</a></li>
+      <li><a href="/chimney-sweeping/diggers-rest">Chimney Sweeping Diggers Rest</a></li>
+      <li><a href="/chimney-sweeping/gisborne">Chimney Sweeping Gisborne</a></li>
+      <li><a href="/chimney-sweeping/riddells-creek">Chimney Sweeping Riddells Creek</a></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Bacchus Marsh and Nearby Suburbs</h2>
+    <ul>
+      <li><a href="/chimney-sweeping/bacchus-marsh">Chimney Sweeping Bacchus Marsh</a></li>
+      <li><a href="/chimney-sweeping/darley">Chimney Sweeping Darley</a></li>
+      <li><a href="/chimney-sweeping/maddingley">Chimney Sweeping Maddingley</a></li>
+      <li><a href="/chimney-sweeping/ballan">Chimney Sweeping Ballan</a></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Need a Quote?</h2>
+    <p>
+      If you need chimney sweeping, flue cleaning or wood heater cleaning in
+      Melbourne or surrounding suburbs, <a href="/contact">contact us here</a>
+      or call <a href="tel:0476302729">0476 302 729</a>.
+    </p>
+  </section>
+</MainLayout>

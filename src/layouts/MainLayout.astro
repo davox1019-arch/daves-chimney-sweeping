@@ -1,0 +1,369 @@
+---
+const {
+  title = "Daves Chimney Sweeping",
+  description = "Local chimney sweeping, flue cleaning and wood heater cleaning in Melbourne.",
+  clusterBase = "Melbourne",
+  clusterRegion = "Melbourne and surrounding suburbs",
+  servicePageHref = "/chimney-sweeping",
+  servicePageLabel = "Chimney Sweeping",
+  homeHref = "/",
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <style>
+      :root {
+        --bg: #f5f5f5;
+        --text: #1f1f1f;
+        --muted: #666;
+        --card: #ffffff;
+        --accent: #111111;
+        --accent-hover: #2a2a2a;
+        --border: #e5e5e5;
+        --max-width: 1100px;
+        --radius: 16px;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .site-header {
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 78px;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .brand-name {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+
+      .brand-sub {
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .nav a {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .phone-btn {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        padding: 12px 16px;
+        border-radius: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .phone-btn:hover {
+        background: var(--accent-hover);
+      }
+
+      main {
+        padding: 28px 0 50px;
+      }
+
+      .hero {
+        background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 40px;
+      }
+
+      .hero h1 {
+        margin: 0 0 14px;
+        font-size: 44px;
+        line-height: 1.08;
+      }
+
+      .hero p {
+        margin: 0 0 14px;
+        font-size: 18px;
+        line-height: 1.7;
+        color: #2f2f2f;
+      }
+
+      .button-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 20px;
+        border-radius: 12px;
+        font-weight: 700;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-hover);
+      }
+
+      .btn-secondary {
+        background: #fff;
+        border: 1px solid var(--border);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        margin-top: 22px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 28px;
+        margin-top: 22px;
+      }
+
+      .card h2 {
+        margin: 0 0 14px;
+        font-size: 30px;
+        line-height: 1.15;
+      }
+
+      .card h3 {
+        margin: 20px 0 10px;
+        font-size: 21px;
+      }
+
+      .card p,
+      .card li {
+        font-size: 17px;
+        line-height: 1.75;
+        color: #2f2f2f;
+      }
+
+      .card ul {
+        padding-left: 20px;
+        margin: 0;
+      }
+
+      .site-footer {
+        margin-top: 50px;
+        background: #111;
+        color: white;
+      }
+
+      .footer-inner {
+        padding: 34px 20px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr;
+        gap: 24px;
+      }
+
+      .footer-title {
+        margin: 0 0 12px;
+        font-size: 20px;
+      }
+
+      .footer-text,
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 15px;
+        line-height: 1.8;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .footer-bottom {
+        margin-top: 24px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      @media (max-width: 900px) {
+        .header-inner {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 16px 0;
+        }
+
+        .nav {
+          width: 100%;
+        }
+
+        .grid,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 34px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .container {
+          padding: 0 14px;
+        }
+
+        .hero,
+        .card {
+          padding: 20px;
+          border-radius: 14px;
+        }
+
+        .hero h1 {
+          font-size: 28px;
+        }
+
+        .hero p,
+        .card p,
+        .card li {
+          font-size: 16px;
+        }
+
+        .card h2 {
+          font-size: 24px;
+        }
+
+        .card h3 {
+          font-size: 19px;
+        }
+
+        .btn,
+        .phone-btn {
+          width: 100%;
+          text-align: center;
+        }
+
+        .nav {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href={homeHref}>
+          <span class="brand-name">Daves Chimney Sweeping</span>
+          <span class="brand-sub">Based in {clusterBase} • Servicing {clusterRegion}</span>
+        </a>
+
+        <nav class="nav">
+          <a href={homeHref}>Home</a>
+          <a href={servicePageHref}>{servicePageLabel}</a>
+          <a href="/contact">Contact</a>
+          <a class="phone-btn" href="tel:0476302729">0476 302 729</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-grid">
+          <div>
+            <h3 class="footer-title">Daves Chimney Sweeping</h3>
+            <div class="footer-text">
+              Local chimney sweeping, flue cleaning and wood heater cleaning.
+              Based in {clusterBase} and servicing {clusterRegion}.
+            </div>
+          </div>
+
+          <div>
+            <h3 class="footer-title">Our Services</h3>
+            <div class="footer-links">
+              <a href={servicePageHref}>{servicePageLabel}</a>
+              <a href="/contact">Request a Quote</a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="footer-title">Contact</h3>
+            <div class="footer-links">
+              <a href="tel:0476302729">0476 302 729</a>
+              <a href="/contact">Contact Page</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          © 2026 Daves Chimney Sweeping. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
