@@ -49,18 +49,20 @@ const localBusinessSchema = {
     }
   ]
 };
+
+const localBusinessSchemaJson = JSON.stringify(localBusinessSchema);
 ---
 
 <MainLayout
-  title="title="Chimney Sweeping Melbourne"
-  description="Need chimney sweeping in Melbourne? Daves Chimney Sweeping provides professional chimney cleaning, flue cleaning and wood heater cleaning across Melbourne."
+  title="Chimney Sweeping Melbourne"
+  description="Need chimney sweeping in Melbourne? Daves Chimney Sweeping provides professional chimney cleaning, flue cleaning and wood heater cleaning across Melbourne and surrounding suburbs."
   clusterBase="Melbourne"
   clusterRegion="Melbourne and surrounding suburbs"
   homeHref="/"
   servicePageHref="/chimney-sweeping"
   servicePageLabel="Chimney Sweeping"
 >
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(localBusinessSchema)}></script>
+  <script type="application/ld+json" is:inline>{localBusinessSchemaJson}</script>
 
   <section class="hero">
     <h1>Chimney Sweeping Melbourne</h1>
