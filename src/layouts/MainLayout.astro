@@ -19,18 +19,18 @@ const {
 
     <style>
       :root {
-        --bg: #f4efe8;
+        --bg: #f5efe7;
         --bg-soft: #fbf8f4;
         --text: #171717;
-        --muted: #6a6a6a;
-        --card: rgba(255,255,255,0.92);
-        --accent: #161616;
-        --accent-2: #b98438;
-        --accent-3: #f4dfb8;
-        --border: #e6ddd1;
+        --muted: #666;
+        --card: rgba(255, 255, 255, 0.94);
+        --accent: #151515;
+        --accent-2: #b98134;
+        --accent-3: #f4e2c4;
+        --border: #e5dbcf;
         --max-width: 1160px;
-        --radius: 22px;
-        --shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+        --radius: 24px;
+        --shadow: 0 18px 48px rgba(0, 0, 0, 0.08);
       }
 
       * {
@@ -46,8 +46,8 @@ const {
         font-family: Arial, sans-serif;
         color: var(--text);
         background:
-          radial-gradient(circle at top left, rgba(255, 240, 214, 0.95) 0%, transparent 28%),
-          linear-gradient(180deg, #f7f2eb 0%, #f1ebe3 100%);
+          radial-gradient(circle at top left, rgba(255, 239, 214, 0.9) 0%, transparent 30%),
+          linear-gradient(180deg, #f8f3ed 0%, #f1ebe4 100%);
       }
 
       a {
@@ -65,9 +65,9 @@ const {
         position: sticky;
         top: 0;
         z-index: 200;
-        backdrop-filter: blur(12px);
-        background: rgba(255, 250, 245, 0.84);
-        border-bottom: 1px solid rgba(230, 221, 209, 0.95);
+        backdrop-filter: blur(10px);
+        background: rgba(255, 250, 245, 0.88);
+        border-bottom: 1px solid rgba(229, 219, 207, 0.95);
       }
 
       .header-inner {
@@ -83,22 +83,15 @@ const {
         align-items: center;
         gap: 14px;
         min-width: 0;
+        flex: 1;
       }
 
-      .logo-mark {
-        width: 58px;
-        height: 58px;
-        flex: 0 0 58px;
-        border-radius: 16px;
-        background: linear-gradient(135deg, #111 0%, #2b2b2b 100%);
-        display: grid;
-        place-items: center;
-        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
-      }
-
-      .logo-mark svg {
-        width: 34px;
-        height: 34px;
+      .brand-logo {
+        width: 72px;
+        height: 72px;
+        object-fit: contain;
+        flex: 0 0 72px;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.18));
       }
 
       .brand-text {
@@ -109,7 +102,7 @@ const {
       }
 
       .brand-name {
-        font-size: 27px;
+        font-size: 28px;
         font-weight: 800;
         line-height: 1.02;
         letter-spacing: -0.03em;
@@ -132,18 +125,14 @@ const {
         font-weight: 700;
       }
 
-      .desktop-nav a:hover {
-        color: #000;
-      }
-
       .phone-btn {
         display: inline-block;
-        background: linear-gradient(135deg, #111 0%, #2d2d2d 100%);
+        background: linear-gradient(135deg, #111 0%, #2c2c2c 100%);
         color: white;
         padding: 12px 18px;
         border-radius: 999px;
         font-weight: 800;
-        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
       }
 
       .menu-toggle {
@@ -151,13 +140,13 @@ const {
         width: 52px;
         height: 52px;
         border: 1px solid var(--border);
-        background: rgba(255,255,255,0.92);
+        background: rgba(255, 255, 255, 0.95);
         border-radius: 14px;
         padding: 0;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
       }
 
       .menu-toggle span {
@@ -199,7 +188,7 @@ const {
 
       .mobile-menu-card {
         border: 1px solid var(--border);
-        background: rgba(255,255,255,0.95);
+        background: rgba(255, 255, 255, 0.96);
         border-radius: 18px;
         box-shadow: var(--shadow);
         overflow: hidden;
@@ -229,10 +218,10 @@ const {
         position: relative;
         overflow: hidden;
         background:
-          linear-gradient(135deg, rgba(185, 132, 56, 0.12) 0%, rgba(255,255,255,0) 45%),
+          linear-gradient(135deg, rgba(185, 129, 52, 0.14) 0%, rgba(255, 255, 255, 0) 46%),
           linear-gradient(180deg, #ffffff 0%, #faf6f1 100%);
         border: 1px solid var(--border);
-        border-radius: 28px;
+        border-radius: 30px;
         box-shadow: var(--shadow);
         padding: 56px;
       }
@@ -245,7 +234,7 @@ const {
         width: 260px;
         height: 260px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(185,132,56,0.18) 0%, rgba(185,132,56,0) 70%);
+        background: radial-gradient(circle, rgba(185, 129, 52, 0.18) 0%, rgba(185, 129, 52, 0) 70%);
         pointer-events: none;
       }
 
@@ -256,8 +245,8 @@ const {
         padding: 8px 14px;
         border-radius: 999px;
         background: var(--accent-3);
-        border: 1px solid rgba(185,132,56,0.28);
-        color: #6a4716;
+        border: 1px solid rgba(185, 129, 52, 0.3);
+        color: #6d4b18;
         font-size: 13px;
         font-weight: 800;
         margin-bottom: 18px;
@@ -300,12 +289,12 @@ const {
 
       .btn-primary {
         color: white;
-        background: linear-gradient(135deg, #111 0%, #2c2c2c 100%);
-        box-shadow: 0 12px 26px rgba(0,0,0,0.14);
+        background: linear-gradient(135deg, #111 0%, #2b2b2b 100%);
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.15);
       }
 
       .btn-secondary {
-        background: rgba(255,255,255,0.8);
+        background: rgba(255, 255, 255, 0.82);
         border: 1px solid var(--border);
       }
 
@@ -352,12 +341,12 @@ const {
       .card a {
         text-decoration: underline;
         text-underline-offset: 3px;
-        text-decoration-color: rgba(185,132,56,0.55);
+        text-decoration-color: rgba(185, 129, 52, 0.55);
       }
 
       .site-footer {
         margin-top: 56px;
-        background: linear-gradient(180deg, #191919 0%, #111 100%);
+        background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
         color: white;
       }
 
@@ -378,7 +367,7 @@ const {
 
       .footer-text,
       .footer-links a {
-        color: rgba(255,255,255,0.86);
+        color: rgba(255, 255, 255, 0.86);
         font-size: 15px;
         line-height: 1.8;
       }
@@ -392,9 +381,9 @@ const {
       .footer-bottom {
         margin-top: 24px;
         padding-top: 18px;
-        border-top: 1px solid rgba(255,255,255,0.12);
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
         font-size: 14px;
-        color: rgba(255,255,255,0.72);
+        color: rgba(255, 255, 255, 0.72);
       }
 
       @media (max-width: 900px) {
@@ -415,7 +404,7 @@ const {
 
         .header-inner {
           min-height: 72px;
-          gap: 12px;
+          gap: 10px;
         }
 
         .desktop-nav {
@@ -429,23 +418,16 @@ const {
         .brand {
           gap: 10px;
           min-width: 0;
-          flex: 1;
         }
 
-        .logo-mark {
-          width: 54px;
-          height: 54px;
-          flex-basis: 54px;
-          border-radius: 15px;
-        }
-
-        .logo-mark svg {
-          width: 32px;
-          height: 32px;
+        .brand-logo {
+          width: 58px;
+          height: 58px;
+          flex-basis: 58px;
         }
 
         .brand-name {
-          font-size: 22px;
+          font-size: 21px;
         }
 
         .brand-sub {
@@ -489,15 +471,7 @@ const {
       <div class="container">
         <div class="header-inner">
           <a class="brand" href={homeHref}>
-            <span class="logo-mark" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 44V28C20 21.3726 25.3726 16 32 16C38.6274 16 44 21.3726 44 28V44" stroke="#E7C387" stroke-width="5" stroke-linecap="round"/>
-                <path d="M24 44H40" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
-                <path d="M32 10V18" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
-                <path d="M26 8L29 13" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
-                <path d="M38 8L35 13" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
-              </svg>
-            </span>
+            <img class="brand-logo" src="/daves-logo.png" alt="Daves Chimney Sweeping logo" />
 
             <span class="brand-text">
               <span class="brand-name">Daves Chimney Sweeping</span>
