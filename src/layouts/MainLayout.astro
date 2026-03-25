@@ -19,19 +19,18 @@ const {
 
     <style>
       :root {
-        --bg: #f6f3ee;
-        --bg-soft: #fcfaf7;
+        --bg: #f4efe8;
+        --bg-soft: #fbf8f4;
         --text: #171717;
-        --muted: #666;
-        --card: #ffffff;
-        --accent: #111111;
-        --accent-hover: #2b2b2b;
-        --border: #e8e0d6;
-        --gold: #b7863b;
-        --gold-soft: #f5e7cf;
-        --max-width: 1140px;
-        --radius: 18px;
-        --shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+        --muted: #6a6a6a;
+        --card: rgba(255,255,255,0.92);
+        --accent: #161616;
+        --accent-2: #b98438;
+        --accent-3: #f4dfb8;
+        --border: #e6ddd1;
+        --max-width: 1160px;
+        --radius: 22px;
+        --shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
       }
 
       * {
@@ -45,10 +44,10 @@ const {
       body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background:
-          radial-gradient(circle at top left, #fff7ea 0%, transparent 28%),
-          linear-gradient(180deg, #f7f3ed 0%, #f3efe8 100%);
         color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(255, 240, 214, 0.95) 0%, transparent 28%),
+          linear-gradient(180deg, #f7f2eb 0%, #f1ebe3 100%);
       }
 
       a {
@@ -65,90 +64,161 @@ const {
       .site-header {
         position: sticky;
         top: 0;
-        z-index: 100;
-        backdrop-filter: blur(10px);
-        background: rgba(255, 252, 247, 0.88);
-        border-bottom: 1px solid rgba(232, 224, 214, 0.9);
+        z-index: 200;
+        backdrop-filter: blur(12px);
+        background: rgba(255, 250, 245, 0.84);
+        border-bottom: 1px solid rgba(230, 221, 209, 0.95);
       }
 
       .header-inner {
+        min-height: 84px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
-        min-height: 84px;
+        gap: 18px;
       }
 
       .brand {
         display: flex;
         align-items: center;
         gap: 14px;
+        min-width: 0;
       }
 
       .logo-mark {
-        width: 52px;
-        height: 52px;
-        flex: 0 0 52px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, #1d1d1d 0%, #333 100%);
+        width: 58px;
+        height: 58px;
+        flex: 0 0 58px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #111 0%, #2b2b2b 100%);
         display: grid;
         place-items: center;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
       }
 
       .logo-mark svg {
-        width: 30px;
-        height: 30px;
+        width: 34px;
+        height: 34px;
       }
 
       .brand-text {
         display: flex;
         flex-direction: column;
         gap: 4px;
+        min-width: 0;
       }
 
       .brand-name {
-        font-size: 24px;
+        font-size: 27px;
         font-weight: 800;
-        line-height: 1.05;
-        letter-spacing: -0.02em;
+        line-height: 1.02;
+        letter-spacing: -0.03em;
       }
 
       .brand-sub {
         font-size: 14px;
         color: var(--muted);
+        line-height: 1.3;
       }
 
-      .nav {
+      .desktop-nav {
         display: flex;
         align-items: center;
         gap: 18px;
-        flex-wrap: wrap;
       }
 
-      .nav a {
+      .desktop-nav a {
         font-size: 15px;
         font-weight: 700;
-        color: #2a2a2a;
       }
 
-      .nav a:hover {
+      .desktop-nav a:hover {
         color: #000;
       }
 
       .phone-btn {
         display: inline-block;
-        background: linear-gradient(135deg, #111 0%, #2a2a2a 100%);
+        background: linear-gradient(135deg, #111 0%, #2d2d2d 100%);
         color: white;
-        padding: 12px 17px;
+        padding: 12px 18px;
         border-radius: 999px;
         font-weight: 800;
-        white-space: nowrap;
-        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
       }
 
-      .phone-btn:hover {
-        background: linear-gradient(135deg, #222 0%, #3a3a3a 100%);
+      .menu-toggle {
+        display: none;
+        width: 52px;
+        height: 52px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.92);
+        border-radius: 14px;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: #111;
+        border-radius: 999px;
+        position: relative;
+      }
+
+      .menu-toggle span::before,
+      .menu-toggle span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 22px;
+        height: 2px;
+        background: #111;
+        border-radius: 999px;
+      }
+
+      .menu-toggle span::before {
+        top: -7px;
+      }
+
+      .menu-toggle span::after {
+        top: 7px;
+      }
+
+      .mobile-menu {
+        display: none;
+        padding: 0 0 16px;
+      }
+
+      .mobile-menu.open {
+        display: block;
+      }
+
+      .mobile-menu-card {
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.95);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .mobile-menu-card a {
+        display: block;
+        padding: 16px 18px;
+        font-weight: 700;
+        border-top: 1px solid var(--border);
+      }
+
+      .mobile-menu-card a:first-child {
+        border-top: none;
+      }
+
+      .mobile-call {
+        background: linear-gradient(135deg, #111 0%, #2b2b2b 100%);
+        color: white !important;
       }
 
       main {
@@ -159,23 +229,23 @@ const {
         position: relative;
         overflow: hidden;
         background:
-          linear-gradient(135deg, rgba(183, 134, 59, 0.12) 0%, rgba(255,255,255,0) 45%),
-          linear-gradient(180deg, #ffffff 0%, #fbf8f4 100%);
+          linear-gradient(135deg, rgba(185, 132, 56, 0.12) 0%, rgba(255,255,255,0) 45%),
+          linear-gradient(180deg, #ffffff 0%, #faf6f1 100%);
         border: 1px solid var(--border);
-        border-radius: 26px;
+        border-radius: 28px;
         box-shadow: var(--shadow);
-        padding: 52px;
+        padding: 56px;
       }
 
-      .hero::after {
+      .hero::before {
         content: "";
         position: absolute;
-        right: -80px;
-        top: -80px;
-        width: 240px;
-        height: 240px;
+        right: -90px;
+        top: -90px;
+        width: 260px;
+        height: 260px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(183,134,59,0.16) 0%, rgba(183,134,59,0) 70%);
+        background: radial-gradient(circle, rgba(185,132,56,0.18) 0%, rgba(185,132,56,0) 70%);
         pointer-events: none;
       }
 
@@ -183,11 +253,11 @@ const {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: var(--gold-soft);
-        color: #6b4a18;
-        border: 1px solid rgba(183, 134, 59, 0.24);
+        padding: 8px 14px;
         border-radius: 999px;
-        padding: 8px 13px;
+        background: var(--accent-3);
+        border: 1px solid rgba(185,132,56,0.28);
+        color: #6a4716;
         font-size: 13px;
         font-weight: 800;
         margin-bottom: 18px;
@@ -195,18 +265,18 @@ const {
 
       .hero h1 {
         margin: 0 0 14px;
-        font-size: 50px;
-        line-height: 1.02;
-        letter-spacing: -0.03em;
+        font-size: 54px;
+        line-height: 0.98;
+        letter-spacing: -0.04em;
         max-width: 760px;
       }
 
       .hero p {
         margin: 0 0 14px;
-        font-size: 18px;
-        line-height: 1.75;
-        color: #343434;
         max-width: 760px;
+        font-size: 18px;
+        line-height: 1.78;
+        color: #353535;
       }
 
       .button-row {
@@ -221,7 +291,7 @@ const {
         padding: 14px 20px;
         border-radius: 14px;
         font-weight: 800;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        transition: transform 0.15s ease;
       }
 
       .btn:hover {
@@ -229,13 +299,13 @@ const {
       }
 
       .btn-primary {
-        background: linear-gradient(135deg, #111 0%, #2a2a2a 100%);
         color: white;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+        background: linear-gradient(135deg, #111 0%, #2c2c2c 100%);
+        box-shadow: 0 12px 26px rgba(0,0,0,0.14);
       }
 
       .btn-secondary {
-        background: rgba(255, 255, 255, 0.78);
+        background: rgba(255,255,255,0.8);
         border: 1px solid var(--border);
       }
 
@@ -247,18 +317,18 @@ const {
       }
 
       .card {
-        background: rgba(255,255,255,0.92);
+        background: var(--card);
         border: 1px solid var(--border);
-        border-radius: 22px;
+        border-radius: 24px;
         box-shadow: var(--shadow);
-        padding: 30px;
+        padding: 32px;
         margin-top: 24px;
       }
 
       .card h2 {
         margin: 0 0 14px;
-        font-size: 30px;
-        line-height: 1.12;
+        font-size: 31px;
+        line-height: 1.1;
         letter-spacing: -0.02em;
       }
 
@@ -270,7 +340,7 @@ const {
       .card p,
       .card li {
         font-size: 17px;
-        line-height: 1.8;
+        line-height: 1.82;
         color: #313131;
       }
 
@@ -281,14 +351,13 @@ const {
 
       .card a {
         text-decoration: underline;
-        text-decoration-color: rgba(183, 134, 59, 0.55);
         text-underline-offset: 3px;
+        text-decoration-color: rgba(185,132,56,0.55);
       }
 
       .site-footer {
         margin-top: 56px;
-        background:
-          linear-gradient(180deg, #1a1a1a 0%, #111 100%);
+        background: linear-gradient(180deg, #191919 0%, #111 100%);
         color: white;
       }
 
@@ -309,7 +378,7 @@ const {
 
       .footer-text,
       .footer-links a {
-        color: rgba(255, 255, 255, 0.86);
+        color: rgba(255,255,255,0.86);
         font-size: 15px;
         line-height: 1.8;
       }
@@ -329,29 +398,58 @@ const {
       }
 
       @media (max-width: 900px) {
-        .header-inner {
-          align-items: flex-start;
-          flex-direction: column;
-          padding: 16px 0;
-        }
-
-        .nav {
-          width: 100%;
-        }
-
         .grid,
         .footer-grid {
           grid-template-columns: 1fr;
         }
 
         .hero h1 {
-          font-size: 38px;
+          font-size: 40px;
         }
       }
 
-      @media (max-width: 700px) {
+      @media (max-width: 760px) {
         .container {
           padding: 0 14px;
+        }
+
+        .header-inner {
+          min-height: 72px;
+          gap: 12px;
+        }
+
+        .desktop-nav {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: inline-flex;
+        }
+
+        .brand {
+          gap: 10px;
+          min-width: 0;
+          flex: 1;
+        }
+
+        .logo-mark {
+          width: 54px;
+          height: 54px;
+          flex-basis: 54px;
+          border-radius: 15px;
+        }
+
+        .logo-mark svg {
+          width: 32px;
+          height: 32px;
+        }
+
+        .brand-name {
+          font-size: 22px;
+        }
+
+        .brand-sub {
+          display: none;
         }
 
         .hero,
@@ -378,25 +476,9 @@ const {
           font-size: 19px;
         }
 
-        .btn,
-        .phone-btn {
+        .btn {
           width: 100%;
           text-align: center;
-        }
-
-        .nav {
-          flex-direction: column;
-          align-items: stretch;
-        }
-
-        .brand-name {
-          font-size: 21px;
-        }
-
-        .logo-mark {
-          width: 46px;
-          height: 46px;
-          flex-basis: 46px;
         }
       }
     </style>
@@ -404,30 +486,45 @@ const {
 
   <body>
     <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href={homeHref}>
-          <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 44V28C20 21.3726 25.3726 16 32 16C38.6274 16 44 21.3726 44 28V44" stroke="#E8C58B" stroke-width="5" stroke-linecap="round"/>
-              <path d="M24 44H40" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
-              <path d="M32 10V18" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
-              <path d="M26 8L29 13" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
-              <path d="M38 8L35 13" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
-            </svg>
-          </span>
+      <div class="container">
+        <div class="header-inner">
+          <a class="brand" href={homeHref}>
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 44V28C20 21.3726 25.3726 16 32 16C38.6274 16 44 21.3726 44 28V44" stroke="#E7C387" stroke-width="5" stroke-linecap="round"/>
+                <path d="M24 44H40" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+                <path d="M32 10V18" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+                <path d="M26 8L29 13" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+                <path d="M38 8L35 13" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </span>
 
-          <span class="brand-text">
-            <span class="brand-name">Daves Chimney Sweeping</span>
-            <span class="brand-sub">Based in {clusterBase} • Servicing {clusterRegion}</span>
-          </span>
-        </a>
+            <span class="brand-text">
+              <span class="brand-name">Daves Chimney Sweeping</span>
+              <span class="brand-sub">Based in {clusterBase} • Servicing {clusterRegion}</span>
+            </span>
+          </a>
 
-        <nav class="nav">
-          <a href={homeHref}>Home</a>
-          <a href={servicePageHref}>{servicePageLabel}</a>
-          <a href="/contact">Contact</a>
-          <a class="phone-btn" href="tel:0476302729">0476 302 729</a>
-        </nav>
+          <nav class="desktop-nav">
+            <a href={homeHref}>Home</a>
+            <a href={servicePageHref}>{servicePageLabel}</a>
+            <a href="/contact">Contact</a>
+            <a class="phone-btn" href="tel:0476302729">0476 302 729</a>
+          </nav>
+
+          <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span>
+          </button>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu">
+          <div class="mobile-menu-card">
+            <a href={homeHref}>Home</a>
+            <a href={servicePageHref}>{servicePageLabel}</a>
+            <a href="/contact">Contact</a>
+            <a class="mobile-call" href="tel:0476302729">Call 0476 302 729</a>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -470,5 +567,17 @@ const {
         </div>
       </div>
     </footer>
+
+    <script is:inline>
+      const toggle = document.querySelector('.menu-toggle');
+      const menu = document.querySelector('#mobile-menu');
+
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          const open = menu.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+    </script>
   </body>
 </html>
