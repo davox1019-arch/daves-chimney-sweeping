@@ -1,5 +1,33 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Daves Chimney Sweeping",
+  telephone: "+61 476 302 729",
+  areaServed: [
+    "Sunbury VIC 3429",
+    "Diggers Rest VIC 3427",
+    "Gisborne VIC 3437",
+    "Riddells Creek VIC 3431",
+    "Wildwood VIC 3429",
+    "Bulla VIC 3428",
+    "Clarkefield VIC 3430"
+  ],
+  url: "https://daveschimneysweeping.com.au/chimney-sweeping/sunbury",
+  description:
+    "Daves Chimney Sweeping provides local chimney sweeping, flue cleaning, wood heater cleaning and fireplace cleaning in Sunbury VIC 3429 and nearby suburbs.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Sunbury",
+    addressRegion: "VIC",
+    postalCode: "3429",
+    addressCountry: "AU"
+  }
+};
+
+const localBusinessSchemaJson = JSON.stringify(localBusinessSchema);
 ---
 
 <MainLayout
@@ -7,10 +35,12 @@ import MainLayout from "../../layouts/MainLayout.astro";
   description="Need chimney sweeping in Sunbury VIC 3429? Daves Chimney Sweeping provides local chimney cleaning, flue cleaning and wood heater cleaning with fast quotes."
   clusterBase="Sunbury"
   clusterRegion="Sunbury, Diggers Rest and nearby suburbs"
-homeHref="/chimney-sweeping/sunbury"
-servicePageHref="/chimney-sweeping/sunbury"
-servicePageLabel="Sunbury Chimney Sweeping"
+  homeHref="/chimney-sweeping/sunbury"
+  servicePageHref="/chimney-sweeping/sunbury"
+  servicePageLabel="Sunbury Chimney Sweeping"
 >
+  <script type="application/ld+json" is:inline>{localBusinessSchemaJson}</script>
+
   <section class="hero">
     <h1>Chimney Sweeping Sunbury VIC 3429</h1>
     <p>
@@ -84,7 +114,7 @@ servicePageLabel="Sunbury Chimney Sweeping"
       straightforward service and fast quotes.
     </p>
     <p><strong>Phone:</strong> <a href="tel:0476302729">0476 302 729</a></p>
-    <p><strong>Service Base:</strong> Sunbury VIC</p>
+    <p><strong>Service Base:</strong> Sunbury VIC 3429</p>
   </section>
 
   <section class="card">
@@ -109,14 +139,12 @@ servicePageLabel="Sunbury Chimney Sweeping"
     </p>
   </section>
 
-<section class="card">
-  <h2>Nearby Chimney Sweeping Pages</h2>
-  <p>
-    For nearby areas, you can also view our
-    <a href="/chimney-sweeping/diggers-rest">Diggers Rest chimney sweeping page</a>.
-  </p>
-  <p>
-    Need a quote for Sunbury? <a href="/contact">Get in touch here</a>.
-  </p>
-</section>
+  <section class="card">
+    <h2>Nearby Chimney Sweeping Pages</h2>
+    <p>
+      You can also view our
+      <a href="/chimney-sweeping/diggers-rest">Diggers Rest chimney sweeping page</a>
+      or <a href="/contact">contact us</a> for a fast quote for Sunbury and nearby areas.
+    </p>
+  </section>
 </MainLayout>
