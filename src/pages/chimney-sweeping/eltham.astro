@@ -4,26 +4,98 @@ import MainLayout from "../../layouts/MainLayout.astro";
 const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Daves Chimney Sweeping",
-  telephone: "+61476302729",
-  areaServed: ["Eltham VIC 3095","Eltham North VIC 3095","Research VIC 3095","Diamond Creek VIC 3089","Greensborough VIC 3088"],
-  url: "https://daveschimneysweeping.com.au/chimney-sweeping/eltham",
-  description: "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Eltham VIC 3095 and nearby suburbs.",
-  address: { "@type": "PostalAddress", addressLocality: "Eltham", addressRegion: "VIC", postalCode: "3095", addressCountry: "AU" }
+  "name": "Daves Chimney Sweeping",
+  "telephone": "+61476302729",
+  "priceRange": "$199",
+  "areaServed": [
+    "Eltham VIC 3095"
+  ],
+  "url": "https://daveschimneysweeping.com.au/chimney-sweeping/eltham",
+  "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Eltham VIC 3095. $199 chimney inspection and clean.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Eltham",
+    "addressRegion": "VIC",
+    "postalCode": "3095",
+    "addressCountry": "AU"
+  }
 };
-
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does the $199 chimney clean include in Eltham?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Full sweep, flue clean, soot and ash removal, bird nest and blockage check, verbal condition report."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you service all of Eltham VIC 3095?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 Eltham and Eltham North are both covered."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bird nests in chimneys are common in Eltham \u2014 do you clear them?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Nest removal is a standard part of the $199 service."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should Eltham homes get the chimney swept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Once a year in autumn before the heating season. Eltham's tree canopy makes nesting frequent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Call 0476 302 729 or use the form below."
+      }
+    }
+  ]
+};
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Chimney Sweeping Eltham VIC 3095",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Daves Chimney Sweeping",
+    "telephone": "+61476302729"
+  },
+  "areaServed": "Eltham VIC 3095",
+  "offers": {
+    "@type": "Offer",
+    "price": "199",
+    "priceCurrency": "AUD",
+    "description": "Chimney inspection and full clean"
+  },
+  "serviceType": "Chimney Sweeping"
+};
 const faqs = [
-  { q: "Do you cover all of Eltham VIC 3095?", a: "Yes — Eltham and Eltham North are both covered. If you're on the edge of the area just give us a call and we'll confirm." },
-  { q: "Eltham gets cold winters — how often should I get the chimney swept?", a: "Once a year is the standard for a regularly used wood heater or fireplace. Eltham homes often run their heating hard through winter, so annual cleaning keeps the system working properly and prevents buildup becoming a problem." },
-  { q: "Can you clean a slow combustion heater in Eltham?", a: "Yes. Slow combustion heaters are one of the most common setups we service. We clean the heater body, baffle and flue in the one visit." },
-  { q: "What does a chimney sweep actually involve?", a: "We clear the firebox, flue liner and chimney stack of soot, ash and creosote. We use dust sheets to keep the area clean and remove all debris as part of the job." },
-  { q: "Do you remove bird nests?", a: "Yes — nest removal is part of the service. Eltham's tree coverage means birds nest in unused chimneys regularly over spring and summer." }
+  {q:`What does the $199 chimney clean include in Eltham?`,a:`Full sweep, flue clean, soot and ash removal, bird nest and blockage check, verbal condition report.`},
+  {q:`Do you service all of Eltham VIC 3095?`,a:`Yes — Eltham and Eltham North are both covered.`},
+  {q:`Bird nests in chimneys are common in Eltham — do you clear them?`,a:`Yes. Nest removal is a standard part of the $199 service.`},
+  {q:`How often should Eltham homes get the chimney swept?`,a:`Once a year in autumn before the heating season. Eltham's tree canopy makes nesting frequent.`},
+  {q:`How do I book?`,a:`Call 0476 302 729 or use the form below.`},
 ];
 ---
 
 <MainLayout
-  title="Chimney Sweeping Eltham VIC 3095 | Daves Chimney Sweeping"
-  description="Chimney sweeping in Eltham VIC 3095. Daves Chimney Sweeping — local flue cleaning, wood heater servicing and fireplace cleaning. Fast quotes. Call 0476 302 729."
+  title="Chimney Sweep Eltham VIC 3095 — $199 Clean & Inspect"
+  description="Chimney sweeping Eltham VIC 3095 — $199 chimney inspection & clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
   clusterBase="Eltham"
   clusterRegion="Eltham and surrounding suburbs"
   homeHref="/"
@@ -31,250 +103,276 @@ const faqs = [
   servicePageLabel="Chimney Sweeping Melbourne"
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
 
   <style>
-    :root {
+    :root{
       --bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;
       --bw:#f5f0e8;--wh:#ffffff;
       --tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px;
     }
-    .hero{background:var(--bd);color:var(--wh);padding:2.8rem 1.25rem 2.5rem;text-align:center}
-    .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .85rem;border-radius:20px;margin-bottom:1.1rem}
-    .hero h1{font-size:clamp(1.65rem,5vw,2.3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin:0 0 1rem;color:var(--wh)}
-    .hero-lead{font-size:1rem;line-height:1.65;color:#c8c5be;margin:0 auto .75rem;max-width:500px}
-    .hero-sub{font-size:.93rem;line-height:1.6;color:#6e6b64;max-width:500px;margin:0 auto 2rem}
+    /* Hero */
+    .hero{background:var(--bd);color:var(--wh);padding:3rem 1.25rem 2.8rem;text-align:center}
+    .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem}
+    .hero h1{font-size:clamp(1.9rem,5.5vw,2.6rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
+    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.9rem;font-weight:800;padding:.45rem 1.1rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c}
+    .hero-lead{font-size:1.05rem;line-height:1.7;color:#c8c5be;margin:0 auto .8rem;max-width:520px}
+    .hero-sub{font-size:.95rem;line-height:1.6;color:#6e6b64;max-width:500px;margin:0 auto 2.2rem}
     .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
-    .btn{display:inline-block;padding:.95rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s}
-    .btn:hover{opacity:.88}
-    .btn-call{background:var(--ba);color:#fff;font-size:1.1rem}
+    .btn{display:inline-block;padding:1rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s,transform .15s}
+    .btn:hover{opacity:.88;transform:translateY(-1px)}
+    .btn-call{background:var(--ba);color:#fff;font-size:1.15rem}
     .btn-quote{background:transparent;border:2px solid #4a4a44;color:#c8c5be}
-    .trust-bar{background:var(--bm);padding:.95rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
-    .ti{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#908d86;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+    /* Trust bar */
+    .trust-bar{background:var(--bm);padding:1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.82rem;color:#908d86;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
     .ti svg{flex-shrink:0;color:var(--ba)}
-    .sec{padding:2.2rem 1.25rem;max-width:700px;margin:0 auto}
+    /* Sections */
+    .sec{padding:2.4rem 1.25rem;max-width:720px;margin:0 auto}
     .sec+.sec{border-top:1px solid var(--br)}
-    .sec-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
-    .sec h2{font-size:clamp(1.25rem,4vw,1.65rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
-    .sec p{font-size:.97rem;line-height:1.72;color:var(--ts);margin:0 0 .85rem}
+    .sl{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
+    .sec h2{font-size:clamp(1.4rem,4vw,1.8rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0 0 .9rem}
     .sec p:last-child{margin-bottom:0}
-
-    /* Problem cards */
-    .prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:1.25rem}
-    @media(max-width:400px){.prob-grid{grid-template-columns:1fr}}
-    .prob-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1rem}
-    .prob-icon{font-size:1.3rem;display:block;margin-bottom:.35rem}
-    .prob-title{font-size:.87rem;font-weight:700;color:var(--tm);margin-bottom:.2rem}
-    .prob-desc{font-size:.81rem;line-height:1.5;color:var(--ts)}
-
-    /* Service list */
-    .svc-list{list-style:none;padding:0;margin:1.1rem 0 0;display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+    /* Price box */
+    .price-box{background:var(--bw);border:2px solid #2a6b1c;border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem;text-align:center}
+    .price-num{font-size:3rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.25rem}
+    .price-label{font-size:1.05rem;font-weight:700;color:var(--tm);margin-bottom:.75rem}
+    .price-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
+    .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.35rem .8rem;font-size:.84rem;font-weight:600;color:var(--ts)}
+    .pi::before{content:"✓ ";color:#2a6b1c;font-weight:800}
+    /* Local box */
+    .local-box{background:var(--bw);border-left:4px solid var(--ba);border-radius:0 var(--rad) var(--rad) 0;padding:1.25rem 1.25rem;margin-top:1rem}
+    .local-box p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0}
+    /* Reason cards */
+    .reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
+    @media(max-width:480px){.reason-grid{grid-template-columns:1fr}}
+    .rc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.1rem 1rem}
+    .rc-icon{font-size:1.4rem;display:block;margin-bottom:.4rem}
+    .rc-title{font-size:.95rem;font-weight:700;color:var(--tm);margin-bottom:.25rem}
+    .rc-desc{font-size:.86rem;line-height:1.55;color:var(--ts)}
+    /* Services */
+    .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.1rem}
     @media(max-width:380px){.svc-list{grid-template-columns:1fr}}
-    .svc-list li{font-size:.9rem;font-weight:600;color:var(--ts);padding:.6rem .85rem;background:var(--bw);border:1px solid var(--br);border-radius:8px;display:flex;align-items:center;gap:.5rem}
-    .svc-list li::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
-
+    .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.75rem .9rem;font-size:.95rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
+    .sv::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
+    /* Reviews */
+    .reviews-grid{display:flex;flex-direction:column;gap:.85rem;margin-top:1.1rem}
+    .review-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.25rem 1.25rem}
+    .review-stars{color:#f59e0b;font-size:1.1rem;margin-bottom:.5rem;letter-spacing:.05em}
+    .review-text{font-size:.97rem;line-height:1.7;color:var(--ts);margin:0 0 .6rem;font-style:italic}
+    .review-author{font-size:.84rem;font-weight:700;color:var(--tm)}
     /* About */
     .about-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
-    .about-card p{font-size:.96rem;line-height:1.7;color:var(--ts);margin:0 0 .8rem}
+    .about-card p{font-size:1rem;line-height:1.7;color:var(--ts);margin:0 0 .85rem}
     .about-card p:last-child{margin-bottom:0}
-    .arow{display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--ts);margin-top:.55rem}
+    .arow{display:flex;align-items:center;gap:.5rem;font-size:.92rem;color:var(--ts);margin-top:.6rem}
     .arow strong{color:var(--tm)}
     .arow a{color:var(--ba);font-weight:700;text-decoration:none}
-
-    /* Inline booking form */
-    .form-wrap{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
-    .form-wrap h3{font-size:1.05rem;font-weight:800;color:var(--tm);margin:0 0 .3rem}
-    .form-wrap .form-sub{font-size:.85rem;color:var(--ts);margin:0 0 1.1rem}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
-    @media(max-width:480px){.form-grid{grid-template-columns:1fr}}
+    /* Form */
+    .form-wrap{background:var(--bw);border:2px solid var(--ba);border-radius:var(--rad);padding:1.75rem 1.25rem;margin-top:1rem}
+    .form-wrap h3{font-size:1.15rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
+    .form-sub{font-size:.9rem;color:var(--ts);margin:0 0 1.25rem}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+    @media(max-width:500px){.form-grid{grid-template-columns:1fr}}
     .field{display:flex;flex-direction:column;gap:.3rem}
     .field.full{grid-column:1/-1}
-    .field label{font-size:.78rem;font-weight:700;color:var(--tm);letter-spacing:.02em;text-transform:uppercase}
-    .field input,.field select,.field textarea{
-      width:100%;border:1.5px solid var(--br);border-radius:8px;
-      padding:.65rem .8rem;font-size:.9rem;background:var(--wh);color:var(--tm);
-      font-family:inherit;transition:border-color .15s;outline:none
-    }
+    .field label{font-size:.8rem;font-weight:700;color:var(--tm);letter-spacing:.03em;text-transform:uppercase}
+    .field input,.field select,.field textarea{width:100%;border:2px solid var(--br);border-radius:8px;padding:.72rem .85rem;font-size:1rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
     .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ba)}
-    .field textarea{resize:vertical;min-height:80px}
-    .form-submit{
-      display:block;width:100%;margin-top:.85rem;
-      background:var(--ba);color:#fff;border:none;
-      padding:.9rem;border-radius:var(--rad);
-      font-size:1rem;font-weight:700;cursor:pointer;
-      font-family:inherit;transition:opacity .15s
-    }
-    .form-submit:hover{opacity:.88}
-
+    .field textarea{resize:vertical;min-height:90px}
+    .form-submit{display:block;width:100%;margin-top:1rem;background:var(--ba);color:#fff;border:none;padding:1rem;border-radius:var(--rad);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s,transform .15s}
+    .form-submit:hover{opacity:.88;transform:translateY(-1px)}
     /* FAQ */
     .faq-list{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
     details.faq-item{border-bottom:1px solid var(--br)}
     details.faq-item:last-child{border-bottom:none}
-    details.faq-item summary{padding:1rem 1.1rem;font-size:.95rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
+    details.faq-item summary{padding:1.1rem 1.25rem;font-size:1rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
     details.faq-item summary::-webkit-details-marker{display:none}
     details.faq-item summary:hover{background:var(--bw)}
     details.faq-item summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
     details.faq-item[open] summary::after{content:"−"}
-    .faq-answer{padding:0 1.1rem 1rem;font-size:.93rem;line-height:1.7;color:var(--ts);background:var(--wh)}
-
+    .faq-answer{padding:.1rem 1.25rem 1.1rem;font-size:.97rem;line-height:1.75;color:var(--ts);background:var(--wh)}
     /* Suburb chips */
     .suburb-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
-    .suburb-chip{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.4rem .8rem;font-size:.82rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
+    .suburb-chip{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.42rem .85rem;font-size:.86rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
     .suburb-chip:hover{background:var(--ba);border-color:var(--ba);color:#fff}
-
     /* Page links */
     .page-links{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
-    .page-link{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1rem;background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);text-decoration:none;font-size:.92rem;font-weight:600;color:var(--tm);transition:background .15s,border-color .15s}
+    .page-link{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem;background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);text-decoration:none;font-size:.95rem;font-weight:600;color:var(--tm);transition:background .15s,border-color .15s}
     .page-link:hover{background:var(--ba);border-color:var(--ba);color:#fff}
     .page-link span{opacity:.5;font-size:1.1rem}
-
     /* Bottom CTA */
-    .bottom-cta{background:var(--bd);color:var(--wh);padding:2.5rem 1.25rem;text-align:center}
-    .bottom-cta h2{font-size:clamp(1.3rem,4.5vw,1.7rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .6rem}
-    .bottom-cta p{font-size:.95rem;color:#6e6b64;margin:0 0 1.75rem;line-height:1.6}
+    .bottom-cta{background:var(--bd);color:var(--wh);padding:2.8rem 1.25rem;text-align:center}
+    .bottom-cta h2{font-size:clamp(1.4rem,5vw,1.9rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
+    .bottom-cta p{font-size:1rem;color:#6e6b64;margin:0 auto 1.9rem;line-height:1.6;max-width:440px}
   </style>
 
   <!-- HERO -->
   <section class="hero">
     <span class="hero-eyebrow">Eltham VIC 3095</span>
     <h1>Chimney Sweeping<br>Eltham VIC 3095</h1>
-    <p class="hero-lead">
-      Eltham's leafy streets and cold winters mean wood heaters and fireplaces work hard — and that means chimneys need regular attention. Daves Chimney Sweeping provides professional chimney sweeping, flue cleaning and wood heater servicing for homes across Eltham 3095.
-    </p>
-    <p class="hero-sub">
-      Local, owner-operated, no call centres. Call Dave directly for a fast, honest quote.
-    </p>
+    <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
+    <p class="hero-lead">Eltham's leafy character and rich tree canopy make chimney pots here among the most frequently nested in Melbourne's north-east. Rosellas, mynas and starlings take up res...</p>
+    <p class="hero-sub">Local, owner-operated. No franchises, no call centres. You deal directly with Dave.</p>
     <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="#quote">Request a Quote</a>
+      <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
 
+  <!-- TRUST BAR -->
   <div class="trust-bar">
-    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Eltham locals</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
-    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Fast quotes</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon&#8211;Sat</span>
   </div>
 
-  <!-- PROBLEMS -->
+  <!-- PRICE -->
   <section class="sec">
-    <p class="sec-label">Common issues</p>
-    <h2>Signs Your Eltham Chimney Needs a Clean</h2>
-    <p>These are the situations Eltham homeowners most often call us about:</p>
-    <div class="prob-grid">
-      <div class="prob-card">
-        <span class="prob-icon">🌫️</span>
-        <div class="prob-title">Smoke coming back in</div>
-        <div class="prob-desc">Smoke reversing into the room rather than drawing up — usually a blocked or heavily sooted flue.</div>
+    <p class="sl">Pricing</p>
+    <h2>$199 — Chimney Inspection &amp; Full Clean in Eltham</h2>
+    <p>One flat price for everything. No call-out fee, no surprises on the day. Here is exactly what is covered:</p>
+    <div class="price-box">
+      <div class="price-num">$199</div>
+      <div class="price-label">Chimney Inspection &amp; Full Clean — Eltham</div>
+      <div class="price-includes">
+        <span class="pi">Chimney sweep</span>
+        <span class="pi">Flue cleaning</span>
+        <span class="pi">Soot &amp; ash removal</span>
+        <span class="pi">Blockage check</span>
+        <span class="pi">Condition report</span>
+        <span class="pi">No call-out fee</span>
       </div>
-      <div class="prob-card">
-        <span class="prob-icon">💨</span>
-        <div class="prob-title">Weak or sluggish draw</div>
-        <div class="prob-desc">Fires that struggle to get going or die down quickly often point to restricted airflow.</div>
-      </div>
-      <div class="prob-card">
-        <span class="prob-icon">👃</span>
-        <div class="prob-title">Strong smoky smell</div>
-        <div class="prob-desc">Creosote or old ash inside the flue causes a persistent burnt smell even when the fire's off.</div>
-      </div>
-      <div class="prob-card">
-        <span class="prob-icon">🐦</span>
-        <div class="prob-title">Bird nest or blockage</div>
-        <div class="prob-desc">Eltham's tree canopy makes chimney nesting common. We clear it as part of the service.</div>
-      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL SECTION -->
+  <section class="sec">
+    <p class="sl">Local knowledge</p>
+    <h2>Eltham — Tree-Covered Hills, Bird Nests Every Spring, Cold Winters</h2>
+    <div class="local-box">
+      <p>Eltham's leafy character and rich tree canopy make chimney pots here among the most frequently nested in Melbourne's north-east. Rosellas, mynas and starlings take up residence in unused chimneys over spring, and we clear nests as a matter of course every autumn in Eltham. The rolling hills and cool south-easterly exposure mean winters are cold and wood heaters run from April through to October. Most Eltham housing dates from the 1970s–1990s and those original chimneys are now long overdue for regular servicing.</p>
+    </div>
+  </section>
+
+  <!-- WHY BOOK -->
+  <section class="sec">
+    <p class="sl">When to book</p>
+    <h2>Signs Your Eltham Chimney Needs Cleaning</h2>
+    <p>If any of these sound familiar, it is time to book:</p>
+    <div class="reason-grid">
+      <div class="rc"><span class="rc-icon">&#128703;</span><div class="rc-title">Smoke coming back in</div><div class="rc-desc">Most common sign of a blocked or sooted flue. A clean usually fixes it immediately.</div></div>
+      <div class="rc"><span class="rc-icon">&#128148;</span><div class="rc-title">Persistent smoky smell</div><div class="rc-desc">Creosote or old ash in the flue causes a burnt odour even when the fire is off.</div></div>
+      <div class="rc"><span class="rc-icon">&#128168;</span><div class="rc-title">Weak or sluggish draw</div><div class="rc-desc">Fires that struggle to start or stay alight point to restricted airflow in the flue.</div></div>
+      <div class="rc"><span class="rc-icon">&#128197;</span><div class="rc-title">Pre-winter service</div><div class="rc-desc">Book in autumn before the heating season — easier to sort early than mid-winter.</div></div>
     </div>
   </section>
 
   <!-- SERVICES -->
   <section class="sec">
-    <p class="sec-label">What's covered</p>
-    <h2>Our Eltham Chimney Sweeping Service</h2>
-    <p>We handle all chimney and heater cleaning work for homes in Eltham VIC 3095. Most jobs cover a combination of the following in one visit:</p>
-    <ul class="svc-list">
-      <li>Chimney sweeping</li>
-      <li>Flue cleaning</li>
-      <li>Wood heater service</li>
-      <li>Open fireplace clean</li>
-      <li>Soot &amp; ash removal</li>
-      <li>Blockage clearing</li>
-    </ul>
+    <p class="sl">What is included</p>
+    <h2>Everything in the One $199 Visit</h2>
+    <p>We cover the full system — chimney, flue and heater — in a single visit to your Eltham home:</p>
+    <div class="svc-list">
+      <span class="sv">Chimney sweep — firebox to pot</span>
+      <span class="sv">Flue liner or pipe cleaning</span>
+      <span class="sv">Wood heater service</span>
+      <span class="sv">Open fireplace cleaning</span>
+      <span class="sv">Soot &amp; creosote removal</span>
+      <span class="sv">Ash removal</span>
+      <span class="sv">Bird nest &amp; blockage clearing</span>
+      <span class="sv">Verbal condition report</span>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sec">
+    <p class="sl">What customers say</p>
+    <h2>Reviews from Eltham and Nearby Residents</h2>
+    <p>What locals say after their $199 chimney clean:</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Dave found a significant bird nest blocking our flue — we had no idea. Cleared it, cleaned the chimney, and the difference was night and day. $199 absolutely worth it."</p>
+        <div class="review-author">Rachel M. — Eltham 3095</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Professional, knowledgeable about the older chimneys in this area, and left everything clean. Will book every year."</p>
+        <div class="review-author">Andrew F. — Eltham 3095</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"No sales pitch, just honest service. Told us exactly what he found and fixed it properly. $199 flat, no surprises."</p>
+        <div class="review-author">Kate L. — Research 3095</div>
+      </div>
+    </div>
   </section>
 
   <!-- ABOUT -->
   <section class="sec">
-    <p class="sec-label">About us</p>
-    <h2>Local, Direct, No Nonsense</h2>
+    <p class="sl">About us</p>
+    <h2>You Deal Directly With Dave — No Middlemen</h2>
     <div class="about-card">
-      <p>Daves Chimney Sweeping is owner-operated. When you call, you speak to Dave — the same person who turns up and does the work. No franchise, no subcontracting, no booking platform.</p>
-      <p>We give you honest advice about what your system actually needs, a clear price before we start, and we leave the job tidy.</p>
-      <div class="arow">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
-      <div class="arow">📍 <strong>Serving:</strong>&nbsp;Eltham VIC 3095 and surrounds</div>
-      <div class="arow">🕐 <strong>Hours:</strong>&nbsp;Mon–Sat, 8am–6pm</div>
+      <p>Daves Chimney Sweeping is owner-operated. When you call 0476 302 729 you are speaking to Dave — the person who turns up and does every job himself. No franchise, no call centre, no subcontracting.</p>
+      <p>Honest assessment of what the system actually needs, a clear $199 price before we start, and a tidy job from start to finish.</p>
+      <div class="arow">&#128222; <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="arow">&#128205; <strong>Serving:</strong>&nbsp;Eltham VIC 3095 and surrounds</div>
+      <div class="arow">&#128336; <strong>Hours:</strong>&nbsp;Mon&#8211;Sat, 8am&#8211;6pm</div>
+      <div class="arow">&#128176; <strong>Price:</strong>&nbsp;$199 flat rate — chimney inspection &amp; full clean</div>
     </div>
   </section>
 
-  <!-- INLINE BOOKING FORM -->
+  <!-- BOOKING FORM -->
   <section class="sec" id="quote">
-    <p class="sec-label">Book now</p>
-    <h2>Request a Quote for Eltham</h2>
+    <p class="sl">Book now</p>
+    <h2>Book Your $199 Chimney Clean in Eltham</h2>
     <div class="form-wrap">
-      <h3>Quick Quote Request</h3>
-      <p class="form-sub">Fill in your details and we'll get back to you promptly with a price.</p>
+      <h3>Quick Quote &#8212; Eltham</h3>
+      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your $199 booking.</p>
       <form action="https://formspree.io/f/maqlwkpr" method="POST">
         <input type="hidden" name="suburb" value="Eltham VIC 3095" />
+        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
         <div class="form-grid">
-          <div class="field">
-            <label for="name-e">Full Name</label>
-            <input id="name-e" type="text" name="name" required placeholder="Your name" />
-          </div>
-          <div class="field">
-            <label for="phone-e">Phone Number</label>
-            <input id="phone-e" type="tel" name="phone" required placeholder="0400 000 000" />
-          </div>
-          <div class="field">
-            <label for="email-e">Email</label>
-            <input id="email-e" type="email" name="email" placeholder="Optional" />
-          </div>
-          <div class="field">
-            <label for="service-e">Service Needed</label>
-            <select id="service-e" name="service" required>
-              <option value="">Select…</option>
-              <option>Chimney Sweeping</option>
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select&#8230;</option>
+              <option value="Chimney Inspection and Clean — $199">Chimney Inspection &amp; Clean &#8212; $199</option>
+              <option>Wood Heater Service</option>
               <option>Flue Cleaning</option>
-              <option>Wood Heater Cleaning</option>
-              <option>Fireplace Cleaning</option>
               <option>Blockage / Nest Removal</option>
-              <option>Not sure — need advice</option>
+              <option>Not sure &#8212; need advice</option>
             </select>
           </div>
-          <div class="field full">
-            <label for="msg-e">Any details</label>
-            <textarea id="msg-e" name="message" placeholder="Type of heater, last service date, anything useful…"></textarea>
-          </div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, when it was last cleaned&#8230;"></textarea></div>
         </div>
-        <button type="submit" class="form-submit">Send Quote Request</button>
+        <button type="submit" class="form-submit">Send Booking Request &#8250;</button>
       </form>
     </div>
   </section>
 
   <!-- FAQ -->
   <section class="sec">
-    <p class="sec-label">FAQs</p>
-    <h2>Eltham Chimney Sweeping — Questions Answered</h2>
+    <p class="sl">FAQs</p>
+    <h2>Chimney Sweeping Eltham &#8212; Common Questions</h2>
     <div class="faq-list">
       {faqs.map(({q,a}) => (
-        <details class="faq-item">
-          <summary>{q}</summary>
-          <div class="faq-answer">{a}</div>
-        </details>
+        <details class="faq-item"><summary>{q}</summary><div class="faq-answer">{a}</div></details>
       ))}
     </div>
   </section>
 
   <!-- NEARBY -->
   <section class="sec">
-    <p class="sec-label">Nearby areas</p>
-    <h2>Other Suburbs We Service Near Eltham</h2>
-    <p>We cover Eltham and the surrounding north-east corridor. Here are nearby suburbs with their own service pages:</p>
+    <p class="sl">Nearby areas</p>
+    <h2>Suburbs Near Eltham We Also Service</h2>
+    <p>We cover Eltham and all nearby suburbs. Click any suburb for area-specific details:</p>
     <div class="suburb-chips">
       <a class="suburb-chip" href="/chimney-sweeping/diamond-creek">Diamond Creek 3089</a>
       <a class="suburb-chip" href="/chimney-sweeping/greensborough">Greensborough 3088</a>
@@ -282,31 +380,32 @@ const faqs = [
       <a class="suburb-chip" href="/chimney-sweeping/research">Research 3095</a>
       <a class="suburb-chip" href="/chimney-sweeping/hurstbridge">Hurstbridge 3099</a>
       <a class="suburb-chip" href="/chimney-sweeping/heidelberg">Heidelberg 3084</a>
-      <a class="suburb-chip" href="/chimney-sweeping/watsonia">Watsonia 3087</a>
-      <a class="suburb-chip" href="/chimney-sweeping/bundoora">Bundoora 3083</a>
-      <a class="suburb-chip" href="/chimney-sweeping/macleod">Macleod 3085</a>
     </div>
   </section>
 
   <!-- PAGE LINKS -->
   <section class="sec">
-    <p class="sec-label">More pages</p>
+    <p class="sl">More pages</p>
     <h2>Nearby Service Pages</h2>
     <nav class="page-links" aria-label="Nearby suburb pages">
-      <a class="page-link" href="/chimney-sweeping/diamond-creek">Chimney Sweeping — Diamond Creek VIC 3089 <span>›</span></a>
-      <a class="page-link" href="/chimney-sweeping/greensborough">Chimney Sweeping — Greensborough VIC 3088 <span>›</span></a>
-      <a class="page-link" href="/chimney-sweeping/heidelberg">Chimney Sweeping — Heidelberg VIC 3084 <span>›</span></a>
-      <a class="page-link" href="/">Chimney Sweeping Melbourne — All Suburbs <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/diamond-creek">Diamond Creek 3089 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/greensborough">Greensborough 3088 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/eltham-north">Eltham North 3095 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/research">Research 3095 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/hurstbridge">Hurstbridge 3099 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/heidelberg">Heidelberg 3084 <span>›</span></a>
+      <a class="page-link" href="/">Chimney Sweeping Melbourne &#8212; All Suburbs <span>&#8250;</span></a>
     </nav>
   </section>
 
   <!-- BOTTOM CTA -->
   <section class="bottom-cta">
-    <h2>Book Your Eltham Chimney Sweep</h2>
-    <p>Call Dave or use the form above — we'll get back to you with a clear, honest price.</p>
+    <h2>Eltham Chimney Sweep &#8212; $199 Flat Rate</h2>
+    <p>Call Dave directly or use the form above. We will confirm your booking and give you a time that works.</p>
     <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="#quote">Request a Quote</a>
+      <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
+
 </MainLayout>

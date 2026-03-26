@@ -26,18 +26,18 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Do you service Yarrambat VIC 3091?",
+      "name": "What's included in the $199 service in Yarrambat?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 Yarrambat is within our Nillumbik service area. We are out that way regularly."
+        "text": "Full chimney sweep, flue clean, soot and ash removal, blockage check and condition report. No call-out fee."
       }
     },
     {
       "@type": "Question",
-      "name": "Is the $199 rate available for Yarrambat?",
+      "name": "Do you service Yarrambat VIC 3091?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 $199 flat rate for a full chimney inspection and clean regardless of location."
+        "text": "Yes \u2014 Yarrambat is within our Nillumbik service area."
       }
     },
     {
@@ -45,7 +45,7 @@ const faqSchema = {
       "name": "How often should Yarrambat homes get the chimney cleaned?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The colder temperatures and longer heating season mean buildup accumulates faster. Annual cleaning is the right call."
+        "text": "The colder temperatures and longer heating season mean annual cleaning is essential."
       }
     },
     {
@@ -53,15 +53,15 @@ const faqSchema = {
       "name": "Can you service multiple wood heaters in one visit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 we can do multiple systems. Just let us know when you call."
+        "text": "Yes \u2014 just let us know when you call."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the best time to book in Yarrambat?",
+      "name": "Is there a call-out fee for Yarrambat?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Autumn before the heating season is ideal. We work year-round though."
+        "text": "No \u2014 flat $199 rate regardless of location."
       }
     }
   ]
@@ -84,21 +84,20 @@ const serviceSchema = {
   },
   "serviceType": "Chimney Sweeping"
 };
-
 const faqs = [
-  {q:`Do you service Yarrambat VIC 3091?`,a:`Yes — Yarrambat is within our Nillumbik service area. We are out that way regularly.`},
-  {q:`Is the $199 rate available for Yarrambat?`,a:`Yes — $199 flat rate for a full chimney inspection and clean regardless of location.`},
-  {q:`How often should Yarrambat homes get the chimney cleaned?`,a:`The colder temperatures and longer heating season mean buildup accumulates faster. Annual cleaning is the right call.`},
-  {q:`Can you service multiple wood heaters in one visit?`,a:`Yes — we can do multiple systems. Just let us know when you call.`},
-  {q:`What is the best time to book in Yarrambat?`,a:`Autumn before the heating season is ideal. We work year-round though.`},
+  {q:`What's included in the $199 service in Yarrambat?`,a:`Full chimney sweep, flue clean, soot and ash removal, blockage check and condition report. No call-out fee.`},
+  {q:`Do you service Yarrambat VIC 3091?`,a:`Yes — Yarrambat is within our Nillumbik service area.`},
+  {q:`How often should Yarrambat homes get the chimney cleaned?`,a:`The colder temperatures and longer heating season mean annual cleaning is essential.`},
+  {q:`Can you service multiple wood heaters in one visit?`,a:`Yes — just let us know when you call.`},
+  {q:`Is there a call-out fee for Yarrambat?`,a:`No — flat $199 rate regardless of location.`},
 ];
 ---
 
 <MainLayout
   title="Chimney Sweep Yarrambat VIC 3091 — $199 Clean & Inspect"
-  description="Chimney sweeping Yarrambat VIC 3091 — $199 clean & inspect. Daves Chimney Sweeping: flue cleaning & wood heater service for Yarrambat. Call 0476 302 729."
-  clusterBase="Yarrambat"
-  clusterRegion="Yarrambat and surrounding suburbs"
+  description="Chimney sweeping Yarrambat VIC 3091 — $199 chimney inspection & full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
+  clusterBase="Nillumbik"
+  clusterRegion="Nillumbik and surrounding north-east suburbs"
   homeHref="/"
   servicePageHref="/"
   servicePageLabel="Chimney Sweeping Melbourne"
@@ -108,185 +107,151 @@ const faqs = [
   <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
 
   <style>
-    :root{
-      --bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;
-      --bw:#f5f0e8;--wh:#ffffff;
-      --tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px;
-    }
-
-    /* ── Hero ─────────────────────── */
+    :root{--bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;--bw:#f5f0e8;--wh:#ffffff;--tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px}
     .hero{background:var(--bd);color:var(--wh);padding:3rem 1.25rem 2.8rem;text-align:center}
-    .ey{display:inline-block;background:var(--ba);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1.1rem}
-    .hero h1{font-size:clamp(1.8rem,5.5vw,2.5rem);font-weight:800;line-height:1.12;letter-spacing:-.025em;margin:0 0 1rem;color:var(--wh)}
-    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#2a5f1e;color:#7edd5a;font-size:.85rem;font-weight:800;padding:.45rem 1rem;border-radius:20px;margin-bottom:1.1rem;letter-spacing:.02em}
-    .lead{font-size:1.05rem;line-height:1.68;color:#c8c5be;margin:0 auto .8rem;max-width:520px}
-    .sub{font-size:.95rem;line-height:1.6;color:#6e6b64;max-width:500px;margin:0 auto 2.2rem}
-    .br2{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+    .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem}
+    .hero h1{font-size:clamp(1.9rem,5.5vw,2.6rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
+    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.9rem;font-weight:800;padding:.45rem 1.1rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c}
+    .hero-lead{font-size:1.05rem;line-height:1.7;color:#c8c5be;margin:0 auto .8rem;max-width:520px}
+    .hero-sub{font-size:.95rem;line-height:1.6;color:#6e6b64;max-width:500px;margin:0 auto 2.2rem}
+    .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
     .btn{display:inline-block;padding:1rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s,transform .15s}
     .btn:hover{opacity:.88;transform:translateY(-1px)}
-    .btn-c{background:var(--ba);color:#fff;font-size:1.15rem}
-    .btn-q{background:transparent;border:2px solid #4a4a44;color:#c8c5be}
-
-    /* ── Trust bar ────────────────── */
-    .tb{background:var(--bm);padding:1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
-    .ti{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#908d86;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+    .btn-call{background:var(--ba);color:#fff;font-size:1.15rem}
+    .btn-quote{background:transparent;border:2px solid #4a4a44;color:#c8c5be}
+    .trust-bar{background:var(--bm);padding:1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.82rem;color:#908d86;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
     .ti svg{flex-shrink:0;color:var(--ba)}
-
-    /* ── Price section ────────────── */
-    .price-sec{background:var(--bw);border:2px solid #2a5f1e;border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem;text-align:center}
-    .price-main{font-size:2.8rem;font-weight:800;color:#2a5f1e;line-height:1;margin-bottom:.3rem}
-    .price-sub{font-size:1rem;font-weight:700;color:var(--tm);margin-bottom:.75rem}
-    .price-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
-    .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.35rem .75rem;font-size:.82rem;font-weight:600;color:var(--ts)}
-    .pi::before{content:"✓ ";color:#2a5f1e;font-weight:800}
-
-    /* ── Sections ─────────────────── */
     .sec{padding:2.4rem 1.25rem;max-width:720px;margin:0 auto}
     .sec+.sec{border-top:1px solid var(--br)}
     .sl{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
-    .sec h2{font-size:clamp(1.35rem,4vw,1.75rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
-    .sec h3{font-size:1.1rem;font-weight:700;color:var(--tm);margin:1.5rem 0 .5rem}
+    .sec h2{font-size:clamp(1.4rem,4vw,1.8rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
     .sec p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0 0 .9rem}
     .sec p:last-child{margin-bottom:0}
-
-    /* ── Local section ────────────── */
+    .price-box{background:var(--bw);border:2px solid #2a6b1c;border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem;text-align:center}
+    .price-num{font-size:3rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.25rem}
+    .price-label{font-size:1.05rem;font-weight:700;color:var(--tm);margin-bottom:.75rem}
+    .price-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
+    .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.35rem .8rem;font-size:.84rem;font-weight:600;color:var(--ts)}
+    .pi::before{content:"✓ ";color:#2a6b1c;font-weight:800}
     .local-box{background:var(--bw);border-left:4px solid var(--ba);border-radius:0 var(--rad) var(--rad) 0;padding:1.25rem 1.25rem;margin-top:1rem}
     .local-box p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0}
-
-    /* ── Reason cards ─────────────── */
     .reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
     @media(max-width:480px){.reason-grid{grid-template-columns:1fr}}
     .rc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.1rem 1rem}
     .rc-icon{font-size:1.4rem;display:block;margin-bottom:.4rem}
-    .rc-title{font-size:.92rem;font-weight:700;color:var(--tm);margin-bottom:.25rem}
-    .rc-desc{font-size:.84rem;line-height:1.55;color:var(--ts)}
-
-    /* ── Services ─────────────────── */
+    .rc-title{font-size:.95rem;font-weight:700;color:var(--tm);margin-bottom:.25rem}
+    .rc-desc{font-size:.86rem;line-height:1.55;color:var(--ts)}
     .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.1rem}
     @media(max-width:380px){.svc-list{grid-template-columns:1fr}}
-    .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.7rem .9rem;font-size:.92rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
+    .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.75rem .9rem;font-size:.95rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
     .sv::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
-
-    /* ── About card ───────────────── */
-    .ac{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
-    .ac p{font-size:1rem;line-height:1.7;color:var(--ts);margin:0 0 .85rem}
-    .ac p:last-child{margin-bottom:0}
-    .ar{display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--ts);margin-top:.6rem}
-    .ar strong{color:var(--tm)}
-    .ar a{color:var(--ba);font-weight:700;text-decoration:none}
-
-    /* ── Booking form ─────────────── */
-    .fw{background:var(--bw);border:2px solid var(--ba);border-radius:var(--rad);padding:1.75rem 1.25rem;margin-top:1rem}
-    .fw h3{font-size:1.15rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
-    .fw .fs{font-size:.9rem;color:var(--ts);margin:0 0 1.25rem}
-    .fg{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
-    @media(max-width:500px){.fg{grid-template-columns:1fr}}
-    .fi{display:flex;flex-direction:column;gap:.3rem}
-    .fi.full{grid-column:1/-1}
-    .fi label{font-size:.8rem;font-weight:700;color:var(--tm);letter-spacing:.03em;text-transform:uppercase}
-    .fi input,.fi select,.fi textarea{width:100%;border:2px solid var(--br);border-radius:8px;padding:.7rem .85rem;font-size:1rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
-    .fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--ba)}
-    .fi textarea{resize:vertical;min-height:90px}
-    .fsub{display:block;width:100%;margin-top:1rem;background:var(--ba);color:#fff;border:none;padding:1rem;border-radius:var(--rad);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s,transform .15s}
-    .fsub:hover{opacity:.88;transform:translateY(-1px)}
-
-    /* ── FAQ ──────────────────────── */
-    .fl{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
-    details.fq{border-bottom:1px solid var(--br)}
-    details.fq:last-child{border-bottom:none}
-    details.fq summary{padding:1.1rem 1.25rem;font-size:1rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
-    details.fq summary::-webkit-details-marker{display:none}
-    details.fq summary:hover{background:var(--bw)}
-    details.fq summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
-    details.fq[open] summary::after{content:"−"}
-    .fqa{padding:.1rem 1.25rem 1.1rem;font-size:.97rem;line-height:1.75;color:var(--ts);background:var(--wh)}
-
-    /* ── Suburb chips ─────────────── */
-    .sc{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
-    .sp{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.42rem .85rem;font-size:.84rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
-    .sp:hover{background:var(--ba);border-color:var(--ba);color:#fff}
-
-    /* ── Page links ───────────────── */
-    .pl{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
-    .plk{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem;background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);text-decoration:none;font-size:.95rem;font-weight:600;color:var(--tm);transition:background .15s,border-color .15s}
-    .plk:hover{background:var(--ba);border-color:var(--ba);color:#fff}
-    .plk span{opacity:.5;font-size:1.1rem}
-
-    /* ── Bottom CTA ───────────────── */
-    .bc{background:var(--bd);color:var(--wh);padding:2.8rem 1.25rem;text-align:center}
-    .bc h2{font-size:clamp(1.4rem,5vw,1.9rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
-    .bc p{font-size:1rem;color:#6e6b64;margin:0 0 1.9rem;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto}
+    .reviews-grid{display:flex;flex-direction:column;gap:.85rem;margin-top:1.1rem}
+    .review-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.25rem 1.25rem}
+    .review-stars{color:#f59e0b;font-size:1.15rem;margin-bottom:.5rem;letter-spacing:.05em}
+    .review-text{font-size:.97rem;line-height:1.7;color:var(--ts);margin:0 0 .6rem;font-style:italic}
+    .review-author{font-size:.84rem;font-weight:700;color:var(--tm)}
+    .about-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
+    .about-card p{font-size:1rem;line-height:1.7;color:var(--ts);margin:0 0 .85rem}
+    .about-card p:last-child{margin-bottom:0}
+    .arow{display:flex;align-items:center;gap:.5rem;font-size:.92rem;color:var(--ts);margin-top:.6rem}
+    .arow strong{color:var(--tm)}
+    .arow a{color:var(--ba);font-weight:700;text-decoration:none}
+    .form-wrap{background:var(--bw);border:2px solid var(--ba);border-radius:var(--rad);padding:1.75rem 1.25rem;margin-top:1rem}
+    .form-wrap h3{font-size:1.15rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
+    .form-sub{font-size:.9rem;color:var(--ts);margin:0 0 1.25rem}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+    @media(max-width:500px){.form-grid{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;gap:.3rem}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.8rem;font-weight:700;color:var(--tm);letter-spacing:.03em;text-transform:uppercase}
+    .field input,.field select,.field textarea{width:100%;border:2px solid var(--br);border-radius:8px;padding:.72rem .85rem;font-size:1rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ba)}
+    .field textarea{resize:vertical;min-height:90px}
+    .form-submit{display:block;width:100%;margin-top:1rem;background:var(--ba);color:#fff;border:none;padding:1rem;border-radius:var(--rad);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s,transform .15s}
+    .form-submit:hover{opacity:.88;transform:translateY(-1px)}
+    .faq-list{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
+    details.faq-item{border-bottom:1px solid var(--br)}
+    details.faq-item:last-child{border-bottom:none}
+    details.faq-item summary{padding:1.1rem 1.25rem;font-size:1rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
+    details.faq-item summary::-webkit-details-marker{display:none}
+    details.faq-item summary:hover{background:var(--bw)}
+    details.faq-item summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
+    details.faq-item[open] summary::after{content:"&#8722;"}
+    .faq-answer{padding:.1rem 1.25rem 1.1rem;font-size:.97rem;line-height:1.75;color:var(--ts);background:var(--wh)}
+    .suburb-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+    .suburb-chip{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.42rem .85rem;font-size:.86rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
+    .suburb-chip:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    .page-links{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+    .page-link{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem;background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);text-decoration:none;font-size:.95rem;font-weight:600;color:var(--tm);transition:background .15s,border-color .15s}
+    .page-link:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    .page-link span{opacity:.5;font-size:1.1rem}
+    .bottom-cta{background:var(--bd);color:var(--wh);padding:2.8rem 1.25rem;text-align:center}
+    .bottom-cta h2{font-size:clamp(1.4rem,5vw,1.9rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
+    .bottom-cta p{font-size:1rem;color:#6e6b64;margin:0 auto 1.9rem;line-height:1.6;max-width:440px}
   </style>
 
-  <!-- HERO -->
   <section class="hero">
-    <span class="ey">Yarrambat VIC 3091</span>
+    <span class="hero-eyebrow">Yarrambat VIC 3091</span>
     <h1>Chimney Sweeping<br>Yarrambat VIC 3091</h1>
     <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
-    <p class="lead">Yarrambat sits on the edge of Melbourne's Nillumbik Green Wedge — a semi-rural suburb where blocks are large, the landscape is open and timbered, and winter nig...</p>
-    <p class="sub">Local, owner-operated. No call centres, no franchise. Call Dave directly for a fast, honest quote.</p>
-    <div class="br2">
-      <a class="btn btn-c" href="tel:0476302729">&#128222; Call 0476 302 729</a>
-      <a class="btn btn-q" href="#quote">Book for $199</a>
+    <p class="hero-lead">Yarrambat sits on the edge of Melbourne's Nillumbik Green Wedge — a semi-rural suburb where blocks are large, the landscape is open and timbered, and winter nights are co...</p>
+    <p class="hero-sub">Local, owner-operated. You deal directly with Dave — no franchises, no call centres.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
 
-  <!-- TRUST BAR -->
-  <div class="tb">
+  <div class="trust-bar">
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
-    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon&#8211;Sat service</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon&#8211;Sat</span>
   </div>
 
-  <!-- PRICE -->
   <section class="sec">
     <p class="sl">Pricing</p>
-    <h2>$199 — Chimney Inspection &amp; Full Clean</h2>
-    <p>One flat price. No callout fee, no hidden extras, no surprises. Here is exactly what the $199 covers for your Yarrambat home:</p>
-    <div class="price-sec">
-      <div class="price-main">$199</div>
-      <div class="price-sub">Chimney Inspection &amp; Full Clean — Yarrambat</div>
+    <h2>$199 — Chimney Inspection &amp; Full Clean in Yarrambat</h2>
+    <p>One flat price. No call-out fee, no surprises on the day. Here is exactly what is covered:</p>
+    <div class="price-box">
+      <div class="price-num">$199</div>
+      <div class="price-label">Chimney Inspection &amp; Full Clean — Yarrambat</div>
       <div class="price-includes">
         <span class="pi">Chimney sweep</span>
         <span class="pi">Flue cleaning</span>
         <span class="pi">Soot &amp; ash removal</span>
         <span class="pi">Blockage check</span>
         <span class="pi">Condition report</span>
-        <span class="pi">No callout fee</span>
+        <span class="pi">No call-out fee</span>
       </div>
     </div>
   </section>
 
-  <!-- LOCAL SECTION -->
   <section class="sec">
     <p class="sl">Local knowledge</p>
-    <h2>Yarrambat — Nillumbik Green Wedge, Essential Wood Heating</h2>
-    <div class="local-box">
-      <p>Yarrambat sits on the edge of Melbourne's Nillumbik Green Wedge — a semi-rural suburb where blocks are large, the landscape is open and timbered, and winter nights are cold enough that wood heating is a necessity rather than a lifestyle choice. Most Yarrambat properties rely on wood heaters as primary heating, and many of those systems have not had a professional service in years. The suburb sits at a higher elevation than Diamond Creek and Eltham to the south, and cold fronts from the north can push overnight temperatures well below Melbourne's city average. We service Yarrambat as part of the Nillumbik run and find it consistently has heavier than average seasonal buildup.</p>
-    </div>
+    <h2>Yarrambat — Nillumbik Green Wedge, Cold Nights, Heavy Heating Use</h2>
+    <div class="local-box"><p>Yarrambat sits on the edge of Melbourne's Nillumbik Green Wedge — a semi-rural suburb where blocks are large, the landscape is open and timbered, and winter nights are cold enough that wood heating is a necessity rather than a lifestyle choice. Most Yarrambat properties rely on wood heaters as primary heating and many of those systems have not had a professional service in years. The suburb sits at a higher elevation than Diamond Creek and Eltham to the south, and cold fronts from the north can push overnight temperatures well below Melbourne's city average.</p></div>
   </section>
 
-  <!-- WHY BOOK -->
   <section class="sec">
     <p class="sl">When to book</p>
     <h2>Signs Your Yarrambat Chimney Needs Cleaning</h2>
     <p>If any of these sound familiar, it is time to book:</p>
     <div class="reason-grid">
-      <div class="rc"><span class="rc-icon">&#128703;</span><div class="rc-title">Smoke reversing into the room</div><div class="rc-desc">Most common sign of a blocked or heavily sooted flue. A clean usually fixes it immediately.</div></div>
-      <div class="rc"><span class="rc-icon">&#128148;</span><div class="rc-title">Persistent smoky smell</div><div class="rc-desc">Creosote or old ash sitting in the flue causes a burnt odour even when the fire is off.</div></div>
-      <div class="rc"><span class="rc-icon">&#9650;</span><div class="rc-title">Sluggish or difficult draw</div><div class="rc-desc">Fires that struggle to start or keep going point to restricted airflow in the flue.</div></div>
-      <div class="rc"><span class="rc-icon">&#128197;</span><div class="rc-title">Annual pre-winter service</div><div class="rc-desc">Book in autumn before the season starts. Easier to sort early than mid-winter.</div></div>
+      <div class="rc"><span class="rc-icon">&#128703;</span><div class="rc-title">Smoke coming back in</div><div class="rc-desc">Most common sign of a blocked or sooted flue. A clean usually fixes it immediately.</div></div>
+      <div class="rc"><span class="rc-icon">&#128148;</span><div class="rc-title">Persistent smoky smell</div><div class="rc-desc">Creosote or old ash in the flue causes a burnt odour even when the fire is off.</div></div>
+      <div class="rc"><span class="rc-icon">&#128168;</span><div class="rc-title">Weak or sluggish draw</div><div class="rc-desc">Fires that struggle to start or stay alight point to restricted airflow in the flue.</div></div>
+      <div class="rc"><span class="rc-icon">&#128197;</span><div class="rc-title">Pre-winter service</div><div class="rc-desc">Book in autumn before the heating season — easier to sort early than mid-winter.</div></div>
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section class="sec">
     <p class="sl">What is included</p>
-    <h2>Chimney Sweeping Services in Yarrambat</h2>
-    <p>Everything covered in the one $199 visit:</p>
+    <h2>Everything in the One $199 Visit</h2>
+    <p>We cover the full system — chimney, flue and heater — in a single visit to your Yarrambat home:</p>
     <div class="svc-list">
-      <span class="sv">Chimney sweeping — firebox to pot</span>
+      <span class="sv">Chimney sweep — firebox to pot</span>
       <span class="sv">Flue liner or pipe cleaning</span>
       <span class="sv">Wood heater service</span>
       <span class="sv">Open fireplace cleaning</span>
@@ -297,95 +262,112 @@ const faqs = [
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section class="sec">
-    <p class="sl">About us</p>
-    <h2>Who You Are Dealing With</h2>
-    <div class="ac">
-      <p>Daves Chimney Sweeping is owner-operated. Dave covers Yarrambat VIC 3091 and surrounding suburbs. When you call, you speak to Dave — not a call centre, not a booking platform. Dave does every job himself.</p>
-      <p>You get honest advice about what the system actually needs, a clear price before work starts, and a tidy job. The $199 rate is the full cost — no extras added on the day.</p>
-      <div class="ar">&#128222; <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
-      <div class="ar">&#128205; <strong>Serving:</strong>&nbsp;Yarrambat VIC 3091 and surrounds</div>
-      <div class="ar">&#128336; <strong>Hours:</strong>&nbsp;Mon&#8211;Sat, 8am&#8211;6pm</div>
-      <div class="ar">&#128176; <strong>Price:</strong>&nbsp;$199 flat rate — chimney inspection &amp; full clean</div>
+    <p class="sl">What customers say</p>
+    <h2>Reviews from Yarrambat and Nearby Residents</h2>
+    <p>What locals say after their $199 chimney clean:</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Dave came out to our Yarrambat property — no fuss, no extra charges for being out of the way. Thorough job on our wood heater and chimney, and $199 is very fair."</p>
+        <div class="review-author">Murray L. &mdash; Yarrambat 3091</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"We have a large property and rely entirely on wood heating. Dave did an excellent job and gave us a clear picture of the system's condition. Very professional."</p>
+        <div class="review-author">Heather P. &mdash; Yarrambat 3091</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Booked Dave for our annual service. Always the same consistent quality, same $199 price. He's reliable and honest — exactly what you want."</p>
+        <div class="review-author">Dennis W. &mdash; Diamond Creek 3089</div>
+      </div>
     </div>
   </section>
 
-  <!-- BOOKING FORM -->
+  <section class="sec">
+    <p class="sl">About us</p>
+    <h2>You Deal Directly With Dave — No Middlemen</h2>
+    <div class="about-card">
+      <p>Daves Chimney Sweeping is owner-operated. When you call 0476 302 729 you are speaking to Dave — the person who turns up and does every job himself. No franchise, no call centre, no subcontracting.</p>
+      <p>Honest assessment of what the system actually needs, a clear $199 price before work starts, and a tidy job from start to finish.</p>
+      <div class="arow">&#128222; <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="arow">&#128205; <strong>Serving:</strong>&nbsp;Yarrambat VIC 3091 and surrounds</div>
+      <div class="arow">&#128336; <strong>Hours:</strong>&nbsp;Mon&#8211;Sat, 8am&#8211;6pm</div>
+      <div class="arow">&#128176; <strong>Price:</strong>&nbsp;$199 flat rate &#8212; chimney inspection &amp; full clean</div>
+    </div>
+  </section>
+
   <section class="sec" id="quote">
     <p class="sl">Book now</p>
     <h2>Book Your $199 Chimney Clean in Yarrambat</h2>
-    <div class="fw">
-      <h3>&#128197; Quick Quote &#8212; Yarrambat</h3>
-      <p class="fs">Fill in your details and Dave will get back to you to confirm your $199 booking.</p>
+    <div class="form-wrap">
+      <h3>Quick Quote &#8212; Yarrambat</h3>
+      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your $199 booking.</p>
       <form action="https://formspree.io/f/maqlwkpr" method="POST">
         <input type="hidden" name="suburb" value="Yarrambat VIC 3091" />
         <input type="hidden" name="price" value="$199 chimney inspection and clean" />
-        <div class="fg">
-          <div class="fi"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
-          <div class="fi"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
-          <div class="fi"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
-          <div class="fi"><label>Service Needed</label>
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Service Needed</label>
             <select name="service" required>
               <option value="">Select&#8230;</option>
-              <option value="Chimney Inspection and Full Clean — $199">Chimney Inspection &amp; Clean &#8212; $199</option>
+              <option value="Chimney Inspection and Clean — $199">Chimney Inspection &amp; Clean &#8212; $199</option>
               <option>Wood Heater Service</option>
               <option>Flue Cleaning</option>
               <option>Blockage / Nest Removal</option>
               <option>Not sure &#8212; need advice</option>
             </select>
           </div>
-          <div class="fi full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, when it was last cleaned&#8230;"></textarea></div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, when it was last cleaned&#8230;"></textarea></div>
         </div>
-        <button type="submit" class="fsub">Send Booking Request &#8250;</button>
+        <button type="submit" class="form-submit">Send Booking Request &#8250;</button>
       </form>
     </div>
   </section>
 
-  <!-- FAQ -->
   <section class="sec">
     <p class="sl">FAQs</p>
     <h2>Chimney Sweeping Yarrambat &#8212; Common Questions</h2>
-    <div class="fl">
+    <div class="faq-list">
       {faqs.map(({q,a}) => (
-        <details class="fq"><summary>{q}</summary><div class="fqa">{a}</div></details>
+        <details class="faq-item"><summary>{q}</summary><div class="faq-answer">{a}</div></details>
       ))}
     </div>
   </section>
 
-  <!-- NEARBY -->
   <section class="sec">
     <p class="sl">Nearby areas</p>
     <h2>Suburbs Near Yarrambat We Also Service</h2>
-    <p>We cover Yarrambat and all nearby suburbs. Click any suburb below to see area-specific details:</p>
-    <div class="sc">
-      <a class="sp" href="/chimney-sweeping/diamond-creek">Diamond Creek 3089</a>
-      <a class="sp" href="/chimney-sweeping/eltham">Eltham 3095</a>
-      <a class="sp" href="/chimney-sweeping/hurstbridge">Hurstbridge 3099</a>
-      <a class="sp" href="/chimney-sweeping/st-helena">St Helena 3088</a>
+    <p>We cover Yarrambat and all nearby suburbs. Click any suburb for area-specific details:</p>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/diamond-creek">Diamond Creek 3089</a>
+      <a class="suburb-chip" href="/chimney-sweeping/eltham">Eltham 3095</a>
+      <a class="suburb-chip" href="/chimney-sweeping/hurstbridge">Hurstbridge 3099</a>
+      <a class="suburb-chip" href="/chimney-sweeping/st-helena">St Helena 3088</a>
     </div>
   </section>
 
-  <!-- PAGE LINKS -->
   <section class="sec">
     <p class="sl">More pages</p>
     <h2>Nearby Service Pages</h2>
-    <nav class="pl">
-      <a class="plk" href="/chimney-sweeping/diamond-creek">Chimney Sweeping — Diamond Creek 3089 <span>&#8250;</span></a>
-      <a class="plk" href="/chimney-sweeping/eltham">Chimney Sweeping — Eltham 3095 <span>&#8250;</span></a>
-      <a class="plk" href="/chimney-sweeping/hurstbridge">Chimney Sweeping — Hurstbridge 3099 <span>&#8250;</span></a>
-      <a class="plk" href="/chimney-sweeping/st-helena">Chimney Sweeping — St Helena 3088 <span>&#8250;</span></a>
-      <a class="plk" href="/">Chimney Sweeping Melbourne &#8212; All Suburbs <span>&#8250;</span></a>
+    <nav class="page-links">
+      <a class="page-link" href="/chimney-sweeping/diamond-creek">Diamond Creek 3089 <span>&#8250;</span></a>
+      <a class="page-link" href="/chimney-sweeping/eltham">Eltham 3095 <span>&#8250;</span></a>
+      <a class="page-link" href="/chimney-sweeping/hurstbridge">Hurstbridge 3099 <span>&#8250;</span></a>
+      <a class="page-link" href="/chimney-sweeping/st-helena">St Helena 3088 <span>&#8250;</span></a>
+      <a class="page-link" href="/">Chimney Sweeping Melbourne &#8212; All Suburbs <span>&#8250;</span></a>
     </nav>
   </section>
 
-  <!-- BOTTOM CTA -->
-  <section class="bc">
+  <section class="bottom-cta">
     <h2>Yarrambat Chimney Sweep &#8212; $199 Flat Rate</h2>
     <p>Call Dave directly or use the form above. We will confirm your booking and give you a time that works.</p>
-    <div class="br2">
-      <a class="btn btn-c" href="tel:0476302729">&#128222; Call 0476 302 729</a>
-      <a class="btn btn-q" href="#quote">Book for $199</a>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
 

@@ -1,599 +1,378 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 
-const localBusinessSchema = {
+const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Daves Chimney Sweeping",
-  telephone: "+61476302729",
-  areaServed: [
-    "Melton VIC 3337",
-    "Melton South VIC 3338",
-    "Melton West VIC 3337",
-    "Brookfield VIC 3338",
-    "Kurunjang VIC 3337",
-    "Harkness VIC 3337",
-    "Cobblebank VIC 3338"
+  "name": "Daves Chimney Sweeping",
+  "telephone": "+61476302729",
+  "priceRange": "$199",
+  "areaServed": [
+    "Melton VIC 3337"
   ],
-  url: "https://daveschimneysweeping.com.au/chimney-sweeping/melton",
-  description:
-    "Daves Chimney Sweeping provides local chimney sweeping, flue cleaning, wood heater cleaning and fireplace cleaning in Melton VIC 3337 and surrounding suburbs.",
-  address: {
+  "url": "https://daveschimneysweeping.com.au/chimney-sweeping/melton",
+  "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Melton VIC 3337. $199 chimney inspection and clean.",
+  "address": {
     "@type": "PostalAddress",
-    addressLocality: "Melton",
-    addressRegion: "VIC",
-    postalCode: "3337",
-    addressCountry: "AU"
+    "addressLocality": "Melton",
+    "addressRegion": "VIC",
+    "postalCode": "3337",
+    "addressCountry": "AU"
   }
 };
-
-const localBusinessSchemaJson = JSON.stringify(localBusinessSchema);
-
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does the $199 chimney clean include in Melton?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Full sweep from firebox to pot, flue cleaning, soot and ash removal, blockage check and verbal condition report. Flat rate \u2014 no call-out fee, no hidden extras."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you service all parts of Melton VIC 3337?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 Melton and all surrounding suburbs. If unsure whether we reach your street, just call."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you clean wood heater flues in Melton?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely \u2014 wood heater flue cleaning is one of our most common jobs heading into winter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my chimney needs a clean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Smoke drifting back in, reduced draft, visible black soot, or a strong smell when you light up. Over 12 months since the last clean is reason enough."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you remove bird nests?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 cleared as part of the $199 service."
+      }
+    }
+  ]
+};
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Chimney Sweeping Melton VIC 3337",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Daves Chimney Sweeping",
+    "telephone": "+61476302729"
+  },
+  "areaServed": "Melton VIC 3337",
+  "offers": {
+    "@type": "Offer",
+    "price": "199",
+    "priceCurrency": "AUD",
+    "description": "Chimney inspection and full clean"
+  },
+  "serviceType": "Chimney Sweeping"
+};
 const faqs = [
-  {
-    q: "Do you service all parts of Melton?",
-    a: "Yes — we cover Melton and the surrounding suburbs. If you're not sure whether we reach your street, just give us a call and we'll sort it out."
-  },
-  {
-    q: "Can you clean wood heater flues?",
-    a: "Absolutely. Wood heater flue cleaning is one of the most common jobs we do, especially heading into the cooler months."
-  },
-  {
-    q: "How do I know if my chimney actually needs a clean?",
-    a: "Common signs are smoke drifting back into the room, a reduced draft, visible black soot inside the firebox, or a strong smell when you light up. If it's been more than a year since the last clean, it's worth booking one regardless."
-  },
-  {
-    q: "How long does a chimney sweep take?",
-    a: "Most jobs take between 45 minutes and an hour and a half depending on how the system is set up and how long it's been since the last service."
-  },
-  {
-    q: "Do you remove bird nests from chimneys?",
-    a: "Yes. Blockages from bird nests and debris are a normal part of what we deal with — we'll clear it out as part of the job."
-  }
+  {q:`What does the $199 chimney clean include in Melton?`,a:`Full sweep from firebox to pot, flue cleaning, soot and ash removal, blockage check and verbal condition report. Flat rate — no call-out fee, no hidden extras.`},
+  {q:`Do you service all parts of Melton VIC 3337?`,a:`Yes — Melton and all surrounding suburbs. If unsure whether we reach your street, just call.`},
+  {q:`Can you clean wood heater flues in Melton?`,a:`Absolutely — wood heater flue cleaning is one of our most common jobs heading into winter.`},
+  {q:`How do I know if my chimney needs a clean?`,a:`Smoke drifting back in, reduced draft, visible black soot, or a strong smell when you light up. Over 12 months since the last clean is reason enough.`},
+  {q:`Do you remove bird nests?`,a:`Yes — cleared as part of the $199 service.`},
 ];
 ---
 
 <MainLayout
-  title="Chimney Sweeping Melton VIC 3337"
-  description="Local chimney sweeping in Melton VIC 3337. Daves Chimney Sweeping offers flue cleaning, wood heater cleaning and fireplace servicing. Fast quotes, honest service."
+  title="Chimney Sweep Melton VIC 3337 — $199 Clean & Inspect"
+  description="Chimney sweeping Melton VIC 3337 — $199 flat rate for a full chimney inspection & clean. Daves Chimney Sweeping: flue cleaning, wood heater service, no call-out fee. Call 0476 302 729."
   clusterBase="Melton"
   clusterRegion="Melton and surrounding suburbs"
-  homeHref="/chimney-sweeping/melton"
-  servicePageHref="/chimney-sweeping/melton"
-  servicePageLabel="Melton Chimney Sweeping"
+  homeHref="/"
+  servicePageHref="/"
+  servicePageLabel="Chimney Sweeping Melbourne"
 >
-  <script type="application/ld+json" is:inline set:html={localBusinessSchemaJson}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
 
   <style>
-    /* ── Design tokens ─────────────────────────────────────────── */
-    :root {
-      --brand-dark:   #1a1a18;
-      --brand-mid:    #2c2c29;
-      --brand-accent: #c8500a;
-      --brand-warm:   #f5f0e8;
-      --brand-white:  #ffffff;
-      --text-main:    #1a1a18;
-      --text-muted:   #5a5a54;
-      --border:       #e2ddd4;
-      --radius:       10px;
-      --shadow-card:  0 2px 12px rgba(0,0,0,0.07);
+    :root{
+      --bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;
+      --bw:#f5f0e8;--wh:#ffffff;
+      --tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px;
     }
-
-    /* ── Base reset for page sections ──────────────────────────── */
-    .page-wrap {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    /* ── HERO ───────────────────────────────────────────────────── */
-    .hero {
-      background: var(--brand-dark);
-      color: var(--brand-white);
-      padding: 2.8rem 1.25rem 2.5rem;
-      text-align: center;
-    }
-
-    .hero-eyebrow {
-      display: inline-block;
-      background: var(--brand-accent);
-      color: #fff;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.85rem;
-      border-radius: 20px;
-      margin-bottom: 1.1rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.65rem, 5vw, 2.2rem);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin: 0 0 1rem;
-      color: var(--brand-white);
-    }
-
-    .hero-lead {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: #c8c5be;
-      margin: 0 auto 0.75rem;
-      max-width: 480px;
-    }
-
-    .hero-sub {
-      font-size: 0.93rem;
-      line-height: 1.6;
-      color: #908d86;
-      max-width: 480px;
-      margin: 0 auto 2rem;
-    }
-
-    .btn-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.95rem 2rem;
-      border-radius: var(--radius);
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
-      text-align: center;
-      width: 100%;
-      max-width: 320px;
-      transition: opacity 0.15s;
-    }
-    .btn:hover { opacity: 0.88; }
-
-    .btn-call {
-      background: var(--brand-accent);
-      color: #fff;
-      font-size: 1.1rem;
-      letter-spacing: 0.01em;
-    }
-
-    .btn-quote {
-      background: transparent;
-      border: 2px solid #5a5a54;
-      color: #c8c5be;
-    }
-
-    /* ── TRUST BAR ──────────────────────────────────────────────── */
-    .trust-bar {
-      background: var(--brand-mid);
-      padding: 0.95rem 1.25rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.8rem;
-      color: #908d86;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    .trust-item svg {
-      flex-shrink: 0;
-      color: var(--brand-accent);
-    }
-
-    /* ── SECTION WRAPPER ────────────────────────────────────────── */
-    .section {
-      padding: 2.2rem 1.25rem;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .section + .section {
-      border-top: 1px solid var(--border);
-    }
-
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--brand-accent);
-      margin-bottom: 0.55rem;
-    }
-
-    .section h2 {
-      font-size: clamp(1.25rem, 4vw, 1.6rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--text-main);
-      margin: 0 0 1rem;
-      line-height: 1.25;
-    }
-
-    .section p {
-      font-size: 0.97rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      margin: 0 0 0.85rem;
-    }
-
-    .section p:last-child { margin-bottom: 0; }
-
-    /* ── SERVICE GRID ───────────────────────────────────────────── */
-    .service-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      margin-top: 1.25rem;
-    }
-
-    @media (max-width: 380px) {
-      .service-grid { grid-template-columns: 1fr; }
-    }
-
-    .service-card {
-      background: var(--brand-warm);
-      border-radius: var(--radius);
-      padding: 1rem 1rem 0.9rem;
-      border: 1px solid var(--border);
-    }
-
-    .service-card-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.4rem;
-      display: block;
-    }
-
-    .service-card-title {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--text-main);
-      line-height: 1.3;
-    }
-
-    /* ── PROBLEMS LIST ──────────────────────────────────────────── */
-    .problem-list {
-      list-style: none;
-      padding: 0;
-      margin: 1.1rem 0 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .problem-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: var(--text-muted);
-    }
-
-    .problem-list li::before {
-      content: "→";
-      color: var(--brand-accent);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 0.05em;
-    }
-
-    /* ── ABOUT / TRUST ──────────────────────────────────────────── */
-    .about-card {
-      background: var(--brand-warm);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 1.5rem 1.25rem;
-      margin-top: 1rem;
-    }
-
-    .about-card p {
-      font-size: 0.96rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      margin: 0 0 0.8rem;
-    }
-
-    .about-detail {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-    }
-
-    .about-detail strong {
-      color: var(--text-main);
-    }
-
-    .about-detail a {
-      color: var(--brand-accent);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    /* ── FAQ ────────────────────────────────────────────────────── */
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 1.25rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    details.faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-
-    details.faq-item:last-child {
-      border-bottom: none;
-    }
-
-    details.faq-item summary {
-      padding: 1rem 1.1rem;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text-main);
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      user-select: none;
-      background: var(--brand-white);
-      transition: background 0.15s;
-    }
-
-    details.faq-item summary::-webkit-details-marker { display: none; }
-
-    details.faq-item summary:hover {
-      background: var(--brand-warm);
-    }
-
-    details.faq-item summary::after {
-      content: "+";
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--brand-accent);
-      flex-shrink: 0;
-      margin-left: 1rem;
-    }
-
-    details.faq-item[open] summary::after {
-      content: "−";
-    }
-
-    .faq-answer {
-      padding: 0 1.1rem 1rem;
-      font-size: 0.93rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      background: var(--brand-white);
-    }
-
-    /* ── NEARBY SUBURBS ─────────────────────────────────────────── */
-    .suburb-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-top: 1.1rem;
-    }
-
-    .suburb-chip {
-      display: inline-block;
-      background: var(--brand-warm);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.45rem 0.85rem;
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: var(--text-main);
-      text-decoration: none;
-      transition: background 0.15s, border-color 0.15s;
-    }
-
-    .suburb-chip:hover {
-      background: var(--brand-accent);
-      border-color: var(--brand-accent);
-      color: #fff;
-    }
-
-    /* ── BOTTOM CTA ─────────────────────────────────────────────── */
-    .bottom-cta {
-      background: var(--brand-dark);
-      color: var(--brand-white);
-      padding: 2.5rem 1.25rem;
-      text-align: center;
-      margin-top: 0;
-    }
-
-    .bottom-cta h2 {
-      font-size: clamp(1.3rem, 4.5vw, 1.7rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--brand-white);
-      margin: 0 0 0.6rem;
-    }
-
-    .bottom-cta p {
-      font-size: 0.95rem;
-      color: #908d86;
-      margin: 0 0 1.75rem;
-      line-height: 1.6;
-    }
-
-    /* ── NEARBY PAGE LINKS ──────────────────────────────────────── */
-    .page-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 1.1rem;
-    }
-
-    .page-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.85rem 1rem;
-      background: var(--brand-warm);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      text-decoration: none;
-      font-size: 0.93rem;
-      font-weight: 600;
-      color: var(--text-main);
-      transition: background 0.15s, border-color 0.15s;
-    }
-
-    .page-link:hover {
-      background: var(--brand-accent);
-      border-color: var(--brand-accent);
-      color: #fff;
-    }
-
-    .page-link span { opacity: 0.5; font-size: 1.1rem; }
+    /* Hero */
+    .hero{background:var(--bd);color:var(--wh);padding:3rem 1.25rem 2.8rem;text-align:center}
+    .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem}
+    .hero h1{font-size:clamp(1.9rem,5.5vw,2.6rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
+    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.9rem;font-weight:800;padding:.45rem 1.1rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c}
+    .hero-lead{font-size:1.05rem;line-height:1.7;color:#c8c5be;margin:0 auto .8rem;max-width:520px}
+    .hero-sub{font-size:.95rem;line-height:1.6;color:#6e6b64;max-width:500px;margin:0 auto 2.2rem}
+    .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+    .btn{display:inline-block;padding:1rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s,transform .15s}
+    .btn:hover{opacity:.88;transform:translateY(-1px)}
+    .btn-call{background:var(--ba);color:#fff;font-size:1.15rem}
+    .btn-quote{background:transparent;border:2px solid #4a4a44;color:#c8c5be}
+    /* Trust bar */
+    .trust-bar{background:var(--bm);padding:1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.82rem;color:#908d86;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+    .ti svg{flex-shrink:0;color:var(--ba)}
+    /* Sections */
+    .sec{padding:2.4rem 1.25rem;max-width:720px;margin:0 auto}
+    .sec+.sec{border-top:1px solid var(--br)}
+    .sl{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
+    .sec h2{font-size:clamp(1.4rem,4vw,1.8rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0 0 .9rem}
+    .sec p:last-child{margin-bottom:0}
+    /* Price box */
+    .price-box{background:var(--bw);border:2px solid #2a6b1c;border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem;text-align:center}
+    .price-num{font-size:3rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.25rem}
+    .price-label{font-size:1.05rem;font-weight:700;color:var(--tm);margin-bottom:.75rem}
+    .price-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
+    .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.35rem .8rem;font-size:.84rem;font-weight:600;color:var(--ts)}
+    .pi::before{content:"✓ ";color:#2a6b1c;font-weight:800}
+    /* Local box */
+    .local-box{background:var(--bw);border-left:4px solid var(--ba);border-radius:0 var(--rad) var(--rad) 0;padding:1.25rem 1.25rem;margin-top:1rem}
+    .local-box p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0}
+    /* Reason cards */
+    .reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
+    @media(max-width:480px){.reason-grid{grid-template-columns:1fr}}
+    .rc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.1rem 1rem}
+    .rc-icon{font-size:1.4rem;display:block;margin-bottom:.4rem}
+    .rc-title{font-size:.95rem;font-weight:700;color:var(--tm);margin-bottom:.25rem}
+    .rc-desc{font-size:.86rem;line-height:1.55;color:var(--ts)}
+    /* Services */
+    .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.1rem}
+    @media(max-width:380px){.svc-list{grid-template-columns:1fr}}
+    .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.75rem .9rem;font-size:.95rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
+    .sv::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
+    /* Reviews */
+    .reviews-grid{display:flex;flex-direction:column;gap:.85rem;margin-top:1.1rem}
+    .review-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.25rem 1.25rem}
+    .review-stars{color:#f59e0b;font-size:1.1rem;margin-bottom:.5rem;letter-spacing:.05em}
+    .review-text{font-size:.97rem;line-height:1.7;color:var(--ts);margin:0 0 .6rem;font-style:italic}
+    .review-author{font-size:.84rem;font-weight:700;color:var(--tm)}
+    /* About */
+    .about-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
+    .about-card p{font-size:1rem;line-height:1.7;color:var(--ts);margin:0 0 .85rem}
+    .about-card p:last-child{margin-bottom:0}
+    .arow{display:flex;align-items:center;gap:.5rem;font-size:.92rem;color:var(--ts);margin-top:.6rem}
+    .arow strong{color:var(--tm)}
+    .arow a{color:var(--ba);font-weight:700;text-decoration:none}
+    /* Form */
+    .form-wrap{background:var(--bw);border:2px solid var(--ba);border-radius:var(--rad);padding:1.75rem 1.25rem;margin-top:1rem}
+    .form-wrap h3{font-size:1.15rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
+    .form-sub{font-size:.9rem;color:var(--ts);margin:0 0 1.25rem}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+    @media(max-width:500px){.form-grid{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;gap:.3rem}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.8rem;font-weight:700;color:var(--tm);letter-spacing:.03em;text-transform:uppercase}
+    .field input,.field select,.field textarea{width:100%;border:2px solid var(--br);border-radius:8px;padding:.72rem .85rem;font-size:1rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ba)}
+    .field textarea{resize:vertical;min-height:90px}
+    .form-submit{display:block;width:100%;margin-top:1rem;background:var(--ba);color:#fff;border:none;padding:1rem;border-radius:var(--rad);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s,transform .15s}
+    .form-submit:hover{opacity:.88;transform:translateY(-1px)}
+    /* FAQ */
+    .faq-list{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
+    details.faq-item{border-bottom:1px solid var(--br)}
+    details.faq-item:last-child{border-bottom:none}
+    details.faq-item summary{padding:1.1rem 1.25rem;font-size:1rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
+    details.faq-item summary::-webkit-details-marker{display:none}
+    details.faq-item summary:hover{background:var(--bw)}
+    details.faq-item summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
+    details.faq-item[open] summary::after{content:"−"}
+    .faq-answer{padding:.1rem 1.25rem 1.1rem;font-size:.97rem;line-height:1.75;color:var(--ts);background:var(--wh)}
+    /* Suburb chips */
+    .suburb-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+    .suburb-chip{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.42rem .85rem;font-size:.86rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
+    .suburb-chip:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    /* Page links */
+    .page-links{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+    .page-link{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem;background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);text-decoration:none;font-size:.95rem;font-weight:600;color:var(--tm);transition:background .15s,border-color .15s}
+    .page-link:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    .page-link span{opacity:.5;font-size:1.1rem}
+    /* Bottom CTA */
+    .bottom-cta{background:var(--bd);color:var(--wh);padding:2.8rem 1.25rem;text-align:center}
+    .bottom-cta h2{font-size:clamp(1.4rem,5vw,1.9rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
+    .bottom-cta p{font-size:1rem;color:#6e6b64;margin:0 auto 1.9rem;line-height:1.6;max-width:440px}
   </style>
 
-  <!-- ── HERO ──────────────────────────────────────────────────── -->
+  <!-- HERO -->
   <section class="hero">
     <span class="hero-eyebrow">Melton VIC 3337</span>
     <h1>Chimney Sweeping<br>Melton VIC 3337</h1>
-    <p class="hero-lead">
-      Daves Chimney Sweeping takes care of chimney cleaning, flue servicing and wood heater maintenance for homes across Melton and the surrounding area.
-    </p>
-    <p class="hero-sub">
-      Whether you're getting ready for winter or your fireplace has been giving you trouble, we keep it simple — honest service, fast quotes, no fuss.
-    </p>
+    <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
+    <p class="hero-lead">Melton is one of Melbourne's fastest-growing outer suburbs — and with that growth has come a large number of homes with wood heaters and fireplaces now several years into...</p>
+    <p class="hero-sub">Local, owner-operated. No franchises, no call centres. You deal directly with Dave.</p>
     <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+      <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
 
-  <!-- ── TRUST BAR ──────────────────────────────────────────────── -->
+  <!-- TRUST BAR -->
   <div class="trust-bar">
-    <span class="trust-item">
-      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-      Local to Melton
-    </span>
-    <span class="trust-item">
-      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-      Fast quotes
-    </span>
-    <span class="trust-item">
-      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-      Wood heaters welcome
-    </span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon&#8211;Sat</span>
   </div>
 
-  <!-- ── WHAT WE DO ─────────────────────────────────────────────── -->
-  <section class="section">
-    <p class="section-label">What's included</p>
-    <h2>Chimney &amp; Flue Cleaning in Melton</h2>
-    <p>
-      We cover everything from a basic annual sweep through to flue inspections and wood heater cleans. If your system needs attention before the cold sets in, we'll give you a straight answer about what it needs and get it done.
-    </p>
-    <div class="service-grid">
-      <div class="service-card">
-        <span class="service-card-icon">🔥</span>
-        <div class="service-card-title">Chimney Sweeping</div>
-      </div>
-      <div class="service-card">
-        <span class="service-card-icon">🌬️</span>
-        <div class="service-card-title">Flue Cleaning</div>
-      </div>
-      <div class="service-card">
-        <span class="service-card-icon">🪵</span>
-        <div class="service-card-title">Wood Heater Cleaning</div>
-      </div>
-      <div class="service-card">
-        <span class="service-card-icon">🏠</span>
-        <div class="service-card-title">Fireplace Servicing</div>
-      </div>
-      <div class="service-card">
-        <span class="service-card-icon">🐦</span>
-        <div class="service-card-title">Blockage Removal</div>
-      </div>
-      <div class="service-card">
-        <span class="service-card-icon">⬛</span>
-        <div class="service-card-title">Soot &amp; Ash Removal</div>
+  <!-- PRICE -->
+  <section class="sec">
+    <p class="sl">Pricing</p>
+    <h2>$199 — Chimney Inspection &amp; Full Clean in Melton</h2>
+    <p>One flat price for everything. No call-out fee, no surprises on the day. Here is exactly what is covered:</p>
+    <div class="price-box">
+      <div class="price-num">$199</div>
+      <div class="price-label">Chimney Inspection &amp; Full Clean — Melton</div>
+      <div class="price-includes">
+        <span class="pi">Chimney sweep</span>
+        <span class="pi">Flue cleaning</span>
+        <span class="pi">Soot &amp; ash removal</span>
+        <span class="pi">Blockage check</span>
+        <span class="pi">Condition report</span>
+        <span class="pi">No call-out fee</span>
       </div>
     </div>
   </section>
 
-  <!-- ── COMMON PROBLEMS ────────────────────────────────────────── -->
-  <section class="section">
-    <p class="section-label">Common reasons to book</p>
-    <h2>Signs Your Chimney Needs Attention</h2>
-    <p>
-      A lot of Melton homes use their heaters heavily through winter. These are the situations we hear about most often:
-    </p>
-    <ul class="problem-list">
-      <li>Smoke drifting back into the room when the fire is lit</li>
-      <li>A strong smoky smell even when there's no fire burning</li>
-      <li>Visible black soot or creosote buildup inside the firebox</li>
-      <li>A weak or sluggish draft that makes it hard to get a good burn</li>
-      <li>It's been over twelve months since the last proper clean</li>
-      <li>A bird or debris has blocked the flue</li>
-      <li>Moving into a home with a fireplace you've never had serviced</li>
-    </ul>
+  <!-- LOCAL SECTION -->
+  <section class="sec">
+    <p class="sl">Local knowledge</p>
+    <h2>Melton — Melbourne's Fastest-Growing Area, Heavy Wood Heating</h2>
+    <div class="local-box">
+      <p>Melton is one of Melbourne's fastest-growing outer suburbs — and with that growth has come a large number of homes with wood heaters and fireplaces now several years into regular winter use. Many homes built here from the late 2000s onwards have flue systems that have never been professionally serviced. Cold westerly winds push through the Melton corridor from April to October, and heaters work hard. We service Melton VIC 3337 regularly — it's one of our highest-demand areas, particularly in the estates north of the Western Ring Road and around Exford Road.</p>
+    </div>
   </section>
 
-  <!-- ── ABOUT / TRUST ──────────────────────────────────────────── -->
-  <section class="section">
-    <p class="section-label">About us</p>
-    <h2>A Local Chimney Sweep You Can Actually Reach</h2>
+  <!-- WHY BOOK -->
+  <section class="sec">
+    <p class="sl">When to book</p>
+    <h2>Signs Your Melton Chimney Needs Cleaning</h2>
+    <p>If any of these sound familiar, it is time to book:</p>
+    <div class="reason-grid">
+      <div class="rc"><span class="rc-icon">&#128703;</span><div class="rc-title">Smoke coming back in</div><div class="rc-desc">Most common sign of a blocked or sooted flue. A clean usually fixes it immediately.</div></div>
+      <div class="rc"><span class="rc-icon">&#128148;</span><div class="rc-title">Persistent smoky smell</div><div class="rc-desc">Creosote or old ash in the flue causes a burnt odour even when the fire is off.</div></div>
+      <div class="rc"><span class="rc-icon">&#128168;</span><div class="rc-title">Weak or sluggish draw</div><div class="rc-desc">Fires that struggle to start or stay alight point to restricted airflow in the flue.</div></div>
+      <div class="rc"><span class="rc-icon">&#128197;</span><div class="rc-title">Pre-winter service</div><div class="rc-desc">Book in autumn before the heating season — easier to sort early than mid-winter.</div></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec">
+    <p class="sl">What is included</p>
+    <h2>Everything in the One $199 Visit</h2>
+    <p>We cover the full system — chimney, flue and heater — in a single visit to your Melton home:</p>
+    <div class="svc-list">
+      <span class="sv">Chimney sweep — firebox to pot</span>
+      <span class="sv">Flue liner or pipe cleaning</span>
+      <span class="sv">Wood heater service</span>
+      <span class="sv">Open fireplace cleaning</span>
+      <span class="sv">Soot &amp; creosote removal</span>
+      <span class="sv">Ash removal</span>
+      <span class="sv">Bird nest &amp; blockage clearing</span>
+      <span class="sv">Verbal condition report</span>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sec">
+    <p class="sl">What customers say</p>
+    <h2>Reviews from Melton and Nearby Residents</h2>
+    <p>What locals say after their $199 chimney clean:</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Dave came out before winter and found a partial bird nest we had no idea about. Left everything spotless. $199 was great value — will book every year now."</p>
+        <div class="review-author">Sarah T. — Melton 3337</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Really easy to deal with. Called Monday, booked Wednesday. Noticed the difference in draw straight away. Excellent service."</p>
+        <div class="review-author">Michael R. — Melton West 3337</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Moved into our place with no idea when the chimney was last done. Dave assessed it honestly and didn't try to sell us extras. Highly recommend."</p>
+        <div class="review-author">Jess K. — Cobblebank 3338</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sec">
+    <p class="sl">About us</p>
+    <h2>You Deal Directly With Dave — No Middlemen</h2>
     <div class="about-card">
-      <p>
-        Daves Chimney Sweeping is a local, owner-operated service. We work across Melton VIC 3337 and the surrounding area — including Melton South, Melton West and nearby suburbs.
-      </p>
-      <p>
-        We're not a call centre or a franchise. When you call, you're talking to Dave. We keep pricing clear, turn up when we say we will, and leave the job tidy.
-      </p>
-      <div class="about-detail">
-        📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a>
-      </div>
-      <div class="about-detail">
-        📍 <strong>Service area:</strong>&nbsp;Melton VIC 3337 and surrounds
-      </div>
+      <p>Daves Chimney Sweeping is owner-operated. When you call 0476 302 729 you are speaking to Dave — the person who turns up and does every job himself. No franchise, no call centre, no subcontracting.</p>
+      <p>Honest assessment of what the system actually needs, a clear $199 price before we start, and a tidy job from start to finish.</p>
+      <div class="arow">&#128222; <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="arow">&#128205; <strong>Serving:</strong>&nbsp;Melton VIC 3337 and surrounds</div>
+      <div class="arow">&#128336; <strong>Hours:</strong>&nbsp;Mon&#8211;Sat, 8am&#8211;6pm</div>
+      <div class="arow">&#128176; <strong>Price:</strong>&nbsp;$199 flat rate — chimney inspection &amp; full clean</div>
     </div>
   </section>
 
-  <!-- ── FAQ ────────────────────────────────────────────────────── -->
-  <section class="section">
-    <p class="section-label">FAQs</p>
-    <h2>Common Questions from Melton Customers</h2>
+  <!-- BOOKING FORM -->
+  <section class="sec" id="quote">
+    <p class="sl">Book now</p>
+    <h2>Book Your $199 Chimney Clean in Melton</h2>
+    <div class="form-wrap">
+      <h3>Quick Quote &#8212; Melton</h3>
+      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your $199 booking.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="suburb" value="Melton VIC 3337" />
+        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select&#8230;</option>
+              <option value="Chimney Inspection and Clean — $199">Chimney Inspection &amp; Clean &#8212; $199</option>
+              <option>Wood Heater Service</option>
+              <option>Flue Cleaning</option>
+              <option>Blockage / Nest Removal</option>
+              <option>Not sure &#8212; need advice</option>
+            </select>
+          </div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, when it was last cleaned&#8230;"></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">Send Booking Request &#8250;</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec">
+    <p class="sl">FAQs</p>
+    <h2>Chimney Sweeping Melton &#8212; Common Questions</h2>
     <div class="faq-list">
-      {faqs.map(({ q, a }) => (
-        <details class="faq-item">
-          <summary>{q}</summary>
-          <div class="faq-answer">{a}</div>
-        </details>
+      {faqs.map(({q,a}) => (
+        <details class="faq-item"><summary>{q}</summary><div class="faq-answer">{a}</div></details>
       ))}
     </div>
   </section>
 
-  <!-- ── NEARBY SUBURBS ─────────────────────────────────────────── -->
-  <section class="section">
-    <p class="section-label">Nearby areas</p>
-    <h2>We Also Cover These Melton Suburbs</h2>
-    <p>
-      Our service area extends across the wider Melton region. Here are the nearby suburbs we regularly work in:
-    </p>
+  <!-- NEARBY -->
+  <section class="sec">
+    <p class="sl">Nearby areas</p>
+    <h2>Suburbs Near Melton We Also Service</h2>
+    <p>We cover Melton and all nearby suburbs. Click any suburb for area-specific details:</p>
     <div class="suburb-chips">
       <a class="suburb-chip" href="/chimney-sweeping/melton-south">Melton South 3338</a>
       <a class="suburb-chip" href="/chimney-sweeping/melton-west">Melton West 3337</a>
@@ -604,37 +383,28 @@ const faqs = [
     </div>
   </section>
 
-  <!-- ── NEARBY PAGE LINKS ──────────────────────────────────────── -->
-  <section class="section">
-    <p class="section-label">More pages</p>
-    <h2>Explore Nearby Service Pages</h2>
+  <!-- PAGE LINKS -->
+  <section class="sec">
+    <p class="sl">More pages</p>
+    <h2>Nearby Service Pages</h2>
     <nav class="page-links" aria-label="Nearby suburb pages">
-      <a class="page-link" href="/chimney-sweeping/melton-south">
-        Chimney Sweeping — Melton South VIC 3338
-        <span>›</span>
-      </a>
-      <a class="page-link" href="/chimney-sweeping/melton-west">
-        Chimney Sweeping — Melton West VIC 3337
-        <span>›</span>
-      </a>
-      <a class="page-link" href="/chimney-sweeping/brookfield">
-        Chimney Sweeping — Brookfield VIC 3338
-        <span>›</span>
-      </a>
-      <a class="page-link" href="/contact">
-        Get a Fast Quote
-        <span>›</span>
-      </a>
+      <a class="page-link" href="/chimney-sweeping/melton-south">Melton South 3338 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/melton-west">Melton West 3337 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/brookfield">Brookfield 3338 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/kurunjang">Kurunjang 3337 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/harkness">Harkness 3337 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/cobblebank">Cobblebank 3338 <span>›</span></a>
+      <a class="page-link" href="/">Chimney Sweeping Melbourne &#8212; All Suburbs <span>&#8250;</span></a>
     </nav>
   </section>
 
-  <!-- ── BOTTOM CTA ─────────────────────────────────────────────── -->
+  <!-- BOTTOM CTA -->
   <section class="bottom-cta">
-    <h2>Ready to Book Your Melton Chimney Sweep?</h2>
-    <p>Call Dave directly or send through a quote request — we'll get back to you quickly.</p>
+    <h2>Melton Chimney Sweep &#8212; $199 Flat Rate</h2>
+    <p>Call Dave directly or use the form above. We will confirm your booking and give you a time that works.</p>
     <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+      <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
 
