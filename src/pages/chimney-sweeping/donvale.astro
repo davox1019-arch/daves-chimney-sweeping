@@ -108,28 +108,28 @@ const faqs = [
 
   <style>
     :root{--bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;--bw:#f5f0e8;--wh:#ffffff;--tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px}
-    .hero{background:var(--bd);color:var(--wh);padding:3rem 1.25rem 2.8rem;text-align:center}
+    .hero{background:linear-gradient(160deg,#18120a 0%,#2c1a0c 55%,#1a1a18 100%);color:var(--wh);padding:3.8rem 1.25rem 3.4rem;text-align:center}
     .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem}
-    .hero h1{font-size:clamp(1.9rem,5.5vw,2.6rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
-    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.9rem;font-weight:800;padding:.45rem 1.1rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c}
-    .hero-lead{font-size:1.05rem;line-height:1.7;color:#c8c5be;margin:0 auto .8rem;max-width:520px}
-    .hero-sub{font-size:.95rem;line-height:1.6;color:#6e6b64;max-width:500px;margin:0 auto 2.2rem}
+    .hero h1{font-size:clamp(2.4rem,6.5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
+    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:1.08rem;font-weight:800;padding:.6rem 1.5rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c}
+    .hero-lead{font-size:1.18rem;line-height:1.72;color:#d4d1cb;margin:0 auto .8rem;max-width:520px}
+    .hero-sub{font-size:.98rem;line-height:1.65;color:#a09d96;max-width:500px;margin:0 auto 2.2rem}
     .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
     .btn{display:inline-block;padding:1rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s,transform .15s}
     .btn:hover{opacity:.88;transform:translateY(-1px)}
-    .btn-call{background:var(--ba);color:#fff;font-size:1.15rem}
-    .btn-quote{background:transparent;border:2px solid #4a4a44;color:#c8c5be}
+    .btn-call{background:var(--ba);color:#fff;font-size:1.25rem;letter-spacing:.01em}
+    .btn-quote{background:transparent;border:2px solid rgba(255,255,255,0.32);color:#fff}
     .trust-bar{background:var(--bm);padding:1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
     .ti{display:flex;align-items:center;gap:.4rem;font-size:.82rem;color:#908d86;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
     .ti svg{flex-shrink:0;color:var(--ba)}
-    .sec{padding:2.4rem 1.25rem;max-width:720px;margin:0 auto}
+    .sec{padding:2.9rem 1.25rem;max-width:720px;margin:0 auto}
     .sec+.sec{border-top:1px solid var(--br)}
     .sl{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
-    .sec h2{font-size:clamp(1.4rem,4vw,1.8rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
-    .sec p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0 0 .9rem}
+    .sec h2{font-size:clamp(1.65rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec p{font-size:1.06rem;line-height:1.8;color:var(--ts);margin:0 0 .9rem}
     .sec p:last-child{margin-bottom:0}
     .price-box{background:var(--bw);border:2px solid #2a6b1c;border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem;text-align:center}
-    .price-num{font-size:3rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.25rem}
+    .price-num{font-size:3.6rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.25rem}
     .price-label{font-size:1.05rem;font-weight:700;color:var(--tm);margin-bottom:.75rem}
     .price-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
     .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.35rem .8rem;font-size:.84rem;font-weight:600;color:var(--ts)}
@@ -187,7 +187,7 @@ const faqs = [
     .page-link:hover{background:var(--ba);border-color:var(--ba);color:#fff}
     .page-link span{opacity:.5;font-size:1.1rem}
     .bottom-cta{background:var(--bd);color:var(--wh);padding:2.8rem 1.25rem;text-align:center}
-    .bottom-cta h2{font-size:clamp(1.4rem,5vw,1.9rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
+    .bottom-cta h2{font-size:clamp(1.65rem,5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
     .bottom-cta p{font-size:1rem;color:#6e6b64;margin:0 auto 1.9rem;line-height:1.6;max-width:440px}
   </style>
 
@@ -195,7 +195,7 @@ const faqs = [
     <span class="hero-eyebrow">Donvale VIC 3111</span>
     <h1>Chimney Sweeping<br>Donvale VIC 3111</h1>
     <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
-    <p class="hero-lead">Donvale sits between Mitcham and Warrandyte on the Manningham plateau — an established suburb where many homes date from the 1970s and 1980s with original brick fireplace...</p>
+    <p class="hero-lead">We turn up when booked, leave your home spotless, and give you a straight verbal report before we go. $199 flat — no call-out fee, no hidden extras. Book direct with Dave.</p>
     <p class="hero-sub">Local, owner-operated. You deal directly with Dave — no franchises, no call centres.</p>
     <div class="btn-row">
       <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>

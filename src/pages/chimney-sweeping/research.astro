@@ -68,28 +68,28 @@ const nearbySuburbs = [
 
   <style>
     :root { --brand-dark: #1a1a18; --brand-mid: #2c2c29; --brand-accent: #c8500a; --brand-warm: #f5f0e8; --brand-white: #ffffff; --text-main: #1a1a18; --text-muted: #5a5a54; --border: #e2ddd4; --radius: 10px; }
-    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 3rem 1.25rem 2.75rem; text-align: center; }
+    .hero { background: linear-gradient(160deg, #18120a 0%, #2c1a0c 55%, #1a1a18 100%); color: var(--brand-white); padding: 3.8rem 1.25rem 3.4rem; text-align: center; }
     .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 20px; margin-bottom: 1rem; }
-    .hero h1 { font-size: clamp(1.9rem, 5.5vw, 2.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 0.85rem; color: var(--brand-white); }
-    .price-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #1e4d14; color: #7edd5a; font-size: 0.9rem; font-weight: 800; padding: 0.45rem 1.1rem; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #2a6b1c; }
-    .hero-lead { font-size: 1.02rem; line-height: 1.68; color: #c8c5be; margin: 0 auto 0.8rem; max-width: 560px; }
-    .hero-sub { font-size: 0.95rem; line-height: 1.6; color: #908d86; max-width: 520px; margin: 0 auto 2.1rem; }
+    .hero h1 { font-size: clamp(2.4rem, 6.5vw, 3.4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 0.85rem; color: var(--brand-white); }
+    .price-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #1e4d14; color: #7edd5a; font-size: 1.08rem; font-weight: 800; padding: 0.6rem 1.5rem; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #2a6b1c; }
+    .hero-lead { font-size: 1.18rem; line-height: 1.72; color: #d4d1cb; margin: 0 auto 0.8rem; max-width: 560px; }
+    .hero-sub { font-size: 0.98rem; line-height: 1.65; color: #b0ada6; max-width: 520px; margin: 0 auto 2.1rem; }
     .btn-row { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
     .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s, transform 0.15s; }
     .btn:hover { opacity: 0.88; transform: translateY(-1px); }
-    .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.1rem; }
-    .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
+    .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.25rem; letter-spacing: 0.01em; }
+    .btn-quote { background: transparent; border: 2px solid rgba(255,255,255,0.32); color: #fff; }
     .trust-bar { background: var(--brand-mid); padding: 1rem 1.25rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
     .ti { display: flex; align-items: center; gap: 0.45rem; font-size: 0.8rem; color: #908d86; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
     .ti svg { color: var(--brand-accent); flex-shrink: 0; }
-    .section { padding: 2.35rem 1.25rem; max-width: 720px; margin: 0 auto; }
+    .section { padding: 2.85rem 1.25rem; max-width: 720px; margin: 0 auto; }
     .section + .section { border-top: 1px solid var(--border); }
     .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
-    .section h2 { font-size: clamp(1.35rem, 4vw, 1.75rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.2; }
-    .section p { font-size: 0.98rem; line-height: 1.72; color: var(--text-muted); margin: 0 0 0.9rem; }
+    .section h2 { font-size: clamp(1.65rem, 4.5vw, 2.1rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.2; }
+    .section p { font-size: 1.06rem; line-height: 1.8; color: var(--text-muted); margin: 0 0 0.9rem; }
     .section p:last-child { margin-bottom: 0; }
     .price-box { background: var(--brand-warm); border: 2px solid #2a6b1c; border-radius: var(--radius); padding: 1.45rem 1.25rem; margin-top: 1rem; text-align: center; }
-    .price-num { font-size: 3rem; font-weight: 800; color: #2a6b1c; line-height: 1; margin-bottom: 0.25rem; }
+    .price-num { font-size: 3.6rem; font-weight: 800; color: #2a6b1c; line-height: 1; margin-bottom: 0.25rem; }
     .price-label { font-size: 1.02rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem; }
     .price-includes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.75rem; }
     .pi { background: var(--brand-white); border: 1px solid var(--border); border-radius: 6px; padding: 0.35rem 0.8rem; font-size: 0.84rem; font-weight: 600; color: var(--text-muted); }
@@ -133,7 +133,7 @@ const nearbySuburbs = [
     .page-link:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
     .page-link span { opacity: 0.5; font-size: 1.1rem; }
     .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.7rem 1.25rem; text-align: center; }
-    .bottom-cta h2 { font-size: clamp(1.35rem, 4.5vw, 1.8rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
+    .bottom-cta h2 { font-size: clamp(1.65rem, 5vw, 2.1rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
     .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 auto 1.75rem; line-height: 1.6; max-width: 460px; }
     .reviews-grid { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.1rem; }
     .review-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
@@ -146,7 +146,7 @@ const nearbySuburbs = [
     <span class="hero-eyebrow">{suburb} VIC {postcode}</span>
     <h1>Chimney Sweeping<br />{suburb} VIC {postcode}</h1>
     <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
-    <p class="hero-lead">Research has a semi-rural, leafy character and plenty of homes that rely on wood heating through long north-east winters.</p>
+    <p class="hero-lead">We turn up when booked, leave your home spotless, and give you a straight verbal report before we go. $199 flat — no call-out fee, no hidden extras. Book direct with Dave.</p>
     <p class="hero-sub">Owner-operated, local service, and direct contact with Dave from quote to job completion.</p>
     <div class="btn-row">
       <a class="btn btn-call" href="tel:0476302729">Call 0476 302 729</a>

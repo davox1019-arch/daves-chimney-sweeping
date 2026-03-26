@@ -89,11 +89,12 @@ const breadcrumbSchema = canonicalUrl
 
       body {
         margin: 0;
-        font-family: Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+        font-size: 17px;
         color: var(--text);
         background:
-          radial-gradient(circle at top left, rgba(255,239,214,0.9) 0%, transparent 30%),
-          linear-gradient(180deg, #f8f3ed 0%, #f1ebe4 100%);
+          radial-gradient(circle at top left, rgba(255,228,190,0.95) 0%, transparent 35%),
+          linear-gradient(180deg, #f4ece0 0%, #ece3d6 100%);
       }
 
       a { color: inherit; text-decoration: none; }
@@ -358,17 +359,18 @@ const breadcrumbSchema = canonicalUrl
       }
 
       .about-section h2 {
-        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
         font-weight: 800;
-        margin: 0 0 1.25rem;
+        margin: 0 0 1.35rem;
         color: white;
+        letter-spacing: -0.02em;
       }
 
       .about-section p {
-        font-size: 1rem;
-        line-height: 1.8;
-        color: rgba(255,255,255,0.82);
-        margin: 0 0 1rem;
+        font-size: 1.08rem;
+        line-height: 1.85;
+        color: rgba(255,255,255,0.85);
+        margin: 0 0 1.1rem;
       }
 
       .about-section p:last-child {
