@@ -345,7 +345,7 @@ const breadcrumbSchema = canonicalUrl
         <div class="header-inner">
           <div class="header-left"></div>
 
-          <a class="brand" href={homeHref}>
+          <a class="brand" href={isSuburbPage ? "#quote" : homeHref}>
             <img
               class="brand-logo"
               src="/daves-logo.png?v=4"
@@ -357,8 +357,8 @@ const breadcrumbSchema = canonicalUrl
 
           <div class="header-right">
             <nav class="desktop-nav">
-              <a href={homeHref}>Home</a>
-              <a href={servicePageHref}>{servicePageLabel}</a>
+              {!isSuburbPage && <a href={homeHref}>Home</a>}
+              {!isSuburbPage && <a href={servicePageHref}>{servicePageLabel}</a>}
               <a href="/contact">Contact</a>
             </nav>
 
@@ -376,8 +376,8 @@ const breadcrumbSchema = canonicalUrl
 
         <div id="mobile-menu" class="mobile-menu">
           <div class="mobile-menu-card">
-            <a href={homeHref}>Home</a>
-            <a href={servicePageHref}>{servicePageLabel}</a>
+            {!isSuburbPage && <a href={homeHref}>Home</a>}
+            {!isSuburbPage && <a href={servicePageHref}>{servicePageLabel}</a>}
             <a href="/contact">Contact</a>
           </div>
         </div>
@@ -399,7 +399,7 @@ const breadcrumbSchema = canonicalUrl
           <div>
             <h3 class="footer-title">Services</h3>
             <div class="footer-links">
-              <a href={servicePageHref}>{servicePageLabel}</a>
+              {!isSuburbPage && <a href={servicePageHref}>{servicePageLabel}</a>}
               <a href="/contact">Get a Quote</a>
             </div>
           </div>
