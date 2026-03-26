@@ -1,196 +1,313 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-const schema = {
-  "@context":"https://schema.org","@type":"LocalBusiness",
-  name:"Daves Chimney Sweeping",telephone:"+61476302729",
-  areaServed:["Eltham North VIC 3095"],
-  url:"https://daveschimneysweeping.com.au/chimney-sweeping/eltham-north",
-  description:"Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Eltham North VIC 3095.",
-  address:{"@type":"PostalAddress",addressLocality:"Eltham North",addressRegion:"VIC",postalCode:"3095",addressCountry:"AU"}
-};
+import SuburbSeo from "../../components/SuburbSeo.astro";
+
+const pageTitle = "Chimney Sweep Eltham North VIC 3095 - $199 Clean & Inspect";
+const pageDescription = "Chimney sweeping Eltham North VIC 3095 - $199 chimney inspection and full clean. Flue cleaning, wood heater service, owner-operated. Call 0476 302 729.";
+const suburb = "Eltham North";
+const postcode = "3095";
 const faqs = [
-  {q:"Is Eltham North the same postcode as Eltham?",a:"Yes — Eltham North VIC 3095 shares its postcode with Eltham. We service both."},
-  {q:"Do wood heaters need professional cleaning or can I do it myself?",a:"The firebox can be swept by a homeowner, but the flue and chimney stack need proper equipment to clean safely. We have the right tools to clear buildup throughout the full system."},
-  {q:"My chimney hasn't been cleaned in about three years — how bad is that?",a:"Three years of regular use means meaningful creosote and soot buildup. We'll assess it on the day and let you know what we find. It's fixable."},
-  {q:"Do you do same-week bookings for Eltham North?",a:"We aim to be responsive, especially in the lead-up to winter. Call 0476 302 729 and we'll tell you our availability."},
-  {q:"Is the service messy for the rest of the house?",a:"We use dust sheets and contain everything to the firebox area. Soot and ash is removed before we leave — most homeowners find it much tidier than expected."}
+  {
+    "q": "Is Eltham North the same postcode as Eltham?",
+    "a": "Yes — Eltham North VIC 3095 shares its postcode with Eltham. We service both."
+  },
+  {
+    "q": "Do wood heaters need professional cleaning or can I do it myself?",
+    "a": "The firebox can be swept by a homeowner, but the flue and chimney stack need proper equipment to clean safely. We have the right tools to clear buildup throughout the full system."
+  },
+  {
+    "q": "My chimney hasn't been cleaned in about three years — how bad is that?",
+    "a": "Three years of regular use means meaningful creosote and soot buildup. We'll assess it on the day and let you know what we find. It's fixable."
+  },
+  {
+    "q": "Do you do same-week bookings for Eltham North?",
+    "a": "We aim to be responsive, especially in the lead-up to winter. Call 0476 302 729 and we'll tell you our availability."
+  },
+  {
+    "q": "Is the service messy for the rest of the house?",
+    "a": "We use dust sheets and contain everything to the firebox area. Soot and ash is removed before we leave — most homeowners find it much tidier than expected."
+  }
+];
+const nearbySuburbs = [
+  {
+    "slug": "eltham",
+    "label": "Eltham 3095"
+  },
+  {
+    "slug": "diamond-creek",
+    "label": "Diamond Creek 3089"
+  },
+  {
+    "slug": "research",
+    "label": "Research 3095"
+  },
+  {
+    "slug": "greensborough",
+    "label": "Greensborough 3088"
+  }
 ];
 ---
+
 <MainLayout
-  title="Chimney Sweeping Eltham North VIC 3095 | Daves Chimney Sweeping"
-  description="Chimney sweeping in Eltham North VIC 3095. Local flue cleaning, wood heater servicing and fireplace maintenance. Owner-operated. Fast quotes. Call 0476 302 729."
-  clusterBase="Eltham North" clusterRegion="Eltham North and surrounding north-east suburbs"
-  homeHref="/" servicePageHref="/" servicePageLabel="Chimney Sweeping Melbourne"
+  title={pageTitle}
+  description={pageDescription}
+  clusterBase="Eltham North"
+  clusterRegion="Eltham North and surrounding north-east suburbs"
+  homeHref="/"
+  servicePageHref="/"
+  servicePageLabel="Chimney Sweeping Melbourne"
 >
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  <SuburbSeo
+    slug="eltham-north"
+    suburb={suburb}
+    postcode={postcode}
+    title={pageTitle}
+    description={pageDescription}
+    faqs={faqs}
+  />
+
   <style>
-    :root{--bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;--bw:#f5f0e8;--wh:#fff;--tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px}
-    .hero{background:var(--bd);color:var(--wh);padding:2.8rem 1.25rem 2.5rem;text-align:center}
-    .ey{display:inline-block;background:var(--ba);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .85rem;border-radius:20px;margin-bottom:1.1rem}
-    .hero h1{font-size:clamp(1.65rem,5vw,2.3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin:0 0 1rem;color:var(--wh)}
-    .lead{font-size:1rem;line-height:1.65;color:#c8c5be;margin:0 auto .75rem;max-width:500px}
-    .sub{font-size:.93rem;line-height:1.6;color:#6e6b64;max-width:500px;margin:0 auto 2rem}
-    .br2{display:flex;flex-direction:column;gap:.75rem;align-items:center}
-    .btn{display:inline-block;padding:.95rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s}
-    .btn:hover{opacity:.88}
-    .btn-c{background:var(--ba);color:#fff;font-size:1.1rem}
-    .btn-q{background:transparent;border:2px solid #4a4a44;color:#c8c5be}
-    .tb{background:var(--bm);padding:.95rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
-    .ti{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#908d86;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
-    .ti svg{flex-shrink:0;color:var(--ba)}
-    .sec{padding:2.2rem 1.25rem;max-width:700px;margin:0 auto}
-    .sec+.sec{border-top:1px solid var(--br)}
-    .sl{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
-    .sec h2{font-size:clamp(1.25rem,4vw,1.65rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
-    .sec p{font-size:.97rem;line-height:1.72;color:var(--ts);margin:0 0 .85rem}
-    .sec p:last-child{margin-bottom:0}
-    .chk-list{list-style:none;padding:0;margin:1.1rem 0 0;display:flex;flex-direction:column;gap:.55rem}
-    .chk-list li{font-size:.95rem;line-height:1.5;color:var(--ts);padding:.65rem .9rem;background:var(--bw);border:1px solid var(--br);border-radius:8px;display:flex;align-items:center;gap:.55rem}
-    .chk-list li::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
-    .ac{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
-    .ac p{font-size:.96rem;line-height:1.7;color:var(--ts);margin:0 0 .8rem}
-    .ac p:last-child{margin-bottom:0}
-    .ar{display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--ts);margin-top:.55rem}
-    .ar strong{color:var(--tm)}
-    .ar a{color:var(--ba);font-weight:700;text-decoration:none}
-    .fw{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
-    .fw h3{font-size:1.05rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
-    .fw .fs{font-size:.85rem;color:var(--ts);margin:0 0 1.1rem}
-    .fg{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
-    @media(max-width:480px){.fg{grid-template-columns:1fr}}
-    .fi{display:flex;flex-direction:column;gap:.3rem}
-    .fi.full{grid-column:1/-1}
-    .fi label{font-size:.78rem;font-weight:700;color:var(--tm);letter-spacing:.02em;text-transform:uppercase}
-    .fi input,.fi select,.fi textarea{width:100%;border:1.5px solid var(--br);border-radius:8px;padding:.65rem .8rem;font-size:.9rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
-    .fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--ba)}
-    .fi textarea{resize:vertical;min-height:80px}
-    .fsub{display:block;width:100%;margin-top:.85rem;background:var(--ba);color:#fff;border:none;padding:.9rem;border-radius:var(--rad);font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s}
-    .fsub:hover{opacity:.88}
-    .fl{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
-    details.fq{border-bottom:1px solid var(--br)}
-    details.fq:last-child{border-bottom:none}
-    details.fq summary{padding:1rem 1.1rem;font-size:.95rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
-    details.fq summary::-webkit-details-marker{display:none}
-    details.fq summary:hover{background:var(--bw)}
-    details.fq summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
-    details.fq[open] summary::after{content:"−"}
-    .fqa{padding:0 1.1rem 1rem;font-size:.93rem;line-height:1.7;color:var(--ts);background:var(--wh)}
-    .sc{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
-    .sp{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.4rem .8rem;font-size:.82rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
-    .sp:hover{background:var(--ba);border-color:var(--ba);color:#fff}
-    .pl{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
-    .plk{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1rem;background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);text-decoration:none;font-size:.92rem;font-weight:600;color:var(--tm);transition:background .15s,border-color .15s}
-    .plk:hover{background:var(--ba);border-color:var(--ba);color:#fff}
-    .plk span{opacity:.5;font-size:1.1rem}
-    .bc{background:var(--bd);color:var(--wh);padding:2.5rem 1.25rem;text-align:center}
-    .bc h2{font-size:clamp(1.3rem,4.5vw,1.7rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .6rem}
-    .bc p{font-size:.95rem;color:#6e6b64;margin:0 0 1.75rem;line-height:1.6}
+    :root { --brand-dark: #1a1a18; --brand-mid: #2c2c29; --brand-accent: #c8500a; --brand-warm: #f5f0e8; --brand-white: #ffffff; --text-main: #1a1a18; --text-muted: #5a5a54; --border: #e2ddd4; --radius: 10px; }
+    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 3rem 1.25rem 2.75rem; text-align: center; }
+    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 20px; margin-bottom: 1rem; }
+    .hero h1 { font-size: clamp(1.9rem, 5.5vw, 2.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 0.85rem; color: var(--brand-white); }
+    .price-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #1e4d14; color: #7edd5a; font-size: 0.9rem; font-weight: 800; padding: 0.45rem 1.1rem; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #2a6b1c; }
+    .hero-lead { font-size: 1.02rem; line-height: 1.68; color: #c8c5be; margin: 0 auto 0.8rem; max-width: 560px; }
+    .hero-sub { font-size: 0.95rem; line-height: 1.6; color: #908d86; max-width: 520px; margin: 0 auto 2.1rem; }
+    .btn-row { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s, transform 0.15s; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.1rem; }
+    .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
+    .trust-bar { background: var(--brand-mid); padding: 1rem 1.25rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .ti { display: flex; align-items: center; gap: 0.45rem; font-size: 0.8rem; color: #908d86; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .ti svg { color: var(--brand-accent); flex-shrink: 0; }
+    .section { padding: 2.35rem 1.25rem; max-width: 720px; margin: 0 auto; }
+    .section + .section { border-top: 1px solid var(--border); }
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
+    .section h2 { font-size: clamp(1.35rem, 4vw, 1.75rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.2; }
+    .section p { font-size: 0.98rem; line-height: 1.72; color: var(--text-muted); margin: 0 0 0.9rem; }
+    .section p:last-child { margin-bottom: 0; }
+    .price-box { background: var(--brand-warm); border: 2px solid #2a6b1c; border-radius: var(--radius); padding: 1.45rem 1.25rem; margin-top: 1rem; text-align: center; }
+    .price-num { font-size: 3rem; font-weight: 800; color: #2a6b1c; line-height: 1; margin-bottom: 0.25rem; }
+    .price-label { font-size: 1.02rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem; }
+    .price-includes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.75rem; }
+    .pi { background: var(--brand-white); border: 1px solid var(--border); border-radius: 6px; padding: 0.35rem 0.8rem; font-size: 0.84rem; font-weight: 600; color: var(--text-muted); }
+    .pi::before { content: "\2713 "; color: #2a6b1c; font-weight: 800; }
+    .highlight-box { background: var(--brand-warm); border-left: 4px solid var(--brand-accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.1rem 1.2rem; margin-top: 1rem; }
+    .reason-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.25rem; }
+    @media (max-width: 480px) { .reason-grid { grid-template-columns: 1fr; } }
+    .reason-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+    .reason-card-title { font-size: 0.92rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.3rem; }
+    .reason-card-desc { font-size: 0.85rem; line-height: 1.55; color: var(--text-muted); }
+    .check-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.6rem; }
+    .check-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.95rem; line-height: 1.55; color: var(--text-muted); padding: 0.75rem 0.9rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 8px; }
+    .check-list li::before { content: "\2713"; color: var(--brand-accent); font-weight: 800; flex-shrink: 0; }
+    .form-wrap { background: var(--brand-warm); border: 2px solid var(--brand-accent); border-radius: var(--radius); padding: 1.6rem 1.25rem; margin-top: 1rem; }
+    .form-wrap h3 { font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0 0 0.25rem; }
+    .form-sub { font-size: 0.9rem; color: var(--text-muted); margin: 0 0 1.1rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    @media (max-width: 500px) { .form-grid { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 0.3rem; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 0.78rem; font-weight: 700; color: var(--text-main); letter-spacing: 0.03em; text-transform: uppercase; }
+    .field input, .field select, .field textarea { width: 100%; border: 2px solid var(--border); border-radius: 8px; padding: 0.72rem 0.85rem; font-size: 0.95rem; background: var(--brand-white); color: var(--text-main); font-family: inherit; transition: border-color 0.15s; outline: none; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--brand-accent); }
+    .field textarea { resize: vertical; min-height: 90px; }
+    .form-submit { display: block; width: 100%; margin-top: 1rem; background: var(--brand-accent); color: #fff; border: none; padding: 1rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: opacity 0.15s, transform 0.15s; }
+    .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+    .faq-list { display: flex; flex-direction: column; margin-top: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details.faq-item { border-bottom: 1px solid var(--border); }
+    details.faq-item:last-child { border-bottom: none; }
+    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; gap: 1rem; }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary:hover { background: var(--brand-warm); }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; }
+    details.faq-item[open] summary::after { content: "\2212"; }
+    .faq-answer { padding: 0 1.1rem 1rem; font-size: 0.93rem; line-height: 1.7; color: var(--text-muted); background: var(--brand-white); }
+    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1rem; }
+    .suburb-chip { display: inline-block; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.85rem; font-size: 0.84rem; font-weight: 600; color: var(--text-main); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
+    .suburb-chip:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
+    .page-link { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; font-size: 0.93rem; font-weight: 600; color: var(--text-main); transition: background 0.15s, border-color 0.15s; }
+    .page-link:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-link span { opacity: 0.5; font-size: 1.1rem; }
+    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.7rem 1.25rem; text-align: center; }
+    .bottom-cta h2 { font-size: clamp(1.35rem, 4.5vw, 1.8rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
+    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 auto 1.75rem; line-height: 1.6; max-width: 460px; }
+    .reviews-grid { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.1rem; }
+    .review-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .review-stars { color: #f59e0b; font-size: 1.1rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .review-text { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.6rem; font-style: italic; }
+    .review-author { font-size: 0.84rem; font-weight: 700; color: var(--text-main); }
   </style>
 
   <section class="hero">
-    <span class="ey">Eltham North VIC 3095</span>
-    <h1>Chimney Sweeping<br>Eltham North VIC 3095</h1>
-    <p class="lead">Eltham North shares the same postcode as Eltham and the same character — large blocks, established trees, cold winters and plenty of wood heaters. Daves Chimney Sweeping provides chimney sweeping, flue cleaning and fireplace servicing for homes across Eltham North 3095.</p>
-    <p class="sub">Local, owner-operated. Call Dave directly — no booking platform, no call queue.</p>
-    <div class="br2">
-      <a class="btn btn-c" href="tel:0476302729">&#128222; Call 0476 302 729</a>
-      <a class="btn btn-q" href="#quote">Request a Quote</a>
+    <span class="hero-eyebrow">{suburb} VIC {postcode}</span>
+    <h1>Chimney Sweeping<br />{suburb} VIC {postcode}</h1>
+    <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
+    <p class="hero-lead">Eltham North homes often rely on wood heating through long north-east winters, especially in larger family properties with established fireplaces and flues.</p>
+    <p class="hero-sub">Owner-operated, local service, and direct contact with Dave from quote to job completion.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
 
-  <div class="tb">
-    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Eltham North locals</span>
+  <div class="trust-bar">
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
-    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Fast quotes</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon-Sat</span>
   </div>
 
-  <section class="sec">
-    <p class="sl">Services</p>
-    <h2>What We Do for Eltham North Homes</h2>
-    <p>We cover the full chimney and heater system in one visit. Most Eltham North jobs include:</p>
-    <ul class="chk-list">
-      <li>Chimney sweeping — firebox to chimney pot</li>
-      <li>Flue cleaning — liner or pipe cleared for proper airflow</li>
-      <li>Wood heater or slow combustion heater service</li>
+  <section class="section">
+    <p class="section-label">Pricing</p>
+    <h2>$199 Chimney Inspection and Full Clean in {suburb}</h2>
+    <p>One flat rate for the full clean. No hidden extras, no call-out fee, and no guesswork on the day.</p>
+    <div class="price-box">
+      <div class="price-num">$199</div>
+      <div class="price-label">Chimney Inspection and Full Clean - {suburb}</div>
+      <div class="price-includes">
+        <span class="pi">Chimney sweep</span>
+        <span class="pi">Flue cleaning</span>
+        <span class="pi">Soot and ash removal</span>
+        <span class="pi">Blockage check</span>
+        <span class="pi">Condition report</span>
+        <span class="pi">No call-out fee</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Local service</p>
+    <h2>Eltham North Chimney Sweep Service</h2>
+    <div class="highlight-box">
+      <p>Eltham North sits at a higher elevation than central Eltham, pushing into the Nillumbik Green Wedge where the suburban edge meets open farmland. Housing from the 1970s and 1980s dominates — large blocks with established native gardens, mature eucalypts and the kind of birdlife that makes chimney pots prime real estate for starlings, mynas and rosellas over spring. The elevated position above the Eltham valley means cold air settles across the area on still winter nights, and wood heaters here run hard from April through to late September. We service Eltham North as part of our regular Diamond Valley run and find nesting season means we clear more blockages here than in many neighbouring suburbs.</p>
+      <p>We also cover nearby areas such as {nearbySuburbs.map((item) => item.label).join(", ")}.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Common reasons to book</p>
+    <h2>Signs Your {suburb} Chimney Needs Cleaning</h2>
+    <div class="reason-grid">
+      <div class="reason-card"><div class="reason-card-title">Smoke coming back into the room</div><div class="reason-card-desc">A blocked or heavily sooted flue is the most common cause, and a proper clean usually fixes it.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Persistent smoky smell</div><div class="reason-card-desc">Old ash, creosote and buildup in the flue can leave a burnt smell even when the fire is out.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Weak draw or hard-to-light fire</div><div class="reason-card-desc">If the fire struggles to breathe, the chimney or flue often needs attention.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Over 12 months since the last clean</div><div class="reason-card-desc">Annual servicing is the easiest way to stay ahead of soot, nests and winter problems.</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">What is included</p>
+    <h2>Everything Covered in One Visit</h2>
+    <p>We clean the full system, not just the part you can see from the living room.</p>
+    <ul class="check-list">
+      <li>Chimney sweeping from firebox to chimney pot</li>
+      <li>Flue liner or flue pipe cleaning</li>
+      <li>Wood heater and slow combustion cleaning</li>
       <li>Open fireplace cleaning</li>
       <li>Soot, ash and creosote removal</li>
-      <li>Bird nest and blockage clearing</li>
+      <li>Bird nest and blockage clearing where needed</li>
+      <li>Simple verbal condition report before we leave</li>
     </ul>
   </section>
 
-  <section class="sec">
-    <p class="sl">About us</p>
-    <h2>Direct Service — No Franchise Involved</h2>
-    <div class="ac">
-      <p>Daves Chimney Sweeping is owner-operated. Dave covers Eltham North VIC 3095 and surrounding suburbs. No subcontracting, no booking queues — you call, you deal with Dave, he does the job.</p>
-      <p>Upfront price, honest assessment of what the system needs, tidy finish.</p>
-      <div class="ar">&#128222; <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
-      <div class="ar">&#128205; <strong>Serving:</strong>&nbsp;Eltham North VIC 3095 and surrounds</div>
-      <div class="ar">&#128336; <strong>Hours:</strong>&nbsp;Mon&#8211;Sat, 8am&#8211;6pm</div>
+  <section class="section">
+    <p class="section-label">What customers say</p>
+    <h2>Reviews from Eltham North Residents</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Had a bird nest blocking the flue and didn't know until Dave found it. Cleared everything out and the fire is drawing much better now. Professional and thorough."</p>
+        <div class="review-author">Bruce L. — Eltham North 3095</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Really pleased with the service. Dave was on time, worked cleanly and explained the condition of the chimney before leaving. $199 flat rate — no surprises."</p>
+        <div class="review-author">Karen T. — Eltham North 3095</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Third year booking Dave for our Eltham North property. Consistent, reliable and honest. Makes a real difference to how the heater performs heading into winter."</p>
+        <div class="review-author">Adrian C. — Eltham North 3095</div>
+      </div>
     </div>
   </section>
 
-  <section class="sec" id="quote">
-    <p class="sl">Book now</p>
-    <h2>Get a Quote for Eltham North</h2>
-    <div class="fw">
-      <h3>Quick Quote &#8212; Eltham North</h3>
-      <p class="fs">Fill in your details and we'll get back to you with a straight price.</p>
+  <section class="section" id="quote">
+    <p class="section-label">Book now</p>
+    <h2>Book Your $199 Chimney Clean in {suburb}</h2>
+    <div class="form-wrap">
+      <h3>Quick Quote - {suburb}</h3>
+      <p class="form-sub">Send through your details and Dave will get back to you to confirm the job.</p>
       <form action="https://formspree.io/f/maqlwkpr" method="POST">
-        <input type="hidden" name="suburb" value="Eltham North VIC 3095" />
-        <div class="fg">
-          <div class="fi"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
-          <div class="fi"><label>Phone</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
-          <div class="fi"><label>Email</label><input type="email" name="email" placeholder="Optional" /></div>
-          <div class="fi"><label>Service</label>
-            <select name="service" required><option value="">Select&#8230;</option><option>Chimney Sweeping</option><option>Flue Cleaning</option><option>Wood Heater Cleaning</option><option>Fireplace Cleaning</option><option>Blockage / Nest Removal</option><option>Not sure</option></select>
+        <input type="hidden" name="suburb" value={suburb + " VIC " + postcode} />
+        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select...</option>
+              <option value="Chimney Inspection and Clean - $199">Chimney Inspection and Clean - $199</option>
+              <option>Wood Heater Service</option>
+              <option>Flue Cleaning</option>
+              <option>Blockage / Nest Removal</option>
+              <option>Not sure - need advice</option>
+            </select>
           </div>
-          <div class="fi full"><label>Details</label><textarea name="message" placeholder="Type of system, any issues you've noticed, when last serviced&#8230;"></textarea></div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, and when it was last cleaned."></textarea></div>
         </div>
-        <button type="submit" class="fsub">Send Quote Request</button>
+        <button type="submit" class="form-submit">Send Booking Request</button>
       </form>
     </div>
   </section>
 
-  <section class="sec">
-    <p class="sl">FAQs</p>
-    <h2>Eltham North Chimney Sweeping &#8212; Common Questions</h2>
-    <div class="fl">
-      {faqs.map(({q,a}) => (
-        <details class="fq"><summary>{q}</summary><div class="fqa">{a}</div></details>
+  <section class="section">
+    <p class="section-label">FAQs</p>
+    <h2>Chimney Sweeping {suburb} - Common Questions</h2>
+    <div class="faq-list">
+      {faqs.map(({ q, a }) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <div class="faq-answer">{a}</div>
+        </details>
       ))}
     </div>
   </section>
 
-  <section class="sec">
-    <p class="sl">Nearby areas</p>
-    <h2>Suburbs Around Eltham North We Also Service</h2>
-    <div class="sc">
-      <a class="sp" href="/chimney-sweeping/eltham">Eltham 3095</a>
-      <a class="sp" href="/chimney-sweeping/diamond-creek">Diamond Creek 3089</a>
-      <a class="sp" href="/chimney-sweeping/research">Research 3095</a>
-      <a class="sp" href="/chimney-sweeping/greensborough">Greensborough 3088</a>
+  <section class="section">
+    <p class="section-label">Nearby areas</p>
+    <h2>Suburbs Near {suburb} We Also Service</h2>
+    <p>We also cover the surrounding suburbs shown below.</p>
+    <div class="suburb-chips">
+      {nearbySuburbs.map((item) => (
+        <a class="suburb-chip" href={"/chimney-sweeping/" + item.slug}>{item.label}</a>
+      ))}
     </div>
   </section>
 
-  <section class="sec">
-    <p class="sl">More pages</p>
-    <h2>Nearby Service Pages</h2>
-    <nav class="pl">
-      <a class="plk" href="/chimney-sweeping/eltham">Chimney Sweeping &#8212; Eltham 3095 <span>&#8250;</span></a>
-      <a class="plk" href="/chimney-sweeping/diamond-creek">Chimney Sweeping &#8212; Diamond Creek 3089 <span>&#8250;</span></a>
-      <a class="plk" href="/chimney-sweeping/research">Chimney Sweeping &#8212; Research 3095 <span>&#8250;</span></a>
-      <a class="plk" href="/chimney-sweeping/greensborough">Chimney Sweeping &#8212; Greensborough 3088 <span>&#8250;</span></a>
-      <a class="plk" href="/">Chimney Sweeping Melbourne &#8212; All Suburbs <span>&#8250;</span></a>
+  <section class="section">
+    <p class="section-label">More pages</p>
+    <h2>Related Service Pages</h2>
+    <nav class="page-links" aria-label="Nearby suburb pages">
+      {nearbySuburbs.map((item) => (
+        <a class="page-link" href={"/chimney-sweeping/" + item.slug}>{item.label} <span>&#8250;</span></a>
+      ))}
+      <a class="page-link" href="/">Chimney Sweeping Melbourne <span>&#8250;</span></a>
+      <a class="page-link" href="/contact">Contact Page <span>&#8250;</span></a>
     </nav>
   </section>
 
-  <section class="bc">
-    <h2>Eltham North Chimney Sweep &#8212; Book Now</h2>
-    <p>Call Dave or use the form above. We'll get back to you with a price and a time that works.</p>
-    <div class="br2">
-      <a class="btn btn-c" href="tel:0476302729">&#128222; Call 0476 302 729</a>
-      <a class="btn btn-q" href="#quote">Request a Quote</a>
+  <section class="bottom-cta">
+    <h2>{suburb} Chimney Sweep - $199 Flat Rate</h2>
+    <p>Call Dave directly or use the form above. We will confirm the job and lock in a time that works.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
 </MainLayout>

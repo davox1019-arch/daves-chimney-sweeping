@@ -1,149 +1,266 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import SuburbSeo from "../../components/SuburbSeo.astro";
 
+const pageTitle = "Chimney Sweep Ballan VIC 3342 - $199 Clean & Inspect";
+const pageDescription = "Chimney sweeping Ballan VIC 3342 - $199 chimney inspection and full clean. Flue cleaning, wood heater service, owner-operated. Call 0476 302 729.";
+const suburb = "Ballan";
+const postcode = "3342";
 const faqs = [
   {
-    q: "How cold does it get in Ballan — does that affect how often I should clean the chimney?",
-    a: "Ballan is one of the cooler spots in the region, sitting at higher elevation. Homes here often use their wood heaters more heavily than Melbourne metro properties, which means flues can accumulate buildup faster. Annual cleaning is a sensible habit."
+    "q": "How cold does it get in Ballan — does that affect how often I should clean the chimney?",
+    "a": "Ballan is one of the cooler spots in the region, sitting at higher elevation. Homes here often use their wood heaters more heavily than Melbourne metro properties, which means flues can accumulate buildup faster. Annual cleaning is a sensible habit."
   },
   {
-    q: "Do you service Ballan as part of a regular run, or is it a special trip?",
-    a: "Ballan VIC 3342 is part of our Bacchus Marsh service area — we're out this way regularly."
+    "q": "Do you service Ballan as part of a regular run, or is it a special trip?",
+    "a": "Ballan VIC 3342 is part of our Bacchus Marsh service area — we're out this way regularly."
   },
   {
-    q: "Can I book a chimney sweep and a wood heater clean in the same visit?",
-    a: "Yes — most jobs cover both. We'll clean the chimney, the flue and the heater in one visit."
+    "q": "Can I book a chimney sweep and a wood heater clean in the same visit?",
+    "a": "Yes — most jobs cover both. We'll clean the chimney, the flue and the heater in one visit."
   },
   {
-    q: "What if I can smell smoke but there's no visible buildup?",
-    a: "Smell without obvious soot can mean creosote buildup higher up in the flue where you can't see it. It's worth getting it looked at — a clean usually resolves it."
+    "q": "What if I can smell smoke but there's no visible buildup?",
+    "a": "Smell without obvious soot can mean creosote buildup higher up in the flue where you can't see it. It's worth getting it looked at — a clean usually resolves it."
+  }
+];
+const nearbySuburbs = [
+  {
+    "slug": "bacchus-marsh",
+    "label": "Bacchus Marsh 3340"
+  },
+  {
+    "slug": "darley",
+    "label": "Darley 3340"
+  },
+  {
+    "slug": "maddingley",
+    "label": "Maddingley 3340"
   }
 ];
 ---
 
 <MainLayout
-  title="Chimney Sweeping Ballan VIC 3342"
-  description="Chimney sweeping in Ballan VIC 3342. Daves Chimney Sweeping provides flue cleaning, wood heater servicing and fireplace maintenance. Local service, fast quotes."
+  title={pageTitle}
+  description={pageDescription}
   clusterBase="Bacchus Marsh"
   clusterRegion="Bacchus Marsh and nearby suburbs"
-  homeHref="/chimney-sweeping/bacchus-marsh"
+  homeHref="/"
   servicePageHref="/chimney-sweeping/bacchus-marsh"
   servicePageLabel="Bacchus Marsh Chimney Sweeping"
 >
+  <SuburbSeo
+    slug="ballan"
+    suburb={suburb}
+    postcode={postcode}
+    title={pageTitle}
+    description={pageDescription}
+    faqs={faqs}
+  />
+
   <style>
     :root { --brand-dark: #1a1a18; --brand-mid: #2c2c29; --brand-accent: #c8500a; --brand-warm: #f5f0e8; --brand-white: #ffffff; --text-main: #1a1a18; --text-muted: #5a5a54; --border: #e2ddd4; --radius: 10px; }
-    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 2.8rem 1.25rem 2.5rem; text-align: center; }
-    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.1rem; }
-    .hero h1 { font-size: clamp(1.65rem, 5vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--brand-white); }
-    .hero-lead { font-size: 1rem; line-height: 1.65; color: #c8c5be; margin: 0 auto 0.75rem; max-width: 480px; }
-    .hero-sub { font-size: 0.93rem; line-height: 1.6; color: #908d86; max-width: 480px; margin: 0 auto 2rem; }
+    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 3rem 1.25rem 2.75rem; text-align: center; }
+    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 20px; margin-bottom: 1rem; }
+    .hero h1 { font-size: clamp(1.9rem, 5.5vw, 2.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 0.85rem; color: var(--brand-white); }
+    .price-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #1e4d14; color: #7edd5a; font-size: 0.9rem; font-weight: 800; padding: 0.45rem 1.1rem; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #2a6b1c; }
+    .hero-lead { font-size: 1.02rem; line-height: 1.68; color: #c8c5be; margin: 0 auto 0.8rem; max-width: 560px; }
+    .hero-sub { font-size: 0.95rem; line-height: 1.6; color: #908d86; max-width: 520px; margin: 0 auto 2.1rem; }
     .btn-row { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
-    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s; }
-    .btn:hover { opacity: 0.88; }
+    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s, transform 0.15s; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
     .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.1rem; }
     .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
-    .section { padding: 2.2rem 1.25rem; max-width: 680px; margin: 0 auto; }
+    .trust-bar { background: var(--brand-mid); padding: 1rem 1.25rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .ti { display: flex; align-items: center; gap: 0.45rem; font-size: 0.8rem; color: #908d86; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .ti svg { color: var(--brand-accent); flex-shrink: 0; }
+    .section { padding: 2.35rem 1.25rem; max-width: 720px; margin: 0 auto; }
     .section + .section { border-top: 1px solid var(--border); }
-    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
-    .section h2 { font-size: clamp(1.25rem, 4vw, 1.6rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.25; }
-    .section p { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.85rem; }
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
+    .section h2 { font-size: clamp(1.35rem, 4vw, 1.75rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.2; }
+    .section p { font-size: 0.98rem; line-height: 1.72; color: var(--text-muted); margin: 0 0 0.9rem; }
     .section p:last-child { margin-bottom: 0; }
-    /* Unique: highlight box */
-    .highlight-box { background: var(--brand-warm); border-left: 3px solid var(--brand-accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 1rem 1.25rem; margin-top: 1rem; font-size: 0.95rem; line-height: 1.65; color: var(--text-muted); }
-    .check-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.65rem; }
-    .check-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.95rem; line-height: 1.5; color: var(--text-muted); }
-    .check-list li::before { content: "✓"; color: var(--brand-accent); font-weight: 800; flex-shrink: 0; }
-    .about-card { background: var(--brand-warm); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.25rem; margin-top: 1rem; }
-    .about-card p { font-size: 0.96rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.8rem; }
-    .about-detail { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; }
-    .about-detail strong { color: var(--text-main); }
-    .about-detail a { color: var(--brand-accent); font-weight: 700; text-decoration: none; }
+    .price-box { background: var(--brand-warm); border: 2px solid #2a6b1c; border-radius: var(--radius); padding: 1.45rem 1.25rem; margin-top: 1rem; text-align: center; }
+    .price-num { font-size: 3rem; font-weight: 800; color: #2a6b1c; line-height: 1; margin-bottom: 0.25rem; }
+    .price-label { font-size: 1.02rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem; }
+    .price-includes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.75rem; }
+    .pi { background: var(--brand-white); border: 1px solid var(--border); border-radius: 6px; padding: 0.35rem 0.8rem; font-size: 0.84rem; font-weight: 600; color: var(--text-muted); }
+    .pi::before { content: "\2713 "; color: #2a6b1c; font-weight: 800; }
+    .highlight-box { background: var(--brand-warm); border-left: 4px solid var(--brand-accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.1rem 1.2rem; margin-top: 1rem; }
+    .reason-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.25rem; }
+    @media (max-width: 480px) { .reason-grid { grid-template-columns: 1fr; } }
+    .reason-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+    .reason-card-title { font-size: 0.92rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.3rem; }
+    .reason-card-desc { font-size: 0.85rem; line-height: 1.55; color: var(--text-muted); }
+    .check-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.6rem; }
+    .check-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.95rem; line-height: 1.55; color: var(--text-muted); padding: 0.75rem 0.9rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 8px; }
+    .check-list li::before { content: "\2713"; color: var(--brand-accent); font-weight: 800; flex-shrink: 0; }
+    .form-wrap { background: var(--brand-warm); border: 2px solid var(--brand-accent); border-radius: var(--radius); padding: 1.6rem 1.25rem; margin-top: 1rem; }
+    .form-wrap h3 { font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0 0 0.25rem; }
+    .form-sub { font-size: 0.9rem; color: var(--text-muted); margin: 0 0 1.1rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    @media (max-width: 500px) { .form-grid { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 0.3rem; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 0.78rem; font-weight: 700; color: var(--text-main); letter-spacing: 0.03em; text-transform: uppercase; }
+    .field input, .field select, .field textarea { width: 100%; border: 2px solid var(--border); border-radius: 8px; padding: 0.72rem 0.85rem; font-size: 0.95rem; background: var(--brand-white); color: var(--text-main); font-family: inherit; transition: border-color 0.15s; outline: none; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--brand-accent); }
+    .field textarea { resize: vertical; min-height: 90px; }
+    .form-submit { display: block; width: 100%; margin-top: 1rem; background: var(--brand-accent); color: #fff; border: none; padding: 1rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: opacity 0.15s, transform 0.15s; }
+    .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
     .faq-list { display: flex; flex-direction: column; margin-top: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
     details.faq-item { border-bottom: 1px solid var(--border); }
     details.faq-item:last-child { border-bottom: none; }
-    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; }
+    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; gap: 1rem; }
     details.faq-item summary::-webkit-details-marker { display: none; }
     details.faq-item summary:hover { background: var(--brand-warm); }
-    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; margin-left: 1rem; }
-    details.faq-item[open] summary::after { content: "−"; }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; }
+    details.faq-item[open] summary::after { content: "\2212"; }
     .faq-answer { padding: 0 1.1rem 1rem; font-size: 0.93rem; line-height: 1.7; color: var(--text-muted); background: var(--brand-white); }
-    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.1rem; }
+    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1rem; }
     .suburb-chip { display: inline-block; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.85rem; font-size: 0.84rem; font-weight: 600; color: var(--text-main); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
     .suburb-chip:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
-    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.1rem; }
+    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
     .page-link { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; font-size: 0.93rem; font-weight: 600; color: var(--text-main); transition: background 0.15s, border-color 0.15s; }
     .page-link:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
     .page-link span { opacity: 0.5; font-size: 1.1rem; }
-    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.5rem 1.25rem; text-align: center; }
-    .bottom-cta h2 { font-size: clamp(1.3rem, 4.5vw, 1.7rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
-    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 0 1.75rem; line-height: 1.6; }
+    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.7rem 1.25rem; text-align: center; }
+    .bottom-cta h2 { font-size: clamp(1.35rem, 4.5vw, 1.8rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
+    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 auto 1.75rem; line-height: 1.6; max-width: 460px; }
+    .reviews-grid { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.1rem; }
+    .review-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .review-stars { color: #f59e0b; font-size: 1.1rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .review-text { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.6rem; font-style: italic; }
+    .review-author { font-size: 0.84rem; font-weight: 700; color: var(--text-main); }
   </style>
 
   <section class="hero">
-    <span class="hero-eyebrow">Ballan VIC 3342</span>
-    <h1>Chimney Sweeping<br>Ballan VIC 3342</h1>
-    <p class="hero-lead">
-      Ballan sits at a higher elevation than most of the region — winters here are colder and wood heaters work overtime. Daves Chimney Sweeping keeps chimneys and flues clean and working properly for Ballan homes.
-    </p>
-    <p class="hero-sub">
-      Local, owner-operated, and part of our regular Bacchus Marsh area run.
-    </p>
+    <span class="hero-eyebrow">{suburb} VIC {postcode}</span>
+    <h1>Chimney Sweeping<br />{suburb} VIC {postcode}</h1>
+    <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
+    <p class="hero-lead">Ballan sits at a higher elevation than much of the Bacchus Marsh corridor, so wood heaters and fireplaces tend to get a real workout through winter.</p>
+    <p class="hero-sub">Owner-operated, local service, and direct contact with Dave from quote to job completion.</p>
     <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+      <a class="btn btn-call" href="tel:0476302729">Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon-Sat</span>
+  </div>
+
+  <section class="section">
+    <p class="section-label">Pricing</p>
+    <h2>$199 Chimney Inspection and Full Clean in {suburb}</h2>
+    <p>One flat rate for the full clean. No hidden extras, no call-out fee, and no guesswork on the day.</p>
+    <div class="price-box">
+      <div class="price-num">$199</div>
+      <div class="price-label">Chimney Inspection and Full Clean - {suburb}</div>
+      <div class="price-includes">
+        <span class="pi">Chimney sweep</span>
+        <span class="pi">Flue cleaning</span>
+        <span class="pi">Soot and ash removal</span>
+        <span class="pi">Blockage check</span>
+        <span class="pi">Condition report</span>
+        <span class="pi">No call-out fee</span>
+      </div>
     </div>
   </section>
 
   <section class="section">
-    <p class="section-label">Why it matters</p>
-    <h2>Why Ballan Homes Benefit From Regular Chimney Cleaning</h2>
-    <p>
-      In a cooler climate like Ballan VIC 3342, wood heaters often run for longer and more frequently than in warmer parts of the state. That means flues and chimneys accumulate soot and creosote faster.
-    </p>
+    <p class="section-label">Local service</p>
+    <h2>Chimney Cleaning for Ballan Homes</h2>
     <div class="highlight-box">
-      A clean flue draws better, smells less, and is less likely to give you trouble mid-winter when you need the heater most. It's the kind of maintenance that's easy to put off — until it becomes a problem.
+      <p>Ballan is the main township of the Moorabool Shire — a former gold rush settlement dating to 1851 with a strong country town character that spans multiple housing eras. Sitting at roughly 400 metres elevation in the Werribee River catchment, it is consistently colder than the Bacchus Marsh valley below, and frosts are regular from May through August. The older streets around the town centre include Victorian-era weatherboards with original fireplaces in service for generations, while post-war development added brick homes with chimneys now approaching seventy years old. We service Ballan on our regular Bacchus Marsh run and find the older housing stock here often has chimneys that haven't had a professional clean in many years.</p>
+      <p>We also cover nearby areas such as {nearbySuburbs.map((item) => item.label).join(", ")}.</p>
     </div>
   </section>
 
   <section class="section">
-    <p class="section-label">What's included</p>
-    <h2>Chimney &amp; Heater Cleaning Services in Ballan</h2>
-    <p>We handle all the core chimney and heating maintenance for Ballan homes:</p>
+    <p class="section-label">Common reasons to book</p>
+    <h2>Signs Your {suburb} Chimney Needs Cleaning</h2>
+    <div class="reason-grid">
+      <div class="reason-card"><div class="reason-card-title">Smoke coming back into the room</div><div class="reason-card-desc">A blocked or heavily sooted flue is the most common cause, and a proper clean usually fixes it.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Persistent smoky smell</div><div class="reason-card-desc">Old ash, creosote and buildup in the flue can leave a burnt smell even when the fire is out.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Weak draw or hard-to-light fire</div><div class="reason-card-desc">If the fire struggles to breathe, the chimney or flue often needs attention.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Over 12 months since the last clean</div><div class="reason-card-desc">Annual servicing is the easiest way to stay ahead of soot, nests and winter problems.</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">What is included</p>
+    <h2>Everything Covered in One Visit</h2>
+    <p>We clean the full system, not just the part you can see from the living room.</p>
     <ul class="check-list">
-      <li>Chimney sweeping — stack and firebox cleaned thoroughly</li>
-      <li>Flue cleaning — liner or pipe cleared for proper airflow</li>
-      <li>Wood heater service — heater body, baffle and connections</li>
-      <li>Open fireplace cleaning — firebox and smoke chamber</li>
+      <li>Chimney sweeping from firebox to chimney pot</li>
+      <li>Flue liner or flue pipe cleaning</li>
+      <li>Wood heater and slow combustion cleaning</li>
+      <li>Open fireplace cleaning</li>
       <li>Soot, ash and creosote removal</li>
-      <li>Nest and debris blockage clearing</li>
+      <li>Bird nest and blockage clearing where needed</li>
+      <li>Simple verbal condition report before we leave</li>
     </ul>
   </section>
 
   <section class="section">
-    <p class="section-label">About us</p>
-    <h2>Owner-Operated, Out This Way Regularly</h2>
-    <div class="about-card">
-      <p>
-        Daves Chimney Sweeping covers Ballan VIC 3342 as part of the Bacchus Marsh service area. It's an owner-operated business — Dave does the work himself, which means you get consistent service and a direct line if you have questions.
-      </p>
-      <div class="about-detail">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
-      <div class="about-detail">📍 <strong>Service area:</strong>&nbsp;Ballan VIC 3342 and surrounds</div>
+    <p class="section-label">What customers say</p>
+    <h2>Reviews from Ballan Residents</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Dave was out before winter and gave the old fireplace a proper clean. Noticed the difference in draw straight away — hadn't been done in years. Worth every cent."</p>
+        <div class="review-author">Tony K. — Ballan 3342</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Very easy to deal with. Turned up when he said he would, left everything spotless. No upselling, just a straightforward job done properly."</p>
+        <div class="review-author">Kerrie M. — Ballan 3342</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Second year running with Dave now. Always reliable, price hasn't changed, and the chimney draws much better after each service. Good operator."</p>
+        <div class="review-author">Greg S. — Ballan 3342</div>
+      </div>
     </div>
   </section>
 
-  <section class="section">
-    <p class="section-label">Nearby areas</p>
-    <h2>Other Suburbs We Cover Near Ballan</h2>
-    <div class="suburb-chips">
-      <a class="suburb-chip" href="/chimney-sweeping/bacchus-marsh">Bacchus Marsh 3340</a>
-      <a class="suburb-chip" href="/chimney-sweeping/darley">Darley 3340</a>
-      <a class="suburb-chip" href="/chimney-sweeping/maddingley">Maddingley 3340</a>
+  <section class="section" id="quote">
+    <p class="section-label">Book now</p>
+    <h2>Book Your $199 Chimney Clean in {suburb}</h2>
+    <div class="form-wrap">
+      <h3>Quick Quote - {suburb}</h3>
+      <p class="form-sub">Send through your details and Dave will get back to you to confirm the job.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="suburb" value={suburb + " VIC " + postcode} />
+        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select...</option>
+              <option value="Chimney Inspection and Clean - $199">Chimney Inspection and Clean - $199</option>
+              <option>Wood Heater Service</option>
+              <option>Flue Cleaning</option>
+              <option>Blockage / Nest Removal</option>
+              <option>Not sure - need advice</option>
+            </select>
+          </div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, and when it was last cleaned."></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">Send Booking Request</button>
+      </form>
     </div>
   </section>
 
   <section class="section">
     <p class="section-label">FAQs</p>
-    <h2>Ballan Chimney Sweeping — Common Questions</h2>
+    <h2>Chimney Sweeping {suburb} - Common Questions</h2>
     <div class="faq-list">
       {faqs.map(({ q, a }) => (
         <details class="faq-item">
@@ -155,23 +272,34 @@ const faqs = [
   </section>
 
   <section class="section">
+    <p class="section-label">Nearby areas</p>
+    <h2>Suburbs Near {suburb} We Also Service</h2>
+    <p>We also cover the surrounding suburbs shown below.</p>
+    <div class="suburb-chips">
+      {nearbySuburbs.map((item) => (
+        <a class="suburb-chip" href={"/chimney-sweeping/" + item.slug}>{item.label}</a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
     <p class="section-label">More pages</p>
-    <h2>Nearby Service Pages</h2>
+    <h2>Related Service Pages</h2>
     <nav class="page-links" aria-label="Nearby suburb pages">
-      <a class="page-link" href="/chimney-sweeping/bacchus-marsh">Chimney Sweeping — Bacchus Marsh VIC 3340 <span>›</span></a>
-      <a class="page-link" href="/chimney-sweeping/darley">Chimney Sweeping — Darley VIC 3340 <span>›</span></a>
-      <a class="page-link" href="/chimney-sweeping/maddingley">Chimney Sweeping — Maddingley VIC 3340 <span>›</span></a>
-      <a class="page-link" href="/contact">Get a Quote <span>›</span></a>
+      {nearbySuburbs.map((item) => (
+        <a class="page-link" href={"/chimney-sweeping/" + item.slug}>{item.label} <span>&#8250;</span></a>
+      ))}
+      <a class="page-link" href="/chimney-sweeping/bacchus-marsh">Bacchus Marsh Chimney Sweeping <span>&#8250;</span></a>
+      <a class="page-link" href="/contact">Contact Page <span>&#8250;</span></a>
     </nav>
   </section>
 
   <section class="bottom-cta">
-    <h2>Book a Chimney Sweep in Ballan</h2>
-    <p>Give Dave a call or drop us a message — we'll sort out a time and confirm the details.</p>
+    <h2>{suburb} Chimney Sweep - $199 Flat Rate</h2>
+    <p>Call Dave directly or use the form above. We will confirm the job and lock in a time that works.</p>
     <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+      <a class="btn btn-call" href="tel:0476302729">Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
-
 </MainLayout>

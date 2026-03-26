@@ -1,147 +1,266 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import SuburbSeo from "../../components/SuburbSeo.astro";
 
+const pageTitle = "Chimney Sweep Maddingley VIC 3340 - $199 Clean & Inspect";
+const pageDescription = "Chimney sweeping Maddingley VIC 3340 - $199 chimney inspection and full clean. Flue cleaning, wood heater service, owner-operated. Call 0476 302 729.";
+const suburb = "Maddingley";
+const postcode = "3340";
 const faqs = [
   {
-    q: "Where is Maddingley?",
-    a: "Maddingley VIC 3340 is a small town that sits between Bacchus Marsh and Ballan in Melbourne's west. We service it as part of our Bacchus Marsh area run."
+    "q": "Where is Maddingley?",
+    "a": "Maddingley VIC 3340 is a small town that sits between Bacchus Marsh and Ballan in Melbourne's west. We service it as part of our Bacchus Marsh area run."
   },
   {
-    q: "What happens during a chimney sweep?",
-    a: "We lay down dust sheets, clean the firebox and flue thoroughly from the bottom, clear any soot or debris, and check for obvious blockages. It usually takes about an hour depending on the setup."
+    "q": "What happens during a chimney sweep?",
+    "a": "We lay down dust sheets, clean the firebox and flue thoroughly from the bottom, clear any soot or debris, and check for obvious blockages. It usually takes about an hour depending on the setup."
   },
   {
-    q: "Do I need to have the fire cold before you arrive?",
-    a: "Yes — we need the fire to have been cold for at least a few hours. Ash in the firebox is fine, we'll deal with it. Just no active or recent burning."
+    "q": "Do I need to have the fire cold before you arrive?",
+    "a": "Yes — we need the fire to have been cold for at least a few hours. Ash in the firebox is fine, we'll deal with it. Just no active or recent burning."
   },
   {
-    q: "Can you clean a wood heater that's been installed in an older home?",
-    a: "Yes. Older homes often have chimneys and flue setups that haven't been touched in years — these are actually the jobs where a clean makes the most noticeable difference."
+    "q": "Can you clean a wood heater that's been installed in an older home?",
+    "a": "Yes. Older homes often have chimneys and flue setups that haven't been touched in years — these are actually the jobs where a clean makes the most noticeable difference."
+  }
+];
+const nearbySuburbs = [
+  {
+    "slug": "bacchus-marsh",
+    "label": "Bacchus Marsh 3340"
+  },
+  {
+    "slug": "darley",
+    "label": "Darley 3340"
+  },
+  {
+    "slug": "ballan",
+    "label": "Ballan 3342"
   }
 ];
 ---
 
 <MainLayout
-  title="Chimney Sweeping Maddingley VIC 3340"
-  description="Chimney sweeping in Maddingley VIC 3340. Daves Chimney Sweeping handles flue cleaning and wood heater servicing near Bacchus Marsh. Local, honest service."
+  title={pageTitle}
+  description={pageDescription}
   clusterBase="Bacchus Marsh"
   clusterRegion="Bacchus Marsh and nearby suburbs"
-  homeHref="/chimney-sweeping/bacchus-marsh"
+  homeHref="/"
   servicePageHref="/chimney-sweeping/bacchus-marsh"
   servicePageLabel="Bacchus Marsh Chimney Sweeping"
 >
+  <SuburbSeo
+    slug="maddingley"
+    suburb={suburb}
+    postcode={postcode}
+    title={pageTitle}
+    description={pageDescription}
+    faqs={faqs}
+  />
+
   <style>
     :root { --brand-dark: #1a1a18; --brand-mid: #2c2c29; --brand-accent: #c8500a; --brand-warm: #f5f0e8; --brand-white: #ffffff; --text-main: #1a1a18; --text-muted: #5a5a54; --border: #e2ddd4; --radius: 10px; }
-    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 2.8rem 1.25rem 2.5rem; text-align: center; }
-    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.1rem; }
-    .hero h1 { font-size: clamp(1.65rem, 5vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--brand-white); }
-    .hero-lead { font-size: 1rem; line-height: 1.65; color: #c8c5be; margin: 0 auto 0.75rem; max-width: 480px; }
-    .hero-sub { font-size: 0.93rem; line-height: 1.6; color: #908d86; max-width: 480px; margin: 0 auto 2rem; }
+    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 3rem 1.25rem 2.75rem; text-align: center; }
+    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 20px; margin-bottom: 1rem; }
+    .hero h1 { font-size: clamp(1.9rem, 5.5vw, 2.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 0.85rem; color: var(--brand-white); }
+    .price-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #1e4d14; color: #7edd5a; font-size: 0.9rem; font-weight: 800; padding: 0.45rem 1.1rem; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #2a6b1c; }
+    .hero-lead { font-size: 1.02rem; line-height: 1.68; color: #c8c5be; margin: 0 auto 0.8rem; max-width: 560px; }
+    .hero-sub { font-size: 0.95rem; line-height: 1.6; color: #908d86; max-width: 520px; margin: 0 auto 2.1rem; }
     .btn-row { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
-    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s; }
-    .btn:hover { opacity: 0.88; }
+    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s, transform 0.15s; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
     .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.1rem; }
     .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
-    .section { padding: 2.2rem 1.25rem; max-width: 680px; margin: 0 auto; }
+    .trust-bar { background: var(--brand-mid); padding: 1rem 1.25rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .ti { display: flex; align-items: center; gap: 0.45rem; font-size: 0.8rem; color: #908d86; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .ti svg { color: var(--brand-accent); flex-shrink: 0; }
+    .section { padding: 2.35rem 1.25rem; max-width: 720px; margin: 0 auto; }
     .section + .section { border-top: 1px solid var(--border); }
-    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
-    .section h2 { font-size: clamp(1.25rem, 4vw, 1.6rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.25; }
-    .section p { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.85rem; }
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
+    .section h2 { font-size: clamp(1.35rem, 4vw, 1.75rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.2; }
+    .section p { font-size: 0.98rem; line-height: 1.72; color: var(--text-muted); margin: 0 0 0.9rem; }
     .section p:last-child { margin-bottom: 0; }
-    /* Unique: icon-paragraph service blocks */
-    .service-block { display: flex; gap: 0.9rem; align-items: flex-start; margin-bottom: 1rem; }
-    .service-block:last-child { margin-bottom: 0; }
-    .service-block-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
-    .service-block-body h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin: 0 0 0.2rem; }
-    .service-block-body p { font-size: 0.88rem; line-height: 1.55; color: var(--text-muted); margin: 0; }
-    .about-card { background: var(--brand-warm); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.25rem; margin-top: 1rem; }
-    .about-card p { font-size: 0.96rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.8rem; }
-    .about-detail { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; }
-    .about-detail strong { color: var(--text-main); }
-    .about-detail a { color: var(--brand-accent); font-weight: 700; text-decoration: none; }
+    .price-box { background: var(--brand-warm); border: 2px solid #2a6b1c; border-radius: var(--radius); padding: 1.45rem 1.25rem; margin-top: 1rem; text-align: center; }
+    .price-num { font-size: 3rem; font-weight: 800; color: #2a6b1c; line-height: 1; margin-bottom: 0.25rem; }
+    .price-label { font-size: 1.02rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem; }
+    .price-includes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.75rem; }
+    .pi { background: var(--brand-white); border: 1px solid var(--border); border-radius: 6px; padding: 0.35rem 0.8rem; font-size: 0.84rem; font-weight: 600; color: var(--text-muted); }
+    .pi::before { content: "\2713 "; color: #2a6b1c; font-weight: 800; }
+    .highlight-box { background: var(--brand-warm); border-left: 4px solid var(--brand-accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.1rem 1.2rem; margin-top: 1rem; }
+    .reason-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.25rem; }
+    @media (max-width: 480px) { .reason-grid { grid-template-columns: 1fr; } }
+    .reason-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+    .reason-card-title { font-size: 0.92rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.3rem; }
+    .reason-card-desc { font-size: 0.85rem; line-height: 1.55; color: var(--text-muted); }
+    .check-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.6rem; }
+    .check-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.95rem; line-height: 1.55; color: var(--text-muted); padding: 0.75rem 0.9rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 8px; }
+    .check-list li::before { content: "\2713"; color: var(--brand-accent); font-weight: 800; flex-shrink: 0; }
+    .form-wrap { background: var(--brand-warm); border: 2px solid var(--brand-accent); border-radius: var(--radius); padding: 1.6rem 1.25rem; margin-top: 1rem; }
+    .form-wrap h3 { font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0 0 0.25rem; }
+    .form-sub { font-size: 0.9rem; color: var(--text-muted); margin: 0 0 1.1rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    @media (max-width: 500px) { .form-grid { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 0.3rem; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 0.78rem; font-weight: 700; color: var(--text-main); letter-spacing: 0.03em; text-transform: uppercase; }
+    .field input, .field select, .field textarea { width: 100%; border: 2px solid var(--border); border-radius: 8px; padding: 0.72rem 0.85rem; font-size: 0.95rem; background: var(--brand-white); color: var(--text-main); font-family: inherit; transition: border-color 0.15s; outline: none; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--brand-accent); }
+    .field textarea { resize: vertical; min-height: 90px; }
+    .form-submit { display: block; width: 100%; margin-top: 1rem; background: var(--brand-accent); color: #fff; border: none; padding: 1rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: opacity 0.15s, transform 0.15s; }
+    .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
     .faq-list { display: flex; flex-direction: column; margin-top: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
     details.faq-item { border-bottom: 1px solid var(--border); }
     details.faq-item:last-child { border-bottom: none; }
-    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; }
+    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; gap: 1rem; }
     details.faq-item summary::-webkit-details-marker { display: none; }
     details.faq-item summary:hover { background: var(--brand-warm); }
-    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; margin-left: 1rem; }
-    details.faq-item[open] summary::after { content: "−"; }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; }
+    details.faq-item[open] summary::after { content: "\2212"; }
     .faq-answer { padding: 0 1.1rem 1rem; font-size: 0.93rem; line-height: 1.7; color: var(--text-muted); background: var(--brand-white); }
-    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.1rem; }
+    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1rem; }
     .suburb-chip { display: inline-block; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.85rem; font-size: 0.84rem; font-weight: 600; color: var(--text-main); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
     .suburb-chip:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
-    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.1rem; }
+    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
     .page-link { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; font-size: 0.93rem; font-weight: 600; color: var(--text-main); transition: background 0.15s, border-color 0.15s; }
     .page-link:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
     .page-link span { opacity: 0.5; font-size: 1.1rem; }
-    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.5rem 1.25rem; text-align: center; }
-    .bottom-cta h2 { font-size: clamp(1.3rem, 4.5vw, 1.7rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
-    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 0 1.75rem; line-height: 1.6; }
+    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.7rem 1.25rem; text-align: center; }
+    .bottom-cta h2 { font-size: clamp(1.35rem, 4.5vw, 1.8rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
+    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 auto 1.75rem; line-height: 1.6; max-width: 460px; }
+    .reviews-grid { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.1rem; }
+    .review-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .review-stars { color: #f59e0b; font-size: 1.1rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .review-text { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.6rem; font-style: italic; }
+    .review-author { font-size: 0.84rem; font-weight: 700; color: var(--text-main); }
   </style>
 
   <section class="hero">
-    <span class="hero-eyebrow">Maddingley VIC 3340</span>
-    <h1>Chimney Sweeping<br>Maddingley VIC 3340</h1>
-    <p class="hero-lead">
-      Maddingley is a quiet spot between Bacchus Marsh and Ballan — but the chimneys still need looking after. Daves Chimney Sweeping provides wood heater and fireplace cleaning for homes in Maddingley 3340 and nearby areas.
-    </p>
-    <p class="hero-sub">
-      Straightforward service, fair pricing, done properly. Call Dave for a quick quote.
-    </p>
+    <span class="hero-eyebrow">{suburb} VIC {postcode}</span>
+    <h1>Chimney Sweeping<br />{suburb} VIC {postcode}</h1>
+    <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
+    <p class="hero-lead">Maddingley shares the same cold valley conditions as the rest of the Bacchus Marsh area, so fireplaces and wood heaters here work hard over winter.</p>
+    <p class="hero-sub">Owner-operated, local service, and direct contact with Dave from quote to job completion.</p>
     <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+      <a class="btn btn-call" href="tel:0476302729">Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon-Sat</span>
+  </div>
+
+  <section class="section">
+    <p class="section-label">Pricing</p>
+    <h2>$199 Chimney Inspection and Full Clean in {suburb}</h2>
+    <p>One flat rate for the full clean. No hidden extras, no call-out fee, and no guesswork on the day.</p>
+    <div class="price-box">
+      <div class="price-num">$199</div>
+      <div class="price-label">Chimney Inspection and Full Clean - {suburb}</div>
+      <div class="price-includes">
+        <span class="pi">Chimney sweep</span>
+        <span class="pi">Flue cleaning</span>
+        <span class="pi">Soot and ash removal</span>
+        <span class="pi">Blockage check</span>
+        <span class="pi">Condition report</span>
+        <span class="pi">No call-out fee</span>
+      </div>
     </div>
   </section>
 
   <section class="section">
-    <p class="section-label">Services</p>
-    <h2>What We Do for Maddingley Homes</h2>
-    <p>We cover all the standard chimney and heating maintenance work:</p>
-    <div class="service-block">
-      <span class="service-block-icon">🔥</span>
-      <div class="service-block-body"><h3>Chimney sweeping</h3><p>Full clean of the chimney from firebox to pot, removing soot and creosote that builds up with regular use.</p></div>
-    </div>
-    <div class="service-block">
-      <span class="service-block-icon">🌬️</span>
-      <div class="service-block-body"><h3>Flue cleaning</h3><p>Clearing the flue liner or pipe that carries smoke out of the house — essential for good airflow and draw.</p></div>
-    </div>
-    <div class="service-block">
-      <span class="service-block-icon">🪵</span>
-      <div class="service-block-body"><h3>Wood heater service</h3><p>Cleaning the heater body, baffle plate and flue connection to keep the unit burning efficiently.</p></div>
-    </div>
-    <div class="service-block">
-      <span class="service-block-icon">🐦</span>
-      <div class="service-block-body"><h3>Blockage removal</h3><p>Bird nests and debris cleared from the flue — a common find in chimneys that haven't been used for a season.</p></div>
+    <p class="section-label">Local service</p>
+    <h2>Maddingley Chimney Sweep Service</h2>
+    <div class="highlight-box">
+      <p>Maddingley is one of the oldest settlements in the Moorabool Shire — a former gold rush township dating to 1851, sitting just east of Bacchus Marsh proper. The streets closest to the old town centre include Victorian and Edwardian-era homes with original fireplaces that have been in service for over a century. Mid-twentieth century development added brick homes from the 1950s and 1960s with chimneys now sixty or seventy years old. The slight elevation above the Bacchus Marsh township means cold mornings and long heating seasons. We service Maddingley as part of our Bacchus Marsh run and find the older properties here often have the most history behind their chimneys — many of which haven't been professionally cleaned in decades.</p>
+      <p>We also cover nearby areas such as {nearbySuburbs.map((item) => item.label).join(", ")}.</p>
     </div>
   </section>
 
   <section class="section">
-    <p class="section-label">About us</p>
-    <h2>A Local Service Worth Calling</h2>
-    <div class="about-card">
-      <p>
-        Daves Chimney Sweeping is owner-operated and covers Maddingley VIC 3340 as part of the Bacchus Marsh area. You deal directly with Dave — pricing is clear before we start, and we leave the job properly done.
-      </p>
-      <div class="about-detail">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
-      <div class="about-detail">📍 <strong>Service area:</strong>&nbsp;Maddingley VIC 3340 and surrounds</div>
+    <p class="section-label">Common reasons to book</p>
+    <h2>Signs Your {suburb} Chimney Needs Cleaning</h2>
+    <div class="reason-grid">
+      <div class="reason-card"><div class="reason-card-title">Smoke coming back into the room</div><div class="reason-card-desc">A blocked or heavily sooted flue is the most common cause, and a proper clean usually fixes it.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Persistent smoky smell</div><div class="reason-card-desc">Old ash, creosote and buildup in the flue can leave a burnt smell even when the fire is out.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Weak draw or hard-to-light fire</div><div class="reason-card-desc">If the fire struggles to breathe, the chimney or flue often needs attention.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Over 12 months since the last clean</div><div class="reason-card-desc">Annual servicing is the easiest way to stay ahead of soot, nests and winter problems.</div></div>
     </div>
   </section>
 
   <section class="section">
-    <p class="section-label">Nearby areas</p>
-    <h2>Nearby Areas We Also Cover</h2>
-    <div class="suburb-chips">
-      <a class="suburb-chip" href="/chimney-sweeping/bacchus-marsh">Bacchus Marsh 3340</a>
-      <a class="suburb-chip" href="/chimney-sweeping/darley">Darley 3340</a>
-      <a class="suburb-chip" href="/chimney-sweeping/ballan">Ballan 3342</a>
+    <p class="section-label">What is included</p>
+    <h2>Everything Covered in One Visit</h2>
+    <p>We clean the full system, not just the part you can see from the living room.</p>
+    <ul class="check-list">
+      <li>Chimney sweeping from firebox to chimney pot</li>
+      <li>Flue liner or flue pipe cleaning</li>
+      <li>Wood heater and slow combustion cleaning</li>
+      <li>Open fireplace cleaning</li>
+      <li>Soot, ash and creosote removal</li>
+      <li>Bird nest and blockage clearing where needed</li>
+      <li>Simple verbal condition report before we leave</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <p class="section-label">What customers say</p>
+    <h2>Reviews from Maddingley Residents</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"The fireplace in our older Maddingley home hadn't been touched in years. Dave did a thorough job — found a fair bit in there — and left everything clean. Great service."</p>
+        <div class="review-author">Rob M. — Maddingley 3340</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Booked Dave before winter and very glad we did. He's efficient, honest and doesn't try to sell you extras you don't need. Heater is drawing perfectly now."</p>
+        <div class="review-author">Carol B. — Maddingley 3340</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Good value and professional from start to finish. Turned up on time, worked cleanly and gave us an honest rundown before leaving. Will book again."</p>
+        <div class="review-author">Dean H. — Maddingley 3340</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="quote">
+    <p class="section-label">Book now</p>
+    <h2>Book Your $199 Chimney Clean in {suburb}</h2>
+    <div class="form-wrap">
+      <h3>Quick Quote - {suburb}</h3>
+      <p class="form-sub">Send through your details and Dave will get back to you to confirm the job.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="suburb" value={suburb + " VIC " + postcode} />
+        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select...</option>
+              <option value="Chimney Inspection and Clean - $199">Chimney Inspection and Clean - $199</option>
+              <option>Wood Heater Service</option>
+              <option>Flue Cleaning</option>
+              <option>Blockage / Nest Removal</option>
+              <option>Not sure - need advice</option>
+            </select>
+          </div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, and when it was last cleaned."></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">Send Booking Request</button>
+      </form>
     </div>
   </section>
 
   <section class="section">
     <p class="section-label">FAQs</p>
-    <h2>Questions About Our Maddingley Service</h2>
+    <h2>Chimney Sweeping {suburb} - Common Questions</h2>
     <div class="faq-list">
       {faqs.map(({ q, a }) => (
         <details class="faq-item">
@@ -153,23 +272,34 @@ const faqs = [
   </section>
 
   <section class="section">
+    <p class="section-label">Nearby areas</p>
+    <h2>Suburbs Near {suburb} We Also Service</h2>
+    <p>We also cover the surrounding suburbs shown below.</p>
+    <div class="suburb-chips">
+      {nearbySuburbs.map((item) => (
+        <a class="suburb-chip" href={"/chimney-sweeping/" + item.slug}>{item.label}</a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
     <p class="section-label">More pages</p>
-    <h2>Nearby Service Pages</h2>
+    <h2>Related Service Pages</h2>
     <nav class="page-links" aria-label="Nearby suburb pages">
-      <a class="page-link" href="/chimney-sweeping/bacchus-marsh">Chimney Sweeping — Bacchus Marsh VIC 3340 <span>›</span></a>
-      <a class="page-link" href="/chimney-sweeping/darley">Chimney Sweeping — Darley VIC 3340 <span>›</span></a>
-      <a class="page-link" href="/chimney-sweeping/ballan">Chimney Sweeping — Ballan VIC 3342 <span>›</span></a>
-      <a class="page-link" href="/contact">Get a Quote <span>›</span></a>
+      {nearbySuburbs.map((item) => (
+        <a class="page-link" href={"/chimney-sweeping/" + item.slug}>{item.label} <span>&#8250;</span></a>
+      ))}
+      <a class="page-link" href="/chimney-sweeping/bacchus-marsh">Bacchus Marsh Chimney Sweeping <span>&#8250;</span></a>
+      <a class="page-link" href="/contact">Contact Page <span>&#8250;</span></a>
     </nav>
   </section>
 
   <section class="bottom-cta">
-    <h2>Maddingley Chimney Sweep — Get a Quote</h2>
-    <p>Call Dave or send a message. We'll get back to you promptly with a fair price.</p>
+    <h2>{suburb} Chimney Sweep - $199 Flat Rate</h2>
+    <p>Call Dave directly or use the form above. We will confirm the job and lock in a time that works.</p>
     <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+      <a class="btn btn-call" href="tel:0476302729">Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
-
 </MainLayout>

@@ -1,0 +1,86 @@
+---
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  slug: string;
+  suburb: string;
+  postcode: string;
+  title: string;
+  description: string;
+  faqs?: FaqItem[];
+}
+
+const { slug, suburb, postcode, title, description, faqs = [] } = Astro.props;
+
+const pageUrl = Astro.site ? new URL(`/chimney-sweeping/${slug}`, Astro.site).toString() : undefined;
+const areaLabel = `${suburb} VIC ${postcode}`;
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Daves Chimney Sweeping",
+  telephone: "+61476302729",
+  priceRange: "$199",
+  areaServed: [areaLabel],
+  ...(pageUrl ? { url: pageUrl } : {}),
+  description,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: suburb,
+    addressRegion: "VIC",
+    postalCode: postcode,
+    addressCountry: "AU",
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: `Chimney Sweeping ${areaLabel}`,
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Daves Chimney Sweeping",
+    telephone: "+61476302729",
+  },
+  areaServed: areaLabel,
+  serviceType: "Chimney Sweeping",
+  offers: {
+    "@type": "Offer",
+    price: "199",
+    priceCurrency: "AUD",
+    description: "Chimney inspection and full clean",
+  },
+};
+
+const faqSchema =
+  faqs.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map(({ q, a }) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: a,
+          },
+        })),
+      }
+    : undefined;
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: title,
+  description,
+  ...(pageUrl ? { url: pageUrl } : {}),
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(localBusinessSchema)}></script>
+<script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
+<script type="application/ld+json" is:inline set:html={JSON.stringify(pageSchema)}></script>
+{faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>}

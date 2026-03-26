@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daveschimneysweeping.com.au/sitemap-index.xml

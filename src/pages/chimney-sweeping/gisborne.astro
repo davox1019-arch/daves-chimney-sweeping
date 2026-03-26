@@ -1,576 +1,270 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import SuburbSeo from "../../components/SuburbSeo.astro";
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Daves Chimney Sweeping",
-  telephone: "+61476302729",
-  areaServed: [
-    "Gisborne VIC 3437",
-    "New Gisborne VIC 3438",
-    "Riddells Creek VIC 3431",
-    "Sunbury VIC 3429",
-    "Macedon VIC 3440",
-    "Diggers Rest VIC 3427"
-  ],
-  url: "https://daveschimneysweeping.com.au/chimney-sweeping/gisborne",
-  description:
-    "Daves Chimney Sweeping provides chimney sweeping, flue cleaning, wood heater cleaning and fireplace servicing in Gisborne VIC 3437 and nearby suburbs.",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Gisborne",
-    addressRegion: "VIC",
-    postalCode: "3437",
-    addressCountry: "AU"
-  }
-};
-
-const localBusinessSchemaJson = JSON.stringify(localBusinessSchema);
-
+const pageTitle = "Chimney Sweep Gisborne VIC 3437 - $199 Clean & Inspect";
+const pageDescription = "Chimney sweeping Gisborne VIC 3437 - $199 chimney inspection and full clean. Flue cleaning, wood heater service, owner-operated. Call 0476 302 729.";
+const suburb = "Gisborne";
+const postcode = "3437";
 const faqs = [
   {
-    q: "Do you service homes across Gisborne?",
-    a: "Yes. We service Gisborne VIC 3437 and nearby surrounding areas. If you're close by and not completely sure, just call and we'll confirm it for you."
+    "q": "Do you service homes across Gisborne?",
+    "a": "Yes. We service Gisborne VIC 3437 and nearby surrounding areas. If you're close by and not completely sure, just call and we'll confirm it for you."
   },
   {
-    q: "Can you clean both chimneys and wood heater flues?",
-    a: "Yes. We clean chimneys, fireplace flues and wood heater systems depending on the setup in your home."
+    "q": "Can you clean both chimneys and wood heater flues?",
+    "a": "Yes. We clean chimneys, fireplace flues and wood heater systems depending on the setup in your home."
   },
   {
-    q: "What usually tells me a chimney clean is overdue?",
-    a: "Smoke drifting back inside, black soot buildup, a weaker draft, stronger smells than usual, or a fireplace that has gone a long time without a clean are all common signs."
+    "q": "What usually tells me a chimney clean is overdue?",
+    "a": "Smoke drifting back inside, black soot buildup, a weaker draft, stronger smells than usual, or a fireplace that has gone a long time without a clean are all common signs."
   },
   {
-    q: "Do you deal with bird nests and chimney blockages?",
-    a: "Yes. Nesting material and debris blockages are common and we can clear them as part of the service."
+    "q": "Do you deal with bird nests and chimney blockages?",
+    "a": "Yes. Nesting material and debris blockages are common and we can clear them as part of the service."
   },
   {
-    q: "How long does a typical job take?",
-    a: "Most chimney sweeping jobs take around 45 to 90 minutes depending on access, the type of fireplace or heater, and how much buildup is inside."
+    "q": "How long does a typical job take?",
+    "a": "Most chimney sweeping jobs take around 45 to 90 minutes depending on access, the type of fireplace or heater, and how much buildup is inside."
+  }
+];
+const nearbySuburbs = [
+  {
+    "slug": "riddells-creek",
+    "label": "Riddells Creek 3431"
+  },
+  {
+    "slug": "sunbury",
+    "label": "Sunbury 3429"
+  },
+  {
+    "slug": "diggers-rest",
+    "label": "Diggers Rest 3427"
   }
 ];
 ---
 
 <MainLayout
-  title="Chimney Sweeping Gisborne VIC 3437"
-  description="Need chimney sweeping in Gisborne VIC 3437? Daves Chimney Sweeping provides local chimney cleaning, flue cleaning and wood heater servicing with fast quotes."
+  title={pageTitle}
+  description={pageDescription}
   clusterBase="Sunbury"
   clusterRegion="Sunbury, Diggers Rest and nearby suburbs"
-  homeHref="/chimney-sweeping/sunbury"
+  homeHref="/"
   servicePageHref="/chimney-sweeping/sunbury"
   servicePageLabel="Sunbury Chimney Sweeping"
 >
-  <script type="application/ld+json" is:inline set:html={localBusinessSchemaJson}></script>
+  <SuburbSeo
+    slug="gisborne"
+    suburb={suburb}
+    postcode={postcode}
+    title={pageTitle}
+    description={pageDescription}
+    faqs={faqs}
+  />
 
   <style>
-    :root {
-      --brand-dark: #1f1e1b;
-      --brand-mid: #2a2824;
-      --brand-accent: #b65d1e;
-      --brand-white: #ffffff;
-      --brand-warm: #f5f1ea;
-      --brand-soft: #fbf8f3;
-      --text-main: #1a1a18;
-      --text-muted: #5e5a53;
-      --border: #e2ddd4;
-      --radius: 10px;
-    }
-
-    .hero {
-      background: linear-gradient(180deg, var(--brand-mid) 0%, var(--brand-dark) 100%);
-      padding: 2.75rem 1.25rem 2.4rem;
-      text-align: center;
-      border-bottom: 1px solid #2f2c27;
-    }
-
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--brand-accent);
-      margin-bottom: 0.85rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.65rem, 5vw, 2.2rem);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin: 0 0 1rem;
-      color: var(--brand-white);
-    }
-
-    .hero-lead {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: #c8c5be;
-      margin: 0 auto 0.75rem;
-      max-width: 520px;
-    }
-
-    .hero-sub {
-      font-size: 0.93rem;
-      line-height: 1.6;
-      color: #908d86;
-      max-width: 520px;
-      margin: 0 auto 2rem;
-    }
-
-    .btn-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.95rem 2rem;
-      border-radius: var(--radius);
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
-      text-align: center;
-      width: 100%;
-      max-width: 320px;
-      transition: opacity 0.15s;
-    }
-
-    .btn:hover {
-      opacity: 0.88;
-    }
-
-    .btn-call {
-      background: var(--brand-accent);
-      color: #fff;
-      font-size: 1.1rem;
-      letter-spacing: 0.01em;
-    }
-
-    .btn-quote {
-      background: transparent;
-      border: 2px solid #5a5a54;
-      color: #c8c5be;
-    }
-
-    .trust-bar {
-      background: var(--brand-mid);
-      padding: 0.95rem 1.25rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.8rem;
-      color: #908d86;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    .trust-item svg {
-      flex-shrink: 0;
-      color: var(--brand-accent);
-    }
-
-    .section {
-      padding: 2.2rem 1.25rem;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .section + .section {
-      border-top: 1px solid var(--border);
-    }
-
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--brand-accent);
-      margin-bottom: 0.55rem;
-    }
-
-    .section h2 {
-      font-size: clamp(1.25rem, 4vw, 1.6rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--text-main);
-      margin: 0 0 1rem;
-      line-height: 1.25;
-    }
-
-    .section p {
-      font-size: 0.96rem;
-      line-height: 1.72;
-      color: var(--text-muted);
-      margin: 0 0 0.9rem;
-    }
-
-    .section p:last-child {
-      margin-bottom: 0;
-    }
-
-    .problem-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
-      margin-top: 1.25rem;
-    }
-
-    .problem-card {
-      background: var(--brand-soft);
-      border-radius: var(--radius);
-      padding: 1rem 1rem 0.95rem;
-      border: 1px solid var(--border);
-    }
-
-    .problem-card-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 0.35rem;
-    }
-
-    .problem-card p {
-      font-size: 0.92rem;
-      margin: 0;
-    }
-
-    .service-list {
-      list-style: none;
-      padding: 0;
-      margin: 1.1rem 0 0;
-      display: grid;
-      gap: 0.65rem;
-    }
-
-    .service-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      font-size: 0.95rem;
-      line-height: 1.55;
-      color: var(--text-muted);
-    }
-
-    .service-list li::before {
-      content: "→";
-      color: var(--brand-accent);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 0.05em;
-    }
-
-    .area-box {
-      background: var(--brand-warm);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 1.2rem 1.1rem;
-      margin-top: 1rem;
-    }
-
-    .area-box p {
-      margin: 0 0 0.85rem;
-    }
-
-    .suburb-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-    }
-
-    .suburb-chip {
-      display: inline-block;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.45rem 0.85rem;
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: var(--text-main);
-      text-decoration: none;
-      transition: background 0.15s, border-color 0.15s;
-    }
-
-    .suburb-chip:hover {
-      background: var(--brand-accent);
-      border-color: var(--brand-accent);
-      color: #fff;
-    }
-
-    .about-card {
-      background: var(--brand-warm);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 1.5rem 1.25rem;
-      margin-top: 1rem;
-    }
-
-    .about-card p {
-      font-size: 0.96rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      margin: 0 0 0.8rem;
-    }
-
-    .about-detail {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-    }
-
-    .about-detail strong {
-      color: var(--text-main);
-    }
-
-    .about-detail a {
-      color: var(--brand-accent);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 1.25rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    details.faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-
-    details.faq-item:last-child {
-      border-bottom: none;
-    }
-
-    details.faq-item summary {
-      padding: 1rem 1.1rem;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text-main);
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      user-select: none;
-      background: var(--brand-white);
-      transition: background 0.15s;
-    }
-
-    details.faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    details.faq-item summary:hover {
-      background: var(--brand-warm);
-    }
-
-    details.faq-item summary::after {
-      content: "+";
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--brand-accent);
-      flex-shrink: 0;
-      margin-left: 1rem;
-    }
-
-    details.faq-item[open] summary::after {
-      content: "−";
-    }
-
-    .faq-answer {
-      padding: 0 1.1rem 1rem;
-      font-size: 0.93rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      background: var(--brand-white);
-    }
-
-    .page-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 1.1rem;
-    }
-
-    .page-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.85rem 1rem;
-      background: var(--brand-warm);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      text-decoration: none;
-      font-size: 0.93rem;
-      font-weight: 600;
-      color: var(--text-main);
-      transition: background 0.15s, border-color 0.15s;
-    }
-
-    .page-link:hover {
-      background: var(--brand-accent);
-      border-color: var(--brand-accent);
-      color: #fff;
-    }
-
-    .page-link span {
-      opacity: 0.5;
-      font-size: 1.1rem;
-    }
-
-    .bottom-cta {
-      background: var(--brand-dark);
-      color: var(--brand-white);
-      padding: 2.5rem 1.25rem;
-      text-align: center;
-    }
-
-    .bottom-cta h2 {
-      font-size: clamp(1.3rem, 4.5vw, 1.7rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--brand-white);
-      margin: 0 0 0.6rem;
-    }
-
-    .bottom-cta p {
-      font-size: 0.95rem;
-      color: #908d86;
-      margin: 0 0 1.75rem;
-      line-height: 1.6;
-    }
+    :root { --brand-dark: #1a1a18; --brand-mid: #2c2c29; --brand-accent: #c8500a; --brand-warm: #f5f0e8; --brand-white: #ffffff; --text-main: #1a1a18; --text-muted: #5a5a54; --border: #e2ddd4; --radius: 10px; }
+    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 3rem 1.25rem 2.75rem; text-align: center; }
+    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 20px; margin-bottom: 1rem; }
+    .hero h1 { font-size: clamp(1.9rem, 5.5vw, 2.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 0.85rem; color: var(--brand-white); }
+    .price-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #1e4d14; color: #7edd5a; font-size: 0.9rem; font-weight: 800; padding: 0.45rem 1.1rem; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #2a6b1c; }
+    .hero-lead { font-size: 1.02rem; line-height: 1.68; color: #c8c5be; margin: 0 auto 0.8rem; max-width: 560px; }
+    .hero-sub { font-size: 0.95rem; line-height: 1.6; color: #908d86; max-width: 520px; margin: 0 auto 2.1rem; }
+    .btn-row { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s, transform 0.15s; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.1rem; }
+    .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
+    .trust-bar { background: var(--brand-mid); padding: 1rem 1.25rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .ti { display: flex; align-items: center; gap: 0.45rem; font-size: 0.8rem; color: #908d86; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .ti svg { color: var(--brand-accent); flex-shrink: 0; }
+    .section { padding: 2.35rem 1.25rem; max-width: 720px; margin: 0 auto; }
+    .section + .section { border-top: 1px solid var(--border); }
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
+    .section h2 { font-size: clamp(1.35rem, 4vw, 1.75rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.2; }
+    .section p { font-size: 0.98rem; line-height: 1.72; color: var(--text-muted); margin: 0 0 0.9rem; }
+    .section p:last-child { margin-bottom: 0; }
+    .price-box { background: var(--brand-warm); border: 2px solid #2a6b1c; border-radius: var(--radius); padding: 1.45rem 1.25rem; margin-top: 1rem; text-align: center; }
+    .price-num { font-size: 3rem; font-weight: 800; color: #2a6b1c; line-height: 1; margin-bottom: 0.25rem; }
+    .price-label { font-size: 1.02rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem; }
+    .price-includes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.75rem; }
+    .pi { background: var(--brand-white); border: 1px solid var(--border); border-radius: 6px; padding: 0.35rem 0.8rem; font-size: 0.84rem; font-weight: 600; color: var(--text-muted); }
+    .pi::before { content: "\2713 "; color: #2a6b1c; font-weight: 800; }
+    .highlight-box { background: var(--brand-warm); border-left: 4px solid var(--brand-accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.1rem 1.2rem; margin-top: 1rem; }
+    .reason-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.25rem; }
+    @media (max-width: 480px) { .reason-grid { grid-template-columns: 1fr; } }
+    .reason-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+    .reason-card-title { font-size: 0.92rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.3rem; }
+    .reason-card-desc { font-size: 0.85rem; line-height: 1.55; color: var(--text-muted); }
+    .check-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.6rem; }
+    .check-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.95rem; line-height: 1.55; color: var(--text-muted); padding: 0.75rem 0.9rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 8px; }
+    .check-list li::before { content: "\2713"; color: var(--brand-accent); font-weight: 800; flex-shrink: 0; }
+    .form-wrap { background: var(--brand-warm); border: 2px solid var(--brand-accent); border-radius: var(--radius); padding: 1.6rem 1.25rem; margin-top: 1rem; }
+    .form-wrap h3 { font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0 0 0.25rem; }
+    .form-sub { font-size: 0.9rem; color: var(--text-muted); margin: 0 0 1.1rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    @media (max-width: 500px) { .form-grid { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 0.3rem; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 0.78rem; font-weight: 700; color: var(--text-main); letter-spacing: 0.03em; text-transform: uppercase; }
+    .field input, .field select, .field textarea { width: 100%; border: 2px solid var(--border); border-radius: 8px; padding: 0.72rem 0.85rem; font-size: 0.95rem; background: var(--brand-white); color: var(--text-main); font-family: inherit; transition: border-color 0.15s; outline: none; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--brand-accent); }
+    .field textarea { resize: vertical; min-height: 90px; }
+    .form-submit { display: block; width: 100%; margin-top: 1rem; background: var(--brand-accent); color: #fff; border: none; padding: 1rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: opacity 0.15s, transform 0.15s; }
+    .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+    .faq-list { display: flex; flex-direction: column; margin-top: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details.faq-item { border-bottom: 1px solid var(--border); }
+    details.faq-item:last-child { border-bottom: none; }
+    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; gap: 1rem; }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary:hover { background: var(--brand-warm); }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; }
+    details.faq-item[open] summary::after { content: "\2212"; }
+    .faq-answer { padding: 0 1.1rem 1rem; font-size: 0.93rem; line-height: 1.7; color: var(--text-muted); background: var(--brand-white); }
+    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1rem; }
+    .suburb-chip { display: inline-block; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.85rem; font-size: 0.84rem; font-weight: 600; color: var(--text-main); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
+    .suburb-chip:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
+    .page-link { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; font-size: 0.93rem; font-weight: 600; color: var(--text-main); transition: background 0.15s, border-color 0.15s; }
+    .page-link:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-link span { opacity: 0.5; font-size: 1.1rem; }
+    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.7rem 1.25rem; text-align: center; }
+    .bottom-cta h2 { font-size: clamp(1.35rem, 4.5vw, 1.8rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
+    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 auto 1.75rem; line-height: 1.6; max-width: 460px; }
+    .reviews-grid { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.1rem; }
+    .review-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .review-stars { color: #f59e0b; font-size: 1.1rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .review-text { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.6rem; font-style: italic; }
+    .review-author { font-size: 0.84rem; font-weight: 700; color: var(--text-main); }
   </style>
 
   <section class="hero">
-    <span class="hero-eyebrow">Gisborne VIC 3437</span>
-    <h1>Chimney Sweeping<br>Gisborne VIC 3437</h1>
-    <p class="hero-lead">
-      Daves Chimney Sweeping provides local chimney sweeping, flue cleaning and wood heater servicing for homes in Gisborne and surrounding parts of the wider Macedon Ranges area.
-    </p>
-    <p class="hero-sub">
-      If your fireplace has been working hard through winter, the flue has a stronger smell than normal, or the draw just feels weaker than it should, we can get it cleaned properly.
-    </p>
+    <span class="hero-eyebrow">{suburb} VIC {postcode}</span>
+    <h1>Chimney Sweeping<br />{suburb} VIC {postcode}</h1>
+    <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
+    <p class="hero-lead">Gisborne homes deal with genuinely cold winters, which is exactly why annual chimney and flue cleaning matters before the heating season starts.</p>
+    <p class="hero-sub">Owner-operated, local service, and direct contact with Dave from quote to job completion.</p>
     <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+      <a class="btn btn-call" href="tel:0476302729">Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
 
   <div class="trust-bar">
-    <span class="trust-item">
-      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-      Gisborne service
-    </span>
-    <span class="trust-item">
-      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-      Owner-operated
-    </span>
-    <span class="trust-item">
-      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-      Fast quotes
-    </span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon-Sat</span>
   </div>
 
   <section class="section">
-    <p class="section-label">Common issues</p>
-    <h2>What Usually Brings People in Gisborne to Book a Clean</h2>
-    <p>
-      Some people book before winter starts. Others wait until the fireplace begins showing signs that cleaning is overdue. Either way, the earlier buildup is dealt with, the easier the whole system is to use.
-    </p>
-
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-card-title">Smoke drifting back into the room</div>
-        <p>This often points to draft issues, buildup inside the flue, or a blockage that needs clearing.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-card-title">Visible soot and ash residue</div>
-        <p>If black buildup is obvious around the fireplace or heater, the chimney system is often due for a proper clean too.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-card-title">Weaker airflow than usual</div>
-        <p>A sluggish draft can make lighting and maintaining a fire more frustrating than it should be.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-card-title">Long time since the last service</div>
-        <p>If it has been a year or more, many homeowners simply book a clean to stay ahead of problems.</p>
+    <p class="section-label">Pricing</p>
+    <h2>$199 Chimney Inspection and Full Clean in {suburb}</h2>
+    <p>One flat rate for the full clean. No hidden extras, no call-out fee, and no guesswork on the day.</p>
+    <div class="price-box">
+      <div class="price-num">$199</div>
+      <div class="price-label">Chimney Inspection and Full Clean - {suburb}</div>
+      <div class="price-includes">
+        <span class="pi">Chimney sweep</span>
+        <span class="pi">Flue cleaning</span>
+        <span class="pi">Soot and ash removal</span>
+        <span class="pi">Blockage check</span>
+        <span class="pi">Condition report</span>
+        <span class="pi">No call-out fee</span>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <p class="section-label">What we clean</p>
-    <h2>Chimneys, Flues, Fireplaces and Wood Heaters</h2>
-    <p>
-      We clean the main parts of the system, not just the visible section. That includes chimney sweeping, flue cleaning and servicing for wood heater setups depending on what your home has installed.
-    </p>
+    <p class="section-label">Local service</p>
+    <h2>Gisborne Chimney and Wood Heater Cleaning</h2>
+    <div class="highlight-box">
+      <p>Gisborne sits at the base of the Mount Macedon ranges, 55 kilometres north-west of Melbourne, and the elevation and mountain proximity make it noticeably colder than the city through winter. Frosts are regular from May through August and overnight temperatures frequently drop well below Melbourne's average. The older streets near the railway station carry housing from multiple eras, while newer estates have added a commuter belt character — but across both, wood heating is central to how people stay warm here. The Calder Highway connection has made Gisborne a growing town, but the winters remain emphatically country. We cover Gisborne on our regular north-west run and find demand peaks sharply in April and May as residents prepare for the heating season.</p>
+      <p>We also cover nearby areas such as {nearbySuburbs.map((item) => item.label).join(", ")}.</p>
+    </div>
+  </section>
 
-    <ul class="service-list">
-      <li>Chimney sweeping for fireplaces and heater systems</li>
-      <li>Flue cleaning for wood heaters and related setups</li>
-      <li>Fireplace cleaning and soot removal</li>
-      <li>Clearing bird nests and common debris blockages</li>
-      <li>Cleaning jobs before winter or after heavy seasonal use</li>
-      <li>Straightforward local service with direct contact</li>
+  <section class="section">
+    <p class="section-label">Common reasons to book</p>
+    <h2>Signs Your {suburb} Chimney Needs Cleaning</h2>
+    <div class="reason-grid">
+      <div class="reason-card"><div class="reason-card-title">Smoke coming back into the room</div><div class="reason-card-desc">A blocked or heavily sooted flue is the most common cause, and a proper clean usually fixes it.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Persistent smoky smell</div><div class="reason-card-desc">Old ash, creosote and buildup in the flue can leave a burnt smell even when the fire is out.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Weak draw or hard-to-light fire</div><div class="reason-card-desc">If the fire struggles to breathe, the chimney or flue often needs attention.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Over 12 months since the last clean</div><div class="reason-card-desc">Annual servicing is the easiest way to stay ahead of soot, nests and winter problems.</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">What is included</p>
+    <h2>Everything Covered in One Visit</h2>
+    <p>We clean the full system, not just the part you can see from the living room.</p>
+    <ul class="check-list">
+      <li>Chimney sweeping from firebox to chimney pot</li>
+      <li>Flue liner or flue pipe cleaning</li>
+      <li>Wood heater and slow combustion cleaning</li>
+      <li>Open fireplace cleaning</li>
+      <li>Soot, ash and creosote removal</li>
+      <li>Bird nest and blockage clearing where needed</li>
+      <li>Simple verbal condition report before we leave</li>
     </ul>
   </section>
 
   <section class="section">
-    <p class="section-label">Nearby suburbs</p>
-    <h2>Areas Around Gisborne We Also Service</h2>
-    <div class="area-box">
-      <p>
-        We also service nearby areas around Gisborne, including New Gisborne, Riddells Creek, Macedon, Sunbury and Diggers Rest.
-      </p>
-      <div class="suburb-chips">
-        <a class="suburb-chip" href="/chimney-sweeping/riddells-creek">Riddells Creek 3431</a>
-        <a class="suburb-chip" href="/chimney-sweeping/sunbury">Sunbury 3429</a>
-        <a class="suburb-chip" href="/chimney-sweeping/diggers-rest">Diggers Rest 3427</a>
+    <p class="section-label">What customers say</p>
+    <h2>Reviews from Gisborne Residents</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Dave made the trip out without any fuss. Thorough job from top to bottom — chimney and flue cleaned, condition explained, tidy finish. Great service for the price."</p>
+        <div class="review-author">Rod F. — Gisborne 3437</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Our fireplace had been smoking back into the room all last winter. Dave sorted it in one visit. Wish we had called earlier. Very satisfied with the result."</p>
+        <div class="review-author">Claire A. — Gisborne 3437</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Reliable and professional. Turned up when booked, did the job properly and gave us a straight assessment of what the system needed. Will use again."</p>
+        <div class="review-author">Peter S. — Gisborne 3437</div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <p class="section-label">About us</p>
-    <h2>Direct Local Service Without the Usual Runaround</h2>
-    <div class="about-card">
-      <p>
-        Daves Chimney Sweeping is a local owner-operated service. When you call, you are speaking directly with the business rather than a call centre or booking platform.
-      </p>
-      <p>
-        We keep it simple: turn up, clean the system properly, explain what we found and make it easy to get the job sorted.
-      </p>
-      <div class="about-detail">
-        📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a>
-      </div>
-      <div class="about-detail">
-        📍 <strong>Service area:</strong>&nbsp;Gisborne VIC 3437 and nearby suburbs
-      </div>
+  <section class="section" id="quote">
+    <p class="section-label">Book now</p>
+    <h2>Book Your $199 Chimney Clean in {suburb}</h2>
+    <div class="form-wrap">
+      <h3>Quick Quote - {suburb}</h3>
+      <p class="form-sub">Send through your details and Dave will get back to you to confirm the job.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="suburb" value={suburb + " VIC " + postcode} />
+        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select...</option>
+              <option value="Chimney Inspection and Clean - $199">Chimney Inspection and Clean - $199</option>
+              <option>Wood Heater Service</option>
+              <option>Flue Cleaning</option>
+              <option>Blockage / Nest Removal</option>
+              <option>Not sure - need advice</option>
+            </select>
+          </div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, and when it was last cleaned."></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">Send Booking Request</button>
+      </form>
     </div>
   </section>
 
   <section class="section">
     <p class="section-label">FAQs</p>
-    <h2>Questions We Get About Chimney Sweeping in Gisborne</h2>
+    <h2>Chimney Sweeping {suburb} - Common Questions</h2>
     <div class="faq-list">
       {faqs.map(({ q, a }) => (
         <details class="faq-item">
@@ -582,36 +276,34 @@ const faqs = [
   </section>
 
   <section class="section">
-    <p class="section-label">Nearby pages</p>
+    <p class="section-label">Nearby areas</p>
+    <h2>Suburbs Near {suburb} We Also Service</h2>
+    <p>We also cover the surrounding suburbs shown below.</p>
+    <div class="suburb-chips">
+      {nearbySuburbs.map((item) => (
+        <a class="suburb-chip" href={"/chimney-sweeping/" + item.slug}>{item.label}</a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">More pages</p>
     <h2>Related Service Pages</h2>
     <nav class="page-links" aria-label="Nearby suburb pages">
-      <a class="page-link" href="/chimney-sweeping/riddells-creek">
-        Chimney Sweeping — Riddells Creek VIC 3431
-        <span>›</span>
-      </a>
-      <a class="page-link" href="/chimney-sweeping/sunbury">
-        Chimney Sweeping — Sunbury VIC 3429
-        <span>›</span>
-      </a>
-      <a class="page-link" href="/chimney-sweeping/diggers-rest">
-        Chimney Sweeping — Diggers Rest VIC 3427
-        <span>›</span>
-      </a>
-      <a class="page-link" href="/contact">
-        Get a Quote
-        <span>›</span>
-      </a>
+      {nearbySuburbs.map((item) => (
+        <a class="page-link" href={"/chimney-sweeping/" + item.slug}>{item.label} <span>&#8250;</span></a>
+      ))}
+      <a class="page-link" href="/chimney-sweeping/sunbury">Sunbury Chimney Sweeping <span>&#8250;</span></a>
+      <a class="page-link" href="/contact">Contact Page <span>&#8250;</span></a>
     </nav>
   </section>
 
   <section class="bottom-cta">
-    <h2>Need Chimney Sweeping in Gisborne?</h2>
-    <p>
-      If your fireplace or wood heater is due for a proper clean, get in touch for a fast local quote.
-    </p>
+    <h2>{suburb} Chimney Sweep - $199 Flat Rate</h2>
+    <p>Call Dave directly or use the form above. We will confirm the job and lock in a time that works.</p>
     <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+      <a class="btn btn-call" href="tel:0476302729">Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
 </MainLayout>

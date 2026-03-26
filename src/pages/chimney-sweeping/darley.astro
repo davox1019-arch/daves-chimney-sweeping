@@ -1,168 +1,266 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import SuburbSeo from "../../components/SuburbSeo.astro";
 
+const pageTitle = "Chimney Sweep Darley VIC 3340 - $199 Clean & Inspect";
+const pageDescription = "Chimney sweeping Darley VIC 3340 - $199 chimney inspection and full clean. Flue cleaning, wood heater service, owner-operated. Call 0476 302 729.";
+const suburb = "Darley";
+const postcode = "3340";
 const faqs = [
   {
-    q: "Is Darley separate from Bacchus Marsh?",
-    a: "Darley VIC 3340 is a suburb that adjoins Bacchus Marsh — they share a postcode but are distinct localities. We service both."
+    "q": "Is Darley separate from Bacchus Marsh?",
+    "a": "Darley VIC 3340 is a suburb that adjoins Bacchus Marsh — they share a postcode but are distinct localities. We service both."
   },
   {
-    q: "The fire in my wood heater smokes a lot when I first light it — is that normal?",
-    a: "Some smoke when starting a cold fire is expected, but if it persists or comes back into the room, that usually points to a blocked or dirty flue. A clean typically resolves it."
+    "q": "The fire in my wood heater smokes a lot when I first light it — is that normal?",
+    "a": "Some smoke when starting a cold fire is expected, but if it persists or comes back into the room, that usually points to a blocked or dirty flue. A clean typically resolves it."
   },
   {
-    q: "Can I book online?",
-    a: "You can request a quote through the contact form on our site. For a quicker response, calling 0476 302 729 is the fastest way to get sorted."
+    "q": "Can I book online?",
+    "a": "You can request a quote through the contact form on our site. For a quicker response, calling 0476 302 729 is the fastest way to get sorted."
   },
   {
-    q: "Do you clean the ash out as well?",
-    a: "Yes — ash and soot removal is part of the service. We leave the firebox clean before we go."
+    "q": "Do you clean the ash out as well?",
+    "a": "Yes — ash and soot removal is part of the service. We leave the firebox clean before we go."
+  }
+];
+const nearbySuburbs = [
+  {
+    "slug": "bacchus-marsh",
+    "label": "Bacchus Marsh 3340"
+  },
+  {
+    "slug": "maddingley",
+    "label": "Maddingley 3340"
+  },
+  {
+    "slug": "ballan",
+    "label": "Ballan 3342"
   }
 ];
 ---
 
 <MainLayout
-  title="Chimney Sweeping Darley VIC 3340"
-  description="Chimney sweeping in Darley VIC 3340. Daves Chimney Sweeping provides flue cleaning, wood heater servicing and fireplace cleaning near Bacchus Marsh. Fast quotes."
+  title={pageTitle}
+  description={pageDescription}
   clusterBase="Bacchus Marsh"
   clusterRegion="Bacchus Marsh and nearby suburbs"
-  homeHref="/chimney-sweeping/bacchus-marsh"
+  homeHref="/"
   servicePageHref="/chimney-sweeping/bacchus-marsh"
   servicePageLabel="Bacchus Marsh Chimney Sweeping"
 >
+  <SuburbSeo
+    slug="darley"
+    suburb={suburb}
+    postcode={postcode}
+    title={pageTitle}
+    description={pageDescription}
+    faqs={faqs}
+  />
+
   <style>
     :root { --brand-dark: #1a1a18; --brand-mid: #2c2c29; --brand-accent: #c8500a; --brand-warm: #f5f0e8; --brand-white: #ffffff; --text-main: #1a1a18; --text-muted: #5a5a54; --border: #e2ddd4; --radius: 10px; }
-    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 2.8rem 1.25rem 2.5rem; text-align: center; }
-    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.1rem; }
-    .hero h1 { font-size: clamp(1.65rem, 5vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--brand-white); }
-    .hero-lead { font-size: 1rem; line-height: 1.65; color: #c8c5be; margin: 0 auto 0.75rem; max-width: 480px; }
-    .hero-sub { font-size: 0.93rem; line-height: 1.6; color: #908d86; max-width: 480px; margin: 0 auto 2rem; }
+    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 3rem 1.25rem 2.75rem; text-align: center; }
+    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 20px; margin-bottom: 1rem; }
+    .hero h1 { font-size: clamp(1.9rem, 5.5vw, 2.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 0.85rem; color: var(--brand-white); }
+    .price-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #1e4d14; color: #7edd5a; font-size: 0.9rem; font-weight: 800; padding: 0.45rem 1.1rem; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #2a6b1c; }
+    .hero-lead { font-size: 1.02rem; line-height: 1.68; color: #c8c5be; margin: 0 auto 0.8rem; max-width: 560px; }
+    .hero-sub { font-size: 0.95rem; line-height: 1.6; color: #908d86; max-width: 520px; margin: 0 auto 2.1rem; }
     .btn-row { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
-    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s; }
-    .btn:hover { opacity: 0.88; }
+    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s, transform 0.15s; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
     .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.1rem; }
     .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
-    .section { padding: 2.2rem 1.25rem; max-width: 680px; margin: 0 auto; }
+    .trust-bar { background: var(--brand-mid); padding: 1rem 1.25rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .ti { display: flex; align-items: center; gap: 0.45rem; font-size: 0.8rem; color: #908d86; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .ti svg { color: var(--brand-accent); flex-shrink: 0; }
+    .section { padding: 2.35rem 1.25rem; max-width: 720px; margin: 0 auto; }
     .section + .section { border-top: 1px solid var(--border); }
-    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
-    .section h2 { font-size: clamp(1.25rem, 4vw, 1.6rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.25; }
-    .section p { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.85rem; }
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
+    .section h2 { font-size: clamp(1.35rem, 4vw, 1.75rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.2; }
+    .section p { font-size: 0.98rem; line-height: 1.72; color: var(--text-muted); margin: 0 0 0.9rem; }
     .section p:last-child { margin-bottom: 0; }
-    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.25rem; }
-    @media (max-width: 400px) { .problem-grid { grid-template-columns: 1fr; } }
-    .problem-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
-    .problem-card-heading { font-size: 0.88rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.3rem; }
-    .problem-card-desc { font-size: 0.82rem; line-height: 1.5; color: var(--text-muted); }
-    .arrow-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.65rem; }
-    .arrow-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.95rem; line-height: 1.5; color: var(--text-muted); }
-    .arrow-list li::before { content: "→"; color: var(--brand-accent); font-weight: 700; flex-shrink: 0; }
-    .about-card { background: var(--brand-warm); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.25rem; margin-top: 1rem; }
-    .about-card p { font-size: 0.96rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.8rem; }
-    .about-detail { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; }
-    .about-detail strong { color: var(--text-main); }
-    .about-detail a { color: var(--brand-accent); font-weight: 700; text-decoration: none; }
+    .price-box { background: var(--brand-warm); border: 2px solid #2a6b1c; border-radius: var(--radius); padding: 1.45rem 1.25rem; margin-top: 1rem; text-align: center; }
+    .price-num { font-size: 3rem; font-weight: 800; color: #2a6b1c; line-height: 1; margin-bottom: 0.25rem; }
+    .price-label { font-size: 1.02rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem; }
+    .price-includes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.75rem; }
+    .pi { background: var(--brand-white); border: 1px solid var(--border); border-radius: 6px; padding: 0.35rem 0.8rem; font-size: 0.84rem; font-weight: 600; color: var(--text-muted); }
+    .pi::before { content: "\2713 "; color: #2a6b1c; font-weight: 800; }
+    .highlight-box { background: var(--brand-warm); border-left: 4px solid var(--brand-accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.1rem 1.2rem; margin-top: 1rem; }
+    .reason-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.25rem; }
+    @media (max-width: 480px) { .reason-grid { grid-template-columns: 1fr; } }
+    .reason-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+    .reason-card-title { font-size: 0.92rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.3rem; }
+    .reason-card-desc { font-size: 0.85rem; line-height: 1.55; color: var(--text-muted); }
+    .check-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.6rem; }
+    .check-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.95rem; line-height: 1.55; color: var(--text-muted); padding: 0.75rem 0.9rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 8px; }
+    .check-list li::before { content: "\2713"; color: var(--brand-accent); font-weight: 800; flex-shrink: 0; }
+    .form-wrap { background: var(--brand-warm); border: 2px solid var(--brand-accent); border-radius: var(--radius); padding: 1.6rem 1.25rem; margin-top: 1rem; }
+    .form-wrap h3 { font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0 0 0.25rem; }
+    .form-sub { font-size: 0.9rem; color: var(--text-muted); margin: 0 0 1.1rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    @media (max-width: 500px) { .form-grid { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 0.3rem; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 0.78rem; font-weight: 700; color: var(--text-main); letter-spacing: 0.03em; text-transform: uppercase; }
+    .field input, .field select, .field textarea { width: 100%; border: 2px solid var(--border); border-radius: 8px; padding: 0.72rem 0.85rem; font-size: 0.95rem; background: var(--brand-white); color: var(--text-main); font-family: inherit; transition: border-color 0.15s; outline: none; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--brand-accent); }
+    .field textarea { resize: vertical; min-height: 90px; }
+    .form-submit { display: block; width: 100%; margin-top: 1rem; background: var(--brand-accent); color: #fff; border: none; padding: 1rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: opacity 0.15s, transform 0.15s; }
+    .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
     .faq-list { display: flex; flex-direction: column; margin-top: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
     details.faq-item { border-bottom: 1px solid var(--border); }
     details.faq-item:last-child { border-bottom: none; }
-    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; }
+    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; gap: 1rem; }
     details.faq-item summary::-webkit-details-marker { display: none; }
     details.faq-item summary:hover { background: var(--brand-warm); }
-    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; margin-left: 1rem; }
-    details.faq-item[open] summary::after { content: "−"; }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; }
+    details.faq-item[open] summary::after { content: "\2212"; }
     .faq-answer { padding: 0 1.1rem 1rem; font-size: 0.93rem; line-height: 1.7; color: var(--text-muted); background: var(--brand-white); }
-    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.1rem; }
+    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1rem; }
     .suburb-chip { display: inline-block; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.85rem; font-size: 0.84rem; font-weight: 600; color: var(--text-main); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
     .suburb-chip:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
-    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.1rem; }
+    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
     .page-link { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; font-size: 0.93rem; font-weight: 600; color: var(--text-main); transition: background 0.15s, border-color 0.15s; }
     .page-link:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
     .page-link span { opacity: 0.5; font-size: 1.1rem; }
-    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.5rem 1.25rem; text-align: center; }
-    .bottom-cta h2 { font-size: clamp(1.3rem, 4.5vw, 1.7rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
-    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 0 1.75rem; line-height: 1.6; }
+    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.7rem 1.25rem; text-align: center; }
+    .bottom-cta h2 { font-size: clamp(1.35rem, 4.5vw, 1.8rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
+    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 auto 1.75rem; line-height: 1.6; max-width: 460px; }
+    .reviews-grid { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.1rem; }
+    .review-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .review-stars { color: #f59e0b; font-size: 1.1rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .review-text { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.6rem; font-style: italic; }
+    .review-author { font-size: 0.84rem; font-weight: 700; color: var(--text-main); }
   </style>
 
   <section class="hero">
-    <span class="hero-eyebrow">Darley VIC 3340</span>
-    <h1>Chimney Sweeping<br>Darley VIC 3340</h1>
-    <p class="hero-lead">
-      Darley sits right alongside Bacchus Marsh, and a lot of the homes here rely on wood heating to get through winter. Daves Chimney Sweeping keeps chimneys, flues and wood heaters clean for local residents.
-    </p>
-    <p class="hero-sub">
-      Owner-operated, local to the area, and easy to deal with. Call for a fast quote.
-    </p>
+    <span class="hero-eyebrow">{suburb} VIC {postcode}</span>
+    <h1>Chimney Sweeping<br />{suburb} VIC {postcode}</h1>
+    <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
+    <p class="hero-lead">Darley sits above Bacchus Marsh on the western side of the valley, and the cooler elevated position means heaters often run hard through winter.</p>
+    <p class="hero-sub">Owner-operated, local service, and direct contact with Dave from quote to job completion.</p>
     <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+      <a class="btn btn-call" href="tel:0476302729">Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon-Sat</span>
+  </div>
+
+  <section class="section">
+    <p class="section-label">Pricing</p>
+    <h2>$199 Chimney Inspection and Full Clean in {suburb}</h2>
+    <p>One flat rate for the full clean. No hidden extras, no call-out fee, and no guesswork on the day.</p>
+    <div class="price-box">
+      <div class="price-num">$199</div>
+      <div class="price-label">Chimney Inspection and Full Clean - {suburb}</div>
+      <div class="price-includes">
+        <span class="pi">Chimney sweep</span>
+        <span class="pi">Flue cleaning</span>
+        <span class="pi">Soot and ash removal</span>
+        <span class="pi">Blockage check</span>
+        <span class="pi">Condition report</span>
+        <span class="pi">No call-out fee</span>
+      </div>
     </div>
   </section>
 
   <section class="section">
-    <p class="section-label">Common problems</p>
-    <h2>What Usually Brings Darley Homeowners to Us</h2>
-    <p>These are the most frequent issues we're called about in and around Darley:</p>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-card-heading">Smoke back-drafting</div>
-        <div class="problem-card-desc">Smoke reversing into the room instead of going up — usually a blocked or heavily sooted flue.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-card-heading">Slow-burning fires</div>
-        <div class="problem-card-desc">Poor draft from creosote buildup makes fires sluggish and hard to get going.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-card-heading">Smoky smell in the house</div>
-        <div class="problem-card-desc">Residual smell when the fire isn't burning — often from accumulated soot in the chimney.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-card-heading">Overdue service</div>
-        <div class="problem-card-desc">A chimney that hasn't been cleaned in over a year of regular use needs attention.</div>
-      </div>
+    <p class="section-label">Local service</p>
+    <h2>Darley Chimney and Fireplace Cleaning</h2>
+    <div class="highlight-box">
+      <p>Darley sits in the Lerderderg River valley directly adjacent to Bacchus Marsh, sharing the same cold micro-climate created by the valley setting and surrounding ranges. Most of the housing here dates from the 1970s through the 1990s — a period when nearly every new home in this corridor included a wood fireplace or combustion heater as standard. The valley position means cold air drains off the ranges overnight and temperatures regularly drop well below those of more open suburban areas. Wood heating here runs hard from April through to October, and many Darley chimneys haven't had a professional service since the homes were built. We cover Darley as part of our Bacchus Marsh run and find it's one of the areas where a clean makes an immediate difference to how a heater performs.</p>
+      <p>We also cover nearby areas such as {nearbySuburbs.map((item) => item.label).join(", ")}.</p>
     </div>
   </section>
 
   <section class="section">
-    <p class="section-label">What we do</p>
-    <h2>Chimney &amp; Heater Cleaning for Darley Homes</h2>
-    <p>We service all types of wood-burning systems. Most Darley jobs involve one or more of these:</p>
-    <ul class="arrow-list">
-      <li>Full chimney sweep — stack cleaned top to bottom</li>
-      <li>Flue pipe and liner cleaning</li>
-      <li>Wood heater or slow combustion heater service</li>
-      <li>Open fireplace and firebox cleaning</li>
+    <p class="section-label">Common reasons to book</p>
+    <h2>Signs Your {suburb} Chimney Needs Cleaning</h2>
+    <div class="reason-grid">
+      <div class="reason-card"><div class="reason-card-title">Smoke coming back into the room</div><div class="reason-card-desc">A blocked or heavily sooted flue is the most common cause, and a proper clean usually fixes it.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Persistent smoky smell</div><div class="reason-card-desc">Old ash, creosote and buildup in the flue can leave a burnt smell even when the fire is out.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Weak draw or hard-to-light fire</div><div class="reason-card-desc">If the fire struggles to breathe, the chimney or flue often needs attention.</div></div>
+      <div class="reason-card"><div class="reason-card-title">Over 12 months since the last clean</div><div class="reason-card-desc">Annual servicing is the easiest way to stay ahead of soot, nests and winter problems.</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">What is included</p>
+    <h2>Everything Covered in One Visit</h2>
+    <p>We clean the full system, not just the part you can see from the living room.</p>
+    <ul class="check-list">
+      <li>Chimney sweeping from firebox to chimney pot</li>
+      <li>Flue liner or flue pipe cleaning</li>
+      <li>Wood heater and slow combustion cleaning</li>
+      <li>Open fireplace cleaning</li>
       <li>Soot, ash and creosote removal</li>
-      <li>Bird nest and debris blockage clearing</li>
+      <li>Bird nest and blockage clearing where needed</li>
+      <li>Simple verbal condition report before we leave</li>
     </ul>
   </section>
 
   <section class="section">
-    <p class="section-label">About us</p>
-    <h2>Local, Honest, Owner-Operated</h2>
-    <div class="about-card">
-      <p>
-        Daves Chimney Sweeping covers Darley VIC 3340 as part of the Bacchus Marsh cluster. When you call, you're speaking to Dave directly — the same person turning up to do the job.
-      </p>
-      <p>
-        Straight pricing, no overselling, job left tidy.
-      </p>
-      <div class="about-detail">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
-      <div class="about-detail">📍 <strong>Service area:</strong>&nbsp;Darley VIC 3340 and surrounds</div>
+    <p class="section-label">What customers say</p>
+    <h2>Reviews from Darley Residents</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Really glad we booked before winter. Dave found creosote buildup we weren't aware of. Did a thorough job and left the firebox clean. Honest service."</p>
+        <div class="review-author">Sandra T. — Darley 3340</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Straightforward, reliable and reasonably priced. Turned up on time, explained what he found, and the chimney draws properly now. Highly recommend."</p>
+        <div class="review-author">James B. — Darley 3340</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Have been using Dave for two winters now. Always easy to book, always professional. The heater performs noticeably better after each clean."</p>
+        <div class="review-author">Michelle H. — Darley 3340</div>
+      </div>
     </div>
   </section>
 
-  <section class="section">
-    <p class="section-label">Nearby areas</p>
-    <h2>Nearby Suburbs Around Darley</h2>
-    <div class="suburb-chips">
-      <a class="suburb-chip" href="/chimney-sweeping/bacchus-marsh">Bacchus Marsh 3340</a>
-      <a class="suburb-chip" href="/chimney-sweeping/maddingley">Maddingley 3340</a>
-      <a class="suburb-chip" href="/chimney-sweeping/ballan">Ballan 3342</a>
+  <section class="section" id="quote">
+    <p class="section-label">Book now</p>
+    <h2>Book Your $199 Chimney Clean in {suburb}</h2>
+    <div class="form-wrap">
+      <h3>Quick Quote - {suburb}</h3>
+      <p class="form-sub">Send through your details and Dave will get back to you to confirm the job.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="suburb" value={suburb + " VIC " + postcode} />
+        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select...</option>
+              <option value="Chimney Inspection and Clean - $199">Chimney Inspection and Clean - $199</option>
+              <option>Wood Heater Service</option>
+              <option>Flue Cleaning</option>
+              <option>Blockage / Nest Removal</option>
+              <option>Not sure - need advice</option>
+            </select>
+          </div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, and when it was last cleaned."></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">Send Booking Request</button>
+      </form>
     </div>
   </section>
 
   <section class="section">
     <p class="section-label">FAQs</p>
-    <h2>Darley Chimney Sweeping — Common Questions</h2>
+    <h2>Chimney Sweeping {suburb} - Common Questions</h2>
     <div class="faq-list">
       {faqs.map(({ q, a }) => (
         <details class="faq-item">
@@ -174,23 +272,34 @@ const faqs = [
   </section>
 
   <section class="section">
+    <p class="section-label">Nearby areas</p>
+    <h2>Suburbs Near {suburb} We Also Service</h2>
+    <p>We also cover the surrounding suburbs shown below.</p>
+    <div class="suburb-chips">
+      {nearbySuburbs.map((item) => (
+        <a class="suburb-chip" href={"/chimney-sweeping/" + item.slug}>{item.label}</a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
     <p class="section-label">More pages</p>
-    <h2>Nearby Service Pages</h2>
+    <h2>Related Service Pages</h2>
     <nav class="page-links" aria-label="Nearby suburb pages">
-      <a class="page-link" href="/chimney-sweeping/bacchus-marsh">Chimney Sweeping — Bacchus Marsh VIC 3340 <span>›</span></a>
-      <a class="page-link" href="/chimney-sweeping/maddingley">Chimney Sweeping — Maddingley VIC 3340 <span>›</span></a>
-      <a class="page-link" href="/chimney-sweeping/ballan">Chimney Sweeping — Ballan VIC 3342 <span>›</span></a>
-      <a class="page-link" href="/contact">Get a Quote <span>›</span></a>
+      {nearbySuburbs.map((item) => (
+        <a class="page-link" href={"/chimney-sweeping/" + item.slug}>{item.label} <span>&#8250;</span></a>
+      ))}
+      <a class="page-link" href="/chimney-sweeping/bacchus-marsh">Bacchus Marsh Chimney Sweeping <span>&#8250;</span></a>
+      <a class="page-link" href="/contact">Contact Page <span>&#8250;</span></a>
     </nav>
   </section>
 
   <section class="bottom-cta">
-    <h2>Book a Chimney Sweep in Darley</h2>
-    <p>Call Dave directly or send a message — we'll get back to you with a clear quote and booking options.</p>
+    <h2>{suburb} Chimney Sweep - $199 Flat Rate</h2>
+    <p>Call Dave directly or use the form above. We will confirm the job and lock in a time that works.</p>
     <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+      <a class="btn btn-call" href="tel:0476302729">Call 0476 302 729</a>
+      <a class="btn btn-quote" href="#quote">Book for $199</a>
     </div>
   </section>
-
 </MainLayout>
