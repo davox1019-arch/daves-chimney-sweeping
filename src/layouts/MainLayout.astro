@@ -464,7 +464,7 @@ const breadcrumbSchema = canonicalUrl
             <h3 class="footer-title">Services</h3>
             <div class="footer-links">
               {!isSuburbPage && <a href={servicePageHref}>{servicePageLabel}</a>}
-              <a href="/contact">Get a Quote</a>
+              <a href={isSuburbPage ? "#quote" : "/contact"}>Get a Quote</a>
             </div>
           </div>
 
@@ -472,7 +472,7 @@ const breadcrumbSchema = canonicalUrl
             <h3 class="footer-title">Contact</h3>
             <div class="footer-links">
               <a href="tel:0476302729">0476 302 729</a>
-              <a href="/contact">Contact Page</a>
+              <a href={isSuburbPage ? "#quote" : "/contact"}>Contact Page</a>
             </div>
           </div>
         </div>
