@@ -336,6 +336,44 @@ const breadcrumbSchema = canonicalUrl
           max-width: calc(100vw - 108px);
         }
       }
+
+      .about-section {
+        background: #1a1a1a;
+        color: white;
+        padding: 56px 0;
+        margin-top: 48px;
+      }
+
+      .about-inner {
+        max-width: 720px;
+      }
+
+      .about-label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #c8500a;
+        margin: 0 0 0.55rem;
+      }
+
+      .about-section h2 {
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 800;
+        margin: 0 0 1.25rem;
+        color: white;
+      }
+
+      .about-section p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: rgba(255,255,255,0.82);
+        margin: 0 0 1rem;
+      }
+
+      .about-section p:last-child {
+        margin-bottom: 0;
+      }
     </style>
   </head>
 
@@ -345,21 +383,33 @@ const breadcrumbSchema = canonicalUrl
         <div class="header-inner">
           <div class="header-left"></div>
 
-          <a class="brand" href={isSuburbPage ? "#quote" : homeHref}>
-            <img
-              class="brand-logo"
-              src="/daves-logo.png?v=4"
-              alt="Daves Chimney Sweeping logo"
-              width="520"
-              height="130"
-            />
-          </a>
+          {isSuburbPage ? (
+            <span class="brand">
+              <img
+                class="brand-logo"
+                src="/daves-logo.png?v=4"
+                alt="Daves Chimney Sweeping logo"
+                width="520"
+                height="130"
+              />
+            </span>
+          ) : (
+            <a class="brand" href={homeHref}>
+              <img
+                class="brand-logo"
+                src="/daves-logo.png?v=4"
+                alt="Daves Chimney Sweeping logo"
+                width="520"
+                height="130"
+              />
+            </a>
+          )}
 
           <div class="header-right">
             <nav class="desktop-nav">
               {!isSuburbPage && <a href={homeHref}>Home</a>}
               {!isSuburbPage && <a href={servicePageHref}>{servicePageLabel}</a>}
-              <a href="/contact">Contact</a>
+              <a href={isSuburbPage ? "#quote" : "/contact"}>Contact</a>
             </nav>
 
             <button
@@ -378,13 +428,25 @@ const breadcrumbSchema = canonicalUrl
           <div class="mobile-menu-card">
             {!isSuburbPage && <a href={homeHref}>Home</a>}
             {!isSuburbPage && <a href={servicePageHref}>{servicePageLabel}</a>}
-            <a href="/contact">Contact</a>
+            {isSuburbPage && <a href="#about">About Us</a>}
+            <a href={isSuburbPage ? "#quote" : "/contact"}>Contact</a>
           </div>
         </div>
       </div>
     </header>
 
     <main><slot /></main>
+
+    {isSuburbPage && (
+      <section class="about-section" id="about">
+        <div class="container about-inner">
+          <p class="about-label">About Us</p>
+          <h2>Local {clusterBase} Chimney Sweep — Over 10 Years in the Area</h2>
+          <p>Dave's Chimney Sweeping is a local, owner-operated business — not a national franchise or call centre. Dave personally handles every job in the {clusterBase} area and has been servicing homes here for over a decade. We know the local housing stock, the fireplace styles that are common in this area, and the issues that come up with {clusterBase} chimneys season after season.</p>
+          <p>When you call us, you speak directly to Dave. When we show up, it's Dave. No subcontractors, no hand-offs, no surprises. Just a local tradie who knows chimneys, turns up on time, and takes pride in doing the job properly every time.</p>
+        </div>
+      </section>
+    )}
 
     <footer class="site-footer">
       <div class="container footer-inner">
