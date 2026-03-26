@@ -1,0 +1,196 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+const schema = {
+  "@context":"https://schema.org","@type":"LocalBusiness",
+  name:"Daves Chimney Sweeping",telephone:"+61476302729",
+  areaServed:["Research VIC 3095"],
+  url:"https://daveschimneysweeping.com.au/chimney-sweeping/research",
+  description:"Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Research VIC 3095.",
+  address:{"@type":"PostalAddress",addressLocality:"Research",addressRegion:"VIC",postalCode:"3095",addressCountry:"AU"}
+};
+const faqs = [
+  {q:"Is Research VIC 3095 the same area as Eltham?",a:"Research is a separate suburb but shares postcode 3095 with Eltham. They're neighbours and we service both."},
+  {q:"Does the tree coverage around Research affect chimney cleaning?",a:"It means bird nesting in chimneys is more common — we deal with it as standard. Debris from nearby trees can also block flues, so it's worth checking annually."},
+  {q:"What's the easiest way to get a quote for Research?",a:"Call 0476 302 729 — usually the fastest. Or use the form on this page and we'll come back to you the same day."},
+  {q:"Do you clean both slow combustion heaters and open fireplaces?",a:"Yes — both are covered. We handle whatever type of system your Research home has installed."},
+  {q:"How long has Daves Chimney Sweeping been operating?",a:"Daves Chimney Sweeping is owner-operated and services the north-east Melbourne corridor including Research and nearby areas."}
+];
+---
+<MainLayout
+  title="Chimney Sweeping Research VIC 3095 | Daves Chimney Sweeping"
+  description="Chimney sweeping in Research VIC 3095. Local flue cleaning, wood heater servicing and fireplace maintenance. Owner-operated. Fast quotes. Call 0476 302 729."
+  clusterBase="Research" clusterRegion="Research and surrounding north-east suburbs"
+  homeHref="/" servicePageHref="/" servicePageLabel="Chimney Sweeping Melbourne"
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  <style>
+    :root{--bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;--bw:#f5f0e8;--wh:#fff;--tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px}
+    .hero{background:var(--bd);color:var(--wh);padding:2.8rem 1.25rem 2.5rem;text-align:center}
+    .ey{display:inline-block;background:var(--ba);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .85rem;border-radius:20px;margin-bottom:1.1rem}
+    .hero h1{font-size:clamp(1.65rem,5vw,2.3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin:0 0 1rem;color:var(--wh)}
+    .lead{font-size:1rem;line-height:1.65;color:#c8c5be;margin:0 auto .75rem;max-width:500px}
+    .sub{font-size:.93rem;line-height:1.6;color:#6e6b64;max-width:500px;margin:0 auto 2rem}
+    .br2{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+    .btn{display:inline-block;padding:.95rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s}
+    .btn:hover{opacity:.88}
+    .btn-c{background:var(--ba);color:#fff;font-size:1.1rem}
+    .btn-q{background:transparent;border:2px solid #4a4a44;color:#c8c5be}
+    .tb{background:var(--bm);padding:.95rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#908d86;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+    .ti svg{flex-shrink:0;color:var(--ba)}
+    .sec{padding:2.2rem 1.25rem;max-width:700px;margin:0 auto}
+    .sec+.sec{border-top:1px solid var(--br)}
+    .sl{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
+    .sec h2{font-size:clamp(1.25rem,4vw,1.65rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec p{font-size:.97rem;line-height:1.72;color:var(--ts);margin:0 0 .85rem}
+    .sec p:last-child{margin-bottom:0}
+    .chk-list{list-style:none;padding:0;margin:1.1rem 0 0;display:flex;flex-direction:column;gap:.55rem}
+    .chk-list li{font-size:.95rem;line-height:1.5;color:var(--ts);padding:.65rem .9rem;background:var(--bw);border:1px solid var(--br);border-radius:8px;display:flex;align-items:center;gap:.55rem}
+    .chk-list li::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
+    .ac{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
+    .ac p{font-size:.96rem;line-height:1.7;color:var(--ts);margin:0 0 .8rem}
+    .ac p:last-child{margin-bottom:0}
+    .ar{display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--ts);margin-top:.55rem}
+    .ar strong{color:var(--tm)}
+    .ar a{color:var(--ba);font-weight:700;text-decoration:none}
+    .fw{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
+    .fw h3{font-size:1.05rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
+    .fw .fs{font-size:.85rem;color:var(--ts);margin:0 0 1.1rem}
+    .fg{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+    @media(max-width:480px){.fg{grid-template-columns:1fr}}
+    .fi{display:flex;flex-direction:column;gap:.3rem}
+    .fi.full{grid-column:1/-1}
+    .fi label{font-size:.78rem;font-weight:700;color:var(--tm);letter-spacing:.02em;text-transform:uppercase}
+    .fi input,.fi select,.fi textarea{width:100%;border:1.5px solid var(--br);border-radius:8px;padding:.65rem .8rem;font-size:.9rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
+    .fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--ba)}
+    .fi textarea{resize:vertical;min-height:80px}
+    .fsub{display:block;width:100%;margin-top:.85rem;background:var(--ba);color:#fff;border:none;padding:.9rem;border-radius:var(--rad);font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s}
+    .fsub:hover{opacity:.88}
+    .fl{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
+    details.fq{border-bottom:1px solid var(--br)}
+    details.fq:last-child{border-bottom:none}
+    details.fq summary{padding:1rem 1.1rem;font-size:.95rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
+    details.fq summary::-webkit-details-marker{display:none}
+    details.fq summary:hover{background:var(--bw)}
+    details.fq summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
+    details.fq[open] summary::after{content:"−"}
+    .fqa{padding:0 1.1rem 1rem;font-size:.93rem;line-height:1.7;color:var(--ts);background:var(--wh)}
+    .sc{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+    .sp{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.4rem .8rem;font-size:.82rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
+    .sp:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    .pl{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+    .plk{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1rem;background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);text-decoration:none;font-size:.92rem;font-weight:600;color:var(--tm);transition:background .15s,border-color .15s}
+    .plk:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    .plk span{opacity:.5;font-size:1.1rem}
+    .bc{background:var(--bd);color:var(--wh);padding:2.5rem 1.25rem;text-align:center}
+    .bc h2{font-size:clamp(1.3rem,4.5vw,1.7rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .6rem}
+    .bc p{font-size:.95rem;color:#6e6b64;margin:0 0 1.75rem;line-height:1.6}
+  </style>
+
+  <section class="hero">
+    <span class="ey">Research VIC 3095</span>
+    <h1>Chimney Sweeping<br>Research VIC 3095</h1>
+    <p class="lead">Research is a semi-rural suburb nestled in the Eltham corridor — quiet, green, and cold in winter. Wood heaters and open fireplaces are common here, and Daves Chimney Sweeping provides professional chimney sweeping, flue cleaning and heater servicing for Research 3095.</p>
+    <p class="sub">Local, owner-operated. Call Dave directly — no booking platform, no call queue.</p>
+    <div class="br2">
+      <a class="btn btn-c" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+      <a class="btn btn-q" href="#quote">Request a Quote</a>
+    </div>
+  </section>
+
+  <div class="tb">
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Research locals</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Fast quotes</span>
+  </div>
+
+  <section class="sec">
+    <p class="sl">Services</p>
+    <h2>What We Do for Research Homes</h2>
+    <p>We cover the full chimney and heater system in one visit. Most Research jobs include:</p>
+    <ul class="chk-list">
+      <li>Chimney sweeping — firebox to chimney pot</li>
+      <li>Flue cleaning — liner or pipe cleared for proper airflow</li>
+      <li>Wood heater or slow combustion heater service</li>
+      <li>Open fireplace cleaning</li>
+      <li>Soot, ash and creosote removal</li>
+      <li>Bird nest and blockage clearing</li>
+    </ul>
+  </section>
+
+  <section class="sec">
+    <p class="sl">About us</p>
+    <h2>Direct Service — No Franchise Involved</h2>
+    <div class="ac">
+      <p>Daves Chimney Sweeping is owner-operated. Dave covers Research VIC 3095 and surrounding suburbs. No subcontracting, no booking queues — you call, you deal with Dave, he does the job.</p>
+      <p>Upfront price, honest assessment of what the system needs, tidy finish.</p>
+      <div class="ar">&#128222; <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="ar">&#128205; <strong>Serving:</strong>&nbsp;Research VIC 3095 and surrounds</div>
+      <div class="ar">&#128336; <strong>Hours:</strong>&nbsp;Mon&#8211;Sat, 8am&#8211;6pm</div>
+    </div>
+  </section>
+
+  <section class="sec" id="quote">
+    <p class="sl">Book now</p>
+    <h2>Get a Quote for Research</h2>
+    <div class="fw">
+      <h3>Quick Quote &#8212; Research</h3>
+      <p class="fs">Fill in your details and we'll get back to you with a straight price.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="suburb" value="Research VIC 3095" />
+        <div class="fg">
+          <div class="fi"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="fi"><label>Phone</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="fi"><label>Email</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="fi"><label>Service</label>
+            <select name="service" required><option value="">Select&#8230;</option><option>Chimney Sweeping</option><option>Flue Cleaning</option><option>Wood Heater Cleaning</option><option>Fireplace Cleaning</option><option>Blockage / Nest Removal</option><option>Not sure</option></select>
+          </div>
+          <div class="fi full"><label>Details</label><textarea name="message" placeholder="Type of system, any issues you've noticed, when last serviced&#8230;"></textarea></div>
+        </div>
+        <button type="submit" class="fsub">Send Quote Request</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">FAQs</p>
+    <h2>Research Chimney Sweeping &#8212; Common Questions</h2>
+    <div class="fl">
+      {faqs.map(({q,a}) => (
+        <details class="fq"><summary>{q}</summary><div class="fqa">{a}</div></details>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">Nearby areas</p>
+    <h2>Suburbs Around Research We Also Service</h2>
+    <div class="sc">
+      <a class="sp" href="/chimney-sweeping/eltham">Eltham 3095</a>
+      <a class="sp" href="/chimney-sweeping/eltham-north">Eltham North 3095</a>
+      <a class="sp" href="/chimney-sweeping/diamond-creek">Diamond Creek 3089</a>
+      <a class="sp" href="/chimney-sweeping/hurstbridge">Hurstbridge 3099</a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">More pages</p>
+    <h2>Nearby Service Pages</h2>
+    <nav class="pl">
+      <a class="plk" href="/chimney-sweeping/eltham">Chimney Sweeping &#8212; Eltham 3095 <span>&#8250;</span></a>
+      <a class="plk" href="/chimney-sweeping/eltham-north">Chimney Sweeping &#8212; Eltham North 3095 <span>&#8250;</span></a>
+      <a class="plk" href="/chimney-sweeping/diamond-creek">Chimney Sweeping &#8212; Diamond Creek 3089 <span>&#8250;</span></a>
+      <a class="plk" href="/chimney-sweeping/hurstbridge">Chimney Sweeping &#8212; Hurstbridge 3099 <span>&#8250;</span></a>
+      <a class="plk" href="/">Chimney Sweeping Melbourne &#8212; All Suburbs <span>&#8250;</span></a>
+    </nav>
+  </section>
+
+  <section class="bc">
+    <h2>Research Chimney Sweep &#8212; Book Now</h2>
+    <p>Call Dave or use the form above. We'll get back to you with a price and a time that works.</p>
+    <div class="br2">
+      <a class="btn btn-c" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+      <a class="btn btn-q" href="#quote">Request a Quote</a>
+    </div>
+  </section>
+</MainLayout>

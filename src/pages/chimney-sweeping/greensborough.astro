@@ -1,0 +1,212 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+const schema = {
+  "@context":"https://schema.org","@type":"LocalBusiness",
+  name:"Daves Chimney Sweeping",telephone:"+61476302729",
+  areaServed:["Greensborough VIC 3088","Watsonia VIC 3087","Bundoora VIC 3083","Macleod VIC 3085","Diamond Creek VIC 3089"],
+  url:"https://daveschimneysweeping.com.au/chimney-sweeping/greensborough",
+  description:"Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Greensborough VIC 3088.",
+  address:{"@type":"PostalAddress",addressLocality:"Greensborough",addressRegion:"VIC",postalCode:"3088",addressCountry:"AU"}
+};
+const faqs = [
+  {q:"Do you service all of Greensborough VIC 3088?",a:"Yes — the whole suburb. We also cover nearby areas including Watsonia, Bundoora and Macleod as part of the same local run."},
+  {q:"How much creosote buildup is dangerous?",a:"Any significant creosote accumulation in the flue is worth addressing — it's flammable and also restricts airflow. We'll assess what's there and tell you honestly what needs doing."},
+  {q:"Can you service a heater that's been unused for a few years?",a:"Absolutely. A heater that's sat unused for a season or two may have a nest or debris in the flue and the seals and baffle can benefit from inspection. We'll get it into proper condition."},
+  {q:"Do you work on weekends?",a:"Yes — we operate Monday to Saturday. Weekend bookings are available."},
+  {q:"How quickly can you come out to Greensborough?",a:"Call us on 0476 302 729 and we'll find a time that works. We aim to be prompt, especially heading into the cooler months."}
+];
+---
+<MainLayout
+  title="Chimney Sweeping Greensborough VIC 3088 | Daves Chimney Sweeping"
+  description="Chimney sweeping in Greensborough VIC 3088. Professional flue cleaning, wood heater servicing and fireplace maintenance. Local, fast quotes. Call 0476 302 729."
+  clusterBase="Eltham" clusterRegion="Eltham and surrounding north-east suburbs"
+  homeHref="/" servicePageHref="/" servicePageLabel="Chimney Sweeping Melbourne"
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  <style>
+    :root{--bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;--bw:#f5f0e8;--wh:#fff;--tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px}
+    .hero{background:var(--bd);color:var(--wh);padding:2.8rem 1.25rem 2.5rem;text-align:center}
+    .eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .85rem;border-radius:20px;margin-bottom:1.1rem}
+    .hero h1{font-size:clamp(1.65rem,5vw,2.3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin:0 0 1rem;color:var(--wh)}
+    .lead{font-size:1rem;line-height:1.65;color:#c8c5be;margin:0 auto .75rem;max-width:500px}
+    .sub{font-size:.93rem;line-height:1.6;color:#6e6b64;max-width:500px;margin:0 auto 2rem}
+    .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+    .btn{display:inline-block;padding:.95rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s}
+    .btn:hover{opacity:.88}
+    .btn-call{background:var(--ba);color:#fff;font-size:1.1rem}
+    .btn-q{background:transparent;border:2px solid #4a4a44;color:#c8c5be}
+    .tbar{background:var(--bm);padding:.95rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#908d86;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+    .ti svg{flex-shrink:0;color:var(--ba)}
+    .sec{padding:2.2rem 1.25rem;max-width:700px;margin:0 auto}
+    .sec+.sec{border-top:1px solid var(--br)}
+    .sl{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
+    .sec h2{font-size:clamp(1.25rem,4vw,1.65rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec p{font-size:.97rem;line-height:1.72;color:var(--ts);margin:0 0 .85rem}
+    .sec p:last-child{margin-bottom:0}
+    /* Included pills */
+    .inc-list{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.1rem}
+    .inc-pill{background:var(--bw);border:1px solid var(--br);border-radius:20px;padding:.4rem .9rem;font-size:.83rem;font-weight:600;color:var(--tm)}
+    /* Highlight box */
+    .hl{background:var(--bw);border-left:3px solid var(--ba);border-radius:0 var(--rad) var(--rad) 0;padding:1rem 1.25rem;margin-top:1.1rem;font-size:.95rem;line-height:1.65;color:var(--ts)}
+    /* About */
+    .ac{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
+    .ac p{font-size:.96rem;line-height:1.7;color:var(--ts);margin:0 0 .8rem}
+    .ac p:last-child{margin-bottom:0}
+    .ar{display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--ts);margin-top:.55rem}
+    .ar strong{color:var(--tm)}
+    .ar a{color:var(--ba);font-weight:700;text-decoration:none}
+    /* Form */
+    .fw{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
+    .fw h3{font-size:1.05rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
+    .fw .fs{font-size:.85rem;color:var(--ts);margin:0 0 1.1rem}
+    .fg{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+    @media(max-width:480px){.fg{grid-template-columns:1fr}}
+    .fi{display:flex;flex-direction:column;gap:.3rem}
+    .fi.full{grid-column:1/-1}
+    .fi label{font-size:.78rem;font-weight:700;color:var(--tm);letter-spacing:.02em;text-transform:uppercase}
+    .fi input,.fi select,.fi textarea{width:100%;border:1.5px solid var(--br);border-radius:8px;padding:.65rem .8rem;font-size:.9rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
+    .fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--ba)}
+    .fi textarea{resize:vertical;min-height:80px}
+    .fsub{display:block;width:100%;margin-top:.85rem;background:var(--ba);color:#fff;border:none;padding:.9rem;border-radius:var(--rad);font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s}
+    .fsub:hover{opacity:.88}
+    /* FAQ */
+    .fl{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
+    details.fi2{border-bottom:1px solid var(--br)}
+    details.fi2:last-child{border-bottom:none}
+    details.fi2 summary{padding:1rem 1.1rem;font-size:.95rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
+    details.fi2 summary::-webkit-details-marker{display:none}
+    details.fi2 summary:hover{background:var(--bw)}
+    details.fi2 summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
+    details.fi2[open] summary::after{content:"−"}
+    .fa{padding:0 1.1rem 1rem;font-size:.93rem;line-height:1.7;color:var(--ts);background:var(--wh)}
+    /* chips */
+    .sc{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+    .sp{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.4rem .8rem;font-size:.82rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
+    .sp:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    /* page links */
+    .pl{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+    .plk{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1rem;background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);text-decoration:none;font-size:.92rem;font-weight:600;color:var(--tm);transition:background .15s,border-color .15s}
+    .plk:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    .plk span{opacity:.5;font-size:1.1rem}
+    .bc{background:var(--bd);color:var(--wh);padding:2.5rem 1.25rem;text-align:center}
+    .bc h2{font-size:clamp(1.3rem,4.5vw,1.7rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .6rem}
+    .bc p{font-size:.95rem;color:#6e6b64;margin:0 0 1.75rem;line-height:1.6}
+  </style>
+
+  <section class="hero">
+    <span class="eyebrow">Greensborough VIC 3088</span>
+    <h1>Chimney Sweeping<br>Greensborough VIC 3088</h1>
+    <p class="lead">Keeping fireplaces and wood heaters in good shape is straightforward maintenance — and it makes a real difference when winter hits. Daves Chimney Sweeping handles chimney sweeping, flue cleaning and wood heater servicing for homes in Greensborough 3088.</p>
+    <p class="sub">Owner-operated, local, and easy to book. Call Dave directly.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-q" href="#quote">Get a Quote</a>
+    </div>
+  </section>
+
+  <div class="tbar">
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Greensborough locals</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon–Sat service</span>
+  </div>
+
+  <section class="sec">
+    <p class="sl">Why regular cleaning matters</p>
+    <h2>What Builds Up in a Chimney Over Time</h2>
+    <p>Each time a wood heater or fireplace is used, small amounts of soot, ash and a tar-like substance called creosote deposit inside the flue. Over a season of regular use it accumulates, and over a few seasons without cleaning it can cause real problems — restricted airflow, smoke coming back inside, or strong smells that don't go away.</p>
+    <div class="hl">Annual chimney cleaning is the straightforward fix. It takes less than two hours in most cases and makes the system noticeably easier to use through winter.</div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">What's covered</p>
+    <h2>Chimney Sweeping Services in Greensborough</h2>
+    <p>We cover all standard chimney and heating maintenance in one visit:</p>
+    <div class="inc-list">
+      <span class="inc-pill">🔥 Chimney sweeping</span>
+      <span class="inc-pill">🌬️ Flue cleaning</span>
+      <span class="inc-pill">🪵 Wood heater service</span>
+      <span class="inc-pill">🏠 Fireplace clean</span>
+      <span class="inc-pill">🐦 Blockage removal</span>
+      <span class="inc-pill">⬛ Soot &amp; ash removal</span>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">About us</p>
+    <h2>Local Service, Dealt With Directly</h2>
+    <div class="ac">
+      <p>Daves Chimney Sweeping is owner-operated. Dave covers Greensborough VIC 3088 and the surrounding Banyule area. You call, you deal with Dave — no booking platforms, no automated systems, no mystery about who's turning up.</p>
+      <p>Upfront pricing, arrives when he says he will, job done properly.</p>
+      <div class="ar">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="ar">📍 <strong>Serving:</strong>&nbsp;Greensborough VIC 3088 and surrounds</div>
+      <div class="ar">🕐 <strong>Hours:</strong>&nbsp;Mon–Sat, 8am–6pm</div>
+    </div>
+  </section>
+
+  <section class="sec" id="quote">
+    <p class="sl">Book now</p>
+    <h2>Request a Quote — Greensborough</h2>
+    <div class="fw">
+      <h3>Quick Quote Request</h3>
+      <p class="fs">Your details go straight to Dave. We'll get back to you with a price.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="suburb" value="Greensborough VIC 3088" />
+        <div class="fg">
+          <div class="fi"><label for="n-g">Full Name</label><input id="n-g" type="text" name="name" required placeholder="Your name" /></div>
+          <div class="fi"><label for="p-g">Phone</label><input id="p-g" type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="fi"><label for="e-g">Email</label><input id="e-g" type="email" name="email" placeholder="Optional" /></div>
+          <div class="fi"><label for="s-g">Service</label>
+            <select id="s-g" name="service" required><option value="">Select…</option><option>Chimney Sweeping</option><option>Flue Cleaning</option><option>Wood Heater Cleaning</option><option>Fireplace Cleaning</option><option>Blockage / Nest Removal</option><option>Not sure</option></select>
+          </div>
+          <div class="fi full"><label for="m-g">Details</label><textarea id="m-g" name="message" placeholder="Type of system, when last cleaned, any issues you've noticed…"></textarea></div>
+        </div>
+        <button type="submit" class="fsub">Send Quote Request</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">FAQs</p>
+    <h2>Greensborough Chimney Sweeping — Questions</h2>
+    <div class="fl">
+      {faqs.map(({q,a}) => (
+        <details class="fi2"><summary>{q}</summary><div class="fa">{a}</div></details>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">Nearby areas</p>
+    <h2>Other Suburbs Near Greensborough We Service</h2>
+    <div class="sc">
+      <a class="sp" href="/chimney-sweeping/eltham">Eltham 3095</a>
+      <a class="sp" href="/chimney-sweeping/diamond-creek">Diamond Creek 3089</a>
+      <a class="sp" href="/chimney-sweeping/watsonia">Watsonia 3087</a>
+      <a class="sp" href="/chimney-sweeping/macleod">Macleod 3085</a>
+      <a class="sp" href="/chimney-sweeping/bundoora">Bundoora 3083</a>
+      <a class="sp" href="/chimney-sweeping/heidelberg">Heidelberg 3084</a>
+      <a class="sp" href="/chimney-sweeping/hurstbridge">Hurstbridge 3099</a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">More pages</p>
+    <h2>Nearby Service Pages</h2>
+    <nav class="pl">
+      <a class="plk" href="/chimney-sweeping/eltham">Chimney Sweeping — Eltham VIC 3095 <span>›</span></a>
+      <a class="plk" href="/chimney-sweeping/watsonia">Chimney Sweeping — Watsonia VIC 3087 <span>›</span></a>
+      <a class="plk" href="/chimney-sweeping/diamond-creek">Chimney Sweeping — Diamond Creek VIC 3089 <span>›</span></a>
+      <a class="plk" href="/">Chimney Sweeping Melbourne — All Suburbs <span>›</span></a>
+    </nav>
+  </section>
+
+  <section class="bc">
+    <h2>Greensborough Chimney Sweep — Book Now</h2>
+    <p>Call Dave or use the form — we'll give you a price and lock in a time that works.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-q" href="#quote">Request a Quote</a>
+    </div>
+  </section>
+</MainLayout>

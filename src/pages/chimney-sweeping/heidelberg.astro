@@ -1,0 +1,197 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+const schema = {
+  "@context":"https://schema.org","@type":"LocalBusiness",
+  name:"Daves Chimney Sweeping",telephone:"+61476302729",
+  areaServed:["Heidelberg VIC 3084","Rosanna VIC 3084","Heidelberg West VIC 3081","Heidelberg Heights VIC 3081","Watsonia VIC 3087","Macleod VIC 3085"],
+  url:"https://daveschimneysweeping.com.au/chimney-sweeping/heidelberg",
+  description:"Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Heidelberg VIC 3084.",
+  address:{"@type":"PostalAddress",addressLocality:"Heidelberg",addressRegion:"VIC",postalCode:"3084",addressCountry:"AU"}
+};
+const faqs = [
+  {q:"Do you cover Heidelberg West and Heidelberg Heights as well?",a:"Yes — Heidelberg VIC 3084, Heidelberg West 3081 and Heidelberg Heights 3081 are all covered. We service the full area."},
+  {q:"My fireplace is in an older Heidelberg home — does that change the job?",a:"Older homes sometimes have different flue setups but we're used to working with them. We'll assess what's there and let you know exactly what needs doing before we start."},
+  {q:"Can you clean a wood heater that was installed by a previous owner?",a:"Yes — we clean wood heaters regardless of the brand or age. If there are any issues with the installation we'll flag them, but the cleaning itself is straightforward."},
+  {q:"How do I know the price before you arrive?",a:"We give you a quote before booking. Call 0476 302 729 or use the form, describe your setup, and we'll give you a straight price upfront."},
+  {q:"Is the glass on my wood heater door supposed to go black?",a:"Black glass is caused by incomplete combustion — usually poor airflow from a dirty flue. A flue clean typically resolves it and you'll notice the difference immediately."}
+];
+---
+<MainLayout
+  title="Chimney Sweeping Heidelberg VIC 3084 | Daves Chimney Sweeping"
+  description="Chimney sweeping in Heidelberg VIC 3084. Local flue cleaning, wood heater servicing and fireplace maintenance. Owner-operated. Fast quotes. Call 0476 302 729."
+  clusterBase="Banyule" clusterRegion="Banyule and surrounding north-east suburbs"
+  homeHref="/" servicePageHref="/" servicePageLabel="Chimney Sweeping Melbourne"
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  <style>
+    :root{--bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;--bw:#f5f0e8;--wh:#fff;--tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px}
+    .hero{background:var(--bd);color:var(--wh);padding:2.8rem 1.25rem 2.5rem;text-align:center}
+    .ey{display:inline-block;background:var(--ba);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .85rem;border-radius:20px;margin-bottom:1.1rem}
+    .hero h1{font-size:clamp(1.65rem,5vw,2.3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin:0 0 1rem;color:var(--wh)}
+    .lead{font-size:1rem;line-height:1.65;color:#c8c5be;margin:0 auto .75rem;max-width:500px}
+    .sub{font-size:.93rem;line-height:1.6;color:#6e6b64;max-width:500px;margin:0 auto 2rem}
+    .br2{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+    .btn{display:inline-block;padding:.95rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s}
+    .btn:hover{opacity:.88}
+    .btn-c{background:var(--ba);color:#fff;font-size:1.1rem}
+    .btn-q{background:transparent;border:2px solid #4a4a44;color:#c8c5be}
+    .tb{background:var(--bm);padding:.95rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#908d86;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+    .ti svg{flex-shrink:0;color:var(--ba)}
+    .sec{padding:2.2rem 1.25rem;max-width:700px;margin:0 auto}
+    .sec+.sec{border-top:1px solid var(--br)}
+    .sl{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
+    .sec h2{font-size:clamp(1.25rem,4vw,1.65rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec p{font-size:.97rem;line-height:1.72;color:var(--ts);margin:0 0 .85rem}
+    .sec p:last-child{margin-bottom:0}
+    .srow-list{display:flex;flex-direction:column;gap:.6rem;margin-top:1.1rem}
+    .srow{display:flex;align-items:center;gap:.9rem;background:var(--bw);border:1px solid var(--br);border-left:3px solid var(--ba);border-radius:var(--rad);padding:.85rem 1rem}
+    .srow-icon{font-size:1.2rem;flex-shrink:0}
+    .srow-text{font-size:.9rem;font-weight:600;color:var(--tm)}
+    .srow-desc{font-size:.82rem;color:var(--ts);line-height:1.4}
+    .ac{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
+    .ac p{font-size:.96rem;line-height:1.7;color:var(--ts);margin:0 0 .8rem}
+    .ac p:last-child{margin-bottom:0}
+    .ar{display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--ts);margin-top:.55rem}
+    .ar strong{color:var(--tm)}
+    .ar a{color:var(--ba);font-weight:700;text-decoration:none}
+    .fw{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
+    .fw h3{font-size:1.05rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
+    .fw .fs{font-size:.85rem;color:var(--ts);margin:0 0 1.1rem}
+    .fg{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+    @media(max-width:480px){.fg{grid-template-columns:1fr}}
+    .fi{display:flex;flex-direction:column;gap:.3rem}
+    .fi.full{grid-column:1/-1}
+    .fi label{font-size:.78rem;font-weight:700;color:var(--tm);letter-spacing:.02em;text-transform:uppercase}
+    .fi input,.fi select,.fi textarea{width:100%;border:1.5px solid var(--br);border-radius:8px;padding:.65rem .8rem;font-size:.9rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
+    .fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--ba)}
+    .fi textarea{resize:vertical;min-height:80px}
+    .fsub{display:block;width:100%;margin-top:.85rem;background:var(--ba);color:#fff;border:none;padding:.9rem;border-radius:var(--rad);font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s}
+    .fsub:hover{opacity:.88}
+    .fl{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
+    details.fq{border-bottom:1px solid var(--br)}
+    details.fq:last-child{border-bottom:none}
+    details.fq summary{padding:1rem 1.1rem;font-size:.95rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
+    details.fq summary::-webkit-details-marker{display:none}
+    details.fq summary:hover{background:var(--bw)}
+    details.fq summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
+    details.fq[open] summary::after{content:"−"}
+    .fqa{padding:0 1.1rem 1rem;font-size:.93rem;line-height:1.7;color:var(--ts);background:var(--wh)}
+    .sc{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+    .sp{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.4rem .8rem;font-size:.82rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
+    .sp:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    .pl{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+    .plk{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1rem;background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);text-decoration:none;font-size:.92rem;font-weight:600;color:var(--tm);transition:background .15s,border-color .15s}
+    .plk:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    .plk span{opacity:.5;font-size:1.1rem}
+    .bc{background:var(--bd);color:var(--wh);padding:2.5rem 1.25rem;text-align:center}
+    .bc h2{font-size:clamp(1.3rem,4.5vw,1.7rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .6rem}
+    .bc p{font-size:.95rem;color:#6e6b64;margin:0 0 1.75rem;line-height:1.6}
+  </style>
+
+  <section class="hero">
+    <span class="ey">Heidelberg VIC 3084</span>
+    <h1>Chimney Sweeping<br>Heidelberg VIC 3084</h1>
+    <p class="lead">Heidelberg has a high concentration of older homes — and older homes tend to have chimneys that haven't been serviced in a while. Daves Chimney Sweeping provides local chimney sweeping, flue cleaning and wood heater servicing for homes across Heidelberg 3084.</p>
+    <p class="sub">Owner-operated, no franchise, no waiting rooms. Call Dave directly.</p>
+    <div class="br2">
+      <a class="btn btn-c" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-q" href="#quote">Request a Quote</a>
+    </div>
+  </section>
+
+  <div class="tb">
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Heidelberg locals</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Fast honest quotes</span>
+  </div>
+
+  <section class="sec">
+    <p class="sl">What we do</p>
+    <h2>Chimney &amp; Flue Cleaning Services in Heidelberg</h2>
+    <p>We handle the full system in one visit. Here's what a typical Heidelberg job covers:</p>
+    <div class="srow-list">
+      <div class="srow"><span class="srow-icon">🔥</span><div><div class="srow-text">Chimney Sweeping</div><div class="srow-desc">Full stack cleaned from the firebox up — soot, ash and creosote removed.</div></div></div>
+      <div class="srow"><span class="srow-icon">🌬️</span><div><div class="srow-text">Flue Cleaning</div><div class="srow-desc">Flue liner or pipe cleared to restore proper airflow and draw.</div></div></div>
+      <div class="srow"><span class="srow-icon">🪵</span><div><div class="srow-text">Wood Heater Service</div><div class="srow-desc">Heater body, baffle and flue connection — all cleaned in the same visit.</div></div></div>
+      <div class="srow"><span class="srow-icon">🐦</span><div><div class="srow-text">Blockage &amp; Nest Removal</div><div class="srow-desc">Bird nests and debris cleared. Common in older Heidelberg chimneys.</div></div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">About us</p>
+    <h2>You're Dealing With Dave — No Middlemen</h2>
+    <div class="ac">
+      <p>Daves Chimney Sweeping is owner-operated. Dave covers Heidelberg VIC 3084, Heidelberg West and Heidelberg Heights as part of a regular north-east Melbourne run. When you call, you're speaking to the person doing the job.</p>
+      <p>Honest assessment, upfront price, tidy finish. That's the deal.</p>
+      <div class="ar">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="ar">📍 <strong>Serving:</strong>&nbsp;Heidelberg VIC 3084 and surrounds</div>
+      <div class="ar">🕐 <strong>Hours:</strong>&nbsp;Mon–Sat, 8am–6pm</div>
+    </div>
+  </section>
+
+  <section class="sec" id="quote">
+    <p class="sl">Book now</p>
+    <h2>Get a Quote — Heidelberg</h2>
+    <div class="fw">
+      <h3>Quick Quote Request</h3>
+      <p class="fs">Send your details and we'll come back to you with a clear price.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="suburb" value="Heidelberg VIC 3084" />
+        <div class="fg">
+          <div class="fi"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="fi"><label>Phone</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="fi"><label>Email</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="fi"><label>Service Needed</label>
+            <select name="service" required><option value="">Select…</option><option>Chimney Sweeping</option><option>Flue Cleaning</option><option>Wood Heater Cleaning</option><option>Fireplace Cleaning</option><option>Blockage / Nest Removal</option><option>Not sure</option></select>
+          </div>
+          <div class="fi full"><label>Any Details</label><textarea name="message" placeholder="Type of system, any issues, when last serviced…"></textarea></div>
+        </div>
+        <button type="submit" class="fsub">Send Quote Request</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">FAQs</p>
+    <h2>Heidelberg Chimney Sweeping — Questions</h2>
+    <div class="fl">
+      {faqs.map(({q,a}) => (
+        <details class="fq"><summary>{q}</summary><div class="fqa">{a}</div></details>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">Nearby areas</p>
+    <h2>Suburbs Around Heidelberg We Also Service</h2>
+    <div class="sc">
+      <a class="sp" href="/chimney-sweeping/watsonia">Watsonia 3087</a>
+      <a class="sp" href="/chimney-sweeping/macleod">Macleod 3085</a>
+      <a class="sp" href="/chimney-sweeping/greensborough">Greensborough 3088</a>
+      <a class="sp" href="/chimney-sweeping/bundoora">Bundoora 3083</a>
+      <a class="sp" href="/chimney-sweeping/eltham">Eltham 3095</a>
+      <a class="sp" href="/chimney-sweeping/diamond-creek">Diamond Creek 3089</a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">More pages</p>
+    <h2>Nearby Service Pages</h2>
+    <nav class="pl">
+      <a class="plk" href="/chimney-sweeping/watsonia">Chimney Sweeping — Watsonia VIC 3087 <span>›</span></a>
+      <a class="plk" href="/chimney-sweeping/macleod">Chimney Sweeping — Macleod VIC 3085 <span>›</span></a>
+      <a class="plk" href="/chimney-sweeping/eltham">Chimney Sweeping — Eltham VIC 3095 <span>›</span></a>
+      <a class="plk" href="/">Chimney Sweeping Melbourne — All Suburbs <span>›</span></a>
+    </nav>
+  </section>
+
+  <section class="bc">
+    <h2>Heidelberg Chimney Sweep — Get Booked In</h2>
+    <p>Call Dave or use the form. We'll confirm details and give you a time that works.</p>
+    <div class="br2">
+      <a class="btn btn-c" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-q" href="#quote">Request a Quote</a>
+    </div>
+  </section>
+</MainLayout>
