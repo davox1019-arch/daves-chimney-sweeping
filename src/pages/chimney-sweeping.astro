@@ -5,28 +5,11 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Daves Chimney Sweeping",
-  telephone: "+61 476 302 729",
-  areaServed: [
-    "Melbourne VIC",
-    "Melton VIC 3337",
-    "Melton South VIC 3338",
-    "Melton West VIC 3337",
-    "Brookfield VIC 3338",
-    "Kurunjang VIC 3337",
-    "Harkness VIC 3337",
-    "Cobblebank VIC 3338",
-    "Sunbury VIC 3429",
-    "Diggers Rest VIC 3427",
-    "Gisborne VIC 3437",
-    "Riddells Creek VIC 3431",
-    "Bacchus Marsh VIC 3340",
-    "Darley VIC 3340",
-    "Maddingley VIC 3340",
-    "Ballan VIC 3342"
-  ],
+  telephone: "+61476302729",
+  areaServed: "Melbourne VIC",
   url: "https://daveschimneysweeping.com.au/chimney-sweeping",
   description:
-    "Daves Chimney Sweeping provides chimney sweeping, flue cleaning, wood heater cleaning and fireplace cleaning across Melbourne and surrounding suburbs.",
+    "Daves Chimney Sweeping provides chimney sweeping, flue cleaning, wood heater cleaning and fireplace cleaning across Melbourne and all surrounding suburbs VIC.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Melbourne",
@@ -36,116 +19,877 @@ const localBusinessSchema = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ],
+      dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
       opens: "08:00",
       closes: "18:00"
     }
   ]
 };
 
-const localBusinessSchemaJson = JSON.stringify(localBusinessSchema);
+const schemaJson = JSON.stringify(localBusinessSchema);
+
+const faqs = [
+  {
+    q: "How often should a chimney be swept in Melbourne?",
+    a: "For a fireplace or wood heater used regularly through Melbourne winters, once a year is the standard guide. If it hasn't been done in a few years — or ever — get it sorted before the cold arrives."
+  },
+  {
+    q: "What's the difference between chimney sweeping and flue cleaning?",
+    a: "Chimney sweeping covers the full stack from the firebox up to the chimney pot — removing soot, ash and creosote along the way. Flue cleaning focuses on the pipe or liner that carries smoke out. Most jobs involve both, and we cover whatever your system needs in one visit."
+  },
+  {
+    q: "Do you clean wood heaters as well as open fireplaces?",
+    a: "Yes — wood heaters, slow combustion heaters and open fireplaces are all covered. We clean the heater body, the flue connection and the chimney depending on your setup."
+  },
+  {
+    q: "What are the signs my chimney needs cleaning?",
+    a: "Smoke coming back into the room, a sluggish or hard-to-light fire, a persistent burnt smell when the fire isn't on, and heavy black soot around the firebox are the most common signs. If it's been over 12 months since the last clean, that's usually reason enough."
+  },
+  {
+    q: "Do you service all Melbourne suburbs?",
+    a: "We cover Melbourne's western, north-western and outer suburban corridor — a large area of homes that rely on wood heating. Call 0476 302 729 to confirm we reach your suburb."
+  },
+  {
+    q: "How long does a chimney sweep take?",
+    a: "Most jobs take between 45 minutes and an hour and a half depending on the system type and level of buildup. We'll give you a realistic estimate before we start."
+  },
+  {
+    q: "Is chimney sweeping a messy job?",
+    a: "We use dust sheets and contain everything properly. Most customers are surprised how tidy we leave things. Soot and ash removal is included in the service."
+  },
+  {
+    q: "How do I get a quote?",
+    a: "Call 0476 302 729 or use the contact form. We'll ask a few quick questions about your setup and give you a straight price — no obligation."
+  }
+];
+
+const services = [
+  { icon: "🔥", title: "Chimney Sweeping", desc: "Full clean from firebox to pot. Removes soot, ash and creosote that builds up with regular use." },
+  { icon: "🌬️", title: "Flue Cleaning", desc: "Flue liner or pipe cleared and cleaned to restore proper airflow and draw." },
+  { icon: "🪵", title: "Wood Heater Cleaning", desc: "Heater body, baffle plate and flue connection cleaned in a single visit." },
+  { icon: "🏠", title: "Fireplace Cleaning", desc: "Open and closed fireplace cleaning — firebox, throat and smoke chamber." },
+  { icon: "🐦", title: "Blockage Removal", desc: "Bird nests and debris cleared from the flue — common after chimneys sit unused over summer." },
+  { icon: "⬛", title: "Soot & Ash Removal", desc: "Thorough removal of built-up soot and ash from all accessible parts of the system." }
+];
+
+// All Melbourne suburbs organised into geographic clusters.
+// slug = dedicated service page exists and is linked.
+// No slug = suburb listed as plain text (covered but no individual page yet).
+const clusters = [
+  {
+    region: "Inner Melbourne",
+    suburbs: [
+      { name: "Melbourne CBD", postcode: "3000" },
+      { name: "South Yarra", postcode: "3141" },
+      { name: "Fitzroy", postcode: "3065" },
+      { name: "Collingwood", postcode: "3066" },
+      { name: "Richmond", postcode: "3121" },
+      { name: "Carlton", postcode: "3053" },
+      { name: "North Melbourne", postcode: "3051" },
+      { name: "Kensington", postcode: "3031" },
+      { name: "Flemington", postcode: "3031" },
+      { name: "Parkville", postcode: "3052" },
+      { name: "East Melbourne", postcode: "3002" },
+      { name: "West Melbourne", postcode: "3003" },
+      { name: "Docklands", postcode: "3008" },
+      { name: "Southbank", postcode: "3006" },
+      { name: "Port Melbourne", postcode: "3207" },
+      { name: "Albert Park", postcode: "3206" },
+      { name: "Middle Park", postcode: "3206" },
+      { name: "South Melbourne", postcode: "3205" },
+    ]
+  },
+  {
+    region: "Inner North",
+    suburbs: [
+      { name: "Brunswick", postcode: "3056" },
+      { name: "Brunswick East", postcode: "3057" },
+      { name: "Brunswick West", postcode: "3055" },
+      { name: "Coburg", postcode: "3058" },
+      { name: "Coburg North", postcode: "3058" },
+      { name: "Northcote", postcode: "3070" },
+      { name: "Thornbury", postcode: "3071" },
+      { name: "Preston", postcode: "3072" },
+      { name: "Reservoir", postcode: "3073" },
+      { name: "Fairfield", postcode: "3078" },
+      { name: "Alphington", postcode: "3078" },
+      { name: "Clifton Hill", postcode: "3068" },
+      { name: "Fitzroy North", postcode: "3068" },
+      { name: "Pascoe Vale", postcode: "3044" },
+      { name: "Pascoe Vale South", postcode: "3044" },
+      { name: "Oak Park", postcode: "3046" },
+      { name: "Glenroy", postcode: "3046" },
+      { name: "Hadfield", postcode: "3046" },
+    ]
+  },
+  {
+    region: "Inner East",
+    suburbs: [
+      { name: "Hawthorn", postcode: "3122" },
+      { name: "Hawthorn East", postcode: "3123" },
+      { name: "Kew", postcode: "3101" },
+      { name: "Kew East", postcode: "3102" },
+      { name: "Camberwell", postcode: "3124" },
+      { name: "Canterbury", postcode: "3126" },
+      { name: "Box Hill", postcode: "3128" },
+      { name: "Box Hill North", postcode: "3129" },
+      { name: "Box Hill South", postcode: "3128" },
+      { name: "Balwyn", postcode: "3103" },
+      { name: "Balwyn North", postcode: "3104" },
+      { name: "Mont Albert", postcode: "3127" },
+      { name: "Surrey Hills", postcode: "3127" },
+      { name: "Doncaster", postcode: "3108" },
+      { name: "Doncaster East", postcode: "3109" },
+      { name: "Templestowe", postcode: "3106" },
+      { name: "Templestowe Lower", postcode: "3107" },
+      { name: "Deepdene", postcode: "3103" },
+    ]
+  },
+  {
+    region: "Inner South & Bayside",
+    suburbs: [
+      { name: "St Kilda", postcode: "3182" },
+      { name: "St Kilda East", postcode: "3183" },
+      { name: "Elwood", postcode: "3184" },
+      { name: "Prahran", postcode: "3181" },
+      { name: "Windsor", postcode: "3181" },
+      { name: "Toorak", postcode: "3142" },
+      { name: "Armadale", postcode: "3143" },
+      { name: "Malvern", postcode: "3144" },
+      { name: "Malvern East", postcode: "3145" },
+      { name: "Glen Iris", postcode: "3146" },
+      { name: "Caulfield", postcode: "3162" },
+      { name: "Caulfield North", postcode: "3161" },
+      { name: "Elsternwick", postcode: "3185" },
+      { name: "Brighton", postcode: "3186" },
+      { name: "Brighton East", postcode: "3187" },
+      { name: "Hampton", postcode: "3188" },
+      { name: "Sandringham", postcode: "3191" },
+      { name: "Beaumaris", postcode: "3193" },
+      { name: "Black Rock", postcode: "3193" },
+    ]
+  },
+  {
+    region: "Northern Suburbs",
+    suburbs: [
+      { name: "Fawkner", postcode: "3060" },
+      { name: "Campbellfield", postcode: "3061" },
+      { name: "Broadmeadows", postcode: "3047" },
+      { name: "Dallas", postcode: "3047" },
+      { name: "Meadow Heights", postcode: "3048" },
+      { name: "Coolaroo", postcode: "3048" },
+      { name: "Craigieburn", postcode: "3064" },
+      { name: "Mickleham", postcode: "3064" },
+      { name: "Roxburgh Park", postcode: "3064" },
+      { name: "Greenvale", postcode: "3059" },
+      { name: "Tullamarine", postcode: "3043" },
+      { name: "Gladstone Park", postcode: "3043" },
+      { name: "Airport West", postcode: "3042" },
+      { name: "Keilor", postcode: "3036" },
+      { name: "Keilor Downs", postcode: "3038" },
+      { name: "Keilor East", postcode: "3033" },
+      { name: "Westmeadows", postcode: "3049" },
+      { name: "Attwood", postcode: "3049" },
+    ]
+  },
+  {
+    region: "North & North-East",
+    suburbs: [
+      { name: "Eltham", postcode: "3095" },
+      { name: "Eltham North", postcode: "3095" },
+      { name: "Diamond Creek", postcode: "3089" },
+      { name: "Hurstbridge", postcode: "3099" },
+      { name: "Research", postcode: "3095" },
+      { name: "Greensborough", postcode: "3088" },
+      { name: "Bundoora", postcode: "3083" },
+      { name: "Heidelberg", postcode: "3084" },
+      { name: "Heidelberg West", postcode: "3081" },
+      { name: "Heidelberg Heights", postcode: "3081" },
+      { name: "Rosanna", postcode: "3084" },
+      { name: "Macleod", postcode: "3085" },
+      { name: "Watsonia", postcode: "3087" },
+      { name: "Doreen", postcode: "3754" },
+      { name: "Mernda", postcode: "3754" },
+      { name: "South Morang", postcode: "3752" },
+      { name: "Mill Park", postcode: "3082" },
+      { name: "Epping", postcode: "3076" },
+      { name: "Lalor", postcode: "3075" },
+      { name: "Thomastown", postcode: "3074" },
+      { name: "Whittlesea", postcode: "3757" },
+    ]
+  },
+  {
+    region: "North-West Corridor",
+    suburbs: [
+      { name: "Sunbury", postcode: "3429", slug: "sunbury" },
+      { name: "Diggers Rest", postcode: "3427", slug: "diggers-rest" },
+      { name: "Gisborne", postcode: "3437", slug: "gisborne" },
+      { name: "Riddells Creek", postcode: "3431", slug: "riddells-creek" },
+      { name: "Clarkefield", postcode: "3430" },
+      { name: "Wildwood", postcode: "3429" },
+      { name: "Bulla", postcode: "3428" },
+      { name: "Macedon", postcode: "3440" },
+      { name: "New Gisborne", postcode: "3438" },
+      { name: "Romsey", postcode: "3434" },
+      { name: "Lancefield", postcode: "3435" },
+      { name: "Woodend", postcode: "3442" },
+    ]
+  },
+  {
+    region: "Moonee Valley & Maribyrnong",
+    suburbs: [
+      { name: "Moonee Ponds", postcode: "3039" },
+      { name: "Essendon", postcode: "3040" },
+      { name: "Essendon North", postcode: "3041" },
+      { name: "Essendon West", postcode: "3040" },
+      { name: "Strathmore", postcode: "3041" },
+      { name: "Aberfeldie", postcode: "3040" },
+      { name: "Avondale Heights", postcode: "3034" },
+      { name: "Niddrie", postcode: "3042" },
+      { name: "Maribyrnong", postcode: "3032" },
+      { name: "Ascot Vale", postcode: "3032" },
+      { name: "Maidstone", postcode: "3012" },
+    ]
+  },
+  {
+    region: "Western Suburbs",
+    suburbs: [
+      { name: "Footscray", postcode: "3011" },
+      { name: "West Footscray", postcode: "3012" },
+      { name: "Yarraville", postcode: "3013" },
+      { name: "Seddon", postcode: "3011" },
+      { name: "Sunshine", postcode: "3020" },
+      { name: "Sunshine North", postcode: "3020" },
+      { name: "Sunshine West", postcode: "3020" },
+      { name: "St Albans", postcode: "3021" },
+      { name: "Deer Park", postcode: "3023" },
+      { name: "Derrimut", postcode: "3026" },
+      { name: "Hoppers Crossing", postcode: "3029" },
+      { name: "Werribee", postcode: "3030" },
+      { name: "Wyndham Vale", postcode: "3024" },
+      { name: "Point Cook", postcode: "3030" },
+      { name: "Altona", postcode: "3018" },
+      { name: "Altona North", postcode: "3025" },
+      { name: "Altona Meadows", postcode: "3028" },
+      { name: "Laverton", postcode: "3028" },
+      { name: "Newport", postcode: "3015" },
+      { name: "Williamstown", postcode: "3016" },
+    ]
+  },
+  {
+    region: "West & Melton Corridor",
+    suburbs: [
+      { name: "Melton", postcode: "3337", slug: "melton" },
+      { name: "Melton South", postcode: "3338", slug: "melton-south" },
+      { name: "Melton West", postcode: "3337", slug: "melton-west" },
+      { name: "Brookfield", postcode: "3338", slug: "brookfield" },
+      { name: "Kurunjang", postcode: "3337", slug: "kurunjang" },
+      { name: "Harkness", postcode: "3337", slug: "harkness" },
+      { name: "Cobblebank", postcode: "3338", slug: "cobblebank" },
+      { name: "Rockbank", postcode: "3335" },
+      { name: "Plumpton", postcode: "3335" },
+      { name: "Toolern Vale", postcode: "3337" },
+      { name: "Eynesbury", postcode: "3338" },
+      { name: "Parwan", postcode: "3340" },
+    ]
+  },
+  {
+    region: "Bacchus Marsh & Surrounds",
+    suburbs: [
+      { name: "Bacchus Marsh", postcode: "3340", slug: "bacchus-marsh" },
+      { name: "Darley", postcode: "3340", slug: "darley" },
+      { name: "Maddingley", postcode: "3340", slug: "maddingley" },
+      { name: "Ballan", postcode: "3342", slug: "ballan" },
+      { name: "Hopetoun Park", postcode: "3340" },
+      { name: "Rowsley", postcode: "3340" },
+      { name: "Greendale", postcode: "3341" },
+      { name: "Myrniong", postcode: "3341" },
+      { name: "Merrimu", postcode: "3340" },
+    ]
+  },
+  {
+    region: "Whitehorse & Manningham",
+    suburbs: [
+      { name: "Mitcham", postcode: "3132" },
+      { name: "Nunawading", postcode: "3131" },
+      { name: "Blackburn", postcode: "3130" },
+      { name: "Blackburn North", postcode: "3130" },
+      { name: "Blackburn South", postcode: "3130" },
+      { name: "Vermont", postcode: "3133" },
+      { name: "Vermont South", postcode: "3133" },
+      { name: "Forest Hill", postcode: "3131" },
+      { name: "Donvale", postcode: "3111" },
+      { name: "Park Orchards", postcode: "3114" },
+      { name: "Warrandyte", postcode: "3113" },
+      { name: "Warrandyte South", postcode: "3134" },
+      { name: "Bulleen", postcode: "3105" },
+    ]
+  },
+  {
+    region: "Eastern Suburbs",
+    suburbs: [
+      { name: "Ringwood", postcode: "3134" },
+      { name: "Ringwood East", postcode: "3135" },
+      { name: "Ringwood North", postcode: "3134" },
+      { name: "Croydon", postcode: "3136" },
+      { name: "Croydon Hills", postcode: "3136" },
+      { name: "Mooroolbark", postcode: "3138" },
+      { name: "Lilydale", postcode: "3140" },
+      { name: "Chirnside Park", postcode: "3116" },
+      { name: "Montrose", postcode: "3765" },
+      { name: "Kilsyth", postcode: "3137" },
+      { name: "Bayswater", postcode: "3153" },
+      { name: "Boronia", postcode: "3155" },
+      { name: "The Basin", postcode: "3154" },
+      { name: "Ferntree Gully", postcode: "3156" },
+      { name: "Upper Ferntree Gully", postcode: "3156" },
+      { name: "Wantirna", postcode: "3152" },
+      { name: "Wantirna South", postcode: "3152" },
+    ]
+  },
+  {
+    region: "Monash & Glen Waverley",
+    suburbs: [
+      { name: "Glen Waverley", postcode: "3150" },
+      { name: "Mount Waverley", postcode: "3149" },
+      { name: "Wheelers Hill", postcode: "3150" },
+      { name: "Clayton", postcode: "3168" },
+      { name: "Clayton South", postcode: "3169" },
+      { name: "Mulgrave", postcode: "3170" },
+      { name: "Rowville", postcode: "3178" },
+      { name: "Scoresby", postcode: "3179" },
+      { name: "Knoxfield", postcode: "3180" },
+      { name: "Oakleigh", postcode: "3166" },
+      { name: "Oakleigh South", postcode: "3167" },
+      { name: "Oakleigh East", postcode: "3166" },
+      { name: "Chadstone", postcode: "3148" },
+      { name: "Huntingdale", postcode: "3166" },
+      { name: "Springvale", postcode: "3171" },
+      { name: "Noble Park", postcode: "3174" },
+      { name: "Dandenong", postcode: "3175" },
+    ]
+  },
+  {
+    region: "South-East",
+    suburbs: [
+      { name: "Moorabbin", postcode: "3189" },
+      { name: "Cheltenham", postcode: "3192" },
+      { name: "Highett", postcode: "3190" },
+      { name: "Mentone", postcode: "3194" },
+      { name: "Parkdale", postcode: "3194" },
+      { name: "Mordialloc", postcode: "3195" },
+      { name: "Aspendale", postcode: "3195" },
+      { name: "Edithvale", postcode: "3196" },
+      { name: "Chelsea", postcode: "3196" },
+      { name: "Carrum", postcode: "3197" },
+      { name: "Patterson Lakes", postcode: "3197" },
+      { name: "Frankston", postcode: "3199" },
+      { name: "Frankston North", postcode: "3200" },
+      { name: "Seaford", postcode: "3198" },
+      { name: "Langwarrin", postcode: "3910" },
+      { name: "Cranbourne", postcode: "3977" },
+      { name: "Narre Warren", postcode: "3805" },
+      { name: "Berwick", postcode: "3806" },
+    ]
+  },
+  {
+    region: "Yarra Ranges & Hills",
+    suburbs: [
+      { name: "Healesville", postcode: "3777" },
+      { name: "Yarra Glen", postcode: "3775" },
+      { name: "Warburton", postcode: "3799" },
+      { name: "Launching Place", postcode: "3139" },
+      { name: "Coldstream", postcode: "3770" },
+      { name: "Seville", postcode: "3139" },
+      { name: "Emerald", postcode: "3782" },
+      { name: "Gembrook", postcode: "3783" },
+      { name: "Cockatoo", postcode: "3781" },
+      { name: "Belgrave", postcode: "3160" },
+      { name: "Belgrave Heights", postcode: "3160" },
+      { name: "Upwey", postcode: "3158" },
+      { name: "Tecoma", postcode: "3160" },
+      { name: "Olinda", postcode: "3788" },
+      { name: "Mount Evelyn", postcode: "3796" },
+      { name: "Wandin North", postcode: "3139" },
+    ]
+  },
+  {
+    region: "Mornington Peninsula",
+    suburbs: [
+      { name: "Mornington", postcode: "3931" },
+      { name: "Mount Martha", postcode: "3934" },
+      { name: "Rosebud", postcode: "3939" },
+      { name: "Rye", postcode: "3941" },
+      { name: "Dromana", postcode: "3936" },
+      { name: "Sorrento", postcode: "3943" },
+      { name: "Portsea", postcode: "3944" },
+      { name: "Blairgowrie", postcode: "3942" },
+      { name: "Safety Beach", postcode: "3936" },
+      { name: "Red Hill", postcode: "3937" },
+      { name: "Somers", postcode: "3927" },
+      { name: "Balnarring", postcode: "3926" },
+      { name: "Flinders", postcode: "3929" },
+      { name: "Main Ridge", postcode: "3928" },
+    ]
+  },
+  {
+    region: "Outer South-East",
+    suburbs: [
+      { name: "Pakenham", postcode: "3810" },
+      { name: "Officer", postcode: "3809" },
+      { name: "Beaconsfield", postcode: "3807" },
+      { name: "Bunyip", postcode: "3815" },
+      { name: "Drouin", postcode: "3818" },
+      { name: "Warragul", postcode: "3820" },
+      { name: "Nar Nar Goon", postcode: "3812" },
+      { name: "Koo Wee Rup", postcode: "3981" },
+      { name: "Lang Lang", postcode: "3984" },
+      { name: "Tynong", postcode: "3813" },
+    ]
+  },
+];
 ---
 
 <MainLayout
   title="Chimney Sweeping Melbourne"
-  description="Need chimney sweeping in Melbourne? Daves Chimney Sweeping provides professional chimney cleaning, flue cleaning and wood heater cleaning across Melbourne and surrounding suburbs."
+  description="Daves Chimney Sweeping — chimney sweeping, flue cleaning and wood heater cleaning across all Melbourne suburbs VIC. Local, owner-operated. Call 0476 302 729."
   clusterBase="Melbourne"
-  clusterRegion="Melbourne and surrounding suburbs"
+  clusterRegion="Melbourne and all surrounding suburbs"
   homeHref="/"
   servicePageHref="/chimney-sweeping"
   servicePageLabel="Chimney Sweeping"
 >
-  <script type="application/ld+json" is:inline set:html={localBusinessSchemaJson}></script>
+  <script type="application/ld+json" is:inline set:html={schemaJson}></script>
 
-  <section class="hero">
-    <h1>Chimney Sweeping Melbourne</h1>
-    <p>
-      Looking for chimney sweeping in Melbourne? Daves Chimney Sweeping provides
-      professional chimney cleaning, flue cleaning and wood heater cleaning
-      across Melbourne and surrounding suburbs.
-    </p>
-    <p>
-      We provide straightforward local service, fast quotes and reliable
-      workmanship.
-    </p>
+  <style>
+    :root {
+      --bd: #1a1a18;
+      --bm: #2c2c29;
+      --ba: #c8500a;
+      --bw: #f5f0e8;
+      --wh: #ffffff;
+      --tm: #1a1a18;
+      --ts: #5a5a54;
+      --br: #e2ddd4;
+      --rad: 10px;
+    }
 
-    <div class="button-row">
-      <a class="btn btn-primary" href="/contact">Get a Quote</a>
-      <a class="btn btn-secondary" href="tel:0476302729">Call 0476 302 729</a>
+    /* Hero */
+    .hub-hero {
+      background: var(--bd);
+      color: var(--wh);
+      padding: 3.2rem 1.25rem 3rem;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      background: var(--ba);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.1rem;
+    }
+    .hub-hero h1 {
+      font-size: clamp(2rem, 6.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin: 0 0 1.2rem;
+      color: var(--wh);
+    }
+    .hub-hero .lead {
+      font-size: 1.05rem;
+      line-height: 1.68;
+      color: #c8c5be;
+      margin: 0 auto 0.85rem;
+      max-width: 540px;
+    }
+    .hub-hero .sub {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #908d86;
+      max-width: 500px;
+      margin: 0 auto 2.4rem;
+    }
+    .btn-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: var(--rad);
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      width: 100%;
+      max-width: 320px;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn-call { background: var(--ba); color: #fff; font-size: 1.1rem; }
+    .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
+
+    /* Trust bar */
+    .trust-bar {
+      background: var(--bm);
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+    }
+    .ti {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      color: #908d86;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .ti svg { color: var(--ba); flex-shrink: 0; }
+
+    /* Section */
+    .sec {
+      padding: 2.5rem 1.25rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .sec + .sec { border-top: 1px solid var(--br); }
+    .sec-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ba);
+      margin-bottom: 0.55rem;
+    }
+    .sec h2 {
+      font-size: clamp(1.35rem, 4vw, 1.75rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--tm);
+      margin: 0 0 1rem;
+      line-height: 1.2;
+    }
+    .sec p {
+      font-size: 0.97rem;
+      line-height: 1.72;
+      color: var(--ts);
+      margin: 0 0 0.9rem;
+    }
+    .sec p:last-child { margin-bottom: 0; }
+
+    /* Services */
+    .svc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+    }
+    @media (max-width: 380px) { .svc-grid { grid-template-columns: 1fr; } }
+    .svc-card {
+      background: var(--bw);
+      border: 1px solid var(--br);
+      border-radius: var(--rad);
+      padding: 1.1rem 1rem;
+    }
+    .svc-icon { font-size: 1.5rem; display: block; margin-bottom: 0.5rem; }
+    .svc-title { font-size: 0.9rem; font-weight: 700; color: var(--tm); margin-bottom: 0.3rem; }
+    .svc-desc { font-size: 0.82rem; line-height: 1.55; color: var(--ts); }
+
+    /* Reasons */
+    .reason-list { display: flex; flex-direction: column; gap: 0.65rem; margin-top: 1.4rem; }
+    .reason-card {
+      display: flex;
+      gap: 1rem;
+      background: var(--bw);
+      border: 1px solid var(--br);
+      border-radius: var(--rad);
+      padding: 1rem 1.1rem;
+      align-items: flex-start;
+    }
+    .ri { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .rt { font-size: 0.9rem; font-weight: 700; color: var(--tm); margin-bottom: 0.2rem; }
+    .rd { font-size: 0.85rem; line-height: 1.55; color: var(--ts); }
+
+    /* About */
+    .about-card {
+      background: var(--bw);
+      border: 1px solid var(--br);
+      border-radius: var(--rad);
+      padding: 1.5rem 1.25rem;
+      margin-top: 1.1rem;
+    }
+    .about-card p { font-size: 0.96rem; line-height: 1.7; color: var(--ts); margin: 0 0 0.85rem; }
+    .about-card p:last-child { margin-bottom: 0; }
+    .arow { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--ts); margin-top: 0.6rem; }
+    .arow strong { color: var(--tm); }
+    .arow a { color: var(--ba); font-weight: 700; text-decoration: none; }
+
+    /* Suburb clusters */
+    .clusters-intro {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--ts);
+      margin-bottom: 1.75rem;
+    }
+    .cluster-block { margin-bottom: 2rem; }
+    .cluster-block:last-child { margin-bottom: 0; }
+    .cluster-heading {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--ba);
+      margin-bottom: 0.7rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--br);
+    }
+    .suburb-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    /* Linked chip (has a dedicated page) */
+    a.chip {
+      display: inline-block;
+      background: var(--wh);
+      border: 1px solid var(--ba);
+      border-radius: 6px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.79rem;
+      font-weight: 700;
+      color: var(--ba);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    a.chip:hover { background: var(--ba); color: #fff; }
+    /* Plain chip (covered but no dedicated page yet) */
+    span.chip {
+      display: inline-block;
+      background: var(--bw);
+      border: 1px solid var(--br);
+      border-radius: 6px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.79rem;
+      font-weight: 600;
+      color: var(--ts);
+      white-space: nowrap;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1.4rem;
+      border: 1px solid var(--br);
+      border-radius: var(--rad);
+      overflow: hidden;
+    }
+    details.faq-item { border-bottom: 1px solid var(--br); }
+    details.faq-item:last-child { border-bottom: none; }
+    details.faq-item summary {
+      padding: 1rem 1.1rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--tm);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      background: var(--wh);
+      transition: background 0.15s;
+      gap: 1rem;
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary:hover { background: var(--bw); }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--ba); flex-shrink: 0; }
+    details.faq-item[open] summary::after { content: "−"; }
+    .faq-answer { padding: 0 1.1rem 1rem; font-size: 0.93rem; line-height: 1.7; color: var(--ts); background: var(--wh); }
+
+    /* Bottom CTA */
+    .bottom-cta {
+      background: var(--bd);
+      color: var(--wh);
+      padding: 3rem 1.25rem;
+      text-align: center;
+    }
+    .bottom-cta h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--wh);
+      margin: 0 0 0.7rem;
+    }
+    .bottom-cta p {
+      font-size: 0.97rem;
+      color: #908d86;
+      line-height: 1.6;
+      max-width: 460px;
+      margin: 0 auto 2rem;
+    }
+  </style>
+
+  <!-- HERO -->
+  <section class="hub-hero">
+    <span class="eyebrow">Melbourne VIC — All Suburbs</span>
+    <h1>Chimney Sweeping<br>Melbourne</h1>
+    <p class="lead">
+      Daves Chimney Sweeping is a local, owner-operated chimney sweep servicing homes across Melbourne and surrounding suburbs in VIC. We handle chimney cleaning, flue cleaning, wood heater servicing and fireplace maintenance — wherever you are in Melbourne.
+    </p>
+    <p class="sub">
+      No franchises, no call centres. When you call, you speak to Dave — the person who turns up and does every job himself. Straight pricing, honest advice, tidy work.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Get a Free Quote</a>
     </div>
   </section>
 
-  <section class="card">
-    <h2>What Our Chimney Sweeping Service Includes</h2>
-    <ul>
-      <li>Chimney sweeping</li>
-      <li>Flue cleaning</li>
-      <li>Wood heater cleaning</li>
-      <li>Fireplace cleaning</li>
-      <li>Soot and ash buildup removal</li>
-      <li>Bird nest and blockage removal</li>
-    </ul>
-  </section>
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <span class="ti">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      All Melbourne suburbs
+    </span>
+    <span class="ti">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      Owner-operated
+    </span>
+    <span class="ti">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      Mon–Sat · Fast quotes
+    </span>
+  </div>
 
-  <section class="card">
-    <h2>When Homeowners Book Chimney Sweeping</h2>
+  <!-- SERVICES -->
+  <section class="sec">
+    <p class="sec-label">What we do</p>
+    <h2>Chimney &amp; Fireplace Services Across Melbourne</h2>
     <p>
-      Many homeowners book chimney sweeping before winter, after a season of
-      regular fireplace use, or when they notice smoke drift, soot buildup,
-      unusual smells or reduced airflow.
+      We cover the full range of residential chimney and heating system work. Whether you have an open fireplace, a wood heater or a slow combustion unit, we clean it properly and let you know what we find — in one visit.
     </p>
-    <p>
-      Keeping the chimney and flue clean can help your fireplace or wood heater
-      work more smoothly during the colder months.
+    <div class="svc-grid">
+      {services.map(s => (
+        <div class="svc-card">
+          <span class="svc-icon">{s.icon}</span>
+          <div class="svc-title">{s.title}</div>
+          <div class="svc-desc">{s.desc}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- WHY PEOPLE BOOK -->
+  <section class="sec">
+    <p class="sec-label">Common reasons to call</p>
+    <h2>Why Melbourne Homeowners Book a Chimney Sweep</h2>
+    <p>Most bookings come down to one of these situations. Some are obvious problems, some are just good annual maintenance:</p>
+    <div class="reason-list">
+      <div class="reason-card">
+        <span class="ri">🌫️</span>
+        <div><div class="rt">Smoke coming back into the room</div><div class="rd">Smoke reversing instead of drawing up the chimney — the most common sign of a blocked or sooted flue.</div></div>
+      </div>
+      <div class="reason-card">
+        <span class="ri">💨</span>
+        <div><div class="rt">Poor draft or sluggish fire</div><div class="rd">Fires that won't start or keep dying down often point to restricted airflow from creosote buildup in the flue.</div></div>
+      </div>
+      <div class="reason-card">
+        <span class="ri">👃</span>
+        <div><div class="rt">Persistent smoky smell</div><div class="rd">A burnt or smoky odour near the fireplace when it isn't burning — usually creosote or old ash inside the flue.</div></div>
+      </div>
+      <div class="reason-card">
+        <span class="ri">⬛</span>
+        <div><div class="rt">Heavy soot or black staining</div><div class="rd">Visible thick soot around the firebox or on the hearth is a clear sign the system is overdue for a clean.</div></div>
+      </div>
+      <div class="reason-card">
+        <span class="ri">📅</span>
+        <div><div class="rt">Annual pre-winter service</div><div class="rd">Many Melbourne homeowners book a clean each autumn before the heating season — easier to sort early than mid-winter.</div></div>
+      </div>
+      <div class="reason-card">
+        <span class="ri">🏡</span>
+        <div><div class="rt">Just moved into a new home</div><div class="rd">Inherited a fireplace or wood heater with unknown service history? Get it checked before you use it.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sec">
+    <p class="sec-label">About the service</p>
+    <h2>A Melbourne Chimney Sweep Worth Calling</h2>
+    <div class="about-card">
+      <p>
+        Daves Chimney Sweeping is a local, owner-operated business. There's no franchise structure, no call centre, and no subcontracting — Dave does the work himself on every single job.
+      </p>
+      <p>
+        You get honest advice about what your chimney or flue actually needs, clear pricing before work starts, and a thorough job from start to finish. We service homes with wood heaters, slow combustion heaters and open fireplaces right across Melbourne.
+      </p>
+      <p>
+        Not sure if we reach your suburb? Call and we'll confirm in seconds.
+      </p>
+      <div class="arow">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="arow">📍 <strong>Area:</strong>&nbsp;Melbourne VIC — all suburbs</div>
+      <div class="arow">🕐 <strong>Hours:</strong>&nbsp;Mon–Sat, 8am–6pm</div>
+    </div>
+  </section>
+
+  <!-- ALL MELBOURNE SUBURBS -->
+  <section class="sec">
+    <p class="sec-label">Full service coverage</p>
+    <h2>Chimney Sweeping Across All Melbourne Suburbs</h2>
+    <p class="clusters-intro">
+      We service Melbourne and surrounding suburbs across all regions. Suburbs shown in orange have a dedicated local service page — click to see area-specific details. Every other suburb listed is covered directly — call <a href="tel:0476302729" style="color:var(--ba);font-weight:700;text-decoration:none;">0476 302 729</a> to confirm.
     </p>
+
+    {clusters.map(cluster => (
+      <div class="cluster-block">
+        <div class="cluster-heading">{cluster.region}</div>
+        <div class="suburb-chips">
+          {cluster.suburbs.map(s =>
+            s.slug
+              ? <a class="chip" href={`/chimney-sweeping/${s.slug}`}>{s.name} {s.postcode}</a>
+              : <span class="chip">{s.name} {s.postcode}</span>
+          )}
+        </div>
+      </div>
+    ))}
   </section>
 
-  <section class="card">
-    <h2>Melton and Nearby Suburbs</h2>
-    <ul>
-      <li><a href="/chimney-sweeping/melton">Chimney Sweeping Melton</a></li>
-      <li><a href="/chimney-sweeping/melton-south">Chimney Sweeping Melton South</a></li>
-      <li><a href="/chimney-sweeping/melton-west">Chimney Sweeping Melton West</a></li>
-      <li><a href="/chimney-sweeping/brookfield">Chimney Sweeping Brookfield</a></li>
-      <li><a href="/chimney-sweeping/kurunjang">Chimney Sweeping Kurunjang</a></li>
-      <li><a href="/chimney-sweeping/harkness">Chimney Sweeping Harkness</a></li>
-      <li><a href="/chimney-sweeping/cobblebank">Chimney Sweeping Cobblebank</a></li>
-    </ul>
+  <!-- FAQ -->
+  <section class="sec">
+    <p class="sec-label">FAQs</p>
+    <h2>Chimney Sweeping Melbourne — Common Questions</h2>
+    <div class="faq-list">
+      {faqs.map(({ q, a }) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <div class="faq-answer">{a}</div>
+        </details>
+      ))}
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Sunbury and Nearby Suburbs</h2>
-    <ul>
-      <li><a href="/chimney-sweeping/sunbury">Chimney Sweeping Sunbury</a></li>
-      <li><a href="/chimney-sweeping/diggers-rest">Chimney Sweeping Diggers Rest</a></li>
-      <li><a href="/chimney-sweeping/gisborne">Chimney Sweeping Gisborne</a></li>
-      <li><a href="/chimney-sweeping/riddells-creek">Chimney Sweeping Riddells Creek</a></li>
-    </ul>
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <h2>Book a Chimney Sweep Anywhere in Melbourne</h2>
+    <p>Call Dave directly for a fast, no-fuss quote — or send a message and we'll get back to you the same day.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Bacchus Marsh and Nearby Suburbs</h2>
-    <ul>
-      <li><a href="/chimney-sweeping/bacchus-marsh">Chimney Sweeping Bacchus Marsh</a></li>
-      <li><a href="/chimney-sweeping/darley">Chimney Sweeping Darley</a></li>
-      <li><a href="/chimney-sweeping/maddingley">Chimney Sweeping Maddingley</a></li>
-      <li><a href="/chimney-sweeping/ballan">Chimney Sweeping Ballan</a></li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>Need a Quote?</h2>
-    <p>
-      If you need chimney sweeping, flue cleaning or wood heater cleaning in
-      Melbourne or surrounding suburbs, <a href="/contact">contact us here</a>
-      or call <a href="tel:0476302729">0476 302 729</a>.
-    </p>
-  </section>
 </MainLayout>
