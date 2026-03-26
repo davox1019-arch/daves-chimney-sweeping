@@ -1,0 +1,392 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Daves Chimney Sweeping",
+  "telephone": "+61476302729",
+  "priceRange": "$199",
+  "areaServed": [
+    "Lower Plenty VIC 3093"
+  ],
+  "url": "https://daveschimneysweeping.com.au/chimney-sweeping/lower-plenty",
+  "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Lower Plenty VIC 3093. $199 chimney inspection and clean.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lower Plenty",
+    "addressRegion": "VIC",
+    "postalCode": "3093",
+    "addressCountry": "AU"
+  }
+};
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you service Lower Plenty VIC 3093?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 Lower Plenty is within our service area. Call 0476 302 729 to confirm your address."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is $199 the same price for Lower Plenty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 flat $199 rate for a chimney inspection and clean regardless of suburb."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "The Yarra makes it damp here \u2014 does that affect my chimney?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can. Condensation in flues accelerates creosote formation and can cause internal rust in metal flue pipes. Worth getting checked, especially if you have noticed a musty smell near the fireplace."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you service a freestanding wood heater?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 freestanding heaters and their flues are part of what we do every day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Call 0476 302 729 or fill in the quote form on this page."
+      }
+    }
+  ]
+};
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Chimney Sweeping Lower Plenty VIC 3093",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Daves Chimney Sweeping",
+    "telephone": "+61476302729"
+  },
+  "areaServed": "Lower Plenty VIC 3093",
+  "offers": {
+    "@type": "Offer",
+    "price": "199",
+    "priceCurrency": "AUD",
+    "description": "Chimney inspection and full clean"
+  },
+  "serviceType": "Chimney Sweeping"
+};
+
+const faqs = [
+  {q:`Do you service Lower Plenty VIC 3093?`,a:`Yes — Lower Plenty is within our service area. Call 0476 302 729 to confirm your address.`},
+  {q:`Is $199 the same price for Lower Plenty?`,a:`Yes — flat $199 rate for a chimney inspection and clean regardless of suburb.`},
+  {q:`The Yarra makes it damp here — does that affect my chimney?`,a:`It can. Condensation in flues accelerates creosote formation and can cause internal rust in metal flue pipes. Worth getting checked, especially if you have noticed a musty smell near the fireplace.`},
+  {q:`Can you service a freestanding wood heater?`,a:`Yes — freestanding heaters and their flues are part of what we do every day.`},
+  {q:`How do I book?`,a:`Call 0476 302 729 or fill in the quote form on this page.`},
+];
+---
+
+<MainLayout
+  title="Chimney Sweep Lower Plenty VIC 3093 — $199 Clean & Inspect"
+  description="Chimney sweeping Lower Plenty VIC 3093 — $199 clean & inspect. Daves Chimney Sweeping: flue cleaning & wood heater service for Lower Plenty. Call 0476 302 729."
+  clusterBase="Lower Plenty"
+  clusterRegion="Lower Plenty and surrounding suburbs"
+  homeHref="/"
+  servicePageHref="/"
+  servicePageLabel="Chimney Sweeping Melbourne"
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
+
+  <style>
+    :root{
+      --bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;
+      --bw:#f5f0e8;--wh:#ffffff;
+      --tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px;
+    }
+
+    /* ── Hero ─────────────────────── */
+    .hero{background:var(--bd);color:var(--wh);padding:3rem 1.25rem 2.8rem;text-align:center}
+    .ey{display:inline-block;background:var(--ba);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1.1rem}
+    .hero h1{font-size:clamp(1.8rem,5.5vw,2.5rem);font-weight:800;line-height:1.12;letter-spacing:-.025em;margin:0 0 1rem;color:var(--wh)}
+    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#2a5f1e;color:#7edd5a;font-size:.85rem;font-weight:800;padding:.45rem 1rem;border-radius:20px;margin-bottom:1.1rem;letter-spacing:.02em}
+    .lead{font-size:1.05rem;line-height:1.68;color:#c8c5be;margin:0 auto .8rem;max-width:520px}
+    .sub{font-size:.95rem;line-height:1.6;color:#6e6b64;max-width:500px;margin:0 auto 2.2rem}
+    .br2{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+    .btn{display:inline-block;padding:1rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s,transform .15s}
+    .btn:hover{opacity:.88;transform:translateY(-1px)}
+    .btn-c{background:var(--ba);color:#fff;font-size:1.15rem}
+    .btn-q{background:transparent;border:2px solid #4a4a44;color:#c8c5be}
+
+    /* ── Trust bar ────────────────── */
+    .tb{background:var(--bm);padding:1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#908d86;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+    .ti svg{flex-shrink:0;color:var(--ba)}
+
+    /* ── Price section ────────────── */
+    .price-sec{background:var(--bw);border:2px solid #2a5f1e;border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem;text-align:center}
+    .price-main{font-size:2.8rem;font-weight:800;color:#2a5f1e;line-height:1;margin-bottom:.3rem}
+    .price-sub{font-size:1rem;font-weight:700;color:var(--tm);margin-bottom:.75rem}
+    .price-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
+    .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.35rem .75rem;font-size:.82rem;font-weight:600;color:var(--ts)}
+    .pi::before{content:"✓ ";color:#2a5f1e;font-weight:800}
+
+    /* ── Sections ─────────────────── */
+    .sec{padding:2.4rem 1.25rem;max-width:720px;margin:0 auto}
+    .sec+.sec{border-top:1px solid var(--br)}
+    .sl{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
+    .sec h2{font-size:clamp(1.35rem,4vw,1.75rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec h3{font-size:1.1rem;font-weight:700;color:var(--tm);margin:1.5rem 0 .5rem}
+    .sec p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0 0 .9rem}
+    .sec p:last-child{margin-bottom:0}
+
+    /* ── Local section ────────────── */
+    .local-box{background:var(--bw);border-left:4px solid var(--ba);border-radius:0 var(--rad) var(--rad) 0;padding:1.25rem 1.25rem;margin-top:1rem}
+    .local-box p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0}
+
+    /* ── Reason cards ─────────────── */
+    .reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
+    @media(max-width:480px){.reason-grid{grid-template-columns:1fr}}
+    .rc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.1rem 1rem}
+    .rc-icon{font-size:1.4rem;display:block;margin-bottom:.4rem}
+    .rc-title{font-size:.92rem;font-weight:700;color:var(--tm);margin-bottom:.25rem}
+    .rc-desc{font-size:.84rem;line-height:1.55;color:var(--ts)}
+
+    /* ── Services ─────────────────── */
+    .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.1rem}
+    @media(max-width:380px){.svc-list{grid-template-columns:1fr}}
+    .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.7rem .9rem;font-size:.92rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
+    .sv::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
+
+    /* ── About card ───────────────── */
+    .ac{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
+    .ac p{font-size:1rem;line-height:1.7;color:var(--ts);margin:0 0 .85rem}
+    .ac p:last-child{margin-bottom:0}
+    .ar{display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--ts);margin-top:.6rem}
+    .ar strong{color:var(--tm)}
+    .ar a{color:var(--ba);font-weight:700;text-decoration:none}
+
+    /* ── Booking form ─────────────── */
+    .fw{background:var(--bw);border:2px solid var(--ba);border-radius:var(--rad);padding:1.75rem 1.25rem;margin-top:1rem}
+    .fw h3{font-size:1.15rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
+    .fw .fs{font-size:.9rem;color:var(--ts);margin:0 0 1.25rem}
+    .fg{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+    @media(max-width:500px){.fg{grid-template-columns:1fr}}
+    .fi{display:flex;flex-direction:column;gap:.3rem}
+    .fi.full{grid-column:1/-1}
+    .fi label{font-size:.8rem;font-weight:700;color:var(--tm);letter-spacing:.03em;text-transform:uppercase}
+    .fi input,.fi select,.fi textarea{width:100%;border:2px solid var(--br);border-radius:8px;padding:.7rem .85rem;font-size:1rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
+    .fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--ba)}
+    .fi textarea{resize:vertical;min-height:90px}
+    .fsub{display:block;width:100%;margin-top:1rem;background:var(--ba);color:#fff;border:none;padding:1rem;border-radius:var(--rad);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s,transform .15s}
+    .fsub:hover{opacity:.88;transform:translateY(-1px)}
+
+    /* ── FAQ ──────────────────────── */
+    .fl{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
+    details.fq{border-bottom:1px solid var(--br)}
+    details.fq:last-child{border-bottom:none}
+    details.fq summary{padding:1.1rem 1.25rem;font-size:1rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
+    details.fq summary::-webkit-details-marker{display:none}
+    details.fq summary:hover{background:var(--bw)}
+    details.fq summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
+    details.fq[open] summary::after{content:"−"}
+    .fqa{padding:.1rem 1.25rem 1.1rem;font-size:.97rem;line-height:1.75;color:var(--ts);background:var(--wh)}
+
+    /* ── Suburb chips ─────────────── */
+    .sc{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+    .sp{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.42rem .85rem;font-size:.84rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
+    .sp:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+
+    /* ── Page links ───────────────── */
+    .pl{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+    .plk{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem;background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);text-decoration:none;font-size:.95rem;font-weight:600;color:var(--tm);transition:background .15s,border-color .15s}
+    .plk:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    .plk span{opacity:.5;font-size:1.1rem}
+
+    /* ── Bottom CTA ───────────────── */
+    .bc{background:var(--bd);color:var(--wh);padding:2.8rem 1.25rem;text-align:center}
+    .bc h2{font-size:clamp(1.4rem,5vw,1.9rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
+    .bc p{font-size:1rem;color:#6e6b64;margin:0 0 1.9rem;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto}
+  </style>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="ey">Lower Plenty VIC 3093</span>
+    <h1>Chimney Sweeping<br>Lower Plenty VIC 3093</h1>
+    <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
+    <p class="lead">Lower Plenty borders the Yarra River just downstream from Templestowe — a semi-rural enclave despite being well within Melbourne's north-east corridor. Most hom...</p>
+    <p class="sub">Local, owner-operated. No call centres, no franchise. Call Dave directly for a fast, honest quote.</p>
+    <div class="br2">
+      <a class="btn btn-c" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+      <a class="btn btn-q" href="#quote">Book for $199</a>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="tb">
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon&#8211;Sat service</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+  </div>
+
+  <!-- PRICE -->
+  <section class="sec">
+    <p class="sl">Pricing</p>
+    <h2>$199 — Chimney Inspection &amp; Full Clean</h2>
+    <p>One flat price. No callout fee, no hidden extras, no surprises. Here is exactly what the $199 covers for your Lower Plenty home:</p>
+    <div class="price-sec">
+      <div class="price-main">$199</div>
+      <div class="price-sub">Chimney Inspection &amp; Full Clean — Lower Plenty</div>
+      <div class="price-includes">
+        <span class="pi">Chimney sweep</span>
+        <span class="pi">Flue cleaning</span>
+        <span class="pi">Soot &amp; ash removal</span>
+        <span class="pi">Blockage check</span>
+        <span class="pi">Condition report</span>
+        <span class="pi">No callout fee</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL SECTION -->
+  <section class="sec">
+    <p class="sl">Local knowledge</p>
+    <h2>Lower Plenty — Yarra Valley Edge, Damp Winters</h2>
+    <div class="local-box">
+      <p>Lower Plenty borders the Yarra River just downstream from Templestowe — a semi-rural enclave despite being well within Melbourne's north-east corridor. Most homes here sit on substantial blocks and were built in the 1960s and 1970s when large fireplaces were standard inclusions. The river influence keeps Lower Plenty noticeably cooler and more humid than nearby Rosanna or Macleod, and condensation in flues can actually accelerate creosote formation even with moderate heating use. Lower Plenty Road runs along the valley and properties set back from it tend to be particularly cold in the mornings — making wood heating here feel genuinely necessary rather than optional.</p>
+    </div>
+  </section>
+
+  <!-- WHY BOOK -->
+  <section class="sec">
+    <p class="sl">When to book</p>
+    <h2>Signs Your Lower Plenty Chimney Needs Cleaning</h2>
+    <p>If any of these sound familiar, it is time to book:</p>
+    <div class="reason-grid">
+      <div class="rc"><span class="rc-icon">&#128703;</span><div class="rc-title">Smoke reversing into the room</div><div class="rc-desc">Most common sign of a blocked or heavily sooted flue. A clean usually fixes it immediately.</div></div>
+      <div class="rc"><span class="rc-icon">&#128148;</span><div class="rc-title">Persistent smoky smell</div><div class="rc-desc">Creosote or old ash sitting in the flue causes a burnt odour even when the fire is off.</div></div>
+      <div class="rc"><span class="rc-icon">&#9650;</span><div class="rc-title">Sluggish or difficult draw</div><div class="rc-desc">Fires that struggle to start or keep going point to restricted airflow in the flue.</div></div>
+      <div class="rc"><span class="rc-icon">&#128197;</span><div class="rc-title">Annual pre-winter service</div><div class="rc-desc">Book in autumn before the season starts. Easier to sort early than mid-winter.</div></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec">
+    <p class="sl">What is included</p>
+    <h2>Chimney Sweeping Services in Lower Plenty</h2>
+    <p>Everything covered in the one $199 visit:</p>
+    <div class="svc-list">
+      <span class="sv">Chimney sweeping — firebox to pot</span>
+      <span class="sv">Flue liner or pipe cleaning</span>
+      <span class="sv">Wood heater service</span>
+      <span class="sv">Open fireplace cleaning</span>
+      <span class="sv">Soot &amp; creosote removal</span>
+      <span class="sv">Ash removal</span>
+      <span class="sv">Bird nest &amp; blockage clearing</span>
+      <span class="sv">Verbal condition report</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sec">
+    <p class="sl">About us</p>
+    <h2>Who You Are Dealing With</h2>
+    <div class="ac">
+      <p>Daves Chimney Sweeping is owner-operated. Dave covers Lower Plenty VIC 3093 and surrounding suburbs. When you call, you speak to Dave — not a call centre, not a booking platform. Dave does every job himself.</p>
+      <p>You get honest advice about what the system actually needs, a clear price before work starts, and a tidy job. The $199 rate is the full cost — no extras added on the day.</p>
+      <div class="ar">&#128222; <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="ar">&#128205; <strong>Serving:</strong>&nbsp;Lower Plenty VIC 3093 and surrounds</div>
+      <div class="ar">&#128336; <strong>Hours:</strong>&nbsp;Mon&#8211;Sat, 8am&#8211;6pm</div>
+      <div class="ar">&#128176; <strong>Price:</strong>&nbsp;$199 flat rate — chimney inspection &amp; full clean</div>
+    </div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="sec" id="quote">
+    <p class="sl">Book now</p>
+    <h2>Book Your $199 Chimney Clean in Lower Plenty</h2>
+    <div class="fw">
+      <h3>&#128197; Quick Quote &#8212; Lower Plenty</h3>
+      <p class="fs">Fill in your details and Dave will get back to you to confirm your $199 booking.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="suburb" value="Lower Plenty VIC 3093" />
+        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
+        <div class="fg">
+          <div class="fi"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="fi"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="fi"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="fi"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select&#8230;</option>
+              <option value="Chimney Inspection and Full Clean — $199">Chimney Inspection &amp; Clean &#8212; $199</option>
+              <option>Wood Heater Service</option>
+              <option>Flue Cleaning</option>
+              <option>Blockage / Nest Removal</option>
+              <option>Not sure &#8212; need advice</option>
+            </select>
+          </div>
+          <div class="fi full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, when it was last cleaned&#8230;"></textarea></div>
+        </div>
+        <button type="submit" class="fsub">Send Booking Request &#8250;</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec">
+    <p class="sl">FAQs</p>
+    <h2>Chimney Sweeping Lower Plenty &#8212; Common Questions</h2>
+    <div class="fl">
+      {faqs.map(({q,a}) => (
+        <details class="fq"><summary>{q}</summary><div class="fqa">{a}</div></details>
+      ))}
+    </div>
+  </section>
+
+  <!-- NEARBY -->
+  <section class="sec">
+    <p class="sl">Nearby areas</p>
+    <h2>Suburbs Near Lower Plenty We Also Service</h2>
+    <p>We cover Lower Plenty and all nearby suburbs. Click any suburb below to see area-specific details:</p>
+    <div class="sc">
+      <a class="sp" href="/chimney-sweeping/rosanna">Rosanna 3084</a>
+      <a class="sp" href="/chimney-sweeping/heidelberg">Heidelberg 3084</a>
+      <a class="sp" href="/chimney-sweeping/templestowe">Templestowe 3106</a>
+      <a class="sp" href="/chimney-sweeping/watsonia">Watsonia 3087</a>
+    </div>
+  </section>
+
+  <!-- PAGE LINKS -->
+  <section class="sec">
+    <p class="sl">More pages</p>
+    <h2>Nearby Service Pages</h2>
+    <nav class="pl">
+      <a class="plk" href="/chimney-sweeping/rosanna">Chimney Sweeping — Rosanna 3084 <span>&#8250;</span></a>
+      <a class="plk" href="/chimney-sweeping/heidelberg">Chimney Sweeping — Heidelberg 3084 <span>&#8250;</span></a>
+      <a class="plk" href="/chimney-sweeping/templestowe">Chimney Sweeping — Templestowe 3106 <span>&#8250;</span></a>
+      <a class="plk" href="/chimney-sweeping/watsonia">Chimney Sweeping — Watsonia 3087 <span>&#8250;</span></a>
+      <a class="plk" href="/">Chimney Sweeping Melbourne &#8212; All Suburbs <span>&#8250;</span></a>
+    </nav>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bc">
+    <h2>Lower Plenty Chimney Sweep &#8212; $199 Flat Rate</h2>
+    <p>Call Dave directly or use the form above. We will confirm your booking and give you a time that works.</p>
+    <div class="br2">
+      <a class="btn btn-c" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+      <a class="btn btn-q" href="#quote">Book for $199</a>
+    </div>
+  </section>
+
+</MainLayout>
