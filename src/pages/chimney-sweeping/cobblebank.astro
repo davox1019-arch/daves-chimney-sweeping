@@ -1,125 +1,180 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+
+const faqs = [
+  {
+    q: "Is Cobblebank a new suburb — do you service it?",
+    a: "Yes. Cobblebank VIC 3338 is one of the newer estates in the Melton growth corridor and we service it regularly."
+  },
+  {
+    q: "I've got a built-in wood heater — can you clean that?",
+    a: "Yes, that's one of the most common jobs we do. We clean the heater body, the flue and the chimney as needed."
+  },
+  {
+    q: "Do you give a quote before turning up?",
+    a: "Yes. Call us on 0476 302 729, describe your setup, and we'll give you a fair quote before we book anything in."
+  },
+  {
+    q: "What if there's a bird nest blocking the flue?",
+    a: "We'll remove it as part of the job. It's more common than people think, especially in chimneys that haven't been used for a season."
+  }
+];
 ---
 
 <MainLayout
-  title="Chimney Sweeping Brookfield VIC 3338"
-  description="Need chimney sweeping in Brookfield VIC 3338? Daves Chimney Sweeping provides local chimney cleaning, flue cleaning and wood heater cleaning with fast quotes."
+  title="Chimney Sweeping Cobblebank VIC 3338"
+  description="Chimney sweeping in Cobblebank VIC 3338. Daves Chimney Sweeping services wood heaters, flues and fireplaces for local homes. Fast quotes, local service."
   clusterBase="Melton"
   clusterRegion="Melton and surrounding suburbs"
-homeHref="/chimney-sweeping/melton"
-servicePageHref="/chimney-sweeping/melton"
-servicePageLabel="Melton Chimney Sweeping"
+  homeHref="/chimney-sweeping/melton"
+  servicePageHref="/chimney-sweeping/melton"
+  servicePageLabel="Melton Chimney Sweeping"
 >
-  <section class="hero">
-    <h1>Chimney Sweeping Cobblebank VIC 3338</h1>
-    <p>
-      Daves Chimney Sweeping provides chimney sweeping in Cobblebank, along with
-      flue cleaning, wood heater cleaning and general fireplace cleaning for
-      homes in the local area.
-    </p>
-    <p>
-      If your chimney is due for a clean, your heater is not drawing properly or
-      you want everything cleaned before winter, we provide simple local service
-      with fast quotes.
-    </p>
+  <style>
+    :root { --brand-dark: #1a1a18; --brand-mid: #2c2c29; --brand-accent: #c8500a; --brand-warm: #f5f0e8; --brand-white: #ffffff; --text-main: #1a1a18; --text-muted: #5a5a54; --border: #e2ddd4; --radius: 10px; }
+    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 2.8rem 1.25rem 2.5rem; text-align: center; }
+    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.1rem; }
+    .hero h1 { font-size: clamp(1.65rem, 5vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--brand-white); }
+    .hero-lead { font-size: 1rem; line-height: 1.65; color: #c8c5be; margin: 0 auto 0.75rem; max-width: 480px; }
+    .hero-sub { font-size: 0.93rem; line-height: 1.6; color: #908d86; max-width: 480px; margin: 0 auto 2rem; }
+    .btn-row { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.88; }
+    .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.1rem; }
+    .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
+    .section { padding: 2.2rem 1.25rem; max-width: 680px; margin: 0 auto; }
+    .section + .section { border-top: 1px solid var(--border); }
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
+    .section h2 { font-size: clamp(1.25rem, 4vw, 1.6rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.25; }
+    .section p { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.85rem; }
+    .section p:last-child { margin-bottom: 0; }
+    /* Two-col text checklist unique to Cobblebank */
+    .two-col { column-count: 2; column-gap: 1rem; margin-top: 1rem; }
+    @media (max-width: 400px) { .two-col { column-count: 1; } }
+    .two-col li { font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 0.4rem; padding-left: 1.2rem; position: relative; }
+    .two-col li::before { content: "✓"; position: absolute; left: 0; color: var(--brand-accent); font-weight: 800; }
+    .about-card { background: var(--brand-warm); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.25rem; margin-top: 1rem; }
+    .about-card p { font-size: 0.96rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.8rem; }
+    .about-detail { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; }
+    .about-detail strong { color: var(--text-main); }
+    .about-detail a { color: var(--brand-accent); font-weight: 700; text-decoration: none; }
+    .faq-list { display: flex; flex-direction: column; margin-top: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details.faq-item { border-bottom: 1px solid var(--border); }
+    details.faq-item:last-child { border-bottom: none; }
+    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary:hover { background: var(--brand-warm); }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; margin-left: 1rem; }
+    details.faq-item[open] summary::after { content: "−"; }
+    .faq-answer { padding: 0 1.1rem 1rem; font-size: 0.93rem; line-height: 1.7; color: var(--text-muted); background: var(--brand-white); }
+    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.1rem; }
+    .suburb-chip { display: inline-block; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.85rem; font-size: 0.84rem; font-weight: 600; color: var(--text-main); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
+    .suburb-chip:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.1rem; }
+    .page-link { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; font-size: 0.93rem; font-weight: 600; color: var(--text-main); transition: background 0.15s, border-color 0.15s; }
+    .page-link:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-link span { opacity: 0.5; font-size: 1.1rem; }
+    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.5rem 1.25rem; text-align: center; }
+    .bottom-cta h2 { font-size: clamp(1.3rem, 4.5vw, 1.7rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
+    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 0 1.75rem; line-height: 1.6; }
+  </style>
 
-    <div class="button-row">
-      <a class="btn btn-primary" href="tel:0476302729">Call 0476 302 729</a>
-      <a class="btn btn-secondary" href="/contact">Request a Quote</a>
+  <section class="hero">
+    <span class="hero-eyebrow">Cobblebank VIC 3338</span>
+    <h1>Chimney Sweeping<br>Cobblebank VIC 3338</h1>
+    <p class="hero-lead">
+      Cobblebank has grown quickly — and a lot of those homes have wood heaters that are now due for their first proper service. Daves Chimney Sweeping handles chimney and flue cleaning across Cobblebank 3338 and nearby areas.
+    </p>
+    <p class="hero-sub">
+      One call, straight price, job done. No call centres, no franchises — just Dave.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
     </div>
   </section>
 
-  <section class="card">
-    <h2>Chimney and Flue Cleaning in Cobblebank</h2>
+  <section class="section">
+    <p class="section-label">When to book</p>
+    <h2>Good Times to Get the Chimney Sorted</h2>
+    <p>There's no single right answer — but here are the most common situations we hear about from Cobblebank homeowners:</p>
     <p>
-      For homes in Cobblebank, regular chimney and flue cleaning helps remove
-      soot, ash and other buildup that can collect over time with fireplace or
-      wood heater use.
+      Before winter starts and you're lighting the heater for the first time. After a long season of use — especially if it was used most nights. When you move into a place that already has a fireplace or wood heater. When something seems off: smoke coming back in, the flue smelling, or the fire not drawing properly.
     </p>
     <p>
-      Whether the job is mainly chimney sweeping, fireplace cleaning or wood
-      heater flue cleaning, keeping the system clean can help it work more
-      smoothly during the colder months.
+      Any of those situations is a good reason to call. We'll let you know what we find.
     </p>
   </section>
 
-  <section class="card">
-    <h2>Common Reasons to Book</h2>
-    <ul>
-      <li>Getting the fireplace cleaned before winter</li>
-      <li>Wood heater flue due for a proper clean</li>
-      <li>Soot buildup inside the chimney</li>
-      <li>Smoke not drawing properly</li>
-      <li>General fireplace and chimney maintenance</li>
-      <li>Checking for blockages inside the flue</li>
+  <section class="section">
+    <p class="section-label">What's included</p>
+    <h2>Our Cobblebank Chimney Cleaning Service</h2>
+    <p>Most jobs in Cobblebank cover some combination of the following:</p>
+    <ul class="two-col">
+      <li>Chimney sweeping</li>
+      <li>Flue pipe cleaning</li>
+      <li>Wood heater clean</li>
+      <li>Fireplace service</li>
+      <li>Soot removal</li>
+      <li>Ash removal</li>
+      <li>Blockage check</li>
+      <li>Nest removal</li>
     </ul>
   </section>
 
-  <section class="card">
-    <h2>What We Help With</h2>
-    <p>
-      Many homeowners looking for chimney sweeping in Cobblebank also need help
-      with related cleaning around the same system. That can include chimney
-      cleaning, flue cleaning, wood heater cleaning and fireplace cleaning as
-      part of the same visit.
-    </p>
-    <p>
-      If you are not sure exactly what needs attention, we keep the process
-      straightforward and make it easy to get a quote.
-    </p>
+  <section class="section">
+    <p class="section-label">About us</p>
+    <h2>Local, Direct, No Franchise</h2>
+    <div class="about-card">
+      <p>Daves Chimney Sweeping services Cobblebank VIC 3338 as part of our regular Melton area run. When you call, you're talking to Dave — the person doing the actual work.</p>
+      <p>Clear pricing, turns up when he says he will, and leaves the place tidy.</p>
+      <div class="about-detail">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="about-detail">📍 <strong>Service area:</strong>&nbsp;Cobblebank VIC 3338 and surrounds</div>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Servicing Cobblebank and Nearby Areas</h2>
-    <p>
-      We service Cobblebank and nearby parts of the Melton area, including
-      Melton, Melton South, Brookfield, Kurunjang, Harkness and Melton West.
-    </p>
+  <section class="section">
+    <p class="section-label">Nearby areas</p>
+    <h2>Nearby Suburbs in the Melton Area</h2>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/melton">Melton 3337</a>
+      <a class="suburb-chip" href="/chimney-sweeping/melton-south">Melton South 3338</a>
+      <a class="suburb-chip" href="/chimney-sweeping/brookfield">Brookfield 3338</a>
+      <a class="suburb-chip" href="/chimney-sweeping/harkness">Harkness 3337</a>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>About Daves Chimney Sweeping</h2>
-    <p>
-      Daves Chimney Sweeping provides local chimney sweeping, flue cleaning and
-      wood heater cleaning across Melton and surrounding suburbs with
-      straightforward service and fast quotes.
-    </p>
-    <p><strong>Phone:</strong> <a href="tel:0476302729">0476 302 729</a></p>
-    <p><strong>Service Base:</strong> Melton VIC</p>
+  <section class="section">
+    <p class="section-label">FAQs</p>
+    <h2>Common Questions — Cobblebank</h2>
+    <div class="faq-list">
+      {faqs.map(({ q, a }) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <div class="faq-answer">{a}</div>
+        </details>
+      ))}
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Cobblebank Chimney Sweeping FAQs</h2>
-
-    <h3>Do you service homes throughout Cobblebank?</h3>
-    <p>
-      Yes, we service Cobblebank and nearby surrounding suburbs in the wider
-      Melton area.
-    </p>
-
-    <h3>Can you clean both the chimney and the flue?</h3>
-    <p>
-      Yes. Many jobs involve chimney sweeping together with flue cleaning and
-      wood heater cleaning.
-    </p>
-
-    <h3>When should chimney sweeping be booked?</h3>
-    <p>
-      A lot of homeowners book before winter, after a season of regular use or
-      when they notice soot buildup, smoke issues or reduced airflow.
-    </p>
+  <section class="section">
+    <p class="section-label">More pages</p>
+    <h2>Nearby Service Pages</h2>
+    <nav class="page-links" aria-label="Nearby suburb pages">
+      <a class="page-link" href="/chimney-sweeping/melton">Chimney Sweeping — Melton VIC 3337 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/brookfield">Chimney Sweeping — Brookfield VIC 3338 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/melton-south">Chimney Sweeping — Melton South VIC 3338 <span>›</span></a>
+      <a class="page-link" href="/contact">Get a Quote <span>›</span></a>
+    </nav>
   </section>
 
-  <section class="card">
-    <h2>Nearby Chimney Sweeping Pages</h2>
-    <p>
-      You can also view our
-      <a href="/chimney-sweeping/melton">Melton chimney sweeping page</a>,
-      <a href="/chimney-sweeping/melton-south">Melton South chimney sweeping page</a>,
-      <a href="/chimney-sweeping/brookfield">Brookfield chimney sweeping page</a>
-      and our main
-      <a href="/chimney-sweeping">Melbourne chimney sweeping page</a>.
-    </p>
+  <section class="bottom-cta">
+    <h2>Cobblebank Chimney Sweep — Get a Quote</h2>
+    <p>Give Dave a call or drop us a line. We'll sort out the details and get you booked in.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+    </div>
   </section>
+
 </MainLayout>

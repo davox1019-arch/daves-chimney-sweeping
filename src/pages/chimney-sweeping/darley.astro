@@ -1,120 +1,196 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+
+const faqs = [
+  {
+    q: "Is Darley separate from Bacchus Marsh?",
+    a: "Darley VIC 3340 is a suburb that adjoins Bacchus Marsh — they share a postcode but are distinct localities. We service both."
+  },
+  {
+    q: "The fire in my wood heater smokes a lot when I first light it — is that normal?",
+    a: "Some smoke when starting a cold fire is expected, but if it persists or comes back into the room, that usually points to a blocked or dirty flue. A clean typically resolves it."
+  },
+  {
+    q: "Can I book online?",
+    a: "You can request a quote through the contact form on our site. For a quicker response, calling 0476 302 729 is the fastest way to get sorted."
+  },
+  {
+    q: "Do you clean the ash out as well?",
+    a: "Yes — ash and soot removal is part of the service. We leave the firebox clean before we go."
+  }
+];
 ---
 
 <MainLayout
   title="Chimney Sweeping Darley VIC 3340"
-  description="Need chimney sweeping in Darley VIC 3340? Daves Chimney Sweeping provides local chimney cleaning, flue cleaning and wood heater cleaning with fast quotes."
+  description="Chimney sweeping in Darley VIC 3340. Daves Chimney Sweeping provides flue cleaning, wood heater servicing and fireplace cleaning near Bacchus Marsh. Fast quotes."
   clusterBase="Bacchus Marsh"
   clusterRegion="Bacchus Marsh and nearby suburbs"
   homeHref="/chimney-sweeping/bacchus-marsh"
   servicePageHref="/chimney-sweeping/bacchus-marsh"
   servicePageLabel="Bacchus Marsh Chimney Sweeping"
 >
-  <section class="hero">
-    <h1>Chimney Sweeping Darley VIC 3340</h1>
-    <p>
-      Looking for chimney sweeping in Darley VIC 3340? Daves Chimney Sweeping provides
-      local chimney cleaning, flue cleaning and wood heater cleaning for homes
-      in Darley and nearby parts of the Bacchus Marsh area.
-    </p>
-    <p>
-      If your fireplace needs cleaning before winter, your flue has soot buildup
-      or your wood heater is not performing as well as it should, we provide
-      straightforward local service with fast quotes.
-    </p>
+  <style>
+    :root { --brand-dark: #1a1a18; --brand-mid: #2c2c29; --brand-accent: #c8500a; --brand-warm: #f5f0e8; --brand-white: #ffffff; --text-main: #1a1a18; --text-muted: #5a5a54; --border: #e2ddd4; --radius: 10px; }
+    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 2.8rem 1.25rem 2.5rem; text-align: center; }
+    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.1rem; }
+    .hero h1 { font-size: clamp(1.65rem, 5vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--brand-white); }
+    .hero-lead { font-size: 1rem; line-height: 1.65; color: #c8c5be; margin: 0 auto 0.75rem; max-width: 480px; }
+    .hero-sub { font-size: 0.93rem; line-height: 1.6; color: #908d86; max-width: 480px; margin: 0 auto 2rem; }
+    .btn-row { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.88; }
+    .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.1rem; }
+    .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
+    .section { padding: 2.2rem 1.25rem; max-width: 680px; margin: 0 auto; }
+    .section + .section { border-top: 1px solid var(--border); }
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
+    .section h2 { font-size: clamp(1.25rem, 4vw, 1.6rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.25; }
+    .section p { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.85rem; }
+    .section p:last-child { margin-bottom: 0; }
+    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.25rem; }
+    @media (max-width: 400px) { .problem-grid { grid-template-columns: 1fr; } }
+    .problem-card { background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+    .problem-card-heading { font-size: 0.88rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.3rem; }
+    .problem-card-desc { font-size: 0.82rem; line-height: 1.5; color: var(--text-muted); }
+    .arrow-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.65rem; }
+    .arrow-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.95rem; line-height: 1.5; color: var(--text-muted); }
+    .arrow-list li::before { content: "→"; color: var(--brand-accent); font-weight: 700; flex-shrink: 0; }
+    .about-card { background: var(--brand-warm); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.25rem; margin-top: 1rem; }
+    .about-card p { font-size: 0.96rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.8rem; }
+    .about-detail { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; }
+    .about-detail strong { color: var(--text-main); }
+    .about-detail a { color: var(--brand-accent); font-weight: 700; text-decoration: none; }
+    .faq-list { display: flex; flex-direction: column; margin-top: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details.faq-item { border-bottom: 1px solid var(--border); }
+    details.faq-item:last-child { border-bottom: none; }
+    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary:hover { background: var(--brand-warm); }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; margin-left: 1rem; }
+    details.faq-item[open] summary::after { content: "−"; }
+    .faq-answer { padding: 0 1.1rem 1rem; font-size: 0.93rem; line-height: 1.7; color: var(--text-muted); background: var(--brand-white); }
+    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.1rem; }
+    .suburb-chip { display: inline-block; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.85rem; font-size: 0.84rem; font-weight: 600; color: var(--text-main); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
+    .suburb-chip:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.1rem; }
+    .page-link { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; font-size: 0.93rem; font-weight: 600; color: var(--text-main); transition: background 0.15s, border-color 0.15s; }
+    .page-link:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-link span { opacity: 0.5; font-size: 1.1rem; }
+    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.5rem 1.25rem; text-align: center; }
+    .bottom-cta h2 { font-size: clamp(1.3rem, 4.5vw, 1.7rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
+    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 0 1.75rem; line-height: 1.6; }
+  </style>
 
-    <div class="button-row">
-      <a class="btn btn-primary" href="tel:0476302729">Call 0476 302 729</a>
-      <a class="btn btn-secondary" href="/contact">Request a Quote</a>
+  <section class="hero">
+    <span class="hero-eyebrow">Darley VIC 3340</span>
+    <h1>Chimney Sweeping<br>Darley VIC 3340</h1>
+    <p class="hero-lead">
+      Darley sits right alongside Bacchus Marsh, and a lot of the homes here rely on wood heating to get through winter. Daves Chimney Sweeping keeps chimneys, flues and wood heaters clean for local residents.
+    </p>
+    <p class="hero-sub">
+      Owner-operated, local to the area, and easy to deal with. Call for a fast quote.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
     </div>
   </section>
 
-  <section class="card">
-    <h2>Common Fireplace and Chimney Problems We Help With</h2>
-    <p>
-      Many homeowners get in touch after noticing smoke coming back into the
-      room, poor draft, visible soot buildup, unusual smells or a wood heater
-      that is not drawing properly.
-    </p>
-    <p>
-      Regular chimney and flue cleaning can help reduce buildup and keep your
-      fireplace or heater working more smoothly during the colder months.
-    </p>
+  <section class="section">
+    <p class="section-label">Common problems</p>
+    <h2>What Usually Brings Darley Homeowners to Us</h2>
+    <p>These are the most frequent issues we're called about in and around Darley:</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-card-heading">Smoke back-drafting</div>
+        <div class="problem-card-desc">Smoke reversing into the room instead of going up — usually a blocked or heavily sooted flue.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-heading">Slow-burning fires</div>
+        <div class="problem-card-desc">Poor draft from creosote buildup makes fires sluggish and hard to get going.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-heading">Smoky smell in the house</div>
+        <div class="problem-card-desc">Residual smell when the fire isn't burning — often from accumulated soot in the chimney.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-heading">Overdue service</div>
+        <div class="problem-card-desc">A chimney that hasn't been cleaned in over a year of regular use needs attention.</div>
+      </div>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>What Our Darley Service Includes</h2>
-    <ul>
-      <li>Chimney sweeping</li>
-      <li>Chimney cleaning for fireplaces</li>
-      <li>Flue cleaning</li>
-      <li>Wood heater cleaning</li>
-      <li>Fireplace cleaning</li>
-      <li>Soot, ash and common blockage removal</li>
+  <section class="section">
+    <p class="section-label">What we do</p>
+    <h2>Chimney &amp; Heater Cleaning for Darley Homes</h2>
+    <p>We service all types of wood-burning systems. Most Darley jobs involve one or more of these:</p>
+    <ul class="arrow-list">
+      <li>Full chimney sweep — stack cleaned top to bottom</li>
+      <li>Flue pipe and liner cleaning</li>
+      <li>Wood heater or slow combustion heater service</li>
+      <li>Open fireplace and firebox cleaning</li>
+      <li>Soot, ash and creosote removal</li>
+      <li>Bird nest and debris blockage clearing</li>
     </ul>
   </section>
 
-  <section class="card">
-    <h2>When to Book Chimney Sweeping in Darley</h2>
-    <p>
-      Some homeowners book before winter starts so everything is ready for the
-      colder weather. Others book after a season of use or once they notice
-      signs that cleaning is due.
-    </p>
-    <p>
-      Whether you need help with the chimney itself, the flue or general wood
-      heater cleaning, we keep the process simple and easy to arrange.
-    </p>
+  <section class="section">
+    <p class="section-label">About us</p>
+    <h2>Local, Honest, Owner-Operated</h2>
+    <div class="about-card">
+      <p>
+        Daves Chimney Sweeping covers Darley VIC 3340 as part of the Bacchus Marsh cluster. When you call, you're speaking to Dave directly — the same person turning up to do the job.
+      </p>
+      <p>
+        Straight pricing, no overselling, job left tidy.
+      </p>
+      <div class="about-detail">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="about-detail">📍 <strong>Service area:</strong>&nbsp;Darley VIC 3340 and surrounds</div>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Nearby Areas Around Darley</h2>
-    <p>
-      We also service nearby surrounding areas including Bacchus Marsh VIC 3340,
-      Maddingley VIC 3340, Ballan VIC 3342 and other nearby parts of the local region.
-    </p>
+  <section class="section">
+    <p class="section-label">Nearby areas</p>
+    <h2>Nearby Suburbs Around Darley</h2>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/bacchus-marsh">Bacchus Marsh 3340</a>
+      <a class="suburb-chip" href="/chimney-sweeping/maddingley">Maddingley 3340</a>
+      <a class="suburb-chip" href="/chimney-sweeping/ballan">Ballan 3342</a>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>About Daves Chimney Sweeping</h2>
-    <p>
-      Daves Chimney Sweeping provides local chimney sweeping, flue cleaning and
-      wood heater cleaning across Darley and nearby western suburbs, with
-      straightforward service and fast quotes.
-    </p>
-    <p><strong>Phone:</strong> <a href="tel:0476302729">0476 302 729</a></p>
-    <p><strong>Service Base:</strong> Bacchus Marsh VIC 3340</p>
+  <section class="section">
+    <p class="section-label">FAQs</p>
+    <h2>Darley Chimney Sweeping — Common Questions</h2>
+    <div class="faq-list">
+      {faqs.map(({ q, a }) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <div class="faq-answer">{a}</div>
+        </details>
+      ))}
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Darley Chimney Sweeping FAQs</h2>
-
-    <h3>Do you service homes throughout Darley?</h3>
-    <p>
-      Yes. We service Darley VIC 3340 and nearby surrounding areas for chimney
-      sweeping, flue cleaning and wood heater cleaning.
-    </p>
-
-    <h3>Can you clean wood heater flues as well?</h3>
-    <p>
-      Yes. Many jobs involve wood heater flue cleaning together with chimney
-      sweeping and general fireplace cleaning.
-    </p>
-
-    <h3>How do I know if chimney cleaning is due?</h3>
-    <p>
-      Common signs include visible soot buildup, smoke drift, poor draft,
-      unusual smells or long periods of fireplace use without a proper clean.
-    </p>
+  <section class="section">
+    <p class="section-label">More pages</p>
+    <h2>Nearby Service Pages</h2>
+    <nav class="page-links" aria-label="Nearby suburb pages">
+      <a class="page-link" href="/chimney-sweeping/bacchus-marsh">Chimney Sweeping — Bacchus Marsh VIC 3340 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/maddingley">Chimney Sweeping — Maddingley VIC 3340 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/ballan">Chimney Sweeping — Ballan VIC 3342 <span>›</span></a>
+      <a class="page-link" href="/contact">Get a Quote <span>›</span></a>
+    </nav>
   </section>
 
-  <section class="card">
-    <h2>Nearby Chimney Sweeping Pages</h2>
-    <p>
-      You can also view our
-      <a href="/chimney-sweeping/bacchus-marsh">Bacchus Marsh chimney sweeping page</a>
-      or <a href="/contact">contact us here</a> for a fast quote.
-    </p>
+  <section class="bottom-cta">
+    <h2>Book a Chimney Sweep in Darley</h2>
+    <p>Call Dave directly or send a message — we'll get back to you with a clear quote and booking options.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+    </div>
   </section>
+
 </MainLayout>

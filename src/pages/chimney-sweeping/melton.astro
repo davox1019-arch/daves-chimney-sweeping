@@ -5,7 +5,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Daves Chimney Sweeping",
-  telephone: "+61 476 302 729",
+  telephone: "+61476302729",
   areaServed: [
     "Melton VIC 3337",
     "Melton South VIC 3338",
@@ -28,11 +28,34 @@ const localBusinessSchema = {
 };
 
 const localBusinessSchemaJson = JSON.stringify(localBusinessSchema);
+
+const faqs = [
+  {
+    q: "Do you service all parts of Melton?",
+    a: "Yes — we cover Melton and the surrounding suburbs. If you're not sure whether we reach your street, just give us a call and we'll sort it out."
+  },
+  {
+    q: "Can you clean wood heater flues?",
+    a: "Absolutely. Wood heater flue cleaning is one of the most common jobs we do, especially heading into the cooler months."
+  },
+  {
+    q: "How do I know if my chimney actually needs a clean?",
+    a: "Common signs are smoke drifting back into the room, a reduced draft, visible black soot inside the firebox, or a strong smell when you light up. If it's been more than a year since the last clean, it's worth booking one regardless."
+  },
+  {
+    q: "How long does a chimney sweep take?",
+    a: "Most jobs take between 45 minutes and an hour and a half depending on how the system is set up and how long it's been since the last service."
+  },
+  {
+    q: "Do you remove bird nests from chimneys?",
+    a: "Yes. Blockages from bird nests and debris are a normal part of what we deal with — we'll clear it out as part of the job."
+  }
+];
 ---
 
 <MainLayout
   title="Chimney Sweeping Melton VIC 3337"
-  description="Need chimney sweeping in Melton VIC 3337? Daves Chimney Sweeping provides local chimney cleaning, flue cleaning and wood heater cleaning with fast quotes."
+  description="Local chimney sweeping in Melton VIC 3337. Daves Chimney Sweeping offers flue cleaning, wood heater cleaning and fireplace servicing. Fast quotes, honest service."
   clusterBase="Melton"
   clusterRegion="Melton and surrounding suburbs"
   homeHref="/chimney-sweeping/melton"
@@ -41,110 +64,578 @@ const localBusinessSchemaJson = JSON.stringify(localBusinessSchema);
 >
   <script type="application/ld+json" is:inline set:html={localBusinessSchemaJson}></script>
 
-  <section class="hero">
-    <h1>Chimney Sweeping Melton VIC 3337</h1>
-    <p>
-      Looking for chimney sweeping in Melton? Daves Chimney Sweeping provides
-      local chimney cleaning, flue cleaning and wood heater cleaning for homes
-      across Melton VIC 3337.
-    </p>
-    <p>
-      If your fireplace has soot buildup, your flue needs cleaning or your wood
-      heater is due for maintenance before winter, we provide straightforward
-      local service with fast quotes.
-    </p>
+  <style>
+    /* ── Design tokens ─────────────────────────────────────────── */
+    :root {
+      --brand-dark:   #1a1a18;
+      --brand-mid:    #2c2c29;
+      --brand-accent: #c8500a;
+      --brand-warm:   #f5f0e8;
+      --brand-white:  #ffffff;
+      --text-main:    #1a1a18;
+      --text-muted:   #5a5a54;
+      --border:       #e2ddd4;
+      --radius:       10px;
+      --shadow-card:  0 2px 12px rgba(0,0,0,0.07);
+    }
 
-    <div class="button-row">
-      <a class="btn btn-primary" href="tel:0476302729">Call 0476 302 729</a>
-      <a class="btn btn-secondary" href="/contact">Request a Quote</a>
+    /* ── Base reset for page sections ──────────────────────────── */
+    .page-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* ── HERO ───────────────────────────────────────────────────── */
+    .hero {
+      background: var(--brand-dark);
+      color: var(--brand-white);
+      padding: 2.8rem 1.25rem 2.5rem;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--brand-accent);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.65rem, 5vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+      color: var(--brand-white);
+    }
+
+    .hero-lead {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #c8c5be;
+      margin: 0 auto 0.75rem;
+      max-width: 480px;
+    }
+
+    .hero-sub {
+      font-size: 0.93rem;
+      line-height: 1.6;
+      color: #908d86;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.95rem 2rem;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      width: 100%;
+      max-width: 320px;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.88; }
+
+    .btn-call {
+      background: var(--brand-accent);
+      color: #fff;
+      font-size: 1.1rem;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-quote {
+      background: transparent;
+      border: 2px solid #5a5a54;
+      color: #c8c5be;
+    }
+
+    /* ── TRUST BAR ──────────────────────────────────────────────── */
+    .trust-bar {
+      background: var(--brand-mid);
+      padding: 0.95rem 1.25rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: #908d86;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .trust-item svg {
+      flex-shrink: 0;
+      color: var(--brand-accent);
+    }
+
+    /* ── SECTION WRAPPER ────────────────────────────────────────── */
+    .section {
+      padding: 2.2rem 1.25rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brand-accent);
+      margin-bottom: 0.55rem;
+    }
+
+    .section h2 {
+      font-size: clamp(1.25rem, 4vw, 1.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin: 0 0 1rem;
+      line-height: 1.25;
+    }
+
+    .section p {
+      font-size: 0.97rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin: 0 0 0.85rem;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    /* ── SERVICE GRID ───────────────────────────────────────────── */
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    @media (max-width: 380px) {
+      .service-grid { grid-template-columns: 1fr; }
+    }
+
+    .service-card {
+      background: var(--brand-warm);
+      border-radius: var(--radius);
+      padding: 1rem 1rem 0.9rem;
+      border: 1px solid var(--border);
+    }
+
+    .service-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .service-card-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    /* ── PROBLEMS LIST ──────────────────────────────────────────── */
+    .problem-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.1rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .problem-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+
+    .problem-list li::before {
+      content: "→";
+      color: var(--brand-accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.05em;
+    }
+
+    /* ── ABOUT / TRUST ──────────────────────────────────────────── */
+    .about-card {
+      background: var(--brand-warm);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .about-card p {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin: 0 0 0.8rem;
+    }
+
+    .about-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .about-detail strong {
+      color: var(--text-main);
+    }
+
+    .about-detail a {
+      color: var(--brand-accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* ── FAQ ────────────────────────────────────────────────────── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    details.faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    details.faq-item:last-child {
+      border-bottom: none;
+    }
+
+    details.faq-item summary {
+      padding: 1rem 1.1rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      background: var(--brand-white);
+      transition: background 0.15s;
+    }
+
+    details.faq-item summary::-webkit-details-marker { display: none; }
+
+    details.faq-item summary:hover {
+      background: var(--brand-warm);
+    }
+
+    details.faq-item summary::after {
+      content: "+";
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--brand-accent);
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+
+    details.faq-item[open] summary::after {
+      content: "−";
+    }
+
+    .faq-answer {
+      padding: 0 1.1rem 1rem;
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      background: var(--brand-white);
+    }
+
+    /* ── NEARBY SUBURBS ─────────────────────────────────────────── */
+    .suburb-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1.1rem;
+    }
+
+    .suburb-chip {
+      display: inline-block;
+      background: var(--brand-warm);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .suburb-chip:hover {
+      background: var(--brand-accent);
+      border-color: var(--brand-accent);
+      color: #fff;
+    }
+
+    /* ── BOTTOM CTA ─────────────────────────────────────────────── */
+    .bottom-cta {
+      background: var(--brand-dark);
+      color: var(--brand-white);
+      padding: 2.5rem 1.25rem;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .bottom-cta h2 {
+      font-size: clamp(1.3rem, 4.5vw, 1.7rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--brand-white);
+      margin: 0 0 0.6rem;
+    }
+
+    .bottom-cta p {
+      font-size: 0.95rem;
+      color: #908d86;
+      margin: 0 0 1.75rem;
+      line-height: 1.6;
+    }
+
+    /* ── NEARBY PAGE LINKS ──────────────────────────────────────── */
+    .page-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1.1rem;
+    }
+
+    .page-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1rem;
+      background: var(--brand-warm);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: var(--text-main);
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .page-link:hover {
+      background: var(--brand-accent);
+      border-color: var(--brand-accent);
+      color: #fff;
+    }
+
+    .page-link span { opacity: 0.5; font-size: 1.1rem; }
+  </style>
+
+  <!-- ── HERO ──────────────────────────────────────────────────── -->
+  <section class="hero">
+    <span class="hero-eyebrow">Melton VIC 3337</span>
+    <h1>Chimney Sweeping<br>Melton VIC 3337</h1>
+    <p class="hero-lead">
+      Daves Chimney Sweeping takes care of chimney cleaning, flue servicing and wood heater maintenance for homes across Melton and the surrounding area.
+    </p>
+    <p class="hero-sub">
+      Whether you're getting ready for winter or your fireplace has been giving you trouble, we keep it simple — honest service, fast quotes, no fuss.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
     </div>
   </section>
 
-  <section class="card">
-    <h2>Local Chimney Cleaning in Melton</h2>
+  <!-- ── TRUST BAR ──────────────────────────────────────────────── -->
+  <div class="trust-bar">
+    <span class="trust-item">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      Local to Melton
+    </span>
+    <span class="trust-item">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      Fast quotes
+    </span>
+    <span class="trust-item">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      Wood heaters welcome
+    </span>
+  </div>
+
+  <!-- ── WHAT WE DO ─────────────────────────────────────────────── -->
+  <section class="section">
+    <p class="section-label">What's included</p>
+    <h2>Chimney &amp; Flue Cleaning in Melton</h2>
     <p>
-      We provide chimney sweeping, flue cleaning and wood heater cleaning for
-      homes in Melton and nearby parts of the local area.
+      We cover everything from a basic annual sweep through to flue inspections and wood heater cleans. If your system needs attention before the cold sets in, we'll give you a straight answer about what it needs and get it done.
     </p>
-    <p>
-      Whether you use your fireplace regularly or just want everything cleaned
-      before the colder months, we keep the service simple and easy to book.
-    </p>
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="service-card-icon">🔥</span>
+        <div class="service-card-title">Chimney Sweeping</div>
+      </div>
+      <div class="service-card">
+        <span class="service-card-icon">🌬️</span>
+        <div class="service-card-title">Flue Cleaning</div>
+      </div>
+      <div class="service-card">
+        <span class="service-card-icon">🪵</span>
+        <div class="service-card-title">Wood Heater Cleaning</div>
+      </div>
+      <div class="service-card">
+        <span class="service-card-icon">🏠</span>
+        <div class="service-card-title">Fireplace Servicing</div>
+      </div>
+      <div class="service-card">
+        <span class="service-card-icon">🐦</span>
+        <div class="service-card-title">Blockage Removal</div>
+      </div>
+      <div class="service-card">
+        <span class="service-card-icon">⬛</span>
+        <div class="service-card-title">Soot &amp; Ash Removal</div>
+      </div>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>What Our Melton Chimney Sweeping Service Includes</h2>
-    <ul>
-      <li>Chimney sweeping in Melton</li>
-      <li>Chimney cleaning for fireplaces and wood heaters</li>
-      <li>Flue cleaning</li>
-      <li>Wood heater cleaning</li>
-      <li>Soot and ash buildup removal</li>
-      <li>Removal of common blockages such as bird nests</li>
+  <!-- ── COMMON PROBLEMS ────────────────────────────────────────── -->
+  <section class="section">
+    <p class="section-label">Common reasons to book</p>
+    <h2>Signs Your Chimney Needs Attention</h2>
+    <p>
+      A lot of Melton homes use their heaters heavily through winter. These are the situations we hear about most often:
+    </p>
+    <ul class="problem-list">
+      <li>Smoke drifting back into the room when the fire is lit</li>
+      <li>A strong smoky smell even when there's no fire burning</li>
+      <li>Visible black soot or creosote buildup inside the firebox</li>
+      <li>A weak or sluggish draft that makes it hard to get a good burn</li>
+      <li>It's been over twelve months since the last proper clean</li>
+      <li>A bird or debris has blocked the flue</li>
+      <li>Moving into a home with a fireplace you've never had serviced</li>
     </ul>
   </section>
 
-  <section class="card">
-    <h2>Why Homeowners Book a Chimney Sweep</h2>
-    <p>
-      Many homeowners book chimney sweeping before winter, after long periods of
-      fireplace use or when they notice poor airflow, smoke drift or visible
-      soot buildup.
-    </p>
-    <p>
-      Regular cleaning can help keep your fireplace, chimney and flue working
-      more smoothly through the colder months.
-    </p>
+  <!-- ── ABOUT / TRUST ──────────────────────────────────────────── -->
+  <section class="section">
+    <p class="section-label">About us</p>
+    <h2>A Local Chimney Sweep You Can Actually Reach</h2>
+    <div class="about-card">
+      <p>
+        Daves Chimney Sweeping is a local, owner-operated service. We work across Melton VIC 3337 and the surrounding area — including Melton South, Melton West and nearby suburbs.
+      </p>
+      <p>
+        We're not a call centre or a franchise. When you call, you're talking to Dave. We keep pricing clear, turn up when we say we will, and leave the job tidy.
+      </p>
+      <div class="about-detail">
+        📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a>
+      </div>
+      <div class="about-detail">
+        📍 <strong>Service area:</strong>&nbsp;Melton VIC 3337 and surrounds
+      </div>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Nearby Areas Around Melton</h2>
-    <p>
-      We also service nearby suburbs around Melton, including Melton South,
-      Melton West, Brookfield, Kurunjang, Harkness and Cobblebank.
-    </p>
+  <!-- ── FAQ ────────────────────────────────────────────────────── -->
+  <section class="section">
+    <p class="section-label">FAQs</p>
+    <h2>Common Questions from Melton Customers</h2>
+    <div class="faq-list">
+      {faqs.map(({ q, a }) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <div class="faq-answer">{a}</div>
+        </details>
+      ))}
+    </div>
   </section>
 
-  <section class="card">
-    <h2>About Daves Chimney Sweeping</h2>
+  <!-- ── NEARBY SUBURBS ─────────────────────────────────────────── -->
+  <section class="section">
+    <p class="section-label">Nearby areas</p>
+    <h2>We Also Cover These Melton Suburbs</h2>
     <p>
-      Daves Chimney Sweeping provides local chimney sweeping, flue cleaning and
-      wood heater cleaning across Melton and surrounding suburbs.
+      Our service area extends across the wider Melton region. Here are the nearby suburbs we regularly work in:
     </p>
-    <p><strong>Phone:</strong> <a href="tel:0476302729">0476 302 729</a></p>
-    <p><strong>Service Base:</strong> Melton VIC 3337</p>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/melton-south">Melton South 3338</a>
+      <a class="suburb-chip" href="/chimney-sweeping/melton-west">Melton West 3337</a>
+      <a class="suburb-chip" href="/chimney-sweeping/brookfield">Brookfield 3338</a>
+      <a class="suburb-chip" href="/chimney-sweeping/kurunjang">Kurunjang 3337</a>
+      <a class="suburb-chip" href="/chimney-sweeping/harkness">Harkness 3337</a>
+      <a class="suburb-chip" href="/chimney-sweeping/cobblebank">Cobblebank 3338</a>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Melton Chimney Sweeping FAQs</h2>
-
-    <h3>Do you service homes right across Melton?</h3>
-    <p>
-      Yes. We service Melton and nearby surrounding suburbs in the wider local
-      area.
-    </p>
-
-    <h3>Can you clean wood heater flues as well?</h3>
-    <p>
-      Yes. Wood heater flue cleaning is one of the common reasons people book
-      this service.
-    </p>
-
-    <h3>How do I know if my chimney needs cleaning?</h3>
-    <p>
-      Common signs include visible soot buildup, poor draft, smoke issues,
-      unusual smells or long periods of use without a proper clean.
-    </p>
+  <!-- ── NEARBY PAGE LINKS ──────────────────────────────────────── -->
+  <section class="section">
+    <p class="section-label">More pages</p>
+    <h2>Explore Nearby Service Pages</h2>
+    <nav class="page-links" aria-label="Nearby suburb pages">
+      <a class="page-link" href="/chimney-sweeping/melton-south">
+        Chimney Sweeping — Melton South VIC 3338
+        <span>›</span>
+      </a>
+      <a class="page-link" href="/chimney-sweeping/melton-west">
+        Chimney Sweeping — Melton West VIC 3337
+        <span>›</span>
+      </a>
+      <a class="page-link" href="/chimney-sweeping/brookfield">
+        Chimney Sweeping — Brookfield VIC 3338
+        <span>›</span>
+      </a>
+      <a class="page-link" href="/contact">
+        Get a Fast Quote
+        <span>›</span>
+      </a>
+    </nav>
   </section>
 
-  <section class="card">
-    <h2>Nearby Chimney Sweeping Pages</h2>
-    <p>
-      You can also visit our
-      <a href="/chimney-sweeping/melton-south">Melton South chimney sweeping page</a>,
-      <a href="/chimney-sweeping/melton-west">Melton West chimney sweeping page</a>
-      and our
-      <a href="/contact">contact page</a> for a fast quote.
-    </p>
+  <!-- ── BOTTOM CTA ─────────────────────────────────────────────── -->
+  <section class="bottom-cta">
+    <h2>Ready to Book Your Melton Chimney Sweep?</h2>
+    <p>Call Dave directly or send through a quote request — we'll get back to you quickly.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+    </div>
   </section>
+
 </MainLayout>

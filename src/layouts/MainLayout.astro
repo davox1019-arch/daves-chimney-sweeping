@@ -17,20 +17,28 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
 
+    <!-- Preconnect for font performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Syne: strong display headings | Nunito Sans: clean, readable body -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
     <style>
       :root {
         --bg: #f5efe7;
         --bg-soft: #fbf8f4;
         --text: #171717;
-        --muted: #666;
+        --muted: #555;
         --card: rgba(255, 255, 255, 0.94);
         --accent: #151515;
-        --accent-2: #b98134;
+        --accent-2: #c8500a;
         --accent-3: #f4e2c4;
         --border: #e5dbcf;
         --max-width: 1160px;
         --radius: 24px;
         --shadow: 0 18px 48px rgba(0, 0, 0, 0.08);
+        --font-heading: 'Syne', sans-serif;
+        --font-body: 'Nunito Sans', system-ui, sans-serif;
       }
 
       * {
@@ -43,7 +51,7 @@ const {
 
       body {
         margin: 0;
-        font-family: Arial, sans-serif;
+        font-family: var(--font-body);
         color: var(--text);
         background:
           radial-gradient(circle at top left, rgba(255, 239, 214, 0.9) 0%, transparent 30%),
@@ -61,17 +69,21 @@ const {
         padding: 0 20px;
       }
 
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+      }
+
       .site-header {
         position: sticky;
         top: 0;
         z-index: 200;
         backdrop-filter: blur(10px);
-        background: rgba(255, 250, 245, 0.88);
+        background: rgba(255, 250, 245, 0.95);
         border-bottom: 1px solid rgba(229, 219, 207, 0.95);
       }
 
       .header-inner {
-        min-height: 110px;
+        min-height: 64px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -87,11 +99,11 @@ const {
       }
 
       .brand-logo {
-        width: 150px;
-        height: 150px;
+        width: auto;
+        height: 44px;
         object-fit: contain;
-        flex: 0 0 72px;
-        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.18));
+        flex-shrink: 0;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
       }
 
       .brand-text {
@@ -102,10 +114,11 @@ const {
       }
 
       .brand-name {
-        font-size: 30px;
+        font-size: 17px;
         font-weight: 800;
-        line-height: 1.02;
-        letter-spacing: -0.03em;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        font-family: var(--font-heading);
       }
 
       .brand-sub {
@@ -121,32 +134,66 @@ const {
       }
 
       .desktop-nav a {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 700;
+        color: var(--muted);
+        transition: color 0.15s;
+      }
+
+      .desktop-nav a:hover {
+        color: var(--text);
       }
 
       .phone-btn {
-        display: inline-block;
-        background: linear-gradient(135deg, #111 0%, #2c2c2c 100%);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--accent-2);
         color: white;
-        padding: 12px 18px;
-        border-radius: 999px;
+        padding: 10px 16px;
+        border-radius: 10px;
         font-weight: 800;
-        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+        font-size: 14px;
+        box-shadow: 0 4px 12px rgba(200, 80, 10, 0.25);
+        transition: opacity 0.15s;
+        white-space: nowrap;
       }
+
+      .phone-btn:hover {
+        opacity: 0.88;
+      }
+
+      /* Visible call CTA on mobile — always in header */
+      .mobile-call-header {
+        display: none;
+        align-items: center;
+        gap: 5px;
+        background: var(--accent-2);
+        color: #fff;
+        font-size: 0.8rem;
+        font-weight: 800;
+        padding: 0.55rem 0.85rem;
+        border-radius: 8px;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: opacity 0.15s;
+      }
+
+      .mobile-call-header:hover { opacity: 0.88; }
 
       .menu-toggle {
         display: none;
-        width: 52px;
-        height: 52px;
+        width: 44px;
+        height: 44px;
         border: 1px solid var(--border);
         background: rgba(255, 255, 255, 0.95);
-        border-radius: 14px;
+        border-radius: 10px;
         padding: 0;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        flex-shrink: 0;
       }
 
       .menu-toggle span {
@@ -206,13 +253,17 @@ const {
       }
 
       .mobile-call {
-        background: linear-gradient(135deg, #111 0%, #2b2b2b 100%);
+        background: var(--accent-2);
         color: white !important;
       }
 
       main {
-        padding: 34px 0 56px;
+        padding: 0;
       }
+
+      /* Interior sections that need max-width constraining
+         should use .container themselves — the suburb page
+         .section blocks already handle this. */
 
       .hero {
         position: relative;
@@ -289,13 +340,14 @@ const {
 
       .btn-primary {
         color: white;
-        background: linear-gradient(135deg, #111 0%, #2b2b2b 100%);
-        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.15);
+        background: var(--accent-2);
+        box-shadow: 0 8px 20px rgba(200, 80, 10, 0.25);
       }
 
       .btn-secondary {
         background: rgba(255, 255, 255, 0.82);
         border: 1px solid var(--border);
+        color: var(--text);
       }
 
       .grid {
@@ -403,8 +455,8 @@ const {
         }
 
         .header-inner {
-          min-height: 100px;
-          gap: 10px;
+          min-height: 58px;
+          gap: 8px;
         }
 
         .desktop-nav {
@@ -415,19 +467,24 @@ const {
           display: inline-flex;
         }
 
-        .brand {
-          gap: 10px;
-          min-width: 0;
+        /* Show the orange call button in mobile header */
+        .mobile-call-header {
+          display: inline-flex;
         }
 
+        .brand {
+          gap: 8px;
+          min-width: 0;
+          flex: 1;
+        }
+
+        /* Smaller logo on mobile */
         .brand-logo {
-          width: 120px;
-          height: 120px;
-          flex-basis: 58px;
+          height: 34px;
         }
 
         .brand-name {
-          font-size: 30px;
+          font-size: 14px;
         }
 
         .brand-sub {
@@ -483,8 +540,11 @@ const {
             <a href={homeHref}>Home</a>
             <a href={servicePageHref}>{servicePageLabel}</a>
             <a href="/contact">Contact</a>
-            <a class="phone-btn" href="tel:0476302729">0476 302 729</a>
+            <a class="phone-btn" href="tel:0476302729">📞 0476 302 729</a>
           </nav>
+
+          <!-- Visible call button on mobile — always in header -->
+          <a class="mobile-call-header" href="tel:0476302729">📞 Call now</a>
 
           <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
             <span></span>
@@ -503,9 +563,7 @@ const {
     </header>
 
     <main>
-      <div class="container">
-        <slot />
-      </div>
+      <slot />
     </main>
 
     <footer class="site-footer">

@@ -1,123 +1,194 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+
+const faqs = [
+  {
+    q: "Is Brookfield part of the Melton area?",
+    a: "Yes — Brookfield VIC 3338 sits within the broader Melton region. We service it as part of the same local run."
+  },
+  {
+    q: "What's the difference between Brookfield 3338 and Melton 3337?",
+    a: "Different postcodes, same general area. Brookfield is part of the newer residential growth in the Melton corridor. We cover both."
+  },
+  {
+    q: "My fireplace is in a newer house — does it still need cleaning?",
+    a: "Yes. Newer homes often have flue systems that aren't always maintained after installation. If the fireplace has been used without a service, it's worth checking."
+  },
+  {
+    q: "Do you remove bird nests from chimneys?",
+    a: "Yes — nest removal is a regular part of what we do. Birds tend to nest in unused chimneys over spring and summer, so it's a common autumn discovery."
+  }
+];
 ---
 
 <MainLayout
   title="Chimney Sweeping Brookfield VIC 3338"
-  description="Need chimney sweeping in Brookfield VIC 3338? Daves Chimney Sweeping provides local chimney cleaning, flue cleaning and wood heater cleaning with fast quotes."
+  description="Chimney sweeping in Brookfield VIC 3338. Daves Chimney Sweeping provides flue cleaning, wood heater servicing and fireplace care for local homes. Fast quotes."
   clusterBase="Melton"
   clusterRegion="Melton and surrounding suburbs"
-homeHref="/chimney-sweeping/melton"
-servicePageHref="/chimney-sweeping/melton"
-servicePageLabel="Melton Chimney Sweeping"
+  homeHref="/chimney-sweeping/melton"
+  servicePageHref="/chimney-sweeping/melton"
+  servicePageLabel="Melton Chimney Sweeping"
 >
-  <section class="hero">
-    <h1>Chimney Sweeping Brookfield VIC 3338</h1>
-    <p>
-      Looking for chimney sweeping in Brookfield? Daves Chimney Sweeping provides
-      local chimney cleaning, flue cleaning and wood heater cleaning for homes
-      in Brookfield and nearby parts of the Melton area.
-    </p>
-    <p>
-      If your fireplace needs attention before winter, your flue has soot
-      buildup or your wood heater is not performing properly, we provide
-      straightforward local service with fast quotes.
-    </p>
+  <style>
+    :root {
+      --brand-dark: #1a1a18; --brand-mid: #2c2c29; --brand-accent: #c8500a;
+      --brand-warm: #f5f0e8; --brand-white: #ffffff;
+      --text-main: #1a1a18; --text-muted: #5a5a54; --border: #e2ddd4; --radius: 10px;
+    }
+    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 2.8rem 1.25rem 2.5rem; text-align: center; }
+    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.1rem; }
+    .hero h1 { font-size: clamp(1.65rem, 5vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--brand-white); }
+    .hero-lead { font-size: 1rem; line-height: 1.65; color: #c8c5be; margin: 0 auto 0.75rem; max-width: 480px; }
+    .hero-sub { font-size: 0.93rem; line-height: 1.6; color: #908d86; max-width: 480px; margin: 0 auto 2rem; }
+    .btn-row { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.88; }
+    .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.1rem; }
+    .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
+    .section { padding: 2.2rem 1.25rem; max-width: 680px; margin: 0 auto; }
+    .section + .section { border-top: 1px solid var(--border); }
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
+    .section h2 { font-size: clamp(1.25rem, 4vw, 1.6rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.25; }
+    .section p { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.85rem; }
+    .section p:last-child { margin-bottom: 0; }
+    .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.25rem; }
+    @media (max-width: 380px) { .service-grid { grid-template-columns: 1fr; } }
+    .service-card { background: var(--brand-warm); border-radius: var(--radius); padding: 1rem; border: 1px solid var(--border); }
+    .service-card-icon { font-size: 1.5rem; margin-bottom: 0.4rem; display: block; }
+    .service-card-title { font-size: 0.88rem; font-weight: 700; color: var(--text-main); line-height: 1.3; }
+    .arrow-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.65rem; }
+    .arrow-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.95rem; line-height: 1.5; color: var(--text-muted); }
+    .arrow-list li::before { content: "→"; color: var(--brand-accent); font-weight: 700; flex-shrink: 0; }
+    .about-card { background: var(--brand-warm); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.25rem; margin-top: 1rem; }
+    .about-card p { font-size: 0.96rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.8rem; }
+    .about-detail { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; }
+    .about-detail strong { color: var(--text-main); }
+    .about-detail a { color: var(--brand-accent); font-weight: 700; text-decoration: none; }
+    .faq-list { display: flex; flex-direction: column; margin-top: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details.faq-item { border-bottom: 1px solid var(--border); }
+    details.faq-item:last-child { border-bottom: none; }
+    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary:hover { background: var(--brand-warm); }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; margin-left: 1rem; }
+    details.faq-item[open] summary::after { content: "−"; }
+    .faq-answer { padding: 0 1.1rem 1rem; font-size: 0.93rem; line-height: 1.7; color: var(--text-muted); background: var(--brand-white); }
+    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.1rem; }
+    .suburb-chip { display: inline-block; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.85rem; font-size: 0.84rem; font-weight: 600; color: var(--text-main); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
+    .suburb-chip:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.1rem; }
+    .page-link { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; font-size: 0.93rem; font-weight: 600; color: var(--text-main); transition: background 0.15s, border-color 0.15s; }
+    .page-link:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-link span { opacity: 0.5; font-size: 1.1rem; }
+    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.5rem 1.25rem; text-align: center; }
+    .bottom-cta h2 { font-size: clamp(1.3rem, 4.5vw, 1.7rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
+    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 0 1.75rem; line-height: 1.6; }
+  </style>
 
-    <div class="button-row">
-      <a class="btn btn-primary" href="tel:0476302729">Call 0476 302 729</a>
-      <a class="btn btn-secondary" href="/contact">Request a Quote</a>
+  <section class="hero">
+    <span class="hero-eyebrow">Brookfield VIC 3338</span>
+    <h1>Chimney Sweeping<br>Brookfield VIC 3338</h1>
+    <p class="hero-lead">
+      Brookfield is one of the newer parts of the Melton corridor — but the chimneys still get dirty. Daves Chimney Sweeping keeps wood heaters and fireplaces clean and working properly for homes across Brookfield 3338.
+    </p>
+    <p class="hero-sub">
+      Local, owner-operated, and easy to deal with. Call Dave directly for a straightforward quote.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
     </div>
   </section>
 
-  <section class="card">
-    <h2>Local Chimney Cleaning in Brookfield</h2>
+  <section class="section">
+    <p class="section-label">What we do</p>
+    <h2>Chimney &amp; Heater Cleaning in Brookfield</h2>
     <p>
-      We provide chimney sweeping, flue cleaning and wood heater cleaning for
-      homes in Brookfield and nearby parts of the Melton area.
+      We provide a complete clean of your chimney, flue and heating system. Whether it's a wood heater, open fireplace or slow combustion unit, we'll get it sorted in one visit.
     </p>
-    <p>
-      Whether your fireplace has built-up soot, your flue needs a proper clean
-      or your wood heater is due for maintenance before winter, we offer
-      straightforward local service and fast quotes.
-    </p>
+    <div class="service-grid">
+      <div class="service-card"><span class="service-card-icon">🔥</span><div class="service-card-title">Chimney Sweeping</div></div>
+      <div class="service-card"><span class="service-card-icon">🌬️</span><div class="service-card-title">Flue Cleaning</div></div>
+      <div class="service-card"><span class="service-card-icon">🪵</span><div class="service-card-title">Wood Heater Clean</div></div>
+      <div class="service-card"><span class="service-card-icon">🏠</span><div class="service-card-title">Fireplace Service</div></div>
+      <div class="service-card"><span class="service-card-icon">🐦</span><div class="service-card-title">Nest &amp; Blockage Removal</div></div>
+      <div class="service-card"><span class="service-card-icon">⬛</span><div class="service-card-title">Soot &amp; Ash Removal</div></div>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Services for Brookfield Homes</h2>
-    <ul>
-      <li>Chimney sweeping in Brookfield</li>
-      <li>Chimney cleaning for fireplaces</li>
-      <li>Flue cleaning</li>
-      <li>Wood heater cleaning</li>
-      <li>Soot and ash buildup removal</li>
-      <li>Removal of common flue and chimney blockages</li>
+  <section class="section">
+    <p class="section-label">Warning signs</p>
+    <h2>Signs Your Brookfield Chimney Needs a Clean</h2>
+    <p>Here's what usually prompts a call from Brookfield homeowners:</p>
+    <ul class="arrow-list">
+      <li>Smoke building up in the room rather than drawing up the flue</li>
+      <li>A strong smell near the fireplace even when it isn't being used</li>
+      <li>Thick black soot visible around the firebox opening</li>
+      <li>The fire won't stay lit or burns sluggishly</li>
+      <li>Haven't had it cleaned since moving in</li>
+      <li>Bird activity above the chimney pot in spring or summer</li>
     </ul>
   </section>
 
-  <section class="card">
-    <h2>When to Book a Chimney Sweep in Brookfield</h2>
-    <p>
-      Many homeowners book this service before the colder months, after regular
-      winter fireplace use or when they notice signs such as smoke coming back
-      inside, poor draft, soot buildup or a wood heater that is not drawing as
-      well as it should.
-    </p>
-    <p>
-      If you use a fireplace or wood heater regularly, keeping the chimney and
-      flue clean can help everything work more smoothly.
-    </p>
+  <section class="section">
+    <p class="section-label">About us</p>
+    <h2>Owner-Operated, Local to Melton</h2>
+    <div class="about-card">
+      <p>
+        Daves Chimney Sweeping is run by Dave — not a chain, not a franchise. We cover Brookfield VIC 3338 and the surrounding Melton suburbs as part of a regular local run.
+      </p>
+      <p>
+        Straight pricing, no surprises, job done right the first time.
+      </p>
+      <div class="about-detail">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="about-detail">📍 <strong>Service area:</strong>&nbsp;Brookfield VIC 3338 and surrounds</div>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Nearby Areas Around Brookfield</h2>
-    <p>
-      We also service nearby areas around Brookfield, including Melton, Melton
-      South, Melton West, Kurunjang, Harkness and Cobblebank.
-    </p>
+  <section class="section">
+    <p class="section-label">Nearby areas</p>
+    <h2>Nearby Suburbs We Also Cover</h2>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/melton">Melton 3337</a>
+      <a class="suburb-chip" href="/chimney-sweeping/melton-south">Melton South 3338</a>
+      <a class="suburb-chip" href="/chimney-sweeping/cobblebank">Cobblebank 3338</a>
+      <a class="suburb-chip" href="/chimney-sweeping/kurunjang">Kurunjang 3337</a>
+      <a class="suburb-chip" href="/chimney-sweeping/harkness">Harkness 3337</a>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>About Daves Chimney Sweeping</h2>
-    <p>
-      Daves Chimney Sweeping provides local chimney sweeping, flue cleaning and
-      wood heater cleaning across Melton and surrounding suburbs.
-    </p>
-    <p><strong>Phone:</strong> <a href="tel:0476302729">0476 302 729</a></p>
-    <p><strong>Service Base:</strong> Melton VIC</p>
+  <section class="section">
+    <p class="section-label">FAQs</p>
+    <h2>Brookfield Chimney Sweeping — FAQs</h2>
+    <div class="faq-list">
+      {faqs.map(({ q, a }) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <div class="faq-answer">{a}</div>
+        </details>
+      ))}
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Brookfield Chimney Sweeping FAQs</h2>
-
-    <h3>Do you service all of Brookfield?</h3>
-    <p>
-      Yes. We service Brookfield and nearby areas around the wider Melton
-      region.
-    </p>
-
-    <h3>Can you clean wood heater flues in Brookfield?</h3>
-    <p>
-      Yes. Wood heater flue cleaning is one of the common reasons homeowners
-      book this service.
-    </p>
-
-    <h3>What are common signs a chimney needs cleaning?</h3>
-    <p>
-      Visible soot, poor airflow, smoke issues, odd smells and long periods of
-      fireplace use are all common signs that cleaning may be due.
-    </p>
+  <section class="section">
+    <p class="section-label">More pages</p>
+    <h2>Nearby Service Pages</h2>
+    <nav class="page-links" aria-label="Nearby suburb pages">
+      <a class="page-link" href="/chimney-sweeping/melton">Chimney Sweeping — Melton VIC 3337 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/melton-south">Chimney Sweeping — Melton South VIC 3338 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/cobblebank">Chimney Sweeping — Cobblebank VIC 3338 <span>›</span></a>
+      <a class="page-link" href="/contact">Get a Quote <span>›</span></a>
+    </nav>
   </section>
 
-  <section class="card">
-    <h2>Nearby Chimney Sweeping Pages</h2>
-    <p>
-      You can also view our
-      <a href="/chimney-sweeping/melton">Melton chimney sweeping page</a>,
-      <a href="/chimney-sweeping/melton-south">Melton South chimney sweeping page</a>,
-      <a href="/chimney-sweeping/melton-west">Melton West chimney sweeping page</a>
-      and our main
-      <a href="/chimney-sweeping">Melbourne chimney sweeping page</a>.
-    </p>
+  <section class="bottom-cta">
+    <h2>Brookfield Chimney Sweep — Book Now</h2>
+    <p>Call Dave or send a message and we'll get back to you with a clear, upfront quote.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+    </div>
   </section>
+
 </MainLayout>

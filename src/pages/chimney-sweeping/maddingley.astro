@@ -1,122 +1,175 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+
+const faqs = [
+  {
+    q: "Where is Maddingley?",
+    a: "Maddingley VIC 3340 is a small town that sits between Bacchus Marsh and Ballan in Melbourne's west. We service it as part of our Bacchus Marsh area run."
+  },
+  {
+    q: "What happens during a chimney sweep?",
+    a: "We lay down dust sheets, clean the firebox and flue thoroughly from the bottom, clear any soot or debris, and check for obvious blockages. It usually takes about an hour depending on the setup."
+  },
+  {
+    q: "Do I need to have the fire cold before you arrive?",
+    a: "Yes — we need the fire to have been cold for at least a few hours. Ash in the firebox is fine, we'll deal with it. Just no active or recent burning."
+  },
+  {
+    q: "Can you clean a wood heater that's been installed in an older home?",
+    a: "Yes. Older homes often have chimneys and flue setups that haven't been touched in years — these are actually the jobs where a clean makes the most noticeable difference."
+  }
+];
 ---
 
 <MainLayout
   title="Chimney Sweeping Maddingley VIC 3340"
-  description="Need chimney sweeping in Maddingley VIC 3340? Daves Chimney Sweeping provides local chimney cleaning, flue cleaning and wood heater cleaning with fast quotes."
+  description="Chimney sweeping in Maddingley VIC 3340. Daves Chimney Sweeping handles flue cleaning and wood heater servicing near Bacchus Marsh. Local, honest service."
   clusterBase="Bacchus Marsh"
   clusterRegion="Bacchus Marsh and nearby suburbs"
   homeHref="/chimney-sweeping/bacchus-marsh"
   servicePageHref="/chimney-sweeping/bacchus-marsh"
   servicePageLabel="Bacchus Marsh Chimney Sweeping"
 >
-  <section class="hero">
-    <h1>Chimney Sweeping Maddingley VIC 3340</h1>
-    <p>
-      Need chimney sweeping in Maddingley VIC 3340? Daves Chimney Sweeping provides
-      local chimney cleaning, flue cleaning and wood heater cleaning for homes
-      in Maddingley and nearby parts of the Bacchus Marsh area.
-    </p>
-    <p>
-      If your chimney has soot buildup, your fireplace needs attention before
-      winter or your wood heater is not drawing properly, we provide
-      straightforward local service with fast quotes.
-    </p>
+  <style>
+    :root { --brand-dark: #1a1a18; --brand-mid: #2c2c29; --brand-accent: #c8500a; --brand-warm: #f5f0e8; --brand-white: #ffffff; --text-main: #1a1a18; --text-muted: #5a5a54; --border: #e2ddd4; --radius: 10px; }
+    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 2.8rem 1.25rem 2.5rem; text-align: center; }
+    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.1rem; }
+    .hero h1 { font-size: clamp(1.65rem, 5vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--brand-white); }
+    .hero-lead { font-size: 1rem; line-height: 1.65; color: #c8c5be; margin: 0 auto 0.75rem; max-width: 480px; }
+    .hero-sub { font-size: 0.93rem; line-height: 1.6; color: #908d86; max-width: 480px; margin: 0 auto 2rem; }
+    .btn-row { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.88; }
+    .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.1rem; }
+    .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
+    .section { padding: 2.2rem 1.25rem; max-width: 680px; margin: 0 auto; }
+    .section + .section { border-top: 1px solid var(--border); }
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
+    .section h2 { font-size: clamp(1.25rem, 4vw, 1.6rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.25; }
+    .section p { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.85rem; }
+    .section p:last-child { margin-bottom: 0; }
+    /* Unique: icon-paragraph service blocks */
+    .service-block { display: flex; gap: 0.9rem; align-items: flex-start; margin-bottom: 1rem; }
+    .service-block:last-child { margin-bottom: 0; }
+    .service-block-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .service-block-body h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin: 0 0 0.2rem; }
+    .service-block-body p { font-size: 0.88rem; line-height: 1.55; color: var(--text-muted); margin: 0; }
+    .about-card { background: var(--brand-warm); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.25rem; margin-top: 1rem; }
+    .about-card p { font-size: 0.96rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.8rem; }
+    .about-detail { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; }
+    .about-detail strong { color: var(--text-main); }
+    .about-detail a { color: var(--brand-accent); font-weight: 700; text-decoration: none; }
+    .faq-list { display: flex; flex-direction: column; margin-top: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details.faq-item { border-bottom: 1px solid var(--border); }
+    details.faq-item:last-child { border-bottom: none; }
+    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary:hover { background: var(--brand-warm); }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; margin-left: 1rem; }
+    details.faq-item[open] summary::after { content: "−"; }
+    .faq-answer { padding: 0 1.1rem 1rem; font-size: 0.93rem; line-height: 1.7; color: var(--text-muted); background: var(--brand-white); }
+    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.1rem; }
+    .suburb-chip { display: inline-block; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.85rem; font-size: 0.84rem; font-weight: 600; color: var(--text-main); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
+    .suburb-chip:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.1rem; }
+    .page-link { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; font-size: 0.93rem; font-weight: 600; color: var(--text-main); transition: background 0.15s, border-color 0.15s; }
+    .page-link:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-link span { opacity: 0.5; font-size: 1.1rem; }
+    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.5rem 1.25rem; text-align: center; }
+    .bottom-cta h2 { font-size: clamp(1.3rem, 4.5vw, 1.7rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
+    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 0 1.75rem; line-height: 1.6; }
+  </style>
 
-    <div class="button-row">
-      <a class="btn btn-primary" href="tel:0476302729">Call 0476 302 729</a>
-      <a class="btn btn-secondary" href="/contact">Request a Quote</a>
+  <section class="hero">
+    <span class="hero-eyebrow">Maddingley VIC 3340</span>
+    <h1>Chimney Sweeping<br>Maddingley VIC 3340</h1>
+    <p class="hero-lead">
+      Maddingley is a quiet spot between Bacchus Marsh and Ballan — but the chimneys still need looking after. Daves Chimney Sweeping provides wood heater and fireplace cleaning for homes in Maddingley 3340 and nearby areas.
+    </p>
+    <p class="hero-sub">
+      Straightforward service, fair pricing, done properly. Call Dave for a quick quote.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
     </div>
   </section>
 
-  <section class="card">
-    <h2>Chimney and Fireplace Cleaning in Maddingley</h2>
-    <p>
-      We provide chimney sweeping, flue cleaning and fireplace cleaning for
-      homes in Maddingley and surrounding areas.
-    </p>
-    <p>
-      Regular cleaning can help remove soot, ash and general buildup that
-      collects over time, especially in homes that use wood heaters or
-      fireplaces through the colder months.
-    </p>
+  <section class="section">
+    <p class="section-label">Services</p>
+    <h2>What We Do for Maddingley Homes</h2>
+    <p>We cover all the standard chimney and heating maintenance work:</p>
+    <div class="service-block">
+      <span class="service-block-icon">🔥</span>
+      <div class="service-block-body"><h3>Chimney sweeping</h3><p>Full clean of the chimney from firebox to pot, removing soot and creosote that builds up with regular use.</p></div>
+    </div>
+    <div class="service-block">
+      <span class="service-block-icon">🌬️</span>
+      <div class="service-block-body"><h3>Flue cleaning</h3><p>Clearing the flue liner or pipe that carries smoke out of the house — essential for good airflow and draw.</p></div>
+    </div>
+    <div class="service-block">
+      <span class="service-block-icon">🪵</span>
+      <div class="service-block-body"><h3>Wood heater service</h3><p>Cleaning the heater body, baffle plate and flue connection to keep the unit burning efficiently.</p></div>
+    </div>
+    <div class="service-block">
+      <span class="service-block-icon">🐦</span>
+      <div class="service-block-body"><h3>Blockage removal</h3><p>Bird nests and debris cleared from the flue — a common find in chimneys that haven't been used for a season.</p></div>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>What We Clean</h2>
-    <ul>
-      <li>Chimneys</li>
-      <li>Flues</li>
-      <li>Wood heaters</li>
-      <li>Fireplaces</li>
-      <li>Soot and ash buildup</li>
-      <li>Common chimney blockages</li>
-    </ul>
+  <section class="section">
+    <p class="section-label">About us</p>
+    <h2>A Local Service Worth Calling</h2>
+    <div class="about-card">
+      <p>
+        Daves Chimney Sweeping is owner-operated and covers Maddingley VIC 3340 as part of the Bacchus Marsh area. You deal directly with Dave — pricing is clear before we start, and we leave the job properly done.
+      </p>
+      <div class="about-detail">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="about-detail">📍 <strong>Service area:</strong>&nbsp;Maddingley VIC 3340 and surrounds</div>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Why Homeowners in Maddingley Book This Service</h2>
-    <p>
-      Some homeowners book before winter begins so everything is ready to use.
-      Others get in touch after noticing smoke drift, poor airflow, unusual
-      smells or visible soot around the fireplace area.
-    </p>
-    <p>
-      Whether the main issue is the chimney, the flue or the wood heater itself,
-      we keep the process simple and easy to organise.
-    </p>
+  <section class="section">
+    <p class="section-label">Nearby areas</p>
+    <h2>Nearby Areas We Also Cover</h2>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/bacchus-marsh">Bacchus Marsh 3340</a>
+      <a class="suburb-chip" href="/chimney-sweeping/darley">Darley 3340</a>
+      <a class="suburb-chip" href="/chimney-sweeping/ballan">Ballan 3342</a>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Nearby Areas Around Maddingley</h2>
-    <p>
-      We also service nearby surrounding areas including Bacchus Marsh VIC 3340,
-      Darley VIC 3340, Ballan VIC 3342 and other nearby parts of the local region.
-    </p>
+  <section class="section">
+    <p class="section-label">FAQs</p>
+    <h2>Questions About Our Maddingley Service</h2>
+    <div class="faq-list">
+      {faqs.map(({ q, a }) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <div class="faq-answer">{a}</div>
+        </details>
+      ))}
+    </div>
   </section>
 
-  <section class="card">
-    <h2>About Daves Chimney Sweeping</h2>
-    <p>
-      Daves Chimney Sweeping provides local chimney sweeping, flue cleaning and
-      wood heater cleaning across Maddingley and nearby western suburbs, with
-      straightforward service and fast quotes.
-    </p>
-    <p><strong>Phone:</strong> <a href="tel:0476302729">0476 302 729</a></p>
-    <p><strong>Service Base:</strong> Bacchus Marsh VIC 3340</p>
+  <section class="section">
+    <p class="section-label">More pages</p>
+    <h2>Nearby Service Pages</h2>
+    <nav class="page-links" aria-label="Nearby suburb pages">
+      <a class="page-link" href="/chimney-sweeping/bacchus-marsh">Chimney Sweeping — Bacchus Marsh VIC 3340 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/darley">Chimney Sweeping — Darley VIC 3340 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/ballan">Chimney Sweeping — Ballan VIC 3342 <span>›</span></a>
+      <a class="page-link" href="/contact">Get a Quote <span>›</span></a>
+    </nav>
   </section>
 
-  <section class="card">
-    <h2>Maddingley Chimney Sweeping FAQs</h2>
-
-    <h3>Do you service homes throughout Maddingley?</h3>
-    <p>
-      Yes. We service Maddingley VIC 3340 and nearby surrounding areas for
-      chimney sweeping, flue cleaning and wood heater cleaning.
-    </p>
-
-    <h3>Can you clean fireplace flues as well?</h3>
-    <p>
-      Yes. Many jobs involve chimney sweeping together with flue cleaning and
-      general fireplace or wood heater cleaning.
-    </p>
-
-    <h3>When should chimney cleaning be booked?</h3>
-    <p>
-      Many homeowners book before winter, after a season of regular use or when
-      they notice smoke issues, buildup or reduced airflow.
-    </p>
+  <section class="bottom-cta">
+    <h2>Maddingley Chimney Sweep — Get a Quote</h2>
+    <p>Call Dave or send a message. We'll get back to you promptly with a fair price.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Nearby Chimney Sweeping Pages</h2>
-    <p>
-      You can also view our
-      <a href="/chimney-sweeping/bacchus-marsh">Bacchus Marsh chimney sweeping page</a>,
-      our
-      <a href="/chimney-sweeping/darley">Darley chimney sweeping page</a>
-      or <a href="/contact">contact us here</a> for a fast quote.
-    </p>
-  </section>
 </MainLayout>

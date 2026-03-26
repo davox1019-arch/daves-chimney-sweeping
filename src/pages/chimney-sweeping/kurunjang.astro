@@ -1,123 +1,181 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+
+const faqs = [
+  {
+    q: "Where exactly is Kurunjang?",
+    a: "Kurunjang is a suburb of Melton in Melbourne's west — postcode 3337. We service it as part of our regular Melton run."
+  },
+  {
+    q: "How often should I book a chimney sweep?",
+    a: "Once a year is a sensible guide for a wood heater or fireplace that's used regularly through winter. If you've skipped a few years, sooner rather than later is the right call."
+  },
+  {
+    q: "Can you tell me what condition the flue is in?",
+    a: "We'll let you know what we observe during the clean. If there's heavy buildup, obvious damage or a blockage, we'll flag it and talk you through what we found."
+  },
+  {
+    q: "Do I need to do anything before you arrive?",
+    a: "Just make sure the area around the fireplace is accessible and the fire hasn't been burning for at least a few hours. Cold ash is fine — we'll deal with it."
+  }
+];
 ---
 
 <MainLayout
-  title="Chimney Sweeping Brookfield VIC 3338"
-  description="Need chimney sweeping in Brookfield VIC 3338? Daves Chimney Sweeping provides local chimney cleaning, flue cleaning and wood heater cleaning with fast quotes."
+  title="Chimney Sweeping Kurunjang VIC 3337"
+  description="Chimney sweeping in Kurunjang VIC 3337. Daves Chimney Sweeping handles flue cleaning, wood heater servicing and fireplace care for Melton area homes."
   clusterBase="Melton"
   clusterRegion="Melton and surrounding suburbs"
- homeHref="/chimney-sweeping/melton"
-servicePageHref="/chimney-sweeping/melton"
-servicePageLabel="Melton Chimney Sweeping"
+  homeHref="/chimney-sweeping/melton"
+  servicePageHref="/chimney-sweeping/melton"
+  servicePageLabel="Melton Chimney Sweeping"
 >
-  <section class="hero">
-    <h1>Chimney Sweeping Kurunjang VIC 3337</h1>
-    <p>
-      Looking for chimney sweeping in Kurunjang? Daves Chimney Sweeping provides
-      local chimney cleaning, flue cleaning and wood heater cleaning for homes
-      in Kurunjang and nearby parts of the Melton area.
-    </p>
-    <p>
-      If your fireplace needs cleaning before winter, your flue has built-up
-      soot or your wood heater is not working as well as it should, we provide
-      straightforward local service with fast quotes.
-    </p>
+  <style>
+    :root { --brand-dark: #1a1a18; --brand-mid: #2c2c29; --brand-accent: #c8500a; --brand-warm: #f5f0e8; --brand-white: #ffffff; --text-main: #1a1a18; --text-muted: #5a5a54; --border: #e2ddd4; --radius: 10px; }
+    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 2.8rem 1.25rem 2.5rem; text-align: center; }
+    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.1rem; }
+    .hero h1 { font-size: clamp(1.65rem, 5vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--brand-white); }
+    .hero-lead { font-size: 1rem; line-height: 1.65; color: #c8c5be; margin: 0 auto 0.75rem; max-width: 480px; }
+    .hero-sub { font-size: 0.93rem; line-height: 1.6; color: #908d86; max-width: 480px; margin: 0 auto 2rem; }
+    .btn-row { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.88; }
+    .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.1rem; }
+    .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
+    .section { padding: 2.2rem 1.25rem; max-width: 680px; margin: 0 auto; }
+    .section + .section { border-top: 1px solid var(--border); }
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
+    .section h2 { font-size: clamp(1.25rem, 4vw, 1.6rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.25; }
+    .section p { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.85rem; }
+    .section p:last-child { margin-bottom: 0; }
+    /* Unique: service rows with left accent bar */
+    .service-rows { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.1rem; }
+    .service-row { display: flex; align-items: center; gap: 0.9rem; background: var(--brand-warm); border: 1px solid var(--border); border-left: 3px solid var(--brand-accent); border-radius: var(--radius); padding: 0.85rem 1rem; }
+    .service-row-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .service-row-text { font-size: 0.9rem; font-weight: 600; color: var(--text-main); }
+    .about-card { background: var(--brand-warm); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.25rem; margin-top: 1rem; }
+    .about-card p { font-size: 0.96rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.8rem; }
+    .about-detail { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; }
+    .about-detail strong { color: var(--text-main); }
+    .about-detail a { color: var(--brand-accent); font-weight: 700; text-decoration: none; }
+    .faq-list { display: flex; flex-direction: column; margin-top: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details.faq-item { border-bottom: 1px solid var(--border); }
+    details.faq-item:last-child { border-bottom: none; }
+    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary:hover { background: var(--brand-warm); }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; margin-left: 1rem; }
+    details.faq-item[open] summary::after { content: "−"; }
+    .faq-answer { padding: 0 1.1rem 1rem; font-size: 0.93rem; line-height: 1.7; color: var(--text-muted); background: var(--brand-white); }
+    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.1rem; }
+    .suburb-chip { display: inline-block; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.85rem; font-size: 0.84rem; font-weight: 600; color: var(--text-main); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
+    .suburb-chip:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.1rem; }
+    .page-link { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; font-size: 0.93rem; font-weight: 600; color: var(--text-main); transition: background 0.15s, border-color 0.15s; }
+    .page-link:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-link span { opacity: 0.5; font-size: 1.1rem; }
+    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.5rem 1.25rem; text-align: center; }
+    .bottom-cta h2 { font-size: clamp(1.3rem, 4.5vw, 1.7rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
+    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 0 1.75rem; line-height: 1.6; }
+  </style>
 
-    <div class="button-row">
-      <a class="btn btn-primary" href="tel:0476302729">Call 0476 302 729</a>
-      <a class="btn btn-secondary" href="/contact">Request a Quote</a>
+  <section class="hero">
+    <span class="hero-eyebrow">Kurunjang VIC 3337</span>
+    <h1>Chimney Sweeping<br>Kurunjang VIC 3337</h1>
+    <p class="hero-lead">
+      If your wood heater or fireplace is working hard through the Melton winters, it needs a proper service every now and then. Daves Chimney Sweeping takes care of it for homes in Kurunjang 3337 and nearby areas.
+    </p>
+    <p class="hero-sub">
+      Fast, local, owner-operated. Call Dave and we'll sort out a time.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
     </div>
   </section>
 
-  <section class="card">
-    <h2>Local Chimney Cleaning in Kurunjang</h2>
+  <section class="section">
+    <p class="section-label">What's covered</p>
+    <h2>Chimney &amp; Flue Services in Kurunjang</h2>
+    <p>We keep the service simple — here's what we handle for homes in Kurunjang VIC 3337:</p>
+    <div class="service-rows">
+      <div class="service-row"><span class="service-row-icon">🔥</span><span class="service-row-text">Chimney sweeping — full clean from firebox to top of stack</span></div>
+      <div class="service-row"><span class="service-row-icon">🌬️</span><span class="service-row-text">Flue cleaning — liner and pipe cleaned to restore airflow</span></div>
+      <div class="service-row"><span class="service-row-icon">🪵</span><span class="service-row-text">Wood heater service — heater body, baffle and flue connection</span></div>
+      <div class="service-row"><span class="service-row-icon">🏠</span><span class="service-row-text">Open fireplace cleaning — firebox, throat and smoke chamber</span></div>
+      <div class="service-row"><span class="service-row-icon">🐦</span><span class="service-row-text">Blockage removal — nests, debris and build-up cleared</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Maintenance</p>
+    <h2>Keeping Your Heating System in Good Shape</h2>
     <p>
-      We provide chimney sweeping, flue cleaning and wood heater cleaning for
-      homes in Kurunjang and surrounding areas.
+      Homes in Kurunjang that rely on wood heating through winter put real demand on their flue systems. Soot and creosote build up gradually — you often don't notice it until something goes wrong.
     </p>
     <p>
-      Whether you use your fireplace regularly through winter or just want your
-      chimney and flue professionally cleaned before the colder months, we keep
-      the service simple and easy to book.
+      An annual clean keeps the system drawing properly, reduces smell and helps you catch blockages or damage before they become a bigger problem. It's straightforward maintenance, not a major job.
     </p>
   </section>
 
-  <section class="card">
-    <h2>What We Clean</h2>
-    <ul>
-      <li>Chimneys</li>
-      <li>Flues</li>
-      <li>Wood heaters</li>
-      <li>Fireplaces</li>
-      <li>Soot and ash buildup</li>
-      <li>Common chimney blockages</li>
-    </ul>
+  <section class="section">
+    <p class="section-label">About us</p>
+    <h2>Dealing Direct With Dave</h2>
+    <div class="about-card">
+      <p>
+        Daves Chimney Sweeping is a one-person, owner-operated service covering Kurunjang and the wider Melton area. No subcontractors, no franchise overhead — Dave does the work himself.
+      </p>
+      <p>
+        You get honest advice about what your system actually needs and a fair price for getting it done.
+      </p>
+      <div class="about-detail">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="about-detail">📍 <strong>Service area:</strong>&nbsp;Kurunjang VIC 3337 and surrounds</div>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Why Homeowners in Kurunjang Book This Service</h2>
-    <p>
-      Many homeowners book chimney sweeping after a season of regular use, when
-      they notice smoke drifting back inside or when the heater is not drawing
-      properly. Keeping the chimney and flue clean can help everything work more
-      smoothly.
-    </p>
-    <p>
-      We also help with related needs such as flue cleaning and wood heater
-      cleaning as part of the same service.
-    </p>
+  <section class="section">
+    <p class="section-label">Nearby areas</p>
+    <h2>Suburbs Around Kurunjang We Also Service</h2>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/melton">Melton 3337</a>
+      <a class="suburb-chip" href="/chimney-sweeping/melton-west">Melton West 3337</a>
+      <a class="suburb-chip" href="/chimney-sweeping/harkness">Harkness 3337</a>
+      <a class="suburb-chip" href="/chimney-sweeping/brookfield">Brookfield 3338</a>
+      <a class="suburb-chip" href="/chimney-sweeping/cobblebank">Cobblebank 3338</a>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Nearby Areas</h2>
-    <p>
-      We also service nearby areas around Kurunjang, including Melton, Melton
-      West, Harkness, Brookfield, Cobblebank and Melton South.
-    </p>
+  <section class="section">
+    <p class="section-label">FAQs</p>
+    <h2>Kurunjang Chimney Sweeping — FAQs</h2>
+    <div class="faq-list">
+      {faqs.map(({ q, a }) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <div class="faq-answer">{a}</div>
+        </details>
+      ))}
+    </div>
   </section>
 
-  <section class="card">
-    <h2>About Daves Chimney Sweeping</h2>
-    <p>
-      Daves Chimney Sweeping provides local chimney sweeping, flue cleaning and
-      wood heater cleaning across Melton and surrounding suburbs.
-    </p>
-    <p><strong>Phone:</strong> <a href="tel:0476302729">0476 302 729</a></p>
-    <p><strong>Service Base:</strong> Melton VIC</p>
+  <section class="section">
+    <p class="section-label">More pages</p>
+    <h2>Nearby Service Pages</h2>
+    <nav class="page-links" aria-label="Nearby suburb pages">
+      <a class="page-link" href="/chimney-sweeping/melton">Chimney Sweeping — Melton VIC 3337 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/melton-west">Chimney Sweeping — Melton West VIC 3337 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/harkness">Chimney Sweeping — Harkness VIC 3337 <span>›</span></a>
+      <a class="page-link" href="/contact">Get a Quote <span>›</span></a>
+    </nav>
   </section>
 
-  <section class="card">
-    <h2>Kurunjang Chimney Sweeping FAQs</h2>
-
-    <h3>Do you service all of Kurunjang?</h3>
-    <p>
-      Yes, we service Kurunjang and nearby surrounding areas in the wider
-      Melton region.
-    </p>
-
-    <h3>Can you clean wood heater flues?</h3>
-    <p>
-      Yes. Wood heater flue cleaning is one of the common reasons homeowners
-      book this service, especially before winter.
-    </p>
-
-    <h3>How do I know if my chimney needs cleaning?</h3>
-    <p>
-      Common signs include visible soot buildup, smoke issues, poor airflow,
-      odd smells or long periods of use without a proper clean.
-    </p>
+  <section class="bottom-cta">
+    <h2>Get Your Kurunjang Chimney Cleaned</h2>
+    <p>Call Dave or send a message. We'll confirm the details and get a time locked in.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Nearby Chimney Sweeping Pages</h2>
-    <p>
-      You can also view our
-      <a href="/chimney-sweeping/melton">Melton chimney sweeping page</a>,
-      <a href="/chimney-sweeping/melton-west">Melton West chimney sweeping page</a>,
-      <a href="/chimney-sweeping/brookfield">Brookfield chimney sweeping page</a>
-      and our main
-      <a href="/chimney-sweeping">Melbourne chimney sweeping page</a>.
-    </p>
-  </section>
 </MainLayout>

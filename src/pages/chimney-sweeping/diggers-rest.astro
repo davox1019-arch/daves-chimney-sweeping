@@ -1,125 +1,183 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+
+const faqs = [
+  {
+    q: "Where is Diggers Rest in relation to Sunbury?",
+    a: "Diggers Rest VIC 3427 is a small suburb just south-east of Sunbury along the Calder Freeway corridor. We service it as part of the same Sunbury area run."
+  },
+  {
+    q: "My heater is slow combustion — do you clean those?",
+    a: "Yes. Slow combustion heaters are one of the most common types we work on. We clean the heater body and the flue in the same visit."
+  },
+  {
+    q: "How do I get a quote?",
+    a: "Call 0476 302 729 or use the contact form. We'll ask a few basic questions about your setup and give you a straight price."
+  },
+  {
+    q: "Is it worth cleaning if I only use the fireplace occasionally?",
+    a: "Yes — even occasional use produces some buildup, and chimneys that sit unused for months can attract birds nesting in the flue. An occasional check and clean is worthwhile."
+  }
+];
 ---
 
 <MainLayout
   title="Chimney Sweeping Diggers Rest VIC 3427"
-  description="Need chimney sweeping in Diggers Rest VIC 3427? Daves Chimney Sweeping provides local chimney cleaning, flue cleaning and wood heater cleaning with fast quotes."
+  description="Chimney sweeping in Diggers Rest VIC 3427. Daves Chimney Sweeping handles flue cleaning, wood heater servicing and fireplace cleaning. Local Sunbury area service."
   clusterBase="Sunbury"
   clusterRegion="Sunbury, Diggers Rest and nearby suburbs"
- homeHref="/chimney-sweeping/sunbury"
-servicePageHref="/chimney-sweeping/sunbury"
-servicePageLabel="Sunbury Chimney Sweeping"
+  homeHref="/chimney-sweeping/sunbury"
+  servicePageHref="/chimney-sweeping/sunbury"
+  servicePageLabel="Sunbury Chimney Sweeping"
 >
-  <section class="hero">
-    <h1>Chimney Sweeping Diggers Rest VIC 3427</h1>
-    <p>
-      Looking for chimney sweeping in Diggers Rest? Daves Chimney Sweeping
-      provides local chimney cleaning, flue cleaning and wood heater cleaning
-      for homes in Diggers Rest and nearby areas.
-    </p>
-    <p>
-      If your fireplace is not drawing properly, your flue has built-up soot or
-      you want your wood heater cleaned before winter, we provide a simple local
-      service with fast quotes.
-    </p>
+  <style>
+    :root { --brand-dark: #1a1a18; --brand-mid: #2c2c29; --brand-accent: #c8500a; --brand-warm: #f5f0e8; --brand-white: #ffffff; --text-main: #1a1a18; --text-muted: #5a5a54; --border: #e2ddd4; --radius: 10px; }
+    .hero { background: var(--brand-dark); color: var(--brand-white); padding: 2.8rem 1.25rem 2.5rem; text-align: center; }
+    .hero-eyebrow { display: inline-block; background: var(--brand-accent); color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.1rem; }
+    .hero h1 { font-size: clamp(1.65rem, 5vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--brand-white); }
+    .hero-lead { font-size: 1rem; line-height: 1.65; color: #c8c5be; margin: 0 auto 0.75rem; max-width: 480px; }
+    .hero-sub { font-size: 0.93rem; line-height: 1.6; color: #908d86; max-width: 480px; margin: 0 auto 2rem; }
+    .btn-row { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+    .btn { display: inline-block; padding: 0.95rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; text-align: center; width: 100%; max-width: 320px; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.88; }
+    .btn-call { background: var(--brand-accent); color: #fff; font-size: 1.1rem; }
+    .btn-quote { background: transparent; border: 2px solid #5a5a54; color: #c8c5be; }
+    .section { padding: 2.2rem 1.25rem; max-width: 680px; margin: 0 auto; }
+    .section + .section { border-top: 1px solid var(--border); }
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-accent); margin-bottom: 0.55rem; }
+    .section h2 { font-size: clamp(1.25rem, 4vw, 1.6rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); margin: 0 0 1rem; line-height: 1.25; }
+    .section p { font-size: 0.97rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.85rem; }
+    .section p:last-child { margin-bottom: 0; }
+    .signal-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.65rem; }
+    .signal-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.95rem; line-height: 1.5; color: var(--text-muted); background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.75rem 1rem; }
+    .signal-list li::before { content: "!"; background: var(--brand-accent); color: #fff; border-radius: 50%; width: 1.3rem; height: 1.3rem; font-size: 0.78rem; font-weight: 800; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 0.05rem; }
+    .clean-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .clean-list li { font-size: 0.95rem; line-height: 1.5; color: var(--text-muted); padding-left: 1.4rem; position: relative; }
+    .clean-list li::before { content: "—"; position: absolute; left: 0; color: var(--brand-accent); font-weight: 700; }
+    .about-card { background: var(--brand-warm); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.5rem 1.25rem; margin-top: 1rem; }
+    .about-card p { font-size: 0.96rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 0.8rem; }
+    .about-detail { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; }
+    .about-detail strong { color: var(--text-main); }
+    .about-detail a { color: var(--brand-accent); font-weight: 700; text-decoration: none; }
+    .faq-list { display: flex; flex-direction: column; margin-top: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    details.faq-item { border-bottom: 1px solid var(--border); }
+    details.faq-item:last-child { border-bottom: none; }
+    details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary:hover { background: var(--brand-warm); }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; margin-left: 1rem; }
+    details.faq-item[open] summary::after { content: "−"; }
+    .faq-answer { padding: 0 1.1rem 1rem; font-size: 0.93rem; line-height: 1.7; color: var(--text-muted); background: var(--brand-white); }
+    .suburb-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.1rem; }
+    .suburb-chip { display: inline-block; background: var(--brand-warm); border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.85rem; font-size: 0.84rem; font-weight: 600; color: var(--text-main); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
+    .suburb-chip:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.1rem; }
+    .page-link { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; background: var(--brand-warm); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; font-size: 0.93rem; font-weight: 600; color: var(--text-main); transition: background 0.15s, border-color 0.15s; }
+    .page-link:hover { background: var(--brand-accent); border-color: var(--brand-accent); color: #fff; }
+    .page-link span { opacity: 0.5; font-size: 1.1rem; }
+    .bottom-cta { background: var(--brand-dark); color: var(--brand-white); padding: 2.5rem 1.25rem; text-align: center; }
+    .bottom-cta h2 { font-size: clamp(1.3rem, 4.5vw, 1.7rem); font-weight: 800; letter-spacing: -0.02em; color: var(--brand-white); margin: 0 0 0.6rem; }
+    .bottom-cta p { font-size: 0.95rem; color: #908d86; margin: 0 0 1.75rem; line-height: 1.6; }
+  </style>
 
-    <div class="button-row">
-      <a class="btn btn-primary" href="tel:0476302729">Call 0476 302 729</a>
-      <a class="btn btn-secondary" href="/contact">Request a Quote</a>
+  <section class="hero">
+    <span class="hero-eyebrow">Diggers Rest VIC 3427</span>
+    <h1>Chimney Sweeping<br>Diggers Rest VIC 3427</h1>
+    <p class="hero-lead">
+      Daves Chimney Sweeping services chimneys, flues and wood heaters for homes in Diggers Rest VIC 3427 — part of our regular Sunbury area service run.
+    </p>
+    <p class="hero-sub">
+      Local, owner-operated, easy to deal with. Call for a fast, honest quote.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
     </div>
   </section>
 
-  <section class="card">
-    <h2>Common Chimney Problems We Help With</h2>
-    <p>
-      Many homeowners book chimney sweeping after noticing signs that something
-      is not working as well as it should. That can include smoke coming back
-      into the room, poor draft, visible soot buildup, unusual smells or a wood
-      heater that does not seem to be performing properly.
-    </p>
-    <p>
-      If you use a fireplace or wood heater through the colder months, regular
-      chimney and flue cleaning can help keep everything cleaner and easier to
-      use.
-    </p>
-  </section>
-
-  <section class="card">
-    <h2>What We Help With in Diggers Rest</h2>
-    <ul>
-      <li>Chimney sweeping</li>
-      <li>Chimney cleaning for fireplaces</li>
-      <li>Flue cleaning</li>
-      <li>Wood heater cleaning</li>
-      <li>Fireplace cleaning</li>
-      <li>Soot, ash and common blockage removal</li>
+  <section class="section">
+    <p class="section-label">Warning signs</p>
+    <h2>Signs Your Chimney Might Need Attention</h2>
+    <p>These are the situations that usually prompt a call from Diggers Rest homeowners:</p>
+    <ul class="signal-list">
+      <li>Smoke reversing back into the living area when the fire is lit</li>
+      <li>A persistent burnt or smoky smell when the fire is off</li>
+      <li>The fire won't draw properly or keeps dying down</li>
+      <li>Visible thick soot or black staining around the firebox</li>
+      <li>Not sure when the chimney was last serviced</li>
     </ul>
   </section>
 
-  <section class="card">
-    <h2>When to Book Chimney Sweeping</h2>
-    <p>
-      Some homeowners book before winter starts so everything is ready for the
-      colder months. Others book after a season of regular use or once they
-      start noticing buildup, smoke issues or reduced airflow.
-    </p>
-    <p>
-      Whether the main issue is the chimney itself, the flue or general wood
-      heater cleaning, we keep the process straightforward and easy to book.
-    </p>
+  <section class="section">
+    <p class="section-label">What we do</p>
+    <h2>Chimney &amp; Flue Cleaning for Diggers Rest Homes</h2>
+    <p>We cover the full range of chimney and heater cleaning work for homes in Diggers Rest:</p>
+    <ul class="clean-list">
+      <li>Chimney sweeping and soot removal</li>
+      <li>Flue pipe and liner cleaning</li>
+      <li>Wood heater and slow combustion heater servicing</li>
+      <li>Open fireplace cleaning</li>
+      <li>Creosote and ash removal</li>
+      <li>Bird nest and blockage clearing</li>
+    </ul>
   </section>
 
-  <section class="card">
-    <h2>Servicing Diggers Rest and Nearby Areas</h2>
-    <p>
-      We service Diggers Rest and nearby surrounding areas, including Sunbury,
-      Bulla, Wildwood and other nearby parts of the north-west corridor.
-    </p>
+  <section class="section">
+    <p class="section-label">About us</p>
+    <h2>You're Dealing With Dave Directly</h2>
+    <div class="about-card">
+      <p>
+        Daves Chimney Sweeping is owner-operated. Dave covers Diggers Rest VIC 3427 as part of the Sunbury service run — he does the work himself, which means no subcontractors and no call centre.
+      </p>
+      <p>
+        You call, he answers, he turns up, he does the job. Straightforward as that.
+      </p>
+      <div class="about-detail">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="about-detail">📍 <strong>Service area:</strong>&nbsp;Diggers Rest VIC 3427 and surrounds</div>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>About Daves Chimney Sweeping</h2>
-    <p>
-      Daves Chimney Sweeping provides local chimney sweeping, flue cleaning and
-      wood heater cleaning across Diggers Rest and nearby north-western suburbs,
-      with straightforward service and fast quotes.
-    </p>
-    <p><strong>Phone:</strong> <a href="tel:0476302729">0476 302 729</a></p>
-    <p><strong>Service Base:</strong> Sunbury VIC</p>
+  <section class="section">
+    <p class="section-label">Nearby areas</p>
+    <h2>Other Suburbs We Service Near Diggers Rest</h2>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/sunbury">Sunbury 3429</a>
+      <a class="suburb-chip" href="/chimney-sweeping/gisborne">Gisborne 3437</a>
+      <a class="suburb-chip" href="/chimney-sweeping/riddells-creek">Riddells Creek 3431</a>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Diggers Rest Chimney Sweeping FAQs</h2>
-
-    <h3>Do you service homes throughout Diggers Rest?</h3>
-    <p>
-      Yes. We service Diggers Rest and nearby surrounding areas. If you are
-      nearby and need chimney sweeping or flue cleaning, get in touch for a
-      quote.
-    </p>
-
-    <h3>Can you clean wood heater flues as well?</h3>
-    <p>
-      Yes. Many bookings involve wood heater flue cleaning together with general
-      chimney cleaning.
-    </p>
-
-    <h3>How do I know if chimney cleaning is due?</h3>
-    <p>
-      Common signs include visible soot buildup, smoke drift, poor draft,
-      unusual smells or long periods of fireplace use without a proper clean.
-    </p>
+  <section class="section">
+    <p class="section-label">FAQs</p>
+    <h2>Diggers Rest Chimney Sweeping — FAQs</h2>
+    <div class="faq-list">
+      {faqs.map(({ q, a }) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <div class="faq-answer">{a}</div>
+        </details>
+      ))}
+    </div>
   </section>
 
-  <section class="card">
-  <h2>Nearby Chimney Sweeping Pages</h2>
-  <p>
-    For nearby areas, you can also view our
-    <a href="/chimney-sweeping/sunbury">Sunbury chimney sweeping page</a>.
-  </p>
-  <p>
-    Need a quote for Diggers Rest? <a href="/contact">Get in touch here</a>.
-  </p>
-</section>
+  <section class="section">
+    <p class="section-label">More pages</p>
+    <h2>Nearby Service Pages</h2>
+    <nav class="page-links" aria-label="Nearby suburb pages">
+      <a class="page-link" href="/chimney-sweeping/sunbury">Chimney Sweeping — Sunbury VIC 3429 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/gisborne">Chimney Sweeping — Gisborne VIC 3437 <span>›</span></a>
+      <a class="page-link" href="/chimney-sweeping/riddells-creek">Chimney Sweeping — Riddells Creek VIC 3431 <span>›</span></a>
+      <a class="page-link" href="/contact">Get a Quote <span>›</span></a>
+    </nav>
+  </section>
+
+  <section class="bottom-cta">
+    <h2>Diggers Rest Chimney Sweep — Let's Sort It Out</h2>
+    <p>Call Dave or drop a message. We'll get back to you with a fair quote and a booking time.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+      <a class="btn btn-quote" href="/contact">Request a Quote</a>
+    </div>
+  </section>
+
 </MainLayout>
