@@ -152,17 +152,13 @@ const nearbySuburbs = [
     .about-fp-inner { background: rgba(10,6,4,0.62); border-radius: 14px; padding: 1.75rem 1.5rem; max-width: 680px; margin: 0 auto; }
     .about-fp p { font-size: 1.06rem; line-height: 1.8; color: rgba(255,255,255,0.92); font-weight: 600; margin: 0 0 .9rem; }
     .about-fp p:last-child { margin-bottom: 0; }
-    .breadcrumb{font-size:.78rem;color:rgba(255,255,255,0.6);padding:.55rem 1.25rem;background:rgba(0,0,0,0.18);text-align:left;max-width:720px;margin:0 auto}
-    .breadcrumb a{color:rgba(255,255,255,0.6);text-decoration:none}
-    .breadcrumb a:hover{color:#fff}
-    .breadcrumb span{margin:0 .35rem}
+        .breadcrumb{font-size:.72rem;color:#a09d96;padding:.4rem 1.25rem;text-align:center;background:none}
+    .breadcrumb a{color:#a09d96;text-decoration:none}
+    .breadcrumb a:hover{color:var(--ba)}
+    .breadcrumb span{margin:0 .3rem;opacity:.5}
   </style>
 
-      <nav class="breadcrumb">
-    <a href="/">Home</a><span>›</span><a href="/chimney-sweeping/templestowe">Chimney Sweeping</a><span>›</span>{suburb} {postcode}
-  </nav>
-
-  <section class="hero">
+        <section class="hero">
     <div class="hero-box">
     <span class="hero-eyebrow">{suburb} VIC {postcode}</span>
     <h1>Chimney Sweeping<br />{suburb} VIC {postcode}</h1>
@@ -357,6 +353,11 @@ const nearbySuburbs = [
     </nav>
   </section>
 
+
+  
+  <nav class="breadcrumb">
+    <a href="/">Home</a><span>›</span><a href="/chimney-sweeping/templestowe">Chimney Sweeping</a><span>›</span>{suburb} {postcode}
+  </nav>
 
   <a href="tel:0476302729" id="sticky-cta" aria-label="Call or text Dave">
     <span id="sticky-icon">&#128222;</span>
