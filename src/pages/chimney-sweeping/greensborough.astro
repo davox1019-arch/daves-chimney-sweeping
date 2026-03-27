@@ -101,6 +101,7 @@ const faqs = [
   homeHref="/"
   servicePageHref="/"
   servicePageLabel="Chimney Sweeping Melbourne"
+  suppressAbout={true}
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
   <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>
@@ -114,9 +115,10 @@ const faqs = [
     }
     /* Hero */
     .hero{background:linear-gradient(160deg,#18120a 0%,#2c1a0c 55%,#1a1a18 100%);color:var(--wh);padding:3.8rem 1.25rem 3.4rem;text-align:center}
+    @media(max-width:640px){.hero{background:url('/images/firehome.jpg') center/cover no-repeat;padding:.5rem}.hero-box{background:rgba(10,6,4,0.72);border-radius:14px;padding:1.25rem .75rem;max-width:480px;margin:0 auto}.hero-box .btn-row{flex-direction:column;gap:.5rem;width:100%}.hero-box .btn{max-width:none;width:calc(100% - 1rem);padding:.9rem 1rem;font-size:1rem}.hero-box .btn-call{font-size:1rem}.hero-lead{font-weight:700;color:#fff!important}.hero-sub{font-weight:600;color:#fff!important}}
     .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem}
     .hero h1{font-size:clamp(2.4rem,6.5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
-    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:1.08rem;font-weight:800;padding:.6rem 1.5rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c}
+    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.9rem;font-weight:800;padding:.6rem 1.25rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c;white-space:nowrap}
     .hero-lead{font-size:1.18rem;line-height:1.72;color:#d4d1cb;margin:0 auto .8rem;max-width:520px}
     .hero-sub{font-size:.98rem;line-height:1.65;color:#a09d96;max-width:500px;margin:0 auto 2.2rem}
     .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
@@ -125,8 +127,8 @@ const faqs = [
     .btn-call{background:var(--ba);color:#fff;font-size:1.25rem;letter-spacing:.01em}
     .btn-quote{background:transparent;border:2px solid rgba(255,255,255,0.32);color:#fff}
     /* Trust bar */
-    .trust-bar{background:var(--bm);padding:1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
-    .ti{display:flex;align-items:center;gap:.4rem;font-size:.82rem;color:#908d86;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+    .trust-bar{background:var(--bm);padding:1.1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.86rem;color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
     .ti svg{flex-shrink:0;color:var(--ba)}
     /* Sections */
     .sec{padding:2.9rem 1.25rem;max-width:720px;margin:0 auto}
@@ -179,7 +181,7 @@ const faqs = [
     .field{display:flex;flex-direction:column;gap:.3rem}
     .field.full{grid-column:1/-1}
     .field label{font-size:.8rem;font-weight:700;color:var(--tm);letter-spacing:.03em;text-transform:uppercase}
-    .field input,.field select,.field textarea{width:100%;border:2px solid var(--br);border-radius:8px;padding:.72rem .85rem;font-size:1rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
+    .field input,.field select,.field textarea{width:100%;box-sizing:border-box;border:2px solid var(--br);border-radius:8px;padding:.72rem .85rem;font-size:1rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
     .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ba)}
     .field textarea{resize:vertical;min-height:90px}
     .form-submit{display:block;width:100%;margin-top:1rem;background:var(--ba);color:#fff;border:none;padding:1rem;border-radius:var(--rad);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s,transform .15s}
@@ -204,21 +206,53 @@ const faqs = [
     .page-link:hover{background:var(--ba);border-color:var(--ba);color:#fff}
     .page-link span{opacity:.5;font-size:1.1rem}
     /* Bottom CTA */
-    .bottom-cta{background:var(--bd);color:var(--wh);padding:2.8rem 1.25rem;text-align:center}
+    .bottom-cta{background:url('/images/fireplace3.jpg') center/cover no-repeat;color:var(--wh);padding:2.8rem 1rem;text-align:center}
+    .bottom-cta-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:480px;margin:0 auto}
+    .bottom-cta-inner .btn-row{flex-direction:column;gap:.5rem;width:100%}
+    .bottom-cta-inner .btn{max-width:none;width:calc(100% - 1rem);box-sizing:border-box;padding:.9rem 1rem;font-size:1rem}
+    .bottom-cta-inner .btn-call{font-size:1rem}
     .bottom-cta h2{font-size:clamp(1.65rem,5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
-    .bottom-cta p{font-size:1rem;color:#6e6b64;margin:0 auto 1.9rem;line-height:1.6;max-width:440px}
+    .bottom-cta p{font-size:1rem;color:rgba(255,255,255,0.9);margin:0 auto 1.9rem;line-height:1.6;max-width:440px;font-weight:600}
+
+    .about-fp{background:url('/images/fireplace.jpg') center/cover no-repeat;padding:2.5rem 1rem}
+    .about-fp-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:680px;margin:0 auto}
+    .about-fp p{font-size:1.06rem;line-height:1.8;color:rgba(255,255,255,0.92);font-weight:600;margin:0 0 .9rem}
+    .about-fp p:last-child{margin-bottom:0}
   </style>
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-box">
     <span class="hero-eyebrow">Greensborough VIC 3088</span>
     <h1>Chimney Sweeping<br>Greensborough VIC 3088</h1>
     <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
-    <p class="hero-lead">We turn up when booked, leave your home spotless, and give you a straight verbal report before we go. $199 flat — no call-out fee, no hidden extras. Book direct with Dave.</p>
-    <p class="hero-sub">Local, owner-operated. No franchises, no call centres. You deal directly with Dave.</p>
-    <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+    <p class="hero-lead">Local chimney &amp; flue sweeping in Greensborough. We turn up when booked, leave your home spotless, and give you a straight verbal report before we go.</p>
+    <p class="hero-sub">$199 flat — no call-out fee, no hidden extras. Book direct with Dave.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.1rem;">
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fully Insured</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; No Mess Guaranteed</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fixed $199 Price</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; 10+ Years Local</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Verbal Condition Report</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Owner Does Every Job</span>
+      </div>
+      <div id="lb" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;">
+        <img id="lb-img" src="" alt="Enlarged photo" style="max-width:100%;max-height:90vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,0.6);" />
+      </div>
+            <div style="display:flex;gap:0.6rem;margin-bottom:1.25rem;justify-content:center;">
+        <div style="text-align:center;cursor:pointer;" onclick="document.getElementById('lb').style.display='flex';document.getElementById('lb-img').src=this.querySelector('img').src">
+          <img src="/images/chimney-before-after.jpg" alt="Chimney before and after" style="width:140px;height:100px;object-fit:cover;border-radius:8px;" loading="lazy" />
+          <p style="color:#a09d96;font-size:0.68rem;margin:0.3rem 0 0;letter-spacing:0.05em;text-transform:uppercase;font-weight:700;">Chimney Before &amp; After</p>
+        </div>
+        <div style="text-align:center;cursor:pointer;" onclick="document.getElementById('lb').style.display='flex';document.getElementById('lb-img').src=this.querySelector('img').src">
+          <img src="/images/before-and-after-flue.jpg" alt="Flue before and after" style="width:140px;height:100px;object-fit:cover;border-radius:8px;" loading="lazy" />
+          <p style="color:#a09d96;font-size:0.68rem;margin:0.3rem 0 0;letter-spacing:0.05em;text-transform:uppercase;font-weight:700;">Flue Before &amp; After</p>
+        </div>
+      </div>
+<div class="btn-row">
+      <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
       <a class="btn btn-quote" href="#quote">Book for $199</a>
+    </div>
     </div>
   </section>
 
@@ -266,10 +300,10 @@ const faqs = [
     <h2>Signs Your Greensborough Chimney Needs Cleaning</h2>
     <p>If any of these sound familiar, it is time to book:</p>
     <div class="reason-grid">
-      <div class="rc"><span class="rc-icon">&#128703;</span><div class="rc-title">Smoke coming back in</div><div class="rc-desc">Most common sign of a blocked or sooted flue. A clean usually fixes it immediately.</div></div>
-      <div class="rc"><span class="rc-icon">&#128148;</span><div class="rc-title">Persistent smoky smell</div><div class="rc-desc">Creosote or old ash in the flue causes a burnt odour even when the fire is off.</div></div>
+      <div class="rc"><span class="rc-icon">&#128293;</span><div class="rc-title">Smoke coming back in</div><div class="rc-desc">Most common sign of a blocked or sooted flue. A clean usually fixes it immediately.</div></div>
+      <div class="rc"><span class="rc-icon">&#9888;&#65039;</span><div class="rc-title">Persistent smoky smell</div><div class="rc-desc">Creosote or old ash in the flue causes a burnt odour even when the fire is off.</div></div>
       <div class="rc"><span class="rc-icon">&#128168;</span><div class="rc-title">Weak or sluggish draw</div><div class="rc-desc">Fires that struggle to start or stay alight point to restricted airflow in the flue.</div></div>
-      <div class="rc"><span class="rc-icon">&#128197;</span><div class="rc-title">Pre-winter service</div><div class="rc-desc">Book in autumn before the heating season — easier to sort early than mid-winter.</div></div>
+      <div class="rc"><span class="rc-icon">&#127810;</span><div class="rc-title">Pre-winter service</div><div class="rc-desc">Book in autumn before the heating season — easier to sort early than mid-winter.</div></div>
     </div>
   </section>
 
@@ -362,6 +396,15 @@ const faqs = [
   </section>
 
   <!-- FAQ -->
+  <section class="about-fp" id="about">
+    <div class="about-fp-inner">
+      <p class="sl" style="color:#e87a3a;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 .55rem">About Us</p>
+      <h2 style="color:#fff;font-size:clamp(1.65rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin:0 0 1rem;line-height:1.2">Local Eltham Chimney Sweep — Over 10 Years in the Area</h2>
+      <p>Dave's Chimney Sweeping is a local, owner-operated business — not a national franchise or call centre. Dave personally handles every job in the Eltham area and has been servicing homes here for over a decade. We know the local housing stock, the fireplace styles common in this area, and the issues that come up with Eltham chimneys season after season.</p>
+      <p>When you call us, you speak directly to Dave. When we show up, it's Dave. No subcontractors, no hand-offs, no surprises. Just a local tradie who knows chimneys, turns up on time, and takes pride in doing the job properly every time.</p>
+    </div>
+  </section>
+
   <section class="sec">
     <p class="sl">FAQs</p>
     <h2>Chimney Sweeping Greensborough &#8212; Common Questions</h2>
@@ -402,12 +445,52 @@ const faqs = [
   </section>
 
   <!-- BOTTOM CTA -->
+
+  <a href="tel:0476302729" id="sticky-cta" aria-label="Call or text Dave">
+    <span id="sticky-icon">&#128222;</span>
+    <span id="sticky-text">Call/Text Dave</span>
+  </a>
+
+  <style>
+    #sticky-cta{
+      position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;
+      display:flex;align-items:center;gap:.55rem;
+      background:#c8500a;color:#fff;
+      padding:.75rem 1.2rem .75rem 1rem;
+      border-radius:50px;
+      font-size:.95rem;font-weight:800;letter-spacing:.02em;
+      text-decoration:none;
+      box-shadow:0 4px 18px rgba(0,0,0,0.35);
+      transition:opacity .2s,transform .2s;
+      opacity:0;pointer-events:none;
+    }
+    #sticky-cta.visible{opacity:1;pointer-events:auto}
+    #sticky-cta:hover{opacity:.9;transform:translateY(-2px)}
+    #sticky-icon{font-size:1.1rem;line-height:1}
+  </style>
+
+  <script is:inline>
+    (function(){
+      var btn = document.getElementById('sticky-cta');
+      var hero = document.querySelector('.hero');
+      function check(){
+        var threshold = hero ? hero.offsetHeight : 300;
+        if(window.scrollY > threshold){ btn.classList.add('visible'); }
+        else { btn.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', check, {passive:true});
+      check();
+    })();
+  </script>
+
   <section class="bottom-cta">
-    <h2>Greensborough Chimney Sweep &#8212; $199 Flat Rate</h2>
-    <p>Call Dave directly or use the form above. We will confirm your booking and give you a time that works.</p>
-    <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>
-      <a class="btn btn-quote" href="#quote">Book for $199</a>
+    <div class="bottom-cta-inner">
+      <h2>Greensborough Chimney Sweep &#8212; $199 Flat Rate</h2>
+      <p>Call Dave directly or use the form above. We will confirm your booking and give you a time that works.</p>
+      <div class="btn-row">
+        <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
+        <a class="btn btn-quote" href="#quote">Book for $199</a>
+      </div>
     </div>
   </section>
 

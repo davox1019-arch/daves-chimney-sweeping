@@ -7,6 +7,8 @@ const {
   servicePageHref = "/chimney-sweeping",
   servicePageLabel = "Chimney Sweeping",
   homeHref = "/",
+  suppressAbout = false,
+  footerArea = "Melbourne VIC",
 } = Astro.props;
 
 const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
@@ -235,43 +237,70 @@ const breadcrumbSchema = canonicalUrl
       main { padding: 0; }
 
       .site-footer {
-        margin-top: 56px;
-        background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
+        margin-top: 0;
+        background: linear-gradient(160deg, #18120a 0%, #2c1a0c 55%, #1a1a18 100%);
         color: white;
+        border-top: 3px solid #c8500a;
       }
 
-      .footer-inner { padding: 42px 20px; }
+      .footer-inner { padding: 44px 20px 32px; }
 
       .footer-grid {
         display: grid;
-        grid-template-columns: 1.2fr 1fr 1fr;
-        gap: 24px;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 32px;
       }
 
       .footer-title {
-        margin: 0 0 12px;
-        font-size: 18px;
+        margin: 0 0 14px;
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #c8500a;
       }
 
-      .footer-text,
-      .footer-links a {
-        color: rgba(255,255,255,0.86);
-        font-size: 15px;
-        line-height: 1.8;
+      .footer-text {
+        color: rgba(255,255,255,0.75);
+        font-size: 0.93rem;
+        line-height: 1.75;
       }
 
       .footer-links {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 9px;
+      }
+
+      .footer-links a {
+        color: rgba(255,255,255,0.78);
+        font-size: 0.93rem;
+        line-height: 1.6;
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+
+      .footer-links a:hover { color: #c8500a; }
+
+      .footer-phone {
+        display: inline-block;
+        margin-top: 14px;
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: 0.01em;
       }
 
       .footer-bottom {
-        margin-top: 24px;
+        margin-top: 32px;
         padding-top: 18px;
-        border-top: 1px solid rgba(255,255,255,0.12);
-        font-size: 14px;
-        color: rgba(255,255,255,0.6);
+        border-top: 1px solid rgba(255,255,255,0.1);
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.4);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 6px;
       }
 
       @media (max-width: 900px) {
@@ -339,14 +368,18 @@ const breadcrumbSchema = canonicalUrl
       }
 
       .about-section {
-        background: #1a1a1a;
+        background: url('/images/fireplace.jpg') center/cover no-repeat;
         color: white;
-        padding: 56px 0;
+        padding: 2.5rem 1rem;
         margin-top: 48px;
       }
 
       .about-inner {
-        max-width: 720px;
+        max-width: 680px;
+        background: rgba(10,6,4,0.62);
+        border-radius: 14px;
+        padding: 1.75rem 1.5rem;
+        margin: 0 auto;
       }
 
       .about-label {
@@ -369,7 +402,8 @@ const breadcrumbSchema = canonicalUrl
       .about-section p {
         font-size: 1.08rem;
         line-height: 1.85;
-        color: rgba(255,255,255,0.85);
+        color: rgba(255,255,255,0.92);
+        font-weight: 600;
         margin: 0 0 1.1rem;
       }
 
@@ -439,7 +473,7 @@ const breadcrumbSchema = canonicalUrl
 
     <main><slot /></main>
 
-    {isSuburbPage && (
+    {isSuburbPage && !suppressAbout && (
       <section class="about-section" id="about">
         <div class="container about-inner">
           <p class="about-label">About Us</p>
@@ -456,8 +490,9 @@ const breadcrumbSchema = canonicalUrl
           <div>
             <h3 class="footer-title">Daves Chimney Sweeping</h3>
             <div class="footer-text">
-              Local chimney sweeping, flue cleaning and wood heater cleaning across Melbourne VIC.
+              Local, owner-operated chimney sweeping, flue cleaning and wood heater cleaning across {footerArea}. $199 flat rate — no call-out fee.
             </div>
+            <a class="footer-phone" href="tel:0476302729">&#128222; 0476 302 729</a>
           </div>
 
           <div>
@@ -465,20 +500,22 @@ const breadcrumbSchema = canonicalUrl
             <div class="footer-links">
               {!isSuburbPage && <a href={servicePageHref}>{servicePageLabel}</a>}
               <a href={isSuburbPage ? "#quote" : "/contact"}>Get a Quote</a>
+              <a href={isSuburbPage ? "#quote" : "/contact"}>Book Online</a>
             </div>
           </div>
 
           <div>
             <h3 class="footer-title">Contact</h3>
             <div class="footer-links">
-              <a href="tel:0476302729">0476 302 729</a>
-              <a href={isSuburbPage ? "#quote" : "/contact"}>Contact Page</a>
+              <a href="tel:0476302729">Call/Text 0476 302 729</a>
+              <a href={isSuburbPage ? "#quote" : "/contact"}>Send a Message</a>
             </div>
           </div>
         </div>
 
         <div class="footer-bottom">
-          &#169; 2026 Daves Chimney Sweeping. All rights reserved.
+          <span>&#169; 2026 Daves Chimney Sweeping. All rights reserved.</span>
+          <span>Melbourne VIC</span>
         </div>
       </div>
     </footer>
