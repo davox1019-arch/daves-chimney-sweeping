@@ -153,7 +153,12 @@ const nearbySuburbs = [
     .about-fp-inner { background: rgba(10,6,4,0.62); border-radius: 14px; padding: 1.75rem 1.5rem; max-width: 680px; margin: 0 auto; }
     .about-fp p { font-size: 1.06rem; line-height: 1.8; color: rgba(255,255,255,0.92); font-weight: 600; margin: 0 0 .9rem; }
     .about-fp p:last-child { margin-bottom: 0; }
-            .breadcrumb{font-size:.65rem;color:#6b6860;padding:.2rem 1.25rem;text-align:center;opacity:0.4;line-height:1}
+            .dirty-flue-wrap{display:none;margin-top:1.1rem;justify-content:center;gap:.6rem}
+    .dirty-flue-item{display:flex;flex-direction:column;align-items:center;gap:.3rem}.dirty-flue-img{width:120px;height:auto;border-radius:6px}
+    .dirty-flue-cap{font-size:.72rem;color:var(--ts);margin:.45rem auto 0;max-width:300px;line-height:1.45;font-style:italic}
+    @media(max-width:640px){.dirty-flue-wrap{display:flex}}
+    .work-img-wrap{display:none;margin-top:1rem;text-align:center}.work-img{width:100%;height:auto;border-radius:8px}@media(max-width:640px){.work-img-wrap{display:block}}
+    .breadcrumb{font-size:.65rem;color:#6b6860;padding:.2rem 1.25rem;text-align:center;opacity:0.4;line-height:1}
     .breadcrumb a{color:#6b6860;text-decoration:none}
     .breadcrumb span{margin:0 .25rem}
   </style>
@@ -238,6 +243,17 @@ const nearbySuburbs = [
       <div class="reason-card"><span class="rc-icon">&#9888;&#65039;</span><div class="reason-card-title">Weak draw or hard-to-light fire</div><div class="reason-card-desc">If the fire struggles to breathe, the chimney or flue often needs attention.</div></div>
       <div class="reason-card"><span class="rc-icon">&#127810;</span><div class="reason-card-title">Over 12 months since the last clean</div><div class="reason-card-desc">Annual servicing is the easiest way to stay ahead of soot, nests and winter problems.</div></div>
     </div>
+  
+    <div class="dirty-flue-wrap">
+        <div class="dirty-flue-item">
+          <img src="/images/dirty flue2.JPG" alt="Dirty flue before cleaning" class="dirty-flue-img" loading="lazy" />
+          <p class="dirty-flue-cap">Sooted flue lining</p>
+        </div>
+        <div class="dirty-flue-item">
+          <img src="/images/fluecap.JPG" alt="Blocked flue cap" class="dirty-flue-img" loading="lazy" />
+          <p class="dirty-flue-cap">Blocked flue cap</p>
+        </div>
+    </div>
   </section>
 
   <section class="section">
@@ -253,6 +269,10 @@ const nearbySuburbs = [
       <li>Bird nest and blockage clearing where needed</li>
       <li>Simple verbal condition report before we leave</li>
     </ul>
+  
+    <div class="work-img-wrap">
+      <img src="/images/work2.png" alt="Chimney sweep at work" class="work-img" loading="lazy" />
+    </div>
   </section>
 
   <section class="section">
