@@ -124,6 +124,7 @@ const nearbySuburbs = [
     details.faq-item:last-child { border-bottom: none; }
     details.faq-item summary { padding: 1rem 1.1rem; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--brand-white); transition: background 0.15s; gap: 1rem; }
     details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary::marker { display: none; font-size: 0; }
     details.faq-item summary:hover { background: var(--brand-warm); }
     details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: var(--brand-accent); flex-shrink: 0; }
     details.faq-item[open] summary::after { content: "\2212"; }
