@@ -339,10 +339,15 @@ const breadcrumbSchema = canonicalUrl
       }
 
       .results-section {
-        padding: 2.85rem 1.25rem;
+        padding: 2.85rem 0 2.5rem;
+        border-top: 1px solid #e2ddd4;
+        overflow: hidden;
+      }
+
+      .results-inner {
         max-width: 720px;
         margin: 0 auto;
-        border-top: 1px solid #e2ddd4;
+        padding: 0 1.25rem;
       }
 
       .results-label {
@@ -363,25 +368,38 @@ const breadcrumbSchema = canonicalUrl
         line-height: 1.2;
       }
 
-      .results-section p {
+      .results-section > .results-inner > p {
         font-size: 1.06rem;
         line-height: 1.8;
         color: #5a5a54;
-        margin: 0 0 1.25rem;
+        margin: 0 0 0;
       }
 
       .results-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
-        margin-top: 0.5rem;
+        margin-top: 1.35rem;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 1.25rem;
       }
 
       @media (max-width: 640px) {
         .results-grid {
-          grid-template-columns: 1fr;
-          gap: 1.25rem;
+          display: flex;
+          flex-direction: row;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          gap: 0.9rem;
+          padding: 0 1.25rem 0.75rem;
+          scrollbar-width: none;
+          max-width: none;
+          margin: 1rem 0 0;
         }
+        .results-grid::-webkit-scrollbar { display: none; }
       }
 
       .result-img-wrap {
@@ -390,13 +408,27 @@ const breadcrumbSchema = canonicalUrl
         gap: 0.55rem;
       }
 
+      @media (max-width: 640px) {
+        .result-img-wrap {
+          flex: 0 0 80vw;
+          max-width: 80vw;
+          scroll-snap-align: start;
+        }
+      }
+
       .result-img {
         width: 100%;
-        height: 210px;
+        height: 220px;
         object-fit: cover;
         border-radius: 10px;
         border: 1px solid #e2ddd4;
         display: block;
+      }
+
+      @media (max-width: 640px) {
+        .result-img {
+          height: 260px;
+        }
       }
 
       .result-caption {
