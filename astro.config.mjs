@@ -5,6 +5,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   site: 'https://daveschimneysweeping.com.au',
+  trailingSlash: 'never',
   integrations: [sitemap()],
   adapter: cloudflare()
 });
