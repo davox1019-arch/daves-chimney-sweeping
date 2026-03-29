@@ -1,0 +1,183 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$199", "areaServed": ["Northcote VIC 3070"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/northcote", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Northcote VIC 3070. $199 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "Northcote", "addressRegion": "VIC", "postalCode": "3070", "addressCountry": "AU"}};
+const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you service Northcote VIC 3070?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 Northcote is a regular part of our inner northern Melbourne run. We cover Northcote and nearby suburbs including Thornbury, Brunswick, Preston and Fitzroy North."}}, {"@type": "Question", "name": "Our Northcote terrace has two original fireplaces \u2014 can you service both in one visit?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Multi-fireplace homes are common in Northcote and we schedule enough time for both chimneys. Just let us know the number of fireplaces when you book."}}, {"@type": "Question", "name": "What does the $199 service include?", "acceptedAnswer": {"@type": "Answer", "text": "Full chimney sweep from firebox to pot, flue clean, soot and creosote removal, blockage and bird nest check, verbal condition report. No call-out fee \u2014 $199 per chimney."}}, {"@type": "Question", "name": "Is lime mortar in a heritage chimney a problem?", "acceptedAnswer": {"@type": "Answer", "text": "Lime mortar is softer than modern cement mortar and can deteriorate faster, especially if the chimney has been unused for years. We inspect the mortar condition as part of our standard service and flag any areas of concern."}}, {"@type": "Question", "name": "Is there a call-out fee for Northcote?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 $199 flat rate per chimney, complete price."}}]};
+const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping Northcote VIC 3070", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "Northcote VIC 3070", "offers": {"@type": "Offer", "price": "199", "priceCurrency": "AUD", "description": "Chimney inspection and full clean"}, "serviceType": "Chimney Sweeping"};
+const faqs = [
+  {q:`Do you service Northcote VIC 3070?`,a:`Yes — Northcote is a regular part of our inner northern Melbourne run. We cover Northcote and nearby suburbs including Thornbury, Brunswick, Preston and Fitzroy North.`},
+  {q:`Our Northcote terrace has two original fireplaces — can you service both in one visit?`,a:`Yes. Multi-fireplace homes are common in Northcote and we schedule enough time for both chimneys. Just let us know the number of fireplaces when you book.`},
+  {q:`What does the $199 service include?`,a:`Full chimney sweep from firebox to pot, flue clean, soot and creosote removal, blockage and bird nest check, verbal condition report. No call-out fee — $199 per chimney.`},
+  {q:`Is lime mortar in a heritage chimney a problem?`,a:`Lime mortar is softer than modern cement mortar and can deteriorate faster, especially if the chimney has been unused for years. We inspect the mortar condition as part of our standard service and flag any areas of concern.`},
+  {q:`Is there a call-out fee for Northcote?`,a:`No — $199 flat rate per chimney, complete price.`}
+];
+---
+
+<MainLayout
+  title="Chimney Sweep Northcote VIC 3070 — $199 Clean & Inspect"
+  description="Chimney sweeping Northcote VIC 3070 — $199 chimney inspection & full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
+  clusterBase="Melbourne's Inner Northern Suburbs"
+  clusterRegion="Melbourne's inner northern suburbs"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Chimney Sweep Northcote 3070</h1>
+      <p class="hero-sub">$199 chimney inspection &amp; full clean &mdash; Northcote &amp; surrounds. Owner-operated, no call-out fee, same-week bookings.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="tel:0476302729">Call 0476&nbsp;302&nbsp;729</a>
+        <a class="btn-secondary" href="#booking">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <span>&#10003; $199 flat rate</span>
+    <span>&#10003; No call-out fee</span>
+    <span>&#10003; Same-week bookings</span>
+    <span>&#10003; Owner-operated</span>
+    <span>&#10003; Northcote &amp; surrounds</span>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <h2>Chimney Sweep Northcote — Pricing</h2>
+    <div class="price-card">
+      <div class="price-amount">$199</div>
+      <div class="price-label">Full chimney inspection &amp; clean</div>
+      <ul class="price-includes">
+        <li>Full sweep from firebox to pot</li>
+        <li>Flue clean &amp; soot removal</li>
+        <li>Creosote &amp; blockage check</li>
+        <li>Bird nest removal if present</li>
+        <li>Verbal condition report</li>
+        <li>No call-out fee</li>
+      </ul>
+      <a class="btn-primary" href="tel:0476302729">Book Now — 0476 302 729</a>
+    </div>
+  </section>
+
+  <!-- LOCAL KNOWLEDGE -->
+  <section class="local-section" id="local">
+    <h2>Chimney Sweeping in Northcote</h2>
+    <div class="local-box"><p>Northcote is one of Melbourne's most densely settled inner northern suburbs, developed rapidly from the 1880s through the Edwardian era as working-class and middle-class families built terraced cottages, double-fronted brick homes and Federation bungalows along the High Street ridge and down toward the Merri Creek valley. The suburb's housing stock is dominated by period homes — Victorian brick terraces, Edwardian weatherboards and interwar bungalows — a large proportion of which retain their original chimneys and fireplaces as central architectural features. The Merri Creek corridor creates a genuine cold microclimate in Northcote's lower streets: cold air drains off the ridge and pools along the creek flat through winter nights, and the combination of humidity from the creek and the cold air mass means Northcote's winter mornings can feel considerably sharper than surrounding higher ground. Many Northcote homes have been renovated by owners who value the original features, and the fireplace is often the centrepiece of the main living space. We work regularly in Northcote and have experience with the lime mortar heritage chimneys, multi-fireplace terrace configurations and Victorian-era flue systems common throughout the suburb.</p></div>
+  </section>
+
+  <!-- SIGNS -->
+  <section class="signs-section" id="signs">
+    <h2>Signs Your Northcote Chimney Needs Cleaning</h2>
+    <ul class="signs-list">
+      <li>Smoke backing into the room when you light the fire</li>
+      <li>A persistent smoky or stale smell near the fireplace when it is not in use</li>
+      <li>Visible soot or black marks around the firebox or on the mantle</li>
+      <li>A flue that hasn't been cleaned since the home was renovated</li>
+      <li>Slow combustion heater that struggles to draw despite a good fire</li>
+    </ul>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <h2>Chimney Services in Northcote</h2>
+    <div class="services-grid">
+      <div class="service-card"><h3>Chimney Sweep</h3><p>Full brush sweep from firebox to pot. Soot, creosote and debris removed. Verbal condition report included.</p></div>
+      <div class="service-card"><h3>Flue Cleaning</h3><p>Thorough flue clean using professional brushes and equipment. Removes accumulated creosote and restores full draw.</p></div>
+      <div class="service-card"><h3>Wood Heater Service</h3><p>Slow combustion heater flue clean and inspection. Baffle check, door seal inspection, full flue swept top to bottom.</p></div>
+      <div class="service-card"><h3>Chimney Inspection</h3><p>Visual inspection of firebox, flue, damper, crown and pot. Written report available on request. Included in the $199 service.</p></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <h2>What Northcote Customers Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Heritage double-fronted on the Northcote ridge. David found a significant creosote build-up in the flue and a cracked liner in the second chimney. Really thorough — exactly what you want before the first fire of the season.&rdquo;</p><p class="review-author">Eloise M., Northcote</p></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Victorian terrace with two fireplaces. David worked carefully around the original tiling and left both flues spotless. Very professional — would use every year.&rdquo;</p><p class="review-author">James T., Northcote</p></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;We hadn't had the chimney cleaned since we moved in three years ago. David came out, swept the flue top to bottom and gave us a full verbal report on the chimney condition. Great service.&rdquo;</p><p class="review-author">Anna R., Northcote</p></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <h2>About Dave&rsquo;s Chimney Sweeping</h2>
+    <p>Dave&rsquo;s Chimney Sweeping is a local, owner-operated business covering Melbourne's inner northern suburbs including Northcote. Dave personally handles every job &mdash; no subcontractors, no call centres. Flat $199 rate per chimney, no hidden fees.</p>
+    <a class="btn-secondary" href="tel:0476302729">Call Dave — 0476 302 729</a>
+  </section>
+
+  <!-- FAQs -->
+  <section class="faq-section" id="faq">
+    <h2>Chimney Sweep Northcote — FAQs</h2>
+    {faqs.map(f => (
+    <details>
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+    ))}
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="booking-section" id="booking">
+    <h2>Book a Chimney Sweep in Northcote</h2>
+    <form action="https://formspree.io/f/xdkobvpv" method="POST" class="booking-form">
+      <input type="hidden" name="suburb" value="Northcote 3070" />
+      <label>Name <input type="text" name="name" required /></label>
+      <label>Phone <input type="tel" name="phone" required /></label>
+      <label>Email <input type="email" name="email" /></label>
+      <label>Message <textarea name="message" rows="3">Chimney sweep enquiry — Northcote 3070</textarea></label>
+      <button type="submit" class="btn-primary">Send Enquiry</button>
+    </form>
+  </section>
+
+  <!-- NEARBY SUBURBS -->
+  <section class="nearby-section" id="nearby">
+    <h2>Nearby Areas We Service</h2>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/thornbury">Thornbury 3071</a>
+      <a class="suburb-chip" href="/chimney-sweeping/preston">Preston 3072</a>
+      <a class="suburb-chip" href="/chimney-sweeping/fitzroy-north">Fitzroy North 3068</a>
+      <a class="suburb-chip" href="/chimney-sweeping/coburg">Coburg 3058</a>
+      <a class="suburb-chip" href="/chimney-sweeping/brunswick">Brunswick 3056</a>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/#service-areas">Service Areas</a> &rsaquo; Northcote
+  </nav>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <h2>Ready to book your Northcote chimney sweep?</h2>
+    <p>$199 flat rate &mdash; no call-out fee &mdash; same-week bookings available.</p>
+    <a class="btn-primary" href="tel:0476302729">Call 0476 302 729</a>
+  </section>
+
+  <!-- STICKY MOBILE CTA -->
+  <a href="tel:0476302729" id="sticky-cta" aria-label="Call or text Dave">
+    <span id="sticky-icon">&#128222;</span>
+    <span id="sticky-text">Call/Text Dave</span>
+  </a>
+  <style>
+    #sticky-cta{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;align-items:center;gap:.5rem;background:#e07b00;color:#fff;font-weight:700;font-size:1rem;padding:.75rem 1.25rem;border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.25);text-decoration:none;transition:opacity .3s;opacity:0;pointer-events:none;}
+    #sticky-cta.visible{opacity:1;pointer-events:auto}
+    @media(min-width:768px){#sticky-cta{display:none}}
+  </style>
+  <script is:inline>
+    (function(){
+      var btn = document.getElementById('sticky-cta');
+      var hero = document.querySelector('.hero');
+      function check(){
+        var threshold = hero ? hero.offsetHeight : 300;
+        if(window.scrollY > threshold){ btn.classList.add('visible'); }
+        else { btn.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', check, {passive:true});
+      check();
+    })();
+  </script>
+
+</MainLayout>

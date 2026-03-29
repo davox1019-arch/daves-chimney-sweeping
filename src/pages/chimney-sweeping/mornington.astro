@@ -1,0 +1,183 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$199", "areaServed": ["Mornington VIC 3931"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/mornington", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Mornington VIC 3931. $199 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "Mornington", "addressRegion": "VIC", "postalCode": "3931", "addressCountry": "AU"}};
+const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you service Mornington VIC 3931?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 we cover Mornington and surrounding Mornington Peninsula suburbs including Mount Eliza, Frankston, Safety Beach and Dromana."}}, {"@type": "Question", "name": "We have a weekender on the peninsula and only use the fireplace a few times a year \u2014 does it still need cleaning?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, and arguably more so. A fireplace used intermittently after sitting dormant can have bird nests, debris and dried creosote that creates a fire risk the moment you light it. Annual inspection and cleaning before the season is the correct approach."}}, {"@type": "Question", "name": "What does the $199 service include?", "acceptedAnswer": {"@type": "Answer", "text": "Full chimney sweep from firebox to pot, flue clean, soot and creosote removal, blockage and bird nest check, verbal condition report. No call-out fee \u2014 $199 per chimney."}}, {"@type": "Question", "name": "How cold does Mornington get in winter?", "acceptedAnswer": {"@type": "Answer", "text": "Cold enough that heating makes a real difference. Peninsula winters are damp and cool, with Bass Strait southerlies pushing cold air across the bay. A properly maintained fireplace is valuable whether you are a permanent resident or down for a long weekend."}}, {"@type": "Question", "name": "Is there a call-out fee for Mornington?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 $199 flat rate per chimney, complete price."}}]};
+const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping Mornington VIC 3931", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "Mornington VIC 3931", "offers": {"@type": "Offer", "price": "199", "priceCurrency": "AUD", "description": "Chimney inspection and full clean"}, "serviceType": "Chimney Sweeping"};
+const faqs = [
+  {q:`Do you service Mornington VIC 3931?`,a:`Yes — we cover Mornington and surrounding Mornington Peninsula suburbs including Mount Eliza, Frankston, Safety Beach and Dromana.`},
+  {q:`We have a weekender on the peninsula and only use the fireplace a few times a year — does it still need cleaning?`,a:`Yes, and arguably more so. A fireplace used intermittently after sitting dormant can have bird nests, debris and dried creosote that creates a fire risk the moment you light it. Annual inspection and cleaning before the season is the correct approach.`},
+  {q:`What does the $199 service include?`,a:`Full chimney sweep from firebox to pot, flue clean, soot and creosote removal, blockage and bird nest check, verbal condition report. No call-out fee — $199 per chimney.`},
+  {q:`How cold does Mornington get in winter?`,a:`Cold enough that heating makes a real difference. Peninsula winters are damp and cool, with Bass Strait southerlies pushing cold air across the bay. A properly maintained fireplace is valuable whether you are a permanent resident or down for a long weekend.`},
+  {q:`Is there a call-out fee for Mornington?`,a:`No — $199 flat rate per chimney, complete price.`}
+];
+---
+
+<MainLayout
+  title="Chimney Sweep Mornington VIC 3931 — $199 Clean & Inspect"
+  description="Chimney sweeping Mornington VIC 3931 — $199 chimney inspection & full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
+  clusterBase="Mornington Peninsula"
+  clusterRegion="the Mornington Peninsula"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Chimney Sweep Mornington 3931</h1>
+      <p class="hero-sub">$199 chimney inspection &amp; full clean &mdash; Mornington &amp; surrounds. Owner-operated, no call-out fee, same-week bookings.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="tel:0476302729">Call 0476&nbsp;302&nbsp;729</a>
+        <a class="btn-secondary" href="#booking">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <span>&#10003; $199 flat rate</span>
+    <span>&#10003; No call-out fee</span>
+    <span>&#10003; Same-week bookings</span>
+    <span>&#10003; Owner-operated</span>
+    <span>&#10003; Mornington &amp; surrounds</span>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <h2>Chimney Sweep Mornington — Pricing</h2>
+    <div class="price-card">
+      <div class="price-amount">$199</div>
+      <div class="price-label">Full chimney inspection &amp; clean</div>
+      <ul class="price-includes">
+        <li>Full sweep from firebox to pot</li>
+        <li>Flue clean &amp; soot removal</li>
+        <li>Creosote &amp; blockage check</li>
+        <li>Bird nest removal if present</li>
+        <li>Verbal condition report</li>
+        <li>No call-out fee</li>
+      </ul>
+      <a class="btn-primary" href="tel:0476302729">Book Now — 0476 302 729</a>
+    </div>
+  </section>
+
+  <!-- LOCAL KNOWLEDGE -->
+  <section class="local-section" id="local">
+    <h2>Chimney Sweeping in Mornington</h2>
+    <div class="local-box"><p>Mornington is the commercial and residential hub of the upper Mornington Peninsula, a town with genuine heritage dating to the 1850s that has grown steadily through every era of Melbourne's suburban expansion. The housing stock in Mornington is unusually diverse: the older residential streets behind Main Street contain Victorian and Edwardian weatherboards and brick homes, the interwar and postwar eras contributed brick bungalows and fibro cottages, and the peninsula's enduring popularity as a holiday and sea-change destination has added a large stock of weekender beach houses across every decade from the 1940s to the present. This mix of housing ages and uses creates a distinctive chimney servicing pattern: permanent residents who use their fireplaces every winter through the peninsula's cold and often foggy season, and weekender and holiday home owners whose fireplaces may only be lit for a few weeks or a long weekend a year. A fireplace that is used occasionally after sitting dormant for months — often with accumulated debris, nesting activity and dried creosote from the previous season — carries a higher fire risk than one in continuous use. The Mornington Peninsula's winter climate is cold and often damp, with Bass Strait southerlies pushing cold air up the bay and creating genuine heating needs that make a properly maintained fireplace valuable. We service Mornington and the surrounding peninsula suburbs regularly.</p></div>
+  </section>
+
+  <!-- SIGNS -->
+  <section class="signs-section" id="signs">
+    <h2>Signs Your Mornington Chimney Needs Cleaning</h2>
+    <ul class="signs-list">
+      <li>Smoke backing into the house when a holiday home fireplace is first lit for the season</li>
+      <li>A damp or musty smell from the fireplace in a property that hasn't been opened for months</li>
+      <li>A bird or animal nest blocking the chimney pot — common in properties used intermittently</li>
+      <li>Slow draw or a fire that won't sustain — debris in the flue restricting airflow</li>
+      <li>A fireplace in a weekender that gets lit hard for a few days then left</li>
+    </ul>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <h2>Chimney Services in Mornington</h2>
+    <div class="services-grid">
+      <div class="service-card"><h3>Chimney Sweep</h3><p>Full brush sweep from firebox to pot. Soot, creosote and debris removed. Verbal condition report included.</p></div>
+      <div class="service-card"><h3>Flue Cleaning</h3><p>Thorough flue clean using professional brushes and equipment. Removes accumulated creosote and restores full draw.</p></div>
+      <div class="service-card"><h3>Wood Heater Service</h3><p>Slow combustion heater flue clean and inspection. Baffle check, door seal inspection, full flue swept top to bottom.</p></div>
+      <div class="service-card"><h3>Chimney Inspection</h3><p>Visual inspection of firebox, flue, damper, crown and pot. Written report available on request. Included in the $199 service.</p></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <h2>What Mornington Customers Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Peninsula weekender that we come down to most long weekends. David swept the chimney, removed a bird nest and gave us a clear report before the first fire of the season. Exactly what we needed.&rdquo;</p><p class="review-author">Helen B., Mornington</p></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Permanent resident and use the fireplace every night through winter. David found creosote build-up in the flue and a cracked liner tile. Very glad we had it inspected properly — will be booking annually.&rdquo;</p><p class="review-author">David K., Mornington</p></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Heritage home near the old Mornington town centre. David worked carefully around the original fireplace and gave a thorough inspection. Very professional and good value.&rdquo;</p><p class="review-author">Patricia W., Mornington</p></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <h2>About Dave&rsquo;s Chimney Sweeping</h2>
+    <p>Dave&rsquo;s Chimney Sweeping is a local, owner-operated business covering the Mornington Peninsula including Mornington. Dave personally handles every job &mdash; no subcontractors, no call centres. Flat $199 rate per chimney, no hidden fees.</p>
+    <a class="btn-secondary" href="tel:0476302729">Call Dave — 0476 302 729</a>
+  </section>
+
+  <!-- FAQs -->
+  <section class="faq-section" id="faq">
+    <h2>Chimney Sweep Mornington — FAQs</h2>
+    {faqs.map(f => (
+    <details>
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+    ))}
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="booking-section" id="booking">
+    <h2>Book a Chimney Sweep in Mornington</h2>
+    <form action="https://formspree.io/f/xdkobvpv" method="POST" class="booking-form">
+      <input type="hidden" name="suburb" value="Mornington 3931" />
+      <label>Name <input type="text" name="name" required /></label>
+      <label>Phone <input type="tel" name="phone" required /></label>
+      <label>Email <input type="email" name="email" /></label>
+      <label>Message <textarea name="message" rows="3">Chimney sweep enquiry — Mornington 3931</textarea></label>
+      <button type="submit" class="btn-primary">Send Enquiry</button>
+    </form>
+  </section>
+
+  <!-- NEARBY SUBURBS -->
+  <section class="nearby-section" id="nearby">
+    <h2>Nearby Areas We Service</h2>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/mount-eliza">Mount Eliza 3930</a>
+      <a class="suburb-chip" href="/chimney-sweeping/frankston">Frankston 3199</a>
+      <a class="suburb-chip" href="/chimney-sweeping/mornington">Moorooduc 3933</a>
+      <a class="suburb-chip" href="/chimney-sweeping/mornington">Safety Beach 3936</a>
+      <a class="suburb-chip" href="/chimney-sweeping/mornington">Dromana 3936</a>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/#service-areas">Service Areas</a> &rsaquo; Mornington
+  </nav>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <h2>Ready to book your Mornington chimney sweep?</h2>
+    <p>$199 flat rate &mdash; no call-out fee &mdash; same-week bookings available.</p>
+    <a class="btn-primary" href="tel:0476302729">Call 0476 302 729</a>
+  </section>
+
+  <!-- STICKY MOBILE CTA -->
+  <a href="tel:0476302729" id="sticky-cta" aria-label="Call or text Dave">
+    <span id="sticky-icon">&#128222;</span>
+    <span id="sticky-text">Call/Text Dave</span>
+  </a>
+  <style>
+    #sticky-cta{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;align-items:center;gap:.5rem;background:#e07b00;color:#fff;font-weight:700;font-size:1rem;padding:.75rem 1.25rem;border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.25);text-decoration:none;transition:opacity .3s;opacity:0;pointer-events:none;}
+    #sticky-cta.visible{opacity:1;pointer-events:auto}
+    @media(min-width:768px){#sticky-cta{display:none}}
+  </style>
+  <script is:inline>
+    (function(){
+      var btn = document.getElementById('sticky-cta');
+      var hero = document.querySelector('.hero');
+      function check(){
+        var threshold = hero ? hero.offsetHeight : 300;
+        if(window.scrollY > threshold){ btn.classList.add('visible'); }
+        else { btn.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', check, {passive:true});
+      check();
+    })();
+  </script>
+
+</MainLayout>

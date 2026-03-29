@@ -1,0 +1,183 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$199", "areaServed": ["Cheltenham VIC 3192"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/cheltenham", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Cheltenham VIC 3192. $199 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "Cheltenham", "addressRegion": "VIC", "postalCode": "3192", "addressCountry": "AU"}};
+const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you service Cheltenham VIC 3192?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 Cheltenham is part of our bayside Melbourne run. We cover Cheltenham and nearby suburbs including Hampton, Brighton, Moorabbin and Mentone."}}, {"@type": "Question", "name": "Our Cheltenham home has the original postwar fireplace and we don't think it has ever been professionally cleaned \u2014 is that a concern?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A fireplace that has been used regularly without professional cleaning can accumulate significant creosote in the flue, which becomes a fire risk. We will clean and inspect the full system and give you a clear picture of its condition."}}, {"@type": "Question", "name": "What does the $199 service include?", "acceptedAnswer": {"@type": "Answer", "text": "Full chimney sweep from firebox to pot, flue clean, soot and creosote removal, blockage and bird nest check, verbal condition report. No call-out fee \u2014 $199 per chimney."}}, {"@type": "Question", "name": "How often should a Cheltenham home have its chimney cleaned?", "acceptedAnswer": {"@type": "Answer", "text": "Annually for a regularly used fireplace. The bayside humidity in this area can contribute to faster flue deterioration \u2014 consistent annual inspection catches any developing issues early."}}, {"@type": "Question", "name": "Is there a call-out fee for Cheltenham?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 $199 flat rate per chimney, complete price."}}]};
+const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping Cheltenham VIC 3192", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "Cheltenham VIC 3192", "offers": {"@type": "Offer", "price": "199", "priceCurrency": "AUD", "description": "Chimney inspection and full clean"}, "serviceType": "Chimney Sweeping"};
+const faqs = [
+  {q:`Do you service Cheltenham VIC 3192?`,a:`Yes — Cheltenham is part of our bayside Melbourne run. We cover Cheltenham and nearby suburbs including Hampton, Brighton, Moorabbin and Mentone.`},
+  {q:`Our Cheltenham home has the original postwar fireplace and we don't think it has ever been professionally cleaned — is that a concern?`,a:`Yes. A fireplace that has been used regularly without professional cleaning can accumulate significant creosote in the flue, which becomes a fire risk. We will clean and inspect the full system and give you a clear picture of its condition.`},
+  {q:`What does the $199 service include?`,a:`Full chimney sweep from firebox to pot, flue clean, soot and creosote removal, blockage and bird nest check, verbal condition report. No call-out fee — $199 per chimney.`},
+  {q:`How often should a Cheltenham home have its chimney cleaned?`,a:`Annually for a regularly used fireplace. The bayside humidity in this area can contribute to faster flue deterioration — consistent annual inspection catches any developing issues early.`},
+  {q:`Is there a call-out fee for Cheltenham?`,a:`No — $199 flat rate per chimney, complete price.`}
+];
+---
+
+<MainLayout
+  title="Chimney Sweep Cheltenham VIC 3192 — $199 Clean & Inspect"
+  description="Chimney sweeping Cheltenham VIC 3192 — $199 chimney inspection & full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
+  clusterBase="Melbourne's Bayside Suburbs"
+  clusterRegion="Melbourne's bayside suburbs"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Chimney Sweep Cheltenham 3192</h1>
+      <p class="hero-sub">$199 chimney inspection &amp; full clean &mdash; Cheltenham &amp; surrounds. Owner-operated, no call-out fee, same-week bookings.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="tel:0476302729">Call 0476&nbsp;302&nbsp;729</a>
+        <a class="btn-secondary" href="#booking">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <span>&#10003; $199 flat rate</span>
+    <span>&#10003; No call-out fee</span>
+    <span>&#10003; Same-week bookings</span>
+    <span>&#10003; Owner-operated</span>
+    <span>&#10003; Cheltenham &amp; surrounds</span>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <h2>Chimney Sweep Cheltenham — Pricing</h2>
+    <div class="price-card">
+      <div class="price-amount">$199</div>
+      <div class="price-label">Full chimney inspection &amp; clean</div>
+      <ul class="price-includes">
+        <li>Full sweep from firebox to pot</li>
+        <li>Flue clean &amp; soot removal</li>
+        <li>Creosote &amp; blockage check</li>
+        <li>Bird nest removal if present</li>
+        <li>Verbal condition report</li>
+        <li>No call-out fee</li>
+      </ul>
+      <a class="btn-primary" href="tel:0476302729">Book Now — 0476 302 729</a>
+    </div>
+  </section>
+
+  <!-- LOCAL KNOWLEDGE -->
+  <section class="local-section" id="local">
+    <h2>Chimney Sweeping in Cheltenham</h2>
+    <div class="local-box"><p>Cheltenham is a bayside suburb south of Hampton that developed primarily through the postwar decades, with the bulk of its housing stock dating from the 1950s through the 1970s. The suburb is characterised by brick veneer homes built during the height of Australia's postwar building boom — a period when a single fireplace or open hearth in the main living room was standard specification in most new homes. These postwar fireplaces and their flue systems are now several decades old and in many cases have been in continuous use since the home was built without ever receiving a professional clean. Cheltenham's proximity to Port Phillip Bay means the suburb experiences a distinctive cold dampness through winter — cool southerly airflows off the bay push cold humid air through the suburb's streets, and bay-facing rooms without adequate heating feel the cold sharply. The suburb's housing is also at a stage where many long-term owners are either maintaining their properties carefully for sale or younger buyers are renovating, and both groups typically want the fireplace properly serviced. We service Cheltenham and the surrounding bayside suburbs regularly and are familiar with the postwar brick veneer chimney systems and flue configurations common throughout the suburb.</p></div>
+  </section>
+
+  <!-- SIGNS -->
+  <section class="signs-section" id="signs">
+    <h2>Signs Your Cheltenham Chimney Needs Cleaning</h2>
+    <ul class="signs-list">
+      <li>Smoke backing into the room when you light the fire, especially in cold weather</li>
+      <li>A persistent smoky smell around the fireplace even when it is not in use</li>
+      <li>Slow, struggling draw — the fire won't maintain itself without constant attention</li>
+      <li>A fireplace that has been in regular use for many years without a professional service</li>
+      <li>Soot or black deposits visible around the firebox opening</li>
+    </ul>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <h2>Chimney Services in Cheltenham</h2>
+    <div class="services-grid">
+      <div class="service-card"><h3>Chimney Sweep</h3><p>Full brush sweep from firebox to pot. Soot, creosote and debris removed. Verbal condition report included.</p></div>
+      <div class="service-card"><h3>Flue Cleaning</h3><p>Thorough flue clean using professional brushes and equipment. Removes accumulated creosote and restores full draw.</p></div>
+      <div class="service-card"><h3>Wood Heater Service</h3><p>Slow combustion heater flue clean and inspection. Baffle check, door seal inspection, full flue swept top to bottom.</p></div>
+      <div class="service-card"><h3>Chimney Inspection</h3><p>Visual inspection of firebox, flue, damper, crown and pot. Written report available on request. Included in the $199 service.</p></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <h2>What Cheltenham Customers Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Postwar brick veneer and the original fireplace had never been professionally cleaned. David swept the full flue system and found substantial creosote accumulation. Very professional — will be booking annually going forward.&rdquo;</p><p class="review-author">Brian T., Cheltenham</p></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Dave came out promptly, explained what he was doing throughout and left no mess. Fireplace draws better than it has in years. Great service at a fair price.&rdquo;</p><p class="review-author">Karen S., Cheltenham</p></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;David cleaned the flue and also spotted a deteriorating chimney cap that was letting water in. Something we would never have known about. Highly recommend — worth doing every year.&rdquo;</p><p class="review-author">Dennis H., Cheltenham</p></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <h2>About Dave&rsquo;s Chimney Sweeping</h2>
+    <p>Dave&rsquo;s Chimney Sweeping is a local, owner-operated business covering Melbourne's bayside suburbs including Cheltenham. Dave personally handles every job &mdash; no subcontractors, no call centres. Flat $199 rate per chimney, no hidden fees.</p>
+    <a class="btn-secondary" href="tel:0476302729">Call Dave — 0476 302 729</a>
+  </section>
+
+  <!-- FAQs -->
+  <section class="faq-section" id="faq">
+    <h2>Chimney Sweep Cheltenham — FAQs</h2>
+    {faqs.map(f => (
+    <details>
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+    ))}
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="booking-section" id="booking">
+    <h2>Book a Chimney Sweep in Cheltenham</h2>
+    <form action="https://formspree.io/f/xdkobvpv" method="POST" class="booking-form">
+      <input type="hidden" name="suburb" value="Cheltenham 3192" />
+      <label>Name <input type="text" name="name" required /></label>
+      <label>Phone <input type="tel" name="phone" required /></label>
+      <label>Email <input type="email" name="email" /></label>
+      <label>Message <textarea name="message" rows="3">Chimney sweep enquiry — Cheltenham 3192</textarea></label>
+      <button type="submit" class="btn-primary">Send Enquiry</button>
+    </form>
+  </section>
+
+  <!-- NEARBY SUBURBS -->
+  <section class="nearby-section" id="nearby">
+    <h2>Nearby Areas We Service</h2>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/hampton">Hampton 3188</a>
+      <a class="suburb-chip" href="/chimney-sweeping/brighton">Brighton 3186</a>
+      <a class="suburb-chip" href="/chimney-sweeping/hampton">Moorabbin 3189</a>
+      <a class="suburb-chip" href="/chimney-sweeping/cheltenham">Beaumaris 3193</a>
+      <a class="suburb-chip" href="/chimney-sweeping/cheltenham">Mentone 3194</a>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/#service-areas">Service Areas</a> &rsaquo; Cheltenham
+  </nav>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <h2>Ready to book your Cheltenham chimney sweep?</h2>
+    <p>$199 flat rate &mdash; no call-out fee &mdash; same-week bookings available.</p>
+    <a class="btn-primary" href="tel:0476302729">Call 0476 302 729</a>
+  </section>
+
+  <!-- STICKY MOBILE CTA -->
+  <a href="tel:0476302729" id="sticky-cta" aria-label="Call or text Dave">
+    <span id="sticky-icon">&#128222;</span>
+    <span id="sticky-text">Call/Text Dave</span>
+  </a>
+  <style>
+    #sticky-cta{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;align-items:center;gap:.5rem;background:#e07b00;color:#fff;font-weight:700;font-size:1rem;padding:.75rem 1.25rem;border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.25);text-decoration:none;transition:opacity .3s;opacity:0;pointer-events:none;}
+    #sticky-cta.visible{opacity:1;pointer-events:auto}
+    @media(min-width:768px){#sticky-cta{display:none}}
+  </style>
+  <script is:inline>
+    (function(){
+      var btn = document.getElementById('sticky-cta');
+      var hero = document.querySelector('.hero');
+      function check(){
+        var threshold = hero ? hero.offsetHeight : 300;
+        if(window.scrollY > threshold){ btn.classList.add('visible'); }
+        else { btn.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', check, {passive:true});
+      check();
+    })();
+  </script>
+
+</MainLayout>

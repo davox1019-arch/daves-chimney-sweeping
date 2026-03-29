@@ -1,0 +1,183 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$199", "areaServed": ["St Kilda VIC 3182"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/st-kilda", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in St Kilda VIC 3182. $199 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "St Kilda", "addressRegion": "VIC", "postalCode": "3182", "addressCountry": "AU"}};
+const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you service St Kilda VIC 3182?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 St Kilda is part of our inner southern Melbourne run. We cover St Kilda and surrounding suburbs including South Yarra, Elwood, Prahran and Richmond."}}, {"@type": "Question", "name": "Our St Kilda flat is in a converted period building \u2014 can you still clean the chimney?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We work in converted period buildings regularly. We will need access to the fireplace in your unit and, where possible, roof access to inspect the pot \u2014 let us know the setup when you book."}}, {"@type": "Question", "name": "What does the $199 service include?", "acceptedAnswer": {"@type": "Answer", "text": "Full chimney sweep from firebox to pot, flue clean, soot and creosote removal, blockage and bird nest check, verbal condition report. No call-out fee \u2014 $199 per chimney."}}, {"@type": "Question", "name": "How does living near the beach affect the chimney?", "acceptedAnswer": {"@type": "Answer", "text": "Bay-side humidity and salt air can speed up lime mortar deterioration and contribute to rust in metal flue components. Annual cleaning and inspection is particularly worthwhile in the inner bayside suburbs."}}, {"@type": "Question", "name": "Is there a call-out fee for St Kilda?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 $199 flat rate per chimney, complete price."}}]};
+const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping St Kilda VIC 3182", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "St Kilda VIC 3182", "offers": {"@type": "Offer", "price": "199", "priceCurrency": "AUD", "description": "Chimney inspection and full clean"}, "serviceType": "Chimney Sweeping"};
+const faqs = [
+  {q:`Do you service St Kilda VIC 3182?`,a:`Yes — St Kilda is part of our inner southern Melbourne run. We cover St Kilda and surrounding suburbs including South Yarra, Elwood, Prahran and Richmond.`},
+  {q:`Our St Kilda flat is in a converted period building — can you still clean the chimney?`,a:`Yes. We work in converted period buildings regularly. We will need access to the fireplace in your unit and, where possible, roof access to inspect the pot — let us know the setup when you book.`},
+  {q:`What does the $199 service include?`,a:`Full chimney sweep from firebox to pot, flue clean, soot and creosote removal, blockage and bird nest check, verbal condition report. No call-out fee — $199 per chimney.`},
+  {q:`How does living near the beach affect the chimney?`,a:`Bay-side humidity and salt air can speed up lime mortar deterioration and contribute to rust in metal flue components. Annual cleaning and inspection is particularly worthwhile in the inner bayside suburbs.`},
+  {q:`Is there a call-out fee for St Kilda?`,a:`No — $199 flat rate per chimney, complete price.`}
+];
+---
+
+<MainLayout
+  title="Chimney Sweep St Kilda VIC 3182 — $199 Clean & Inspect"
+  description="Chimney sweeping St Kilda VIC 3182 — $199 chimney inspection & full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
+  clusterBase="Melbourne's Inner Southern Suburbs"
+  clusterRegion="Melbourne's inner southern suburbs"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Chimney Sweep St Kilda 3182</h1>
+      <p class="hero-sub">$199 chimney inspection &amp; full clean &mdash; St Kilda &amp; surrounds. Owner-operated, no call-out fee, same-week bookings.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="tel:0476302729">Call 0476&nbsp;302&nbsp;729</a>
+        <a class="btn-secondary" href="#booking">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <span>&#10003; $199 flat rate</span>
+    <span>&#10003; No call-out fee</span>
+    <span>&#10003; Same-week bookings</span>
+    <span>&#10003; Owner-operated</span>
+    <span>&#10003; St Kilda &amp; surrounds</span>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <h2>Chimney Sweep St Kilda — Pricing</h2>
+    <div class="price-card">
+      <div class="price-amount">$199</div>
+      <div class="price-label">Full chimney inspection &amp; clean</div>
+      <ul class="price-includes">
+        <li>Full sweep from firebox to pot</li>
+        <li>Flue clean &amp; soot removal</li>
+        <li>Creosote &amp; blockage check</li>
+        <li>Bird nest removal if present</li>
+        <li>Verbal condition report</li>
+        <li>No call-out fee</li>
+      </ul>
+      <a class="btn-primary" href="tel:0476302729">Book Now — 0476 302 729</a>
+    </div>
+  </section>
+
+  <!-- LOCAL KNOWLEDGE -->
+  <section class="local-section" id="local">
+    <h2>Chimney Sweeping in St Kilda</h2>
+    <div class="local-box"><p>St Kilda is one of Melbourne's most historically layered inner suburbs, developed from the 1850s as Melbourne's premier seaside resort district and built out through the Victorian and Edwardian eras with a remarkable density and variety of period architecture. The residential streets behind Fitzroy and Acland Street contain a mix of Victorian terrace houses, Edwardian flats, substantial single-storey period homes and the large mansion-divided apartment buildings for which St Kilda is particularly known. Many of these buildings retain their original chimney systems — Victorian terrace chimneys, Edwardian heritage stacks and the distinctive multiple-chimney configurations of the large period homes that were subdivided into flats during the interwar period. St Kilda's beachfront position means the suburb experiences distinctive winter cold from Port Phillip: cool southerly airflows off the bay can be sharp and damp, and bay-facing rooms in older buildings feel the cold acutely on still winter evenings. The suburb has a strong renovation and owner-occupier market in its period housing, with many owners investing in restoring working fireplaces as part of broader restorations. We service St Kilda and the inner southern suburbs regularly and have experience with the variety of period chimney systems found throughout the suburb.</p></div>
+  </section>
+
+  <!-- SIGNS -->
+  <section class="signs-section" id="signs">
+    <h2>Signs Your St Kilda Chimney Needs Cleaning</h2>
+    <ul class="signs-list">
+      <li>Smoke or soot smell coming back into a terrace or flat when the fire is lit</li>
+      <li>A fireplace in a converted period building that hasn't been cleaned in years</li>
+      <li>Damp or moisture smell from the fireplace during winter rain</li>
+      <li>A recently restored fireplace needing inspection before first use</li>
+      <li>Blocked or bird-nested chimney pot visible from the street or roofline</li>
+    </ul>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <h2>Chimney Services in St Kilda</h2>
+    <div class="services-grid">
+      <div class="service-card"><h3>Chimney Sweep</h3><p>Full brush sweep from firebox to pot. Soot, creosote and debris removed. Verbal condition report included.</p></div>
+      <div class="service-card"><h3>Flue Cleaning</h3><p>Thorough flue clean using professional brushes and equipment. Removes accumulated creosote and restores full draw.</p></div>
+      <div class="service-card"><h3>Wood Heater Service</h3><p>Slow combustion heater flue clean and inspection. Baffle check, door seal inspection, full flue swept top to bottom.</p></div>
+      <div class="service-card"><h3>Chimney Inspection</h3><p>Visual inspection of firebox, flue, damper, crown and pot. Written report available on request. Included in the $199 service.</p></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <h2>What St Kilda Customers Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Victorian terrace in St Kilda East. David cleaned the flue, removed a substantial bird nest and gave a great report on the condition. Fireplace draws properly for the first time since we moved in.&rdquo;</p><p class="review-author">Sophie D., St Kilda</p></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Ground floor of a converted Edwardian home. David swept the chimney carefully and pointed out some deterioration in the flue lining that we will need to address. Very helpful and professional.&rdquo;</p><p class="review-author">Nicholas F., St Kilda</p></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Called Dave after the fireplace started backing smoke into the room. He came quickly, found the blockage, cleaned the full flue and left everything neat. Excellent service.&rdquo;</p><p class="review-author">Rachel V., St Kilda</p></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <h2>About Dave&rsquo;s Chimney Sweeping</h2>
+    <p>Dave&rsquo;s Chimney Sweeping is a local, owner-operated business covering Melbourne's inner southern suburbs including St Kilda. Dave personally handles every job &mdash; no subcontractors, no call centres. Flat $199 rate per chimney, no hidden fees.</p>
+    <a class="btn-secondary" href="tel:0476302729">Call Dave — 0476 302 729</a>
+  </section>
+
+  <!-- FAQs -->
+  <section class="faq-section" id="faq">
+    <h2>Chimney Sweep St Kilda — FAQs</h2>
+    {faqs.map(f => (
+    <details>
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+    ))}
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="booking-section" id="booking">
+    <h2>Book a Chimney Sweep in St Kilda</h2>
+    <form action="https://formspree.io/f/xdkobvpv" method="POST" class="booking-form">
+      <input type="hidden" name="suburb" value="St Kilda 3182" />
+      <label>Name <input type="text" name="name" required /></label>
+      <label>Phone <input type="tel" name="phone" required /></label>
+      <label>Email <input type="email" name="email" /></label>
+      <label>Message <textarea name="message" rows="3">Chimney sweep enquiry — St Kilda 3182</textarea></label>
+      <button type="submit" class="btn-primary">Send Enquiry</button>
+    </form>
+  </section>
+
+  <!-- NEARBY SUBURBS -->
+  <section class="nearby-section" id="nearby">
+    <h2>Nearby Areas We Service</h2>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/south-yarra">South Yarra 3141</a>
+      <a class="suburb-chip" href="/chimney-sweeping/elwood">Elwood 3184</a>
+      <a class="suburb-chip" href="/chimney-sweeping/richmond">Richmond 3121</a>
+      <a class="suburb-chip" href="/chimney-sweeping/south-yarra">Prahran 3181</a>
+      <a class="suburb-chip" href="/chimney-sweeping/brighton">Brighton 3186</a>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/#service-areas">Service Areas</a> &rsaquo; St Kilda
+  </nav>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <h2>Ready to book your St Kilda chimney sweep?</h2>
+    <p>$199 flat rate &mdash; no call-out fee &mdash; same-week bookings available.</p>
+    <a class="btn-primary" href="tel:0476302729">Call 0476 302 729</a>
+  </section>
+
+  <!-- STICKY MOBILE CTA -->
+  <a href="tel:0476302729" id="sticky-cta" aria-label="Call or text Dave">
+    <span id="sticky-icon">&#128222;</span>
+    <span id="sticky-text">Call/Text Dave</span>
+  </a>
+  <style>
+    #sticky-cta{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;align-items:center;gap:.5rem;background:#e07b00;color:#fff;font-weight:700;font-size:1rem;padding:.75rem 1.25rem;border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.25);text-decoration:none;transition:opacity .3s;opacity:0;pointer-events:none;}
+    #sticky-cta.visible{opacity:1;pointer-events:auto}
+    @media(min-width:768px){#sticky-cta{display:none}}
+  </style>
+  <script is:inline>
+    (function(){
+      var btn = document.getElementById('sticky-cta');
+      var hero = document.querySelector('.hero');
+      function check(){
+        var threshold = hero ? hero.offsetHeight : 300;
+        if(window.scrollY > threshold){ btn.classList.add('visible'); }
+        else { btn.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', check, {passive:true});
+      check();
+    })();
+  </script>
+
+</MainLayout>

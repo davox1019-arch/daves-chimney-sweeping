@@ -1,0 +1,183 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$199", "areaServed": ["Richmond VIC 3121"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/richmond", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Richmond VIC 3121. $199 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "Richmond", "addressRegion": "VIC", "postalCode": "3121", "addressCountry": "AU"}};
+const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you service Richmond VIC 3121?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 Richmond is part of our inner eastern Melbourne run. We cover Richmond and nearby suburbs including Hawthorn, Kew, South Yarra and Fitzroy."}}, {"@type": "Question", "name": "Our Richmond terrace has a cast-iron fireplace insert \u2014 can you sweep it without causing damage?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Cast-iron inserts are common in Richmond terraces and we work carefully around them. We protect the surround and clean the firebox and flue thoroughly without disturbing the original fittings."}}, {"@type": "Question", "name": "What does the $199 service include?", "acceptedAnswer": {"@type": "Answer", "text": "Full chimney sweep from firebox to pot, flue clean, soot and creosote removal, blockage and bird nest check, verbal condition report. No call-out fee \u2014 $199 per chimney."}}, {"@type": "Question", "name": "How often should a Richmond terrace fireplace be cleaned?", "acceptedAnswer": {"@type": "Answer", "text": "Annually for a regularly used fireplace. Victorian terrace chimneys with original lime mortar and clay flue liners benefit from consistent annual inspection to catch any deterioration early."}}, {"@type": "Question", "name": "Is there a call-out fee for Richmond?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 $199 flat rate per chimney, complete price."}}]};
+const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping Richmond VIC 3121", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "Richmond VIC 3121", "offers": {"@type": "Offer", "price": "199", "priceCurrency": "AUD", "description": "Chimney inspection and full clean"}, "serviceType": "Chimney Sweeping"};
+const faqs = [
+  {q:`Do you service Richmond VIC 3121?`,a:`Yes — Richmond is part of our inner eastern Melbourne run. We cover Richmond and nearby suburbs including Hawthorn, Kew, South Yarra and Fitzroy.`},
+  {q:`Our Richmond terrace has a cast-iron fireplace insert — can you sweep it without causing damage?`,a:`Yes. Cast-iron inserts are common in Richmond terraces and we work carefully around them. We protect the surround and clean the firebox and flue thoroughly without disturbing the original fittings.`},
+  {q:`What does the $199 service include?`,a:`Full chimney sweep from firebox to pot, flue clean, soot and creosote removal, blockage and bird nest check, verbal condition report. No call-out fee — $199 per chimney.`},
+  {q:`How often should a Richmond terrace fireplace be cleaned?`,a:`Annually for a regularly used fireplace. Victorian terrace chimneys with original lime mortar and clay flue liners benefit from consistent annual inspection to catch any deterioration early.`},
+  {q:`Is there a call-out fee for Richmond?`,a:`No — $199 flat rate per chimney, complete price.`}
+];
+---
+
+<MainLayout
+  title="Chimney Sweep Richmond VIC 3121 — $199 Clean & Inspect"
+  description="Chimney sweeping Richmond VIC 3121 — $199 chimney inspection & full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
+  clusterBase="Melbourne's Inner Eastern Suburbs"
+  clusterRegion="Melbourne's inner eastern suburbs"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Chimney Sweep Richmond 3121</h1>
+      <p class="hero-sub">$199 chimney inspection &amp; full clean &mdash; Richmond &amp; surrounds. Owner-operated, no call-out fee, same-week bookings.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="tel:0476302729">Call 0476&nbsp;302&nbsp;729</a>
+        <a class="btn-secondary" href="#booking">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <span>&#10003; $199 flat rate</span>
+    <span>&#10003; No call-out fee</span>
+    <span>&#10003; Same-week bookings</span>
+    <span>&#10003; Owner-operated</span>
+    <span>&#10003; Richmond &amp; surrounds</span>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <h2>Chimney Sweep Richmond — Pricing</h2>
+    <div class="price-card">
+      <div class="price-amount">$199</div>
+      <div class="price-label">Full chimney inspection &amp; clean</div>
+      <ul class="price-includes">
+        <li>Full sweep from firebox to pot</li>
+        <li>Flue clean &amp; soot removal</li>
+        <li>Creosote &amp; blockage check</li>
+        <li>Bird nest removal if present</li>
+        <li>Verbal condition report</li>
+        <li>No call-out fee</li>
+      </ul>
+      <a class="btn-primary" href="tel:0476302729">Book Now — 0476 302 729</a>
+    </div>
+  </section>
+
+  <!-- LOCAL KNOWLEDGE -->
+  <section class="local-section" id="local">
+    <h2>Chimney Sweeping in Richmond</h2>
+    <div class="local-box"><p>Richmond is one of Melbourne's oldest and most densely built inner suburbs, established from the 1850s on the flat ground east of the CBD between the Yarra River and the high ground of Hawthorn. The suburb's residential streets are characterised almost entirely by Victorian terrace housing — long rows of single and double-storey brick terraces that were built rapidly through the 1870s and 1880s to house the factory workers and tradespeople who worked in the nearby manufacturing district. A very high proportion of Richmond's terrace homes retain their original chimneys and fireplaces, often with Victorian cast-iron inserts and marble or timber surrounds that owners have carefully restored. Richmond's position on the flat ground between the Yarra and the ridge creates a winter cold pattern dominated by fog and cool air draining down from the higher suburbs: the suburb can be noticeably colder and damper than Hawthorn or Kew on a still winter morning, which makes wood heating genuinely useful despite the suburb's inner-city location. We work regularly in Richmond and have experience with the Victorian terrace chimney configurations, cast-iron fireplace inserts and high-density terrace-row chimney stacks that characterise the suburb.</p></div>
+  </section>
+
+  <!-- SIGNS -->
+  <section class="signs-section" id="signs">
+    <h2>Signs Your Richmond Chimney Needs Cleaning</h2>
+    <ul class="signs-list">
+      <li>Smoke or soot smell coming back into the room when you light the fire</li>
+      <li>A slow, sluggish draw even with a good fire going</li>
+      <li>Soot deposits around the cast-iron insert or firebox surround</li>
+      <li>A chimney pot that hasn't been inspected since the home was bought</li>
+      <li>Damp or moisture smell from the fireplace during winter</li>
+    </ul>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <h2>Chimney Services in Richmond</h2>
+    <div class="services-grid">
+      <div class="service-card"><h3>Chimney Sweep</h3><p>Full brush sweep from firebox to pot. Soot, creosote and debris removed. Verbal condition report included.</p></div>
+      <div class="service-card"><h3>Flue Cleaning</h3><p>Thorough flue clean using professional brushes and equipment. Removes accumulated creosote and restores full draw.</p></div>
+      <div class="service-card"><h3>Wood Heater Service</h3><p>Slow combustion heater flue clean and inspection. Baffle check, door seal inspection, full flue swept top to bottom.</p></div>
+      <div class="service-card"><h3>Chimney Inspection</h3><p>Visual inspection of firebox, flue, damper, crown and pot. Written report available on request. Included in the $199 service.</p></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <h2>What Richmond Customers Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Victorian terrace with original cast-iron insert. David swept the flue cleanly and carefully without disturbing the original marble surround. Fireplace draws perfectly now. Highly recommend.&rdquo;</p><p class="review-author">Marcus L., Richmond</p></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;We have used the fireplace every winter since we bought the terrace and had never had the flue cleaned. David came out and removed a substantial amount of creosote. Really glad we got it done.&rdquo;</p><p class="review-author">Jess B., Richmond</p></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Prompt, professional, no mess. David gave a clear verbal report on the chimney condition and pointed out a small crack in the pot that we hadn't noticed. Great service at a fair price.&rdquo;</p><p class="review-author">Daniel W., Richmond</p></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <h2>About Dave&rsquo;s Chimney Sweeping</h2>
+    <p>Dave&rsquo;s Chimney Sweeping is a local, owner-operated business covering Melbourne's inner eastern suburbs including Richmond. Dave personally handles every job &mdash; no subcontractors, no call centres. Flat $199 rate per chimney, no hidden fees.</p>
+    <a class="btn-secondary" href="tel:0476302729">Call Dave — 0476 302 729</a>
+  </section>
+
+  <!-- FAQs -->
+  <section class="faq-section" id="faq">
+    <h2>Chimney Sweep Richmond — FAQs</h2>
+    {faqs.map(f => (
+    <details>
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+    ))}
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="booking-section" id="booking">
+    <h2>Book a Chimney Sweep in Richmond</h2>
+    <form action="https://formspree.io/f/xdkobvpv" method="POST" class="booking-form">
+      <input type="hidden" name="suburb" value="Richmond 3121" />
+      <label>Name <input type="text" name="name" required /></label>
+      <label>Phone <input type="tel" name="phone" required /></label>
+      <label>Email <input type="email" name="email" /></label>
+      <label>Message <textarea name="message" rows="3">Chimney sweep enquiry — Richmond 3121</textarea></label>
+      <button type="submit" class="btn-primary">Send Enquiry</button>
+    </form>
+  </section>
+
+  <!-- NEARBY SUBURBS -->
+  <section class="nearby-section" id="nearby">
+    <h2>Nearby Areas We Service</h2>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/hawthorn">Hawthorn 3122</a>
+      <a class="suburb-chip" href="/chimney-sweeping/kew">Kew 3101</a>
+      <a class="suburb-chip" href="/chimney-sweeping/fitzroy-north">Fitzroy 3065</a>
+      <a class="suburb-chip" href="/chimney-sweeping/fitzroy-north">Collingwood 3066</a>
+      <a class="suburb-chip" href="/chimney-sweeping/south-yarra">South Yarra 3141</a>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/#service-areas">Service Areas</a> &rsaquo; Richmond
+  </nav>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <h2>Ready to book your Richmond chimney sweep?</h2>
+    <p>$199 flat rate &mdash; no call-out fee &mdash; same-week bookings available.</p>
+    <a class="btn-primary" href="tel:0476302729">Call 0476 302 729</a>
+  </section>
+
+  <!-- STICKY MOBILE CTA -->
+  <a href="tel:0476302729" id="sticky-cta" aria-label="Call or text Dave">
+    <span id="sticky-icon">&#128222;</span>
+    <span id="sticky-text">Call/Text Dave</span>
+  </a>
+  <style>
+    #sticky-cta{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;align-items:center;gap:.5rem;background:#e07b00;color:#fff;font-weight:700;font-size:1rem;padding:.75rem 1.25rem;border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.25);text-decoration:none;transition:opacity .3s;opacity:0;pointer-events:none;}
+    #sticky-cta.visible{opacity:1;pointer-events:auto}
+    @media(min-width:768px){#sticky-cta{display:none}}
+  </style>
+  <script is:inline>
+    (function(){
+      var btn = document.getElementById('sticky-cta');
+      var hero = document.querySelector('.hero');
+      function check(){
+        var threshold = hero ? hero.offsetHeight : 300;
+        if(window.scrollY > threshold){ btn.classList.add('visible'); }
+        else { btn.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', check, {passive:true});
+      check();
+    })();
+  </script>
+
+</MainLayout>
