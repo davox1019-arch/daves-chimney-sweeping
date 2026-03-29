@@ -324,7 +324,7 @@ const faqs = [
     <p class="sl">FAQs</p>
     <h2>Chimney Sweeping Heathmont &mdash; Common Questions</h2>
     <div class="faq-list">
-      {faqs.map((\{q,a\}) => (
+      {faqs.map(({q,a}) => (
         <details class="faq-item"><summary>{q}</summary><div class="faq-answer">{a}</div></details>
       ))}
     </div>
