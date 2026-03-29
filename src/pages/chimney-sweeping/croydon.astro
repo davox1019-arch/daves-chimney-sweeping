@@ -1,0 +1,362 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Daves Chimney Sweeping",
+  "telephone": "+61476302729",
+  "priceRange": "$199",
+  "areaServed": [
+    "Croydon VIC 3136"
+  ],
+  "url": "https://daveschimneysweeping.com.au/chimney-sweeping/croydon",
+  "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Croydon VIC 3136. $199 chimney inspection and clean.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Croydon",
+    "addressRegion": "VIC",
+    "postalCode": "3136",
+    "addressCountry": "AU"
+  }
+};
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you service Croydon VIC 3136?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — we cover Croydon, Croydon Hills, Croydon North and Croydon South regularly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bird nests keep blocking our chimney. Is this common in Croydon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Very common, especially in properties backing onto bushland in Croydon Hills and Croydon North. We clear nests as part of every service — no extra charge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's included in the $199 chimney clean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Full chimney sweep, flue clean, soot and creosote removal, bird nest and blockage clearance, verbal condition report. No call-out fee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "We have a 1970s freestanding heater. Can you service those?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — we clean all wood heater types including older freestanding units. We clean the heater body, flue pipe and chimney in a single visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a call-out fee for Croydon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — $199 flat rate is the complete price for all Croydon areas."
+      }
+    }
+  ]
+};
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Chimney Sweeping Croydon VIC 3136",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Daves Chimney Sweeping",
+    "telephone": "+61476302729"
+  },
+  "areaServed": "Croydon VIC 3136",
+  "offers": {
+    "@type": "Offer",
+    "price": "199",
+    "priceCurrency": "AUD",
+    "description": "Chimney inspection and full clean"
+  },
+  "serviceType": "Chimney Sweeping"
+};
+const faqs = [
+  {q:`Do you service Croydon VIC 3136?`,a:`Yes — we cover Croydon, Croydon Hills, Croydon North and Croydon South regularly.`},
+  {q:`Bird nests keep blocking our chimney. Is this common in Croydon?`,a:`Very common, especially in properties backing onto bushland in Croydon Hills and Croydon North. We clear nests as part of every service — no extra charge.`},
+  {q:`What's included in the $199 chimney clean?`,a:`Full chimney sweep, flue clean, soot and creosote removal, bird nest and blockage clearance, verbal condition report. No call-out fee.`},
+  {q:`We have a 1970s freestanding heater. Can you service those?`,a:`Yes — we clean all wood heater types including older freestanding units. We clean the heater body, flue pipe and chimney in a single visit.`},
+  {q:`Is there a call-out fee for Croydon?`,a:`No — $199 flat rate is the complete price for all Croydon areas.`}
+];
+---
+
+<MainLayout
+  title="Chimney Sweep Croydon VIC 3136 — $199 Clean & Inspect"
+  description="Chimney sweeping Croydon VIC 3136 — $199 chimney inspection & full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
+  clusterBase="Melbourne's Eastern Suburbs"
+  clusterRegion="Melbourne's eastern suburbs"
+  homeHref="/"
+  servicePageHref="/"
+  servicePageLabel="Chimney Sweeping Melbourne"
+  suppressAbout={true}
+  footerArea="Croydon, Ringwood & Kilsyth VIC"
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
+
+  <style>
+    :root{--bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;--bw:#f5f0e8;--wh:#ffffff;--tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px}
+    .hero{background:linear-gradient(160deg,#18120a 0%,#2c1a0c 55%,#1a1a18 100%);color:var(--wh);padding:3.8rem 1.25rem 3.4rem;text-align:center}
+    @media(max-width:640px){.hero{background:url('/images/firehome.jpg') center/cover no-repeat;padding:.5rem}.hero-box{background:rgba(10,6,4,0.72);border-radius:14px;padding:1.25rem .75rem;max-width:480px;margin:0 auto}.hero-box .btn-row{flex-direction:column;gap:.5rem;width:100%}.hero-box .btn{max-width:none;width:calc(100% - 1rem);padding:.9rem 1rem;font-size:1rem}.hero-box .btn-call{font-size:1rem}.hero-lead{font-weight:700;color:#fff!important}.hero-sub{font-weight:600;color:#fff!important}}
+    .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem}
+    .hero h1{font-size:clamp(2.4rem,6.5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
+    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.9rem;font-weight:800;padding:.6rem 1.25rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c;white-space:nowrap}
+    .hero-lead{font-size:1.18rem;line-height:1.72;color:#d4d1cb;margin:0 auto .8rem;max-width:520px}
+    .hero-sub{font-size:.98rem;line-height:1.65;color:#a09d96;max-width:500px;margin:0 auto 2.2rem}
+    .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+    .btn{display:inline-block;padding:1rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s,transform .15s}
+    .btn:hover{opacity:.88;transform:translateY(-1px)}
+    .btn-call{background:var(--ba);color:#fff;font-size:1.25rem;letter-spacing:.01em}
+    .btn-quote{background:transparent;border:2px solid rgba(255,255,255,0.32);color:#fff}
+    .trust-bar{background:var(--bm);padding:1.1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.86rem;color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .ti svg{flex-shrink:0;color:var(--ba)}
+    .sec{padding:2.9rem 1.25rem;max-width:720px;margin:0 auto}
+    .sec+.sec{border-top:1px solid var(--br)}
+    .sl{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
+    .sec h2{font-size:clamp(1.65rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec p{font-size:1.06rem;line-height:1.8;color:var(--ts);margin:0 0 .9rem}
+    .sec p:last-child{margin-bottom:0}
+    .price-box{background:var(--bw);border:2px solid #2a6b1c;border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem;text-align:center}
+    .price-num{font-size:3.6rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.25rem}
+    .price-label{font-size:1.05rem;font-weight:700;color:var(--tm);margin-bottom:.75rem}
+    .price-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
+    .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.35rem .8rem;font-size:.84rem;font-weight:600;color:var(--ts)}
+    .pi::before{content:"✓ ";color:#2a6b1c;font-weight:800}
+    .local-box{background:var(--bw);border-left:4px solid var(--ba);border-radius:0 var(--rad) var(--rad) 0;padding:1.25rem 1.25rem;margin-top:1rem}
+    .local-box p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0}
+    .reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
+    @media(max-width:480px){.reason-grid{grid-template-columns:1fr}}
+    .rc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.1rem 1rem}
+    .rc-icon{font-size:1.4rem;display:block;margin-bottom:.4rem}
+    .rc-title{font-size:.95rem;font-weight:700;color:var(--tm);margin-bottom:.25rem}
+    .rc-desc{font-size:.86rem;line-height:1.55;color:var(--ts)}
+    .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.1rem}
+    @media(max-width:380px){.svc-list{grid-template-columns:1fr}}
+    .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.75rem .9rem;font-size:.95rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
+    .sv::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
+    .reviews-grid{display:flex;flex-direction:column;gap:.85rem;margin-top:1.1rem}
+    .review-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.25rem 1.25rem}
+    .review-stars{color:#f59e0b;font-size:1.15rem;margin-bottom:.5rem;letter-spacing:.05em}
+    .review-text{font-size:.97rem;line-height:1.7;color:var(--ts);margin:0 0 .6rem;font-style:italic}
+    .review-author{font-size:.84rem;font-weight:700;color:var(--tm)}
+    .form-wrap{background:var(--bw);border:2px solid var(--ba);border-radius:var(--rad);padding:1.75rem 1.25rem;margin-top:1rem}
+    .form-wrap h3{font-size:1.15rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
+    .form-sub{font-size:.9rem;color:var(--ts);margin:0 0 1.25rem}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+    @media(max-width:500px){.form-grid{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;gap:.3rem}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.8rem;font-weight:700;color:var(--tm);letter-spacing:.03em;text-transform:uppercase}
+    .field input,.field select,.field textarea{width:100%;box-sizing:border-box;border:2px solid var(--br);border-radius:8px;padding:.72rem .85rem;font-size:1rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ba)}
+    .field textarea{resize:vertical;min-height:90px}
+    .form-submit{display:block;width:100%;margin-top:1rem;background:var(--ba);color:#fff;border:none;padding:1rem;border-radius:var(--rad);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s,transform .15s}
+    .form-submit:hover{opacity:.88;transform:translateY(-1px)}
+    .faq-list{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
+    details.faq-item{border-bottom:1px solid var(--br)}
+    details.faq-item:last-child{border-bottom:none}
+    details.faq-item summary{padding:1.1rem 1.25rem;font-size:1rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}details.faq-item summary::marker{content:"";display:none}
+    details.faq-item summary::-webkit-details-marker{display:none}
+    details.faq-item summary:hover{background:var(--bw)}
+    details.faq-item summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
+    details.faq-item[open] summary::after{content:"−"}
+    .faq-answer{padding:.1rem 1.25rem 1.1rem;font-size:.97rem;line-height:1.75;color:var(--ts);background:var(--wh)}
+    .suburb-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+    .suburb-chip{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.42rem .85rem;font-size:.86rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
+    .suburb-chip:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    .bottom-cta{background:url('/images/fireplace3.jpg') center/cover no-repeat;color:var(--wh);padding:2.8rem 1rem;text-align:center}
+    .bottom-cta-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:480px;margin:0 auto}
+    .bottom-cta-inner .btn-row{flex-direction:column;gap:.5rem;width:100%}
+    .bottom-cta-inner .btn{max-width:none;width:calc(100% - 1rem);box-sizing:border-box;padding:.9rem 1rem;font-size:1rem}
+    .bottom-cta-inner .btn-call{font-size:1rem}
+    .bottom-cta h2{font-size:clamp(1.65rem,5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
+    .bottom-cta p{font-size:1rem;color:rgba(255,255,255,0.9);margin:0 auto 1.9rem;line-height:1.6;max-width:440px;font-weight:600}
+    .about-fp{background:url('/images/fireplace.jpg') center/cover no-repeat;padding:2.5rem 1rem}
+    .about-fp-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:680px;margin:0 auto}
+    .about-fp p{font-size:1.06rem;line-height:1.8;color:rgba(255,255,255,0.92);font-weight:600;margin:0 0 .9rem}
+    .about-fp p:last-child{margin-bottom:0}
+    .dirty-flue-wrap{display:none;margin-top:1.1rem;justify-content:center;gap:.6rem}
+    .dirty-flue-item{display:flex;flex-direction:column;align-items:center;gap:.3rem}.dirty-flue-img{width:120px;height:auto;border-radius:6px}
+    .dirty-flue-cap{font-size:.72rem;color:var(--ts);margin:.45rem auto 0;max-width:300px;line-height:1.45;font-style:italic}
+    @media(max-width:640px){.dirty-flue-wrap{display:flex}}
+    .work-img-wrap{display:none;margin-top:1rem;text-align:center}.work-img{width:100%;height:auto;border-radius:8px}@media(max-width:640px){.work-img-wrap{display:block}}
+    .breadcrumb{font-size:.65rem;color:#6b6860;padding:.2rem 1.25rem;text-align:center;opacity:0.4;line-height:1}
+    .breadcrumb a{color:#6b6860;text-decoration:none}
+  </style>
+
+  <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/chimney-sweeping/">Chimney Sweeping Melbourne</a> &rsaquo; Croydon</div>
+
+  <section class="hero">
+    <div class="hero-box">
+      <span class="hero-eyebrow">Croydon VIC 3136</span>
+      <h1>Chimney Sweep<br>Croydon</h1>
+      <div class="price-badge">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        $199 Full Clean &amp; Inspect
+      </div>
+      <p class="hero-lead">Professional chimney sweeping in Croydon — soot, creosote and blockages cleared in a single visit.</p>
+      <p class="hero-sub">No call-out fee &middot; Local owner-operated &middot; Same price every suburb</p>
+      <div class="btn-row">
+        <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+        <a class="btn btn-quote" href="#quote">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <span class="ti"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>Fully Insured</span>
+    <span class="ti"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>$199 Flat Rate</span>
+    <span class="ti"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Local &amp; Owner-Operated</span>
+    <span class="ti"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>Same Week Bookings</span>
+  </div>
+
+  <section class="sec">
+    <div class="sl">Local Knowledge</div>
+    <h2>Croydon — Large Eastern Suburb, Mixed Housing Eras, Gateway to the Ranges</h2>
+    <div class="local-box"><p>Croydon is one of Melbourne's larger established eastern suburbs, spanning a wide area that includes Croydon Hills, Croydon North and Croydon South. The suburb developed steadily from the 1950s through to the 1990s, producing a housing stock that ranges from original post-war homes on large blocks to 1990s estate developments on subdivided lots. This variety of housing eras means chimney and wood heater configurations vary enormously across the suburb: original open fireplaces in the older sections, early freestanding heaters from the 1970s and 1980s in the middle belt, and more modern slow-combustion installations in the newer sections. Croydon's geography places it in a transition zone between Melbourne's flat eastern suburbs and the rising ground of the Dandenong Ranges foothills. The northern sections — particularly Croydon North and Croydon Hills — sit at higher elevations and are noticeably colder in winter than the suburb's southern areas. Cold air drainage overnight, combined with the altitude effect, means wood fires are a genuine necessity in these sections rather than simply a lifestyle feature. The Croydon Hills area in particular has many properties backing onto bushland reserves, and bird nesting in unused chimneys over summer is extremely common. We regularly service Croydon and all its surrounding pockets, and bird nest removal is a standard part of our inspection process.</p></div>
+  </section>
+
+  <section class="sec">
+    <div class="sl">Pricing</div>
+    <h2>$199 — Chimney Sweep &amp; Full Inspection</h2>
+    <p>One flat price covers everything. No call-out fee, no hidden extras.</p>
+    <div class="price-box">
+      <div class="price-num">$199</div>
+      <div class="price-label">Chimney Sweep &amp; Full Inspection — Croydon</div>
+      <div class="price-includes">
+        <span class="pi">Full chimney sweep</span>
+        <span class="pi">Flue cleaning</span>
+        <span class="pi">Creosote removal</span>
+        <span class="pi">Soot &amp; ash removal</span>
+        <span class="pi">Bird nest check</span>
+        <span class="pi">Blockage clearance</span>
+        <span class="pi">Verbal condition report</span>
+        <span class="pi">No call-out fee</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sl">Why Clean</div>
+    <h2>Why Croydon Homes Need Regular Chimney Cleaning</h2>
+    <div class="reason-grid">
+      <div class="rc"><span class="rc-icon">🔥</span><div class="rc-title">Creosote Fire Risk</div><div class="rc-desc">Creosote builds up with every fire. Heavy deposits can ignite and cause a chimney fire.</div></div>
+      <div class="rc"><span class="rc-icon">💨</span><div class="rc-title">Poor Draw</div><div class="rc-desc">Buildup on flue walls restricts airflow, making fires hard to start and maintain.</div></div>
+      <div class="rc"><span class="rc-icon">🐦</span><div class="rc-title">Bird Nests</div><div class="rc-desc">Unused chimneys over summer collect nests that block airflow completely.</div></div>
+      <div class="rc"><span class="rc-icon">🏠</span><div class="rc-title">Mortar Deterioration</div><div class="rc-desc">Older brick chimneys need periodic inspection for cracking and mortar joint failure.</div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sl">Services</div>
+    <h2>What We Clean in Croydon</h2>
+    <div class="svc-list">
+      <div class="sv">Open fireplaces</div>
+      <div class="sv">Freestanding wood heaters</div>
+      <div class="sv">Slow combustion heaters</div>
+      <div class="sv">Flue pipes &amp; liners</div>
+      <div class="sv">Chimney pots &amp; caps</div>
+      <div class="sv">Bird nest removal</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sl">Reviews</div>
+    <h2>What Croydon Customers Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Croydon Hills home — had a massive bird nest blocking the top of the chimney we didn't even know about. David cleared it completely and cleaned the whole flue. Excellent service."</p>
+        <div class="review-author">Sandra M. &mdash; Croydon Hills 3136</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"We have a 1975 open fireplace that's been in the family home for 50 years. David cleaned it thoroughly and gave us an honest condition report. Very reassuring."</p>
+        <div class="review-author">John B. &mdash; Croydon 3136</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Quick booking, arrived on time, no mess. The heater is drawing so much better now. Will be using every year from now on."</p>
+        <div class="review-author">Rachel D. &mdash; Croydon North 3136</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="quote">
+    <div class="sl">Book a Clean</div>
+    <h2>Book a Chimney Sweep in Croydon</h2>
+    <div class="form-wrap">
+      <h3>Request a Booking — Croydon VIC 3136</h3>
+      <p class="form-sub">We'll confirm your booking by phone or text within one business day.</p>
+      <form name="contact" method="POST" data-netlify="true" action="/thanks">
+        <input type="hidden" name="suburb" value="Croydon VIC 3136" />
+        <div class="form-grid">
+          <div class="field"><label for="name-f">Name</label><input type="text" id="name-f" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" required placeholder="04xx xxx xxx" /></div>
+          <div class="field full"><label for="address">Address</label><input type="text" id="address" name="address" placeholder="Croydon VIC 3136" /></div>
+          <div class="field full"><label for="heater-type">Heater type</label>
+            <select id="heater-type" name="heater_type">
+              <option value="">Select...</option>
+              <option>Open fireplace</option>
+              <option>Freestanding wood heater</option>
+              <option>Slow combustion heater</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+          <div class="field full"><label for="msg">Anything else?</label><textarea id="msg" name="message" placeholder="Last cleaned, any issues, access notes..."></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">Send Booking Request</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sl">FAQs</div>
+    <h2>Chimney Sweeping Croydon — Common Questions</h2>
+    <div class="faq-list">
+      {faqs.map((f: {q:string;a:string}) => (
+        <details class="faq-item">
+          <summary>{f.q}</summary>
+          <div class="faq-answer">{f.a}</div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sl">Nearby Areas</div>
+    <h2>Also Serving Suburbs Near Croydon</h2>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/ringwood">Ringwood 3134</a>
+      <a class="suburb-chip" href="/chimney-sweeping/kilsyth">Kilsyth 3137</a>
+      <a class="suburb-chip" href="/chimney-sweeping/mooroolbark">Mooroolbark 3138</a>
+      <a class="suburb-chip" href="/chimney-sweeping/montrose">Montrose 3765</a>
+    </div>
+  </section>
+
+  <div class="bottom-cta">
+    <div class="bottom-cta-inner">
+      <h2>Ready to Book?</h2>
+      <p>$199 chimney sweep &amp; inspection in Croydon. Same price, no call-out fee.</p>
+      <div class="btn-row">
+        <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>
+        <a class="btn btn-quote" href="#quote">Request a Quote</a>
+      </div>
+    </div>
+  </div>
+</MainLayout>
