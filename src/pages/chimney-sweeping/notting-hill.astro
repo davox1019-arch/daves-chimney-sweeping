@@ -1,0 +1,352 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$199", "areaServed": ["Notting Hill VIC 3168"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/notting-hill", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Notting Hill VIC 3168. $199 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "Notting Hill", "addressRegion": "VIC", "postalCode": "3168", "addressCountry": "AU"}};
+const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does Dave service Notting Hill?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 Notting Hill is covered as part of Dave's south-east Melbourne service area. Call 0476 302 729 to book."}}, {"@type": "Question", "name": "What's included in the $199 chimney sweep?", "acceptedAnswer": {"@type": "Answer", "text": "A full sweep of the flue, inspection of the firebox and flue condition, and a summary of findings. No call-out fee."}}, {"@type": "Question", "name": "How quickly can Dave come out?", "acceptedAnswer": {"@type": "Answer", "text": "Dave usually has availability within the same week. Call 0476 302 729 or submit the form above and he'll be in touch to arrange a time."}}]};
+const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping Notting Hill VIC 3168", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "Notting Hill VIC 3168", "offers": {"@type": "Offer", "price": "199", "priceCurrency": "AUD", "description": "Chimney inspection and full clean"}, "serviceType": "Chimney Sweeping"};
+const faqs = [
+  {q:`Does Dave service Notting Hill?`,a:`Yes — Notting Hill is covered as part of Dave's south-east Melbourne service area. Call 0476 302 729 to book.`},
+  {q:`What's included in the $199 chimney sweep?`,a:`A full sweep of the flue, inspection of the firebox and flue condition, and a summary of findings. No call-out fee.`},
+  {q:`How quickly can Dave come out?`,a:`Dave usually has availability within the same week. Call 0476 302 729 or submit the form above and he'll be in touch to arrange a time.`}
+];
+---
+
+<MainLayout
+  title="Chimney Sweep Notting Hill VIC 3168 &mdash; $199 Clean &amp; Inspect"
+  description="Chimney sweeping Notting Hill VIC 3168 &mdash; $199 chimney inspection &amp; full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
+  clusterBase="Melbourne's South-East"
+  clusterRegion="Melbourne's south-east"
+  homeHref="/"
+  servicePageHref="/"
+  servicePageLabel="Chimney Sweeping Melbourne"
+  suppressAbout={true}
+  footerArea="Notting Hill, Oakleigh & Clayton VIC"
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
+
+  <style>
+    :root{--bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;--bw:#f5f0e8;--wh:#ffffff;--tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px}
+    .hero{background:linear-gradient(160deg,#18120a 0%,#2c1a0c 55%,#1a1a18 100%);color:var(--wh);padding:3.8rem 1.25rem 3.4rem;text-align:center}
+    @media(max-width:640px){.hero{background:url('/images/firehome.jpg') center/cover no-repeat;padding:.5rem}.hero-box{background:rgba(10,6,4,0.72);border-radius:14px;padding:1.25rem .75rem;max-width:480px;margin:0 auto}.hero-box .btn-row{flex-direction:column;gap:.5rem;width:100%}.hero-box .btn{max-width:none;width:calc(100% - 1rem);padding:.9rem 1rem;font-size:1rem}.hero-box .btn-call{font-size:1rem}.hero-lead{font-weight:700;color:#fff!important}.hero-sub{font-weight:600;color:#fff!important}}
+    .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem}
+    .hero h1{font-size:clamp(2.4rem,6.5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
+    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.9rem;font-weight:800;padding:.6rem 1.25rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c;white-space:nowrap}
+    .hero-lead{font-size:1.18rem;line-height:1.72;color:#d4d1cb;margin:0 auto .8rem;max-width:520px}
+    .hero-sub{font-size:.98rem;line-height:1.65;color:#a09d96;max-width:500px;margin:0 auto 2.2rem}
+    .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+    .btn{display:inline-block;padding:1rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s,transform .15s}
+    .btn:hover{opacity:.88;transform:translateY(-1px)}
+    .btn-call{background:var(--ba);color:#fff;font-size:1.25rem;letter-spacing:.01em}
+    .btn-quote{background:transparent;border:2px solid rgba(255,255,255,0.32);color:#fff}
+    .trust-bar{background:var(--bm);padding:1.1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.86rem;color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .ti svg{flex-shrink:0;color:var(--ba)}
+    .sec{padding:2.9rem 1.25rem;max-width:720px;margin:0 auto}
+    .sec+.sec{border-top:1px solid var(--br)}
+    .sl{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
+    .sec h2{font-size:clamp(1.65rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec p{font-size:1.06rem;line-height:1.8;color:var(--ts);margin:0 0 .9rem}
+    .sec p:last-child{margin-bottom:0}
+    .price-box{background:var(--bw);border:2px solid #2a6b1c;border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem;text-align:center}
+    .price-num{font-size:3.6rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.25rem}
+    .price-label{font-size:1.05rem;font-weight:700;color:var(--tm);margin-bottom:.75rem}
+    .price-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
+    .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.35rem .8rem;font-size:.84rem;font-weight:600;color:var(--ts)}
+    .pi::before{content:"✓ ";color:#2a6b1c;font-weight:800}
+    .local-box{background:var(--bw);border-left:4px solid var(--ba);border-radius:0 var(--rad) var(--rad) 0;padding:1.25rem 1.25rem;margin-top:1rem}
+    .local-box p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0}
+    .reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
+    @media(max-width:480px){.reason-grid{grid-template-columns:1fr}}
+    .rc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.1rem 1rem}
+    .rc-icon{font-size:1.4rem;display:block;margin-bottom:.4rem}
+    .rc-title{font-size:.95rem;font-weight:700;color:var(--tm);margin-bottom:.25rem}
+    .rc-desc{font-size:.86rem;line-height:1.55;color:var(--ts)}
+    .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.1rem}
+    @media(max-width:380px){.svc-list{grid-template-columns:1fr}}
+    .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.75rem .9rem;font-size:.95rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
+    .sv::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
+    .reviews-grid{display:flex;flex-direction:column;gap:.85rem;margin-top:1.1rem}
+    .review-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.25rem 1.25rem}
+    .review-stars{color:#f59e0b;font-size:1.15rem;margin-bottom:.5rem;letter-spacing:.05em}
+    .review-text{font-size:.97rem;line-height:1.7;color:var(--ts);margin:0 0 .6rem;font-style:italic}
+    .review-author{font-size:.84rem;font-weight:700;color:var(--tm)}
+    .form-wrap{background:var(--bw);border:2px solid var(--ba);border-radius:var(--rad);padding:1.75rem 1.25rem;margin-top:1rem}
+    .form-wrap h3{font-size:1.15rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
+    .form-sub{font-size:.9rem;color:var(--ts);margin:0 0 1.25rem}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+    @media(max-width:500px){.form-grid{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;gap:.3rem}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.8rem;font-weight:700;color:var(--tm);letter-spacing:.03em;text-transform:uppercase}
+    .field input,.field select,.field textarea{width:100%;box-sizing:border-box;border:2px solid var(--br);border-radius:8px;padding:.72rem .85rem;font-size:1rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ba)}
+    .field textarea{resize:vertical;min-height:90px}
+    .form-submit{display:block;width:100%;margin-top:1rem;background:var(--ba);color:#fff;border:none;padding:1rem;border-radius:var(--rad);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s,transform .15s}
+    .form-submit:hover{opacity:.88;transform:translateY(-1px)}
+    .faq-list{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
+    details.faq-item{border-bottom:1px solid var(--br)}
+    details.faq-item:last-child{border-bottom:none}
+    details.faq-item summary{padding:1.1rem 1.25rem;font-size:1rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}details.faq-item summary::marker{content:"";display:none}
+    details.faq-item summary::-webkit-details-marker{display:none}
+    details.faq-item summary:hover{background:var(--bw)}
+    details.faq-item summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
+    details.faq-item[open] summary::after{content:"−"}
+    .faq-answer{padding:.1rem 1.25rem 1.1rem;font-size:.97rem;line-height:1.75;color:var(--ts);background:var(--wh)}
+    .suburb-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+    .suburb-chip{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.42rem .85rem;font-size:.86rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
+    .suburb-chip:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    .about-fp{background:url('/images/fireplace.jpg') center/cover no-repeat;padding:2.5rem 1rem}
+    .about-fp-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:680px;margin:0 auto}
+    .about-fp p{font-size:1.06rem;line-height:1.8;color:rgba(255,255,255,0.92);font-weight:600;margin:0 0 .9rem}
+    .about-fp p:last-child{margin-bottom:0}
+    .bottom-cta{background:url('/images/fireplace3.jpg') center/cover no-repeat;color:var(--wh);padding:2.8rem 1rem;text-align:center}
+    .bottom-cta-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:480px;margin:0 auto}
+    .bottom-cta-inner .btn-row{flex-direction:column;gap:.5rem;width:100%}
+    .bottom-cta-inner .btn{max-width:none;width:calc(100% - 1rem);box-sizing:border-box;padding:.9rem 1rem;font-size:1rem}
+    .bottom-cta-inner .btn-call{font-size:1rem}
+    .bottom-cta h2{font-size:clamp(1.65rem,5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
+    .bottom-cta p{font-size:1rem;color:rgba(255,255,255,0.9);margin:0 auto 1.9rem;line-height:1.6;max-width:440px;font-weight:600}
+    .breadcrumb{font-size:.65rem;color:#6b6860;padding:.2rem 1.25rem;text-align:center;opacity:0.4;line-height:1}
+    .breadcrumb a{color:#6b6860;text-decoration:none}
+    .breadcrumb span{margin:0 .25rem}
+    .dirty-flue-wrap{display:none;margin-top:1.1rem;justify-content:center;gap:.6rem}
+    .dirty-flue-item{display:flex;flex-direction:column;align-items:center;gap:.3rem}.dirty-flue-img{width:120px;height:auto;border-radius:6px}
+    .dirty-flue-cap{font-size:.72rem;color:var(--ts);margin:.45rem auto 0;max-width:300px;line-height:1.45;font-style:italic}
+    @media(max-width:640px){.dirty-flue-wrap{display:flex}}
+    .work-img-wrap{display:none;margin-top:1rem;text-align:center}.work-img{width:100%;height:auto;border-radius:8px}@media(max-width:640px){.work-img-wrap{display:block}}
+  </style>
+
+  <section class="hero">
+    <div class="hero-box">
+      <span class="hero-eyebrow">Notting Hill VIC 3168</span>
+      <h1>Chimney Sweeping<br>Notting Hill VIC 3168</h1>
+      <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
+      <p class="hero-lead">Local chimney &amp; flue sweeping in Notting Hill. We turn up when booked, leave your home spotless, and give you a straight verbal report before we go.</p>
+      <p class="hero-sub">$199 flat &mdash; no call-out fee, no hidden extras. Book direct with Dave.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.1rem;">
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fully Insured</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; No Mess Guaranteed</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fixed $199 Price</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Owner-Operated</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Verbal Condition Report</span>
+      </div>
+      <div style="display:flex;gap:0.6rem;margin-bottom:1.25rem;justify-content:center;">
+        <div style="text-align:center;cursor:pointer;" onclick="document.getElementById('lb').style.display='flex';document.getElementById('lb-img').src=this.querySelector('img').src">
+          <img src="/images/chimney-before-after.jpg" alt="Chimney before and after" style="width:140px;height:100px;object-fit:cover;border-radius:8px;" loading="lazy" />
+          <p style="color:#a09d96;font-size:0.68rem;margin:0.3rem 0 0;letter-spacing:0.05em;text-transform:uppercase;font-weight:700;">Chimney Before &amp; After</p>
+        </div>
+        <div style="text-align:center;cursor:pointer;" onclick="document.getElementById('lb').style.display='flex';document.getElementById('lb-img').src=this.querySelector('img').src">
+          <img src="/images/before-and-after-flue.jpg" alt="Flue before and after" style="width:140px;height:100px;object-fit:cover;border-radius:8px;" loading="lazy" />
+          <p style="color:#a09d96;font-size:0.68rem;margin:0.3rem 0 0;letter-spacing:0.05em;text-transform:uppercase;font-weight:700;">Flue Before &amp; After</p>
+        </div>
+      </div>
+      <div id="lb" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;">
+        <img id="lb-img" src="" alt="Enlarged photo" style="max-width:100%;max-height:90vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,0.6);" />
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
+        <a class="btn btn-quote" href="#quote">Book for $199</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon&ndash;Sat</span>
+  </div>
+
+  <section class="sec">
+    <p class="sl">Pricing</p>
+    <h2>$199 &mdash; Chimney Inspection &amp; Full Clean in Notting Hill</h2>
+    <p>One flat price. No call-out fee, no surprises on the day. Here is exactly what is covered:</p>
+    <div class="price-box">
+      <div class="price-num">$199</div>
+      <div class="price-label">Chimney Inspection &amp; Full Clean &mdash; Notting Hill</div>
+      <div class="price-includes">
+        <span class="pi">Chimney sweep</span>
+        <span class="pi">Flue cleaning</span>
+        <span class="pi">Creosote removal</span>
+        <span class="pi">Soot &amp; ash removal</span>
+        <span class="pi">Bird nest check</span>
+        <span class="pi">Blockage clearance</span>
+        <span class="pi">Condition report</span>
+        <span class="pi">No call-out fee</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">Local knowledge</p>
+    <h2>Notting Hill — South-East Residential Pocket, Postwar and Later Homes, Active Fireplaces</h2>
+    <div class="local-box"><p>Notting Hill is a small suburban pocket between Clayton and Glen Waverley, with a mix of residential and commercial land uses. The residential areas contain a range of postwar homes from the 1950s through to more recent development, and the suburb sits within the broader south-east belt where solid fuel heaters and open fireplaces remain common household features. Dave services Notting Hill as part of his regular south-east run and can accommodate bookings alongside visits to neighbouring Clayton, Oakleigh and Glen Waverley.</p></div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">When to book</p>
+    <h2>Signs Your Notting Hill Chimney Needs Cleaning</h2>
+    <p>If any of these sound familiar, it is time to book:</p>
+    <div class="reason-grid">
+      <div class="rc"><span class="rc-icon">&#128293;</span><div class="rc-title">Fire smoking back</div><div class="rc-desc">If the fire smokes into the room, the flue is blocked or restricted. Dave can diagnose the cause and clear it in most cases on the same visit.</div></div>
+      <div class="rc"><span class="rc-icon">&#128567;</span><div class="rc-title">Persistent smell from the fireplace</div><div class="rc-desc">Creosote build-up produces a distinctive smell even when the fire isn't lit. It's also a warning sign that the flue is due for a clean.</div></div>
+      <div class="rc"><span class="rc-icon">&#9000;</span><div class="rc-title">Fire not performing as well as usual</div><div class="rc-desc">Reduced fire performance over successive winters is almost always a sign of gradual creosote accumulation restricting airflow in the flue.</div></div>
+    </div>
+    <div class="dirty-flue-wrap">
+      <div class="dirty-flue-item">
+        <img src="/images/dirty flue2.JPG" alt="Dirty flue before cleaning" class="dirty-flue-img" loading="lazy" />
+        <p class="dirty-flue-cap">Sooted flue lining</p>
+      </div>
+      <div class="dirty-flue-item">
+        <img src="/images/fluecap.JPG" alt="Blocked flue cap" class="dirty-flue-img" loading="lazy" />
+        <p class="dirty-flue-cap">Blocked flue cap</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">What is included</p>
+    <h2>Everything in the One $199 Visit</h2>
+    <p>We cover the full system &mdash; chimney, flue and heater &mdash; in a single visit to your Notting Hill home:</p>
+    <div class="svc-list">
+      <span class="sv">Chimney sweep &mdash; firebox to pot</span>
+      <span class="sv">Flue liner or pipe cleaning</span>
+      <span class="sv">Wood heater service</span>
+      <span class="sv">Open fireplace cleaning</span>
+      <span class="sv">Soot &amp; creosote removal</span>
+      <span class="sv">Ash removal</span>
+      <span class="sv">Bird nest &amp; blockage clearing</span>
+      <span class="sv">Verbal condition report</span>
+    </div>
+    <div class="work-img-wrap">
+      <img src="/images/work2.png" alt="Chimney sweep at work" class="work-img" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">What customers say</p>
+    <h2>Reviews from Notting Hill and Nearby Residents</h2>
+    <p>What locals say after their $199 chimney clean:</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&ldquo;Dave was easy to deal with, turned up when he said he would and did a thorough job. Very happy with the service and the price. Would recommend to anyone nearby.&rdquo;</p>
+        <div class="review-author">Julie K. &mdash; Notting Hill 3168</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&ldquo;Good, clean, professional service. Dave swept the chimney and gave a clear condition report. No surprises on the price. Will use again next year.&rdquo;</p>
+        <div class="review-author">Sam W. &mdash; Notting Hill 3168</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&ldquo;Really impressed with Dave's service. He was punctual, thorough and gave honest advice about the chimney's condition. Great value for money.&rdquo;</p>
+        <div class="review-author">Nadia H. &mdash; Notting Hill 3168</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-fp" id="about">
+    <div class="about-fp-inner">
+      <p class="sl" style="color:#e87a3a">About Us</p>
+      <h2 style="color:#fff;font-size:clamp(1.65rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin:0 0 1rem;line-height:1.2">Local Melbourne's South-East Chimney Sweep</h2>
+      <p>Dave's Chimney Sweeping covers Notting Hill and surrounding south-east suburbs including Oakleigh, Clayton and Glen Waverley. Dave personally handles every job.</p>
+      <p>When you call us, you speak directly to Dave. When we show up, it&rsquo;s Dave. No subcontractors, no hand-offs. Just a local tradie who knows chimneys, turns up on time, and takes pride in doing the job properly every time.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">FAQs</p>
+    <h2>Chimney Sweeping Notting Hill &mdash; Common Questions</h2>
+    <div class="faq-list">
+      {faqs.map(({q,a}) => (
+        <details class="faq-item"><summary>{q}</summary><div class="faq-answer">{a}</div></details>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec" id="quote">
+    <p class="sl">Book now</p>
+    <h2>Book Your $199 Chimney Clean in Notting Hill</h2>
+    <div class="form-wrap">
+      <h3>Quick Quote &mdash; Notting Hill</h3>
+      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your $199 booking.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="suburb" value="Notting Hill VIC 3168" />
+        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select&hellip;</option>
+              <option value="Chimney Inspection and Clean — $199">Chimney Inspection &amp; Clean &mdash; $199</option>
+              <option>Wood Heater Service</option>
+              <option>Flue Cleaning</option>
+              <option>Blockage / Nest Removal</option>
+              <option>Not sure &mdash; need advice</option>
+            </select>
+          </div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, when it was last cleaned&hellip;"></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">Send Booking Request &rsaquo;</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">Nearby areas</p>
+    <h2>Suburbs Near Notting Hill We Also Service</h2>
+    <p>We cover Notting Hill and all nearby suburbs. Click any suburb for area-specific details:</p>
+    <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/oakleigh">Oakleigh 3166</a>
+      <a class="suburb-chip" href="/chimney-sweeping/clayton">Clayton 3168</a>
+      <a class="suburb-chip" href="/chimney-sweeping/glen-waverley">Glen Waverley 3150</a>
+      <a class="suburb-chip" href="/chimney-sweeping/mulgrave">Mulgrave 3170</a>
+    </div>
+  </section>
+
+  <nav class="breadcrumb">
+    <a href="/">Home</a><span>&#8250;</span><a href="/chimney-sweeping/">Chimney Sweeping</a><span>&#8250;</span>Notting Hill
+  </nav>
+
+  <section class="bottom-cta">
+    <div class="bottom-cta-inner">
+      <h2>Notting Hill Chimney Sweep &mdash; $199 Flat Rate</h2>
+      <p>Call Dave directly or use the form above. We will confirm your booking and give you a time that works.</p>
+      <div class="btn-row">
+        <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
+        <a class="btn btn-quote" href="#quote">Book for $199</a>
+      </div>
+    </div>
+  </section>
+
+  <a href="tel:0476302729" id="sticky-cta" aria-label="Call or text Dave">
+    <span id="sticky-icon">&#128222;</span>
+    <span id="sticky-text">Call/Text Dave</span>
+  </a>
+
+  <style>
+    #sticky-cta{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;align-items:center;gap:.55rem;background:#c8500a;color:#fff;padding:.75rem 1.2rem .75rem 1rem;border-radius:50px;font-size:.95rem;font-weight:800;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,0.35);transition:opacity .2s,transform .2s;opacity:0;pointer-events:none;}
+    #sticky-cta.visible{opacity:1;pointer-events:auto}
+    #sticky-cta:hover{opacity:.9;transform:translateY(-2px)}
+    #sticky-icon{font-size:1.1rem;line-height:1}
+  </style>
+
+  <script is:inline>
+    (function(){
+      var btn = document.getElementById('sticky-cta');
+      var hero = document.querySelector('.hero');
+      function check(){
+        var threshold = hero ? hero.offsetHeight : 300;
+        if(window.scrollY > threshold){ btn.classList.add('visible'); }
+        else { btn.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', check, {passive:true});
+      check();
+    })();
+  </script>
+</MainLayout>
