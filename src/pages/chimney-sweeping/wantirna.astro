@@ -7,9 +7,7 @@ const schema = {
   "name": "Daves Chimney Sweeping",
   "telephone": "+61476302729",
   "priceRange": "$199",
-  "areaServed": [
-    "Wantirna VIC 3152"
-  ],
+  "areaServed": ["Wantirna VIC 3152"],
   "url": "https://daveschimneysweeping.com.au/chimney-sweeping/wantirna",
   "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Wantirna VIC 3152. $199 chimney inspection and clean.",
   "address": {
@@ -37,7 +35,7 @@ const faqSchema = {
       "name": "We have a 1970s open fireplace — is it still worth using?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Absolutely, if it's in good condition. We'll assess the firebox, damper, flue and chimney stack and let you know exactly where things stand. Many 1970s fireplaces are still in excellent working order after a proper clean."
+        "text": "Absolutely, if it is in good condition. We will assess the firebox, damper, flue and chimney stack and let you know exactly where things stand. Many 1970s fireplaces are still in excellent working order after a proper clean."
       }
     },
     {
@@ -53,7 +51,7 @@ const faqSchema = {
       "name": "How often should a 1980s wood heater be cleaned?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Annually, particularly if it's used through most of winter. After 40-plus years of seasonal use, cumulative buildup is likely to be significant on the first professional clean."
+        "text": "Annually, particularly if it is used through most of winter. After 40-plus years of seasonal use, cumulative buildup is likely to be significant on the first professional clean."
       }
     },
     {
@@ -61,7 +59,7 @@ const faqSchema = {
       "name": "Is there a call-out fee for Wantirna?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No — $199 flat rate, that's the complete price."
+        "text": "No — $199 flat rate, that is the complete price."
       }
     }
   ]
@@ -86,10 +84,10 @@ const serviceSchema = {
 };
 const faqs = [
   {q:`Do you service Wantirna VIC 3152?`,a:`Yes — Wantirna and Wantirna South are on our Knox-area eastern Melbourne run.`},
-  {q:`We have a 1970s open fireplace — is it still worth using?`,a:`Absolutely, if it's in good condition. We'll assess the firebox, damper, flue and chimney stack and let you know exactly where things stand. Many 1970s fireplaces are still in excellent working order after a proper clean.`},
+  {q:`We have a 1970s open fireplace — is it still worth using?`,a:`Absolutely, if it is in good condition. We will assess the firebox, damper, flue and chimney stack and let you know exactly where things stand. Many 1970s fireplaces are still in excellent working order after a proper clean.`},
   {q:`What does the $199 service include?`,a:`Full chimney sweep, flue clean, soot and creosote removal, blockage and bird nest check, verbal condition report. No call-out fee — $199 total.`},
-  {q:`How often should a 1980s wood heater be cleaned?`,a:`Annually, particularly if it's used through most of winter. After 40-plus years of seasonal use, cumulative buildup is likely to be significant on the first professional clean.`},
-  {q:`Is there a call-out fee for Wantirna?`,a:`No — $199 flat rate, that's the complete price.`}
+  {q:`How often should a 1980s wood heater be cleaned?`,a:`Annually, particularly if it is used through most of winter. After 40-plus years of seasonal use, cumulative buildup is likely to be significant on the first professional clean.`},
+  {q:`Is there a call-out fee for Wantirna?`,a:`No — $199 flat rate, that is the complete price.`}
 ];
 ---
 
@@ -179,6 +177,10 @@ const faqs = [
     .suburb-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
     .suburb-chip{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.42rem .85rem;font-size:.86rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
     .suburb-chip:hover{background:var(--ba);border-color:var(--ba);color:#fff}
+    .about-fp{background:url('/images/fireplace.jpg') center/cover no-repeat;padding:2.5rem 1rem}
+    .about-fp-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:680px;margin:0 auto}
+    .about-fp p{font-size:1.06rem;line-height:1.8;color:rgba(255,255,255,0.92);font-weight:600;margin:0 0 .9rem}
+    .about-fp p:last-child{margin-bottom:0}
     .bottom-cta{background:url('/images/fireplace3.jpg') center/cover no-repeat;color:var(--wh);padding:2.8rem 1rem;text-align:center}
     .bottom-cta-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:480px;margin:0 auto}
     .bottom-cta-inner .btn-row{flex-direction:column;gap:.5rem;width:100%}
@@ -186,161 +188,182 @@ const faqs = [
     .bottom-cta-inner .btn-call{font-size:1rem}
     .bottom-cta h2{font-size:clamp(1.65rem,5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
     .bottom-cta p{font-size:1rem;color:rgba(255,255,255,0.9);margin:0 auto 1.9rem;line-height:1.6;max-width:440px;font-weight:600}
-    .about-fp{background:url('/images/fireplace.jpg') center/cover no-repeat;padding:2.5rem 1rem}
-    .about-fp-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:680px;margin:0 auto}
-    .about-fp p{font-size:1.06rem;line-height:1.8;color:rgba(255,255,255,0.92);font-weight:600;margin:0 0 .9rem}
-    .about-fp p:last-child{margin-bottom:0}
-    .dirty-flue-wrap{display:none;margin-top:1.1rem;justify-content:center;gap:.6rem}
-    .dirty-flue-item{display:flex;flex-direction:column;align-items:center;gap:.3rem}.dirty-flue-img{width:120px;height:auto;border-radius:6px}
-    .dirty-flue-cap{font-size:.72rem;color:var(--ts);margin:.45rem auto 0;max-width:300px;line-height:1.45;font-style:italic}
-    @media(max-width:640px){.dirty-flue-wrap{display:flex}}
-    .work-img-wrap{display:none;margin-top:1rem;text-align:center}.work-img{width:100%;height:auto;border-radius:8px}@media(max-width:640px){.work-img-wrap{display:block}}
     .breadcrumb{font-size:.65rem;color:#6b6860;padding:.2rem 1.25rem;text-align:center;opacity:0.4;line-height:1}
     .breadcrumb a{color:#6b6860;text-decoration:none}
+    .breadcrumb span{margin:0 .25rem}
   </style>
-
-  <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/chimney-sweeping/">Chimney Sweeping Melbourne</a> &rsaquo; Wantirna</div>
 
   <section class="hero">
     <div class="hero-box">
       <span class="hero-eyebrow">Wantirna VIC 3152</span>
-      <h1>Chimney Sweep<br>Wantirna</h1>
-      <div class="price-badge">
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        $199 Full Clean &amp; Inspect
+      <h1>Chimney Sweeping<br>Wantirna VIC 3152</h1>
+      <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
+      <p class="hero-lead">Local chimney &amp; flue sweeping in Wantirna. We turn up when booked, leave your home spotless, and give you a straight verbal report before we go.</p>
+      <p class="hero-sub">$199 flat &mdash; no call-out fee, no hidden extras. Book direct with Dave.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.1rem;">
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fully Insured</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; No Mess Guaranteed</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fixed $199 Price</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; 10+ Years Local</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Verbal Condition Report</span>
       </div>
-      <p class="hero-lead">Professional chimney sweeping in Wantirna — soot, creosote and blockages cleared in a single visit.</p>
-      <p class="hero-sub">No call-out fee &middot; Local owner-operated &middot; Same price every suburb</p>
+      <div id="lb" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;">
+        <img id="lb-img" src="" alt="Enlarged photo" style="max-width:100%;max-height:90vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,0.6);" />
+      </div>
+      <div style="display:flex;gap:0.6rem;margin-bottom:1.25rem;justify-content:center;">
+        <div style="text-align:center;cursor:pointer;" onclick="document.getElementById('lb').style.display='flex';document.getElementById('lb-img').src=this.querySelector('img').src">
+          <img src="/images/chimney-before-after.jpg" alt="Chimney before and after" style="width:140px;height:100px;object-fit:cover;border-radius:8px;" loading="lazy" />
+          <p style="color:#a09d96;font-size:0.68rem;margin:0.3rem 0 0;letter-spacing:0.05em;text-transform:uppercase;font-weight:700;">Chimney Before &amp; After</p>
+        </div>
+        <div style="text-align:center;cursor:pointer;" onclick="document.getElementById('lb').style.display='flex';document.getElementById('lb-img').src=this.querySelector('img').src">
+          <img src="/images/before-and-after-flue.jpg" alt="Flue before and after" style="width:140px;height:100px;object-fit:cover;border-radius:8px;" loading="lazy" />
+          <p style="color:#a09d96;font-size:0.68rem;margin:0.3rem 0 0;letter-spacing:0.05em;text-transform:uppercase;font-weight:700;">Flue Before &amp; After</p>
+        </div>
+      </div>
       <div class="btn-row">
-        <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>
-        <a class="btn btn-quote" href="#quote">Get a Free Quote</a>
+        <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
+        <a class="btn btn-quote" href="#quote">Book for $199</a>
       </div>
     </div>
   </section>
 
   <div class="trust-bar">
-    <span class="ti"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>Fully Insured</span>
-    <span class="ti"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>$199 Flat Rate</span>
-    <span class="ti"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Local &amp; Owner-Operated</span>
-    <span class="ti"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>Same Week Bookings</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon&#8211;Sat</span>
   </div>
 
   <section class="sec">
-    <div class="sl">Local Knowledge</div>
-    <h2>Wantirna — Knox Area, 1970s–1980s Brick Homes, Established Wood Heating</h2>
-    <div class="local-box"><p>Wantirna is a well-established Knox area suburb developed primarily through the 1970s and 1980s, sitting in the band of eastern suburbs between the flat Ringwood corridor to the north and the foothills suburbs to the east. The suburb — which includes Wantirna South, a slightly later development that pushed into the 1980s and 1990s — has a housing stock characterised by solid brick veneer homes on generous blocks, a significant proportion of which were built with original open fireplaces or early slow-combustion wood heaters as standard. By the time Wantirna was developed, wood heating had become the dominant choice for solid-fuel heating in new Melbourne homes, and many of the installations from this period are still in active daily use. Wantirna's position in the Knox foothills gives it a slightly colder winter character than the flat eastern suburbs further west. The proximity to the Dandenong Ranges creates cold air drainage effects overnight, and the suburb regularly experiences morning frosts from May through to August. Properties in the higher sections — particularly those on the elevated ground toward the Dandenong Foothills Park boundary — are noticeably colder than the lower sections closer to Bayswater Road. For homes now 40 to 50 years old, the wood heater and chimney systems are entering a phase where professional maintenance is not just advisable but important. We service Wantirna as part of our Knox-area eastern Melbourne run.</p></div>
-  </section>
-
-  <section class="sec">
-    <div class="sl">Pricing</div>
-    <h2>$199 — Chimney Sweep &amp; Full Inspection</h2>
-    <p>One flat price covers everything. No call-out fee, no hidden extras.</p>
+    <p class="sl">Pricing</p>
+    <h2>$199 &mdash; Chimney Inspection &amp; Full Clean in Wantirna</h2>
+    <p>One flat price. No call-out fee, no surprises on the day. Here is exactly what is covered:</p>
     <div class="price-box">
       <div class="price-num">$199</div>
-      <div class="price-label">Chimney Sweep &amp; Full Inspection — Wantirna</div>
+      <div class="price-label">Chimney Inspection &amp; Full Clean &mdash; Wantirna</div>
       <div class="price-includes">
-        <span class="pi">Full chimney sweep</span>
+        <span class="pi">Chimney sweep</span>
         <span class="pi">Flue cleaning</span>
         <span class="pi">Creosote removal</span>
         <span class="pi">Soot &amp; ash removal</span>
         <span class="pi">Bird nest check</span>
         <span class="pi">Blockage clearance</span>
-        <span class="pi">Verbal condition report</span>
+        <span class="pi">Condition report</span>
         <span class="pi">No call-out fee</span>
       </div>
     </div>
   </section>
 
   <section class="sec">
-    <div class="sl">Why Clean</div>
-    <h2>Why Wantirna Homes Need Regular Chimney Cleaning</h2>
+    <p class="sl">Local knowledge</p>
+    <h2>Wantirna — Knox Area, 1970s–1980s Brick Homes, Established Wood Heating</h2>
+    <div class="local-box"><p>Wantirna is a well-established Knox area suburb developed primarily through the 1970s and 1980s, sitting in the band of eastern suburbs between the flat Ringwood corridor to the north and the foothills suburbs to the east. The suburb — which includes Wantirna South, a slightly later development that pushed into the 1980s and 1990s — has a housing stock characterised by solid brick veneer homes on generous blocks, a significant proportion of which were built with original open fireplaces or early slow-combustion wood heaters as standard. By the time Wantirna was developed, wood heating had become the dominant choice for solid-fuel heating in new Melbourne homes, and many of the installations from this period are still in active daily use. Wantirna's position in the Knox foothills gives it a slightly colder winter character than the flat eastern suburbs further west. The proximity to the Dandenong Ranges creates cold air drainage effects overnight, and the suburb regularly experiences morning frosts from May through to August. Properties in the higher sections — particularly those on the elevated ground toward the Dandenong Foothills Park boundary — are noticeably colder than the lower sections closer to Bayswater Road. For homes now 40 to 50 years old, the wood heater and chimney systems are entering a phase where professional maintenance is not just advisable but important. We service Wantirna as part of our Knox-area eastern Melbourne run.</p></div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">When to book</p>
+    <h2>Signs Your Wantirna Chimney Needs Cleaning</h2>
+    <p>If any of these sound familiar, it is time to book:</p>
     <div class="reason-grid">
-      <div class="rc"><span class="rc-icon">🔥</span><div class="rc-title">Creosote Fire Risk</div><div class="rc-desc">Creosote builds up with every fire. Heavy deposits can ignite and cause a chimney fire.</div></div>
-      <div class="rc"><span class="rc-icon">💨</span><div class="rc-title">Poor Draw</div><div class="rc-desc">Buildup on flue walls restricts airflow, making fires hard to start and maintain.</div></div>
-      <div class="rc"><span class="rc-icon">🐦</span><div class="rc-title">Bird Nests</div><div class="rc-desc">Unused chimneys over summer collect nests that block airflow completely.</div></div>
-      <div class="rc"><span class="rc-icon">🏠</span><div class="rc-title">Mortar Deterioration</div><div class="rc-desc">Older brick chimneys need periodic inspection for cracking and mortar joint failure.</div></div>
+      <div class="rc"><span class="rc-icon">&#128293;</span><div class="rc-title">Smoke coming back in</div><div class="rc-desc">Most common sign of a blocked or sooted flue. A clean usually fixes it immediately.</div></div>
+      <div class="rc"><span class="rc-icon">&#128168;</span><div class="rc-title">Persistent smoky smell</div><div class="rc-desc">Creosote or old ash in the flue causes a burnt odour even when the fire is off.</div></div>
+      <div class="rc"><span class="rc-icon">&#9888;&#65039;</span><div class="rc-title">Weak or sluggish draw</div><div class="rc-desc">Fires that struggle to start or stay alight point to restricted airflow in the flue.</div></div>
+      <div class="rc"><span class="rc-icon">&#127810;</span><div class="rc-title">Pre-winter service</div><div class="rc-desc">Book in autumn before the heating season &mdash; easier to sort early than mid-winter.</div></div>
     </div>
   </section>
 
   <section class="sec">
-    <div class="sl">Services</div>
-    <h2>What We Clean in Wantirna</h2>
+    <p class="sl">What is included</p>
+    <h2>Everything in the One $199 Visit</h2>
+    <p>We cover the full system &mdash; chimney, flue and heater &mdash; in a single visit to your Wantirna home:</p>
     <div class="svc-list">
-      <div class="sv">Open fireplaces</div>
-      <div class="sv">Freestanding wood heaters</div>
-      <div class="sv">Slow combustion heaters</div>
-      <div class="sv">Flue pipes &amp; liners</div>
-      <div class="sv">Chimney pots &amp; caps</div>
-      <div class="sv">Bird nest removal</div>
+      <span class="sv">Chimney sweep &mdash; firebox to pot</span>
+      <span class="sv">Flue liner or pipe cleaning</span>
+      <span class="sv">Wood heater service</span>
+      <span class="sv">Open fireplace cleaning</span>
+      <span class="sv">Soot &amp; creosote removal</span>
+      <span class="sv">Ash removal</span>
+      <span class="sv">Bird nest &amp; blockage clearing</span>
+      <span class="sv">Verbal condition report</span>
     </div>
   </section>
 
   <section class="sec">
-    <div class="sl">Reviews</div>
-    <h2>What Wantirna Customers Say</h2>
+    <p class="sl">What customers say</p>
+    <h2>Reviews from Wantirna and Nearby Residents</h2>
+    <p>What locals say after their $199 chimney clean:</p>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">"1978 Wantirna home with the original open fireplace. Hadn't been professionally cleaned in a very long time. David was thorough and left us with a clear understanding of the system's condition."</p>
+        <p class="review-text">&ldquo;1978 Wantirna home with the original open fireplace. Had not been professionally cleaned in a very long time. David was thorough and left us with a clear understanding of the system's condition.&rdquo;</p>
         <div class="review-author">Patricia H. &mdash; Wantirna 3152</div>
       </div>
       <div class="review-card">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">"Excellent service. Came out the same week we called. The fireplace is drawing far better now — we didn't realise how restricted it had become."</p>
+        <p class="review-text">&ldquo;Excellent service. Came out the same week we called. The fireplace is drawing far better now — we did not realise how restricted it had become.&rdquo;</p>
         <div class="review-author">Kevin M. &mdash; Wantirna 3152</div>
       </div>
       <div class="review-card">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">"Wantirna South property — 1988 build with a slow combustion heater. Really professional job. Arrived on time, no mess, clear verbal report at the end. Highly recommended."</p>
+        <p class="review-text">&ldquo;Wantirna South property — 1988 build with a slow combustion heater. Really professional job. Arrived on time, no mess, clear verbal report at the end. Highly recommended.&rdquo;</p>
         <div class="review-author">Janet L. &mdash; Wantirna South 3152</div>
       </div>
     </div>
   </section>
 
+  <section class="about-fp" id="about">
+    <div class="about-fp-inner">
+      <p class="sl" style="color:#e87a3a">About Us</p>
+      <h2 style="color:#fff;font-size:clamp(1.65rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin:0 0 1rem;line-height:1.2">Local Eastern Melbourne Chimney Sweep &mdash; Over 10 Years in the Area</h2>
+      <p>Dave&rsquo;s Chimney Sweeping is a local, owner-operated business &mdash; not a national franchise or call centre. Dave personally handles every job across Melbourne&rsquo;s eastern suburbs and has been servicing homes here for over a decade. We know the local housing stock, the fireplace styles that are common in the eastern corridor, and the issues that come up with chimneys season after season.</p>
+      <p>When you call us, you speak directly to Dave. When we show up, it&rsquo;s Dave. No subcontractors, no hand-offs, no surprises. Just a local tradie who knows chimneys, turns up on time, and takes pride in doing the job properly every time.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">FAQs</p>
+    <h2>Chimney Sweeping Wantirna &mdash; Common Questions</h2>
+    <div class="faq-list">
+      {faqs.map((\{q,a\}) => (
+        <details class="faq-item"><summary>{q}</summary><div class="faq-answer">{a}</div></details>
+      ))}
+    </div>
+  </section>
+
   <section class="sec" id="quote">
-    <div class="sl">Book a Clean</div>
-    <h2>Book a Chimney Sweep in Wantirna</h2>
+    <p class="sl">Book now</p>
+    <h2>Book Your $199 Chimney Clean in Wantirna</h2>
     <div class="form-wrap">
-      <h3>Request a Booking — Wantirna VIC 3152</h3>
-      <p class="form-sub">We'll confirm your booking by phone or text within one business day.</p>
-      <form name="contact" method="POST" data-netlify="true" action="/thanks">
+      <h3>Quick Quote &mdash; Wantirna</h3>
+      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your $199 booking.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
         <input type="hidden" name="suburb" value="Wantirna VIC 3152" />
+        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
         <div class="form-grid">
-          <div class="field"><label for="name-f">Name</label><input type="text" id="name-f" name="name" required placeholder="Your name" /></div>
-          <div class="field"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" required placeholder="04xx xxx xxx" /></div>
-          <div class="field full"><label for="address">Address</label><input type="text" id="address" name="address" placeholder="Wantirna VIC 3152" /></div>
-          <div class="field full"><label for="heater-type">Heater type</label>
-            <select id="heater-type" name="heater_type">
-              <option value="">Select...</option>
-              <option>Open fireplace</option>
-              <option>Freestanding wood heater</option>
-              <option>Slow combustion heater</option>
-              <option>Not sure</option>
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select&#8230;</option>
+              <option value="Chimney Inspection and Clean — $199">Chimney Inspection &amp; Clean &mdash; $199</option>
+              <option>Wood Heater Service</option>
+              <option>Flue Cleaning</option>
+              <option>Blockage / Nest Removal</option>
+              <option>Not sure &mdash; need advice</option>
             </select>
           </div>
-          <div class="field full"><label for="msg">Anything else?</label><textarea id="msg" name="message" placeholder="Last cleaned, any issues, access notes..."></textarea></div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, when it was last cleaned&#8230;"></textarea></div>
         </div>
-        <button type="submit" class="form-submit">Send Booking Request</button>
+        <button type="submit" class="form-submit">Send Booking Request &#8250;</button>
       </form>
     </div>
   </section>
 
   <section class="sec">
-    <div class="sl">FAQs</div>
-    <h2>Chimney Sweeping Wantirna — Common Questions</h2>
-    <div class="faq-list">
-      {faqs.map((f: {q:string;a:string}) => (
-        <details class="faq-item">
-          <summary>{f.q}</summary>
-          <div class="faq-answer">{f.a}</div>
-        </details>
-      ))}
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="sl">Nearby Areas</div>
-    <h2>Also Serving Suburbs Near Wantirna</h2>
+    <p class="sl">Nearby areas</p>
+    <h2>Suburbs Near Wantirna We Also Service</h2>
+    <p>We cover Wantirna and all nearby suburbs. Click any suburb for area-specific details:</p>
     <div class="suburb-chips">
       <a class="suburb-chip" href="/chimney-sweeping/bayswater">Bayswater 3153</a>
       <a class="suburb-chip" href="/chimney-sweeping/boronia">Boronia 3155</a>
@@ -349,14 +372,18 @@ const faqs = [
     </div>
   </section>
 
-  <div class="bottom-cta">
+  <nav class="breadcrumb">
+    <a href="/">Home</a><span>&#8250;</span><a href="/chimney-sweeping/">Chimney Sweeping</a><span>&#8250;</span>Wantirna
+  </nav>
+
+  <section class="bottom-cta">
     <div class="bottom-cta-inner">
-      <h2>Ready to Book?</h2>
-      <p>$199 chimney sweep &amp; inspection in Wantirna. Same price, no call-out fee.</p>
+      <h2>Wantirna Chimney Sweep &mdash; $199 Flat Rate</h2>
+      <p>Call Dave directly or use the form above. We will confirm your booking and give you a time that works.</p>
       <div class="btn-row">
-        <a class="btn btn-call" href="tel:0476302729">&#128222; Call 0476 302 729</a>
-        <a class="btn btn-quote" href="#quote">Request a Quote</a>
+        <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
+        <a class="btn btn-quote" href="#quote">Book for $199</a>
       </div>
     </div>
-  </div>
+  </section>
 </MainLayout>
