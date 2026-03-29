@@ -47,9 +47,9 @@ const clusters = [
   { region: "Inner North", count: 18, suburbs: [
     {name:"Brunswick",pc:"3056"},{name:"Brunswick East",pc:"3057"},{name:"Brunswick West",pc:"3055"},
     {name:"Coburg",pc:"3058",slug:"coburg"},{name:"Coburg North",pc:"3058"},{name:"Northcote",pc:"3070"},
-    {name:"Thornbury",pc:"3071"},{name:"Preston",pc:"3072",slug:"preston"},{name:"Reservoir",pc:"3073"},
+    {name:"Thornbury",pc:"3071",slug:"thornbury"},{name:"Preston",pc:"3072",slug:"preston"},{name:"Reservoir",pc:"3073",slug:"reservoir"},
     {name:"Fairfield",pc:"3078"},{name:"Alphington",pc:"3078"},{name:"Clifton Hill",pc:"3068"},
-    {name:"Fitzroy North",pc:"3068"},{name:"Pascoe Vale",pc:"3044"},{name:"Pascoe Vale South",pc:"3044"},
+    {name:"Fitzroy North",pc:"3068"},{name:"Pascoe Vale",pc:"3044",slug:"pascoe-vale"},{name:"Pascoe Vale South",pc:"3044"},
     {name:"Oak Park",pc:"3046"},{name:"Glenroy",pc:"3046"},{name:"Hadfield",pc:"3046"},
   ]},
   { region: "Inner East", count: 18, suburbs: [
@@ -72,7 +72,7 @@ const clusters = [
     {name:"Black Rock",pc:"3193"},
   ]},
   { region: "Northern Suburbs", count: 18, suburbs: [
-    {name:"Fawkner",pc:"3060"},{name:"Campbellfield",pc:"3061"},{name:"Broadmeadows",pc:"3047"},
+    {name:"Fawkner",pc:"3060",slug:"fawkner"},{name:"Campbellfield",pc:"3061"},{name:"Broadmeadows",pc:"3047"},
     {name:"Dallas",pc:"3047"},{name:"Meadow Heights",pc:"3048"},{name:"Coolaroo",pc:"3048"},
     {name:"Craigieburn",pc:"3064",slug:"craigieburn"},{name:"Mickleham",pc:"3064",slug:"mickleham"},{name:"Roxburgh Park",pc:"3064",slug:"roxburgh-park"},
     {name:"Greenvale",pc:"3059"},{name:"Tullamarine",pc:"3043"},{name:"Gladstone Park",pc:"3043"},
@@ -108,13 +108,13 @@ const clusters = [
     {name:"Ascot Vale",pc:"3032"},{name:"Maidstone",pc:"3012"},
   ]},
   { region: "Western Suburbs", count: 20, suburbs: [
-    {name:"Footscray",pc:"3011"},{name:"West Footscray",pc:"3012"},{name:"Yarraville",pc:"3013"},
-    {name:"Seddon",pc:"3011"},{name:"Sunshine",pc:"3020"},{name:"Sunshine North",pc:"3020"},
+    {name:"Footscray",pc:"3011",slug:"footscray"},{name:"West Footscray",pc:"3012"},{name:"Yarraville",pc:"3013",slug:"yarraville"},
+    {name:"Seddon",pc:"3011"},{name:"Sunshine",pc:"3020",slug:"sunshine"},{name:"Sunshine North",pc:"3020"},
     {name:"Sunshine West",pc:"3020",slug:"sunshine-west"},{name:"St Albans",pc:"3021"},{name:"Deer Park",pc:"3023",slug:"deer-park"},
     {name:"Derrimut",pc:"3026"},{name:"Hoppers Crossing",pc:"3029",slug:"hoppers-crossing"},{name:"Werribee",pc:"3030",slug:"werribee"},
-    {name:"Wyndham Vale",pc:"3024"},{name:"Point Cook",pc:"3030"},{name:"Altona",pc:"3018"},
+    {name:"Wyndham Vale",pc:"3024",slug:"wyndham-vale"},{name:"Point Cook",pc:"3030"},{name:"Altona",pc:"3018",slug:"altona"},
     {name:"Altona North",pc:"3025"},{name:"Altona Meadows",pc:"3028"},{name:"Laverton",pc:"3028",slug:"laverton"},
-    {name:"Newport",pc:"3015"},{name:"Williamstown",pc:"3016",slug:"williamstown"},
+    {name:"Newport",pc:"3015",slug:"newport"},{name:"Williamstown",pc:"3016",slug:"williamstown"},
   ]},
   { region: "West & Melton Corridor", count: 12, suburbs: [
     {name:"Melton",pc:"3337",slug:"melton"},{name:"Melton South",pc:"3338"},
