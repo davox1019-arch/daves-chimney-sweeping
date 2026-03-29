@@ -7,14 +7,14 @@ const schema = {
   "name": "Daves Chimney Sweeping",
   "telephone": "+61476302729",
   "priceRange": "$199",
-  "areaServed": ["Ferntree Gully VIC 3156"],
-  "url": "https://daveschimneysweeping.com.au/chimney-sweeping/ferntree-gully",
-  "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Ferntree Gully VIC 3156. $199 chimney inspection and clean.",
+  "areaServed": ["Upwey VIC 3158"],
+  "url": "https://daveschimneysweeping.com.au/chimney-sweeping/upwey",
+  "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Upwey VIC 3158. $199 chimney inspection and clean.",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Ferntree Gully",
+    "addressLocality": "Upwey",
     "addressRegion": "VIC",
-    "postalCode": "3156",
+    "postalCode": "3158",
     "addressCountry": "AU"
   }
 };
@@ -24,26 +24,26 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Do you service Ferntree Gully VIC 3156?",
+      "name": "Do you service Upwey VIC 3158?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — Ferntree Gully is on our eastern Melbourne run, including Upper Ferntree Gully."
+        "text": "Yes — Upwey is on our Dandenong Ranges run. We cover Upwey and the surrounding ranges area."
       }
     },
     {
       "@type": "Question",
-      "name": "Ferntree Gully is very cold in winter — how does that affect cleaning frequency?",
+      "name": "Upwey is very cold in winter — how often should we clean?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Higher usage means faster creosote buildup. Annual cleaning is essential here — some heavily used systems would benefit from a clean every 6 to 12 months."
+        "text": "Annually at minimum. At the usage rates common in Upwey — where wood heating runs from March through to November — once a year is essential. Heavy users should consider every 6 to 12 months."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the risk of a chimney fire if I do not clean regularly?",
+      "name": "We have an older home in Upwey with an original fireplace. Can you service it?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Creosote is combustible. A heavy buildup ignited by a hot fire can cause a chimney fire. In Ferntree Gully where usage is intensive, this risk is real and worth taking seriously."
+        "text": "Yes — older fireplaces and brick chimneys are very common in Upwey. We assess the firebox, smoke chamber, flue and chimney stack carefully and clean everything thoroughly."
       }
     },
     {
@@ -56,10 +56,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "Is there a call-out fee for Ferntree Gully?",
+      "name": "Is there a call-out fee for Upwey?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No — $199 flat rate, complete price."
+        "text": "No — $199 is the flat total price."
       }
     }
   ]
@@ -67,13 +67,13 @@ const faqSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Chimney Sweeping Ferntree Gully VIC 3156",
+  "name": "Chimney Sweeping Upwey VIC 3158",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Daves Chimney Sweeping",
     "telephone": "+61476302729"
   },
-  "areaServed": "Ferntree Gully VIC 3156",
+  "areaServed": "Upwey VIC 3158",
   "offers": {
     "@type": "Offer",
     "price": "199",
@@ -83,24 +83,24 @@ const serviceSchema = {
   "serviceType": "Chimney Sweeping"
 };
 const faqs = [
-  {q:`Do you service Ferntree Gully VIC 3156?`,a:`Yes — Ferntree Gully is on our eastern Melbourne run, including Upper Ferntree Gully.`},
-  {q:`Ferntree Gully is very cold in winter — how does that affect cleaning frequency?`,a:`Higher usage means faster creosote buildup. Annual cleaning is essential here — some heavily used systems would benefit from a clean every 6 to 12 months.`},
-  {q:`What is the risk of a chimney fire if I do not clean regularly?`,a:`Creosote is combustible. A heavy buildup ignited by a hot fire can cause a chimney fire. In Ferntree Gully where usage is intensive, this risk is real and worth taking seriously.`},
+  {q:`Do you service Upwey VIC 3158?`,a:`Yes — Upwey is on our Dandenong Ranges run. We cover Upwey and the surrounding ranges area.`},
+  {q:`Upwey is very cold in winter — how often should we clean?`,a:`Annually at minimum. At the usage rates common in Upwey — where wood heating runs from March through to November — once a year is essential. Heavy users should consider every 6 to 12 months.`},
+  {q:`We have an older home in Upwey with an original fireplace. Can you service it?`,a:`Yes — older fireplaces and brick chimneys are very common in Upwey. We assess the firebox, smoke chamber, flue and chimney stack carefully and clean everything thoroughly.`},
   {q:`What is included in the $199 service?`,a:`Full chimney sweep, flue clean, soot and creosote removal, blockage and bird nest check, verbal condition report. No call-out fee — $199 total.`},
-  {q:`Is there a call-out fee for Ferntree Gully?`,a:`No — $199 flat rate, complete price.`}
+  {q:`Is there a call-out fee for Upwey?`,a:`No — $199 is the flat total price.`}
 ];
 ---
 
 <MainLayout
-  title="Chimney Sweep Ferntree Gully VIC 3156 — $199 Clean & Inspect"
-  description="Chimney sweeping Ferntree Gully VIC 3156 — $199 chimney inspection & full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
+  title="Chimney Sweep Upwey VIC 3158 — $199 Clean & Inspect"
+  description="Chimney sweeping Upwey VIC 3158 — $199 chimney inspection & full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
   clusterBase="Melbourne's Eastern Suburbs"
   clusterRegion="Melbourne's eastern suburbs and Dandenong Ranges"
   homeHref="/"
   servicePageHref="/"
   servicePageLabel="Chimney Sweeping Melbourne"
   suppressAbout={true}
-  footerArea="Ferntree Gully, Boronia & Upper Ferntree Gully VIC"
+  footerArea="Upwey, Ferntree Gully & Belgrave VIC"
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
   <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>
@@ -188,22 +188,22 @@ const faqs = [
     .bottom-cta-inner .btn-call{font-size:1rem}
     .bottom-cta h2{font-size:clamp(1.65rem,5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
     .bottom-cta p{font-size:1rem;color:rgba(255,255,255,0.9);margin:0 auto 1.9rem;line-height:1.6;max-width:440px;font-weight:600}
-    .breadcrumb{font-size:.65rem;color:#6b6860;padding:.2rem 1.25rem;text-align:center;opacity:0.4;line-height:1}
-    .breadcrumb a{color:#6b6860;text-decoration:none}
-    .breadcrumb span{margin:0 .25rem}
     .dirty-flue-wrap{display:none;margin-top:1.1rem;justify-content:center;gap:.6rem}
     .dirty-flue-item{display:flex;flex-direction:column;align-items:center;gap:.3rem}.dirty-flue-img{width:120px;height:auto;border-radius:6px}
     .dirty-flue-cap{font-size:.72rem;color:var(--ts);margin:.45rem auto 0;max-width:300px;line-height:1.45;font-style:italic}
     @media(max-width:640px){.dirty-flue-wrap{display:flex}}
     .work-img-wrap{display:none;margin-top:1rem;text-align:center}.work-img{width:100%;height:auto;border-radius:8px}@media(max-width:640px){.work-img-wrap{display:block}}
+    .breadcrumb{font-size:.65rem;color:#6b6860;padding:.2rem 1.25rem;text-align:center;opacity:0.4;line-height:1}
+    .breadcrumb a{color:#6b6860;text-decoration:none}
+    .breadcrumb span{margin:0 .25rem}
   </style>
 
   <section class="hero">
     <div class="hero-box">
-      <span class="hero-eyebrow">Ferntree Gully VIC 3156</span>
-      <h1>Chimney Sweeping<br>Ferntree Gully VIC 3156</h1>
+      <span class="hero-eyebrow">Upwey VIC 3158</span>
+      <h1>Chimney Sweeping<br>Upwey VIC 3158</h1>
       <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
-      <p class="hero-lead">Local chimney &amp; flue sweeping in Ferntree Gully. We turn up when booked, leave your home spotless, and give you a straight verbal report before we go.</p>
+      <p class="hero-lead">Local chimney &amp; flue sweeping in Upwey. We turn up when booked, leave your home spotless, and give you a straight verbal report before we go.</p>
       <p class="hero-sub">$199 flat &mdash; no call-out fee, no hidden extras. Book direct with Dave.</p>
       <div style="display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.1rem;">
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fully Insured</span>
@@ -241,11 +241,11 @@ const faqs = [
 
   <section class="sec">
     <p class="sl">Pricing</p>
-    <h2>$199 &mdash; Chimney Inspection &amp; Full Clean in Ferntree Gully</h2>
+    <h2>$199 &mdash; Chimney Inspection &amp; Full Clean in Upwey</h2>
     <p>One flat price. No call-out fee, no surprises on the day. Here is exactly what is covered:</p>
     <div class="price-box">
       <div class="price-num">$199</div>
-      <div class="price-label">Chimney Inspection &amp; Full Clean &mdash; Ferntree Gully</div>
+      <div class="price-label">Chimney Inspection &amp; Full Clean &mdash; Upwey</div>
       <div class="price-includes">
         <span class="pi">Chimney sweep</span>
         <span class="pi">Flue cleaning</span>
@@ -261,13 +261,13 @@ const faqs = [
 
   <section class="sec">
     <p class="sl">Local knowledge</p>
-    <h2>Ferntree Gully — Dandenong Ranges Gateway, Very Cold Winters, High Creosote Risk</h2>
-    <div class="local-box"><p>Ferntree Gully sits at the base of the Dandenong National Park, stretching from the flat lower section adjacent to Boronia up into the foothills where Upper Ferntree Gully begins to climb into the ranges proper. The suburb straddles the boundary between outer suburbia and genuine mountain country, and its character reflects that position: established brick homes on the lower flat sections, and more varied, often older properties as the ground rises toward the ranges. Wood heating here is not a lifestyle choice — it is a winter necessity. Ferntree Gully regularly records some of the lowest overnight temperatures in metropolitan Melbourne during June and July, with the ranges acting as a cold reservoir that releases frigid air into the surrounding foothills on calm, clear nights. Mornings can be extremely cold, and the heating season runs from March through to November for many households. This intensive heating use over decades has two significant consequences for chimney maintenance: creosote accumulation in flue systems is faster and heavier than in warmer suburbs, and the risk of a chimney fire from ignited creosote deposits is meaningfully higher. Older homes on the upper slopes — many of which were built in the 1950s and 1960s and fitted with original open fireplaces — often have chimney systems that have never been professionally cleaned. We treat Ferntree Gully properties with this context in mind, and we assess flue condition carefully given the higher-than-average usage rates here.</p></div>
+    <h2>Upwey — Dandenong Ranges Village, Old Character Homes, One of Melbourne's Coldest Suburbs</h2>
+    <div class="local-box"><p>Upwey sits within the Dandenong Ranges proper — not at the foot of the hills like Boronia or Ferntree Gully, but genuinely inside the ranges where the terrain is steep, the bush is dense and the winters are genuinely harsh. The suburb developed from the early 1900s as a mountain retreat, and its housing stock reflects that long history: timber cottages and weatherboard homes from the early and mid-twentieth century sit alongside more solid brick dwellings built through the 1960s and 1970s, and a smaller number of more contemporary builds on the limited flat land available. Almost every home in Upwey has some form of solid fuel heating — open fireplaces in the older cottages, slow combustion heaters in the mid-century homes, and freestanding wood heaters in the more modern properties. Wood heating is not optional here; it is essential. Upwey regularly records overnight winter temperatures well below zero, and the ranges microclimate means cold air lingers in the gullies and valley pockets throughout the day. The canopy of tall eucalypts and mountain ash provides shade that extends the cold and the damp, and the heating season here runs from late February or early March through to November in most years. The combination of old housing stock, intensive heating use and the humid ranges environment accelerates creosote accumulation in flue systems. Upwey properties — particularly older timber homes with original brick fireplaces — frequently have chimneys that have not been professionally cleaned in many years, or in some cases ever. We include Upwey on our Dandenong Ranges run and are well acquainted with the older chimney and fireplace systems common in the area.</p></div>
   </section>
 
   <section class="sec">
     <p class="sl">When to book</p>
-    <h2>Signs Your Ferntree Gully Chimney Needs Cleaning</h2>
+    <h2>Signs Your Upwey Chimney Needs Cleaning</h2>
     <p>If any of these sound familiar, it is time to book:</p>
     <div class="reason-grid">
       <div class="rc"><span class="rc-icon">&#128293;</span><div class="rc-title">Smoke coming back in</div><div class="rc-desc">Most common sign of a blocked or sooted flue. A clean usually fixes it immediately.</div></div>
@@ -290,7 +290,7 @@ const faqs = [
   <section class="sec">
     <p class="sl">What is included</p>
     <h2>Everything in the One $199 Visit</h2>
-    <p>We cover the full system &mdash; chimney, flue and heater &mdash; in a single visit to your Ferntree Gully home:</p>
+    <p>We cover the full system &mdash; chimney, flue and heater &mdash; in a single visit to your Upwey home:</p>
     <div class="svc-list">
       <span class="sv">Chimney sweep &mdash; firebox to pot</span>
       <span class="sv">Flue liner or pipe cleaning</span>
@@ -308,23 +308,23 @@ const faqs = [
 
   <section class="sec">
     <p class="sl">What customers say</p>
-    <h2>Reviews from Ferntree Gully and Nearby Residents</h2>
+    <h2>Reviews from Upwey and Nearby Residents</h2>
     <p>What locals say after their $199 chimney clean:</p>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">&ldquo;Upper Ferntree Gully property — we use the fire every single day from April to October. David found a heavy creosote layer that was a genuine fire risk. Really glad we finally got it done.&rdquo;</p>
-        <div class="review-author">Peter W. &mdash; Ferntree Gully 3156</div>
+        <p class="review-text">&ldquo;Old timber cottage in Upwey with the original brick fireplace — never been professionally cleaned in the 12 years we have owned it. David cleared a massive amount of creosote and soot. The difference in draw is night and day.&rdquo;</p>
+        <div class="review-author">Wendy B. &mdash; Upwey 3158</div>
       </div>
       <div class="review-card">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">&ldquo;Old 1958 home with the original open fireplace. The chimney had never been professionally cleaned. David worked through it methodically and the result was remarkable — the draw is completely transformed.&rdquo;</p>
-        <div class="review-author">Barbara S. &mdash; Ferntree Gully 3156</div>
+        <p class="review-text">&ldquo;We rely on the wood heater from March to November up here in the ranges. Annual cleaning is non-negotiable and David is our go-to. Professional, thorough, no mess.&rdquo;</p>
+        <div class="review-author">Paul S. &mdash; Upwey 3158</div>
       </div>
       <div class="review-card">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">&ldquo;Cold area, so we rely heavily on the wood heater. Annual booking from now on — the peace of mind alone is worth it. Professional and thorough service.&rdquo;</p>
-        <div class="review-author">James O. &mdash; Ferntree Gully 3156</div>
+        <p class="review-text">&ldquo;Found a bird nest blocking the flue cap that we had no idea about — explains why the fire had been struggling all season. All cleared in one visit. Highly recommend.&rdquo;</p>
+        <div class="review-author">Karen M. &mdash; Upwey 3158</div>
       </div>
     </div>
   </section>
@@ -332,15 +332,15 @@ const faqs = [
   <section class="about-fp" id="about">
     <div class="about-fp-inner">
       <p class="sl" style="color:#e87a3a">About Us</p>
-      <h2 style="color:#fff;font-size:clamp(1.65rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin:0 0 1rem;line-height:1.2">Local Eastern Melbourne Chimney Sweep &mdash; Over 10 Years in the Area</h2>
-      <p>Dave&rsquo;s Chimney Sweeping is a local, owner-operated business &mdash; not a national franchise or call centre. Dave personally handles every job across Melbourne&rsquo;s eastern suburbs and has been servicing homes here for over a decade. We know the local housing stock, the fireplace styles that are common in the eastern corridor, and the issues that come up with chimneys season after season.</p>
+      <h2 style="color:#fff;font-size:clamp(1.65rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin:0 0 1rem;line-height:1.2">Local Dandenong Ranges Chimney Sweep &mdash; Over 10 Years in the Area</h2>
+      <p>Dave&rsquo;s Chimney Sweeping is a local, owner-operated business &mdash; not a national franchise or call centre. Dave personally handles every job across the Dandenong Ranges and surrounding suburbs and has been servicing homes here for over a decade. We know the older housing stock in the ranges, the fireplace and chimney types common to mountain properties, and the issues that cold, damp winters create for flue systems season after season.</p>
       <p>When you call us, you speak directly to Dave. When we show up, it&rsquo;s Dave. No subcontractors, no hand-offs, no surprises. Just a local tradie who knows chimneys, turns up on time, and takes pride in doing the job properly every time.</p>
     </div>
   </section>
 
   <section class="sec">
     <p class="sl">FAQs</p>
-    <h2>Chimney Sweeping Ferntree Gully &mdash; Common Questions</h2>
+    <h2>Chimney Sweeping Upwey &mdash; Common Questions</h2>
     <div class="faq-list">
       {faqs.map(({q,a}) => (
         <details class="faq-item"><summary>{q}</summary><div class="faq-answer">{a}</div></details>
@@ -350,12 +350,12 @@ const faqs = [
 
   <section class="sec" id="quote">
     <p class="sl">Book now</p>
-    <h2>Book Your $199 Chimney Clean in Ferntree Gully</h2>
+    <h2>Book Your $199 Chimney Clean in Upwey</h2>
     <div class="form-wrap">
-      <h3>Quick Quote &mdash; Ferntree Gully</h3>
+      <h3>Quick Quote &mdash; Upwey</h3>
       <p class="form-sub">Fill in your details and Dave will get back to you to confirm your $199 booking.</p>
       <form action="https://formspree.io/f/maqlwkpr" method="POST">
-        <input type="hidden" name="suburb" value="Ferntree Gully VIC 3156" />
+        <input type="hidden" name="suburb" value="Upwey VIC 3158" />
         <input type="hidden" name="price" value="$199 chimney inspection and clean" />
         <div class="form-grid">
           <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
@@ -380,24 +380,23 @@ const faqs = [
 
   <section class="sec">
     <p class="sl">Nearby areas</p>
-    <h2>Suburbs Near Ferntree Gully We Also Service</h2>
-    <p>We cover Ferntree Gully and all nearby suburbs. Click any suburb for area-specific details:</p>
+    <h2>Suburbs Near Upwey We Also Service</h2>
+    <p>We cover Upwey and all nearby suburbs. Click any suburb for area-specific details:</p>
     <div class="suburb-chips">
+      <a class="suburb-chip" href="/chimney-sweeping/ferntree-gully">Ferntree Gully 3156</a>
       <a class="suburb-chip" href="/chimney-sweeping/boronia">Boronia 3155</a>
-      <a class="suburb-chip" href="/chimney-sweeping/bayswater">Bayswater 3153</a>
       <a class="suburb-chip" href="/chimney-sweeping/belgrave">Belgrave 3160</a>
-      <a class="suburb-chip" href="/chimney-sweeping/kilsyth">Kilsyth 3137</a>
-      <a class="suburb-chip" href="/chimney-sweeping/upwey">Upwey 3158</a>
+      <a class="suburb-chip" href="/chimney-sweeping/emerald">Emerald 3782</a>
     </div>
   </section>
 
   <nav class="breadcrumb">
-    <a href="/">Home</a><span>&#8250;</span><a href="/chimney-sweeping/">Chimney Sweeping</a><span>&#8250;</span>Ferntree Gully
+    <a href="/">Home</a><span>&#8250;</span><a href="/chimney-sweeping/">Chimney Sweeping</a><span>&#8250;</span>Upwey
   </nav>
 
   <section class="bottom-cta">
     <div class="bottom-cta-inner">
-      <h2>Ferntree Gully Chimney Sweep &mdash; $199 Flat Rate</h2>
+      <h2>Upwey Chimney Sweep &mdash; $199 Flat Rate</h2>
       <p>Call Dave directly or use the form above. We will confirm your booking and give you a time that works.</p>
       <div class="btn-row">
         <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
