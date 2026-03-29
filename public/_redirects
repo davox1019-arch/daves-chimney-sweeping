@@ -1,0 +1,5 @@
+# Rewrite no-trailing-slash requests to serve directory index without issuing a redirect.
+# Cloudflare Pages CDN normally 301-redirects /path → /path/ for directory-based pages.
+# Using status 200 (rewrite) intercepts the request BEFORE that redirect fires and serves
+# the content transparently — so Google sees a clean 200 with no redirect chain.
+/chimney-sweeping/:slug /chimney-sweeping/:slug/ 200
