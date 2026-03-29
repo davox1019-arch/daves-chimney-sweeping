@@ -405,4 +405,30 @@ const faqs = [
       </div>
     </div>
   </section>
+
+  <a href="tel:0476302729" id="sticky-cta" aria-label="Call or text Dave">
+    <span id="sticky-icon">&#128222;</span>
+    <span id="sticky-text">Call/Text Dave</span>
+  </a>
+
+  <style>
+    #sticky-cta{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;align-items:center;gap:.55rem;background:#c8500a;color:#fff;padding:.75rem 1.2rem .75rem 1rem;border-radius:50px;font-size:.95rem;font-weight:800;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,0.35);transition:opacity .2s,transform .2s;opacity:0;pointer-events:none;}
+    #sticky-cta.visible{opacity:1;pointer-events:auto}
+    #sticky-cta:hover{opacity:.9;transform:translateY(-2px)}
+    #sticky-icon{font-size:1.1rem;line-height:1}
+  </style>
+
+  <script is:inline>
+    (function(){
+      var btn = document.getElementById('sticky-cta');
+      var hero = document.querySelector('.hero');
+      function check(){
+        var threshold = hero ? hero.offsetHeight : 300;
+        if(window.scrollY > threshold){ btn.classList.add('visible'); }
+        else { btn.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', check, {passive:true});
+      check();
+    })();
+  </script>
 </MainLayout>
