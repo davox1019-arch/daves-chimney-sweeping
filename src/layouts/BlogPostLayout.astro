@@ -1,0 +1,207 @@
+---
+import MainLayout from "./MainLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  publishDate: string;
+  readTime: string;
+}
+
+const { title, description, publishDate, readTime } = Astro.props;
+---
+
+<MainLayout title={title} description={description} suppressAbout={true}>
+  <style>
+    .blog-hero {
+      background: linear-gradient(160deg, #2c1a0c 0%, #18120a 100%);
+      color: white;
+      padding: 56px 20px 48px;
+      border-bottom: 3px solid #c8500a;
+    }
+
+    .blog-hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .blog-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c8500a;
+      margin-bottom: 14px;
+    }
+
+    .blog-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      margin: 0 0 16px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .blog-meta {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .blog-body {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 52px 20px 72px;
+    }
+
+    .blog-body h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin: 2.2rem 0 0.8rem;
+      color: #171717;
+      letter-spacing: -0.01em;
+    }
+
+    .blog-body h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 1.6rem 0 0.6rem;
+      color: #2c1a0c;
+    }
+
+    .blog-body p {
+      font-size: 1.06rem;
+      line-height: 1.85;
+      color: #333;
+      margin: 0 0 1.2rem;
+    }
+
+    .blog-body ul, .blog-body ol {
+      padding-left: 1.4rem;
+      margin: 0 0 1.2rem;
+    }
+
+    .blog-body li {
+      font-size: 1.06rem;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 0.4rem;
+    }
+
+    .blog-body strong {
+      font-weight: 700;
+      color: #171717;
+    }
+
+    .callout {
+      background: rgba(200, 80, 10, 0.08);
+      border-left: 4px solid #c8500a;
+      border-radius: 0 12px 12px 0;
+      padding: 18px 20px;
+      margin: 1.6rem 0;
+    }
+
+    .callout p {
+      margin: 0;
+      font-weight: 600;
+      color: #2c1a0c;
+    }
+
+    .blog-cta {
+      background: linear-gradient(135deg, #2c1a0c, #1a1a18);
+      color: white;
+      border-radius: 20px;
+      padding: 36px 32px;
+      margin: 48px 0 0;
+      text-align: center;
+    }
+
+    .blog-cta h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0 0 10px;
+      color: white;
+    }
+
+    .blog-cta p {
+      color: rgba(255,255,255,0.78);
+      margin: 0 0 22px;
+      font-size: 1rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #c8500a;
+      color: white;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .btn-primary:hover { background: #a84008; }
+
+    .btn-secondary {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+    .back-to-blog {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #c8500a;
+      margin-bottom: 32px;
+      text-decoration: none;
+    }
+
+    .back-to-blog:hover { color: #a84008; }
+  </style>
+
+  <div class="blog-hero">
+    <div class="blog-hero-inner">
+      <span class="blog-label">Dave's Chimney Blog</span>
+      <h1>{title}</h1>
+      <div class="blog-meta">
+        <span>{publishDate}</span>
+        <span>{readTime} read</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-body">
+    <a href="/blog" class="back-to-blog">← All articles</a>
+    <slot />
+    <div class="blog-cta">
+      <h3>Ready to book a chimney sweep?</h3>
+      <p>$199 flat rate — full clean and inspection, no call-out fee. Serving all Melbourne suburbs.</p>
+      <div class="cta-buttons">
+        <a href="tel:0476302729" class="btn-primary">📞 Call 0476 302 729</a>
+        <a href="/contact" class="btn-secondary">Get a Quote</a>
+      </div>
+    </div>
+  </div>
+</MainLayout>

@@ -453,6 +453,7 @@ const breadcrumbSchema = canonicalUrl
             <nav class="desktop-nav">
               {!isSuburbPage && <a href={homeHref}>Home</a>}
               {!isSuburbPage && <a href={servicePageHref}>{servicePageLabel}</a>}
+              {!isSuburbPage && <a href="/blog">Blog</a>}
               <a href={isSuburbPage ? "#quote" : "/contact"}>Contact</a>
             </nav>
 
@@ -472,6 +473,7 @@ const breadcrumbSchema = canonicalUrl
           <div class="mobile-menu-card">
             {!isSuburbPage && <a href={homeHref}>Home</a>}
             {!isSuburbPage && <a href={servicePageHref}>{servicePageLabel}</a>}
+            {!isSuburbPage && <a href="/blog">Blog</a>}
             {isSuburbPage && <a href="#about">About Us</a>}
             <a href={isSuburbPage ? "#quote" : "/contact"}>Contact</a>
           </div>
