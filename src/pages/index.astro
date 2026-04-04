@@ -328,6 +328,21 @@ const clusters = [
     .bottom-cta h2{font-size:clamp(1.65rem,5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
     .bottom-cta p{font-size:1rem;color:rgba(255,255,255,0.9);margin:0 auto 1.9rem;line-height:1.6;max-width:440px;font-weight:600}
 
+    /* Form */
+    .form-wrap{background:var(--bw);border:2px solid var(--ba);border-radius:var(--rad);padding:1.75rem 1.25rem;margin-top:1rem}
+    .form-wrap h3{font-size:1.15rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
+    .form-sub{font-size:.9rem;color:var(--ts);margin:0 0 1.25rem}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+    @media(max-width:500px){.form-grid{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;gap:.3rem}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.8rem;font-weight:700;color:var(--tm);letter-spacing:.03em;text-transform:uppercase}
+    .field input,.field select,.field textarea{width:100%;box-sizing:border-box;border:2px solid var(--br);border-radius:8px;padding:.72rem .85rem;font-size:1rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ba)}
+    .field textarea{resize:vertical;min-height:90px}
+    .form-submit{display:block;width:100%;margin-top:1rem;background:var(--ba);color:#fff;border:none;padding:1rem;border-radius:var(--rad);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s,transform .15s}
+    .form-submit:hover{opacity:.88;transform:translateY(-1px)}
+
     /* Blog section */
     .blog-sec{padding:3rem 1.25rem;background:#f0e8da}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:1.25rem}
@@ -555,6 +570,38 @@ const clusters = [
       <a href="/blog" style="display:inline-block;margin-top:1.25rem;font-size:.95rem;font-weight:700;color:var(--ba);text-decoration:none;">View all articles &rarr;</a>
     </div>
   </div>
+
+  <!-- BOOKING FORM -->
+  <section class="sec" id="quote">
+    <p class="sl">Book now</p>
+    <h2>Book Your $199 Chimney Clean &mdash; Melbourne</h2>
+    <div class="form-wrap">
+      <h3>Quick Quote &mdash; Melbourne</h3>
+      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your $199 booking.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="suburb" value="Melbourne VIC" />
+        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Your Suburb</label><input type="text" name="suburb_detail" placeholder="e.g. Kew, Eltham, Werribee…" /></div>
+          <div class="field"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select&hellip;</option>
+              <option value="Chimney Inspection and Clean — $199">Chimney Inspection &amp; Clean &mdash; $199</option>
+              <option>Wood Heater Service</option>
+              <option>Flue Cleaning</option>
+              <option>Blockage / Nest Removal</option>
+              <option>Not sure &mdash; need advice</option>
+            </select>
+          </div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you have noticed, when it was last cleaned&hellip;"></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">Send Booking Request &rsaquo;</button>
+      </form>
+    </div>
+  </section>
 
   <!-- BOTTOM CTA -->
   <section class="bottom-cta">

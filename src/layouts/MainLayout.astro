@@ -16,6 +16,7 @@ const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).toStri
 const socialImage = Astro.site ? new URL("/daves-logo.png", Astro.site).toString() : undefined;
 const isSuburbPage =
   Astro.url.pathname.startsWith("/chimney-sweeping/") && Astro.url.pathname !== "/chimney-sweeping/";
+const isBlogPage = Astro.url.pathname.startsWith("/blog");
 
 const breadcrumbSchema = canonicalUrl
   ? {
@@ -472,15 +473,16 @@ const breadcrumbSchema = canonicalUrl
 
         <div id="mobile-menu" class="mobile-menu">
           <div class="mobile-menu-card">
+            {isBlogPage && <a href="/">Home</a>}
             {isHomePage && <a href="#about">About Us</a>}
             {isHomePage && <a href="#areas">Service Areas</a>}
             {isHomePage && <a href="/blog">Blog</a>}
-            {isHomePage && <a href="/contact">Contact</a>}
-            {!isSuburbPage && !isHomePage && <a href={homeHref}>Home</a>}
-            {!isSuburbPage && !isHomePage && <a href={servicePageHref}>{servicePageLabel}</a>}
-            {!isSuburbPage && !isHomePage && <a href="/blog">Blog</a>}
+            {isHomePage && <a href="#quote">Contact</a>}
+            {!isSuburbPage && !isHomePage && !isBlogPage && <a href={homeHref}>Home</a>}
+            {!isSuburbPage && !isHomePage && !isBlogPage && <a href={servicePageHref}>{servicePageLabel}</a>}
+            {!isSuburbPage && !isHomePage && !isBlogPage && <a href="/blog">Blog</a>}
             {isSuburbPage && <a href="#about">About Us</a>}
-            {!isHomePage && <a href={isSuburbPage ? "#quote" : "/contact"}>Contact</a>}
+            {!isHomePage && !isBlogPage && <a href={isSuburbPage ? "#quote" : "/contact"}>Contact</a>}
           </div>
         </div>
       </div>
