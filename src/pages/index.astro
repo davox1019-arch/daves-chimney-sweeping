@@ -206,67 +206,94 @@ const clusters = [
   <style>
     :root{--bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;--bw:#f5f0e8;--wh:#ffffff;--tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px}
 
+
     /* Hero */
-    .hub-hero{background:var(--bd);color:var(--wh);padding:3.4rem 1.25rem 3.2rem;text-align:center}
-    .eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .9rem;border-radius:20px;margin-bottom:1.1rem}
-    .hub-hero h1{font-size:clamp(2.1rem,7vw,3.2rem);font-weight:800;line-height:1.07;letter-spacing:-.03em;margin:0 0 .9rem;color:var(--wh)}
-    .hub-hero h1 em{font-style:normal;color:#f0a06a}
-    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.88rem;font-weight:800;padding:.45rem 1.1rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c}
-    .hub-hero .lead{font-size:1.05rem;line-height:1.7;color:#c8c5be;margin:0 auto .8rem;max-width:540px}
-    .hub-hero .sub{font-size:.95rem;line-height:1.6;color:#6e6b64;max-width:500px;margin:0 auto 2.4rem}
+    .hero{background:linear-gradient(160deg,#18120a 0%,#2c1a0c 55%,#1a1a18 100%);color:var(--wh);padding:3.8rem 1.25rem 3.4rem;text-align:center}
+    @media(max-width:640px){.hero{background:url('/images/firehome.jpg') center/cover no-repeat;padding:.5rem}.hero-box{background:rgba(10,6,4,0.72);border-radius:14px;padding:1.25rem .75rem;max-width:480px;margin:0 auto}.hero-box .btn-row{flex-direction:column;gap:.5rem;width:100%}.hero-box .btn{max-width:none;width:calc(100% - 1rem);padding:.9rem 1rem;font-size:1rem}.hero-box .btn-call{font-size:1rem}.hero-lead{font-weight:700;color:#fff!important}.hero-sub{font-weight:600;color:#fff!important}}
+    .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem}
+    .hero h1{font-size:clamp(2.4rem,6.5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
+    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.9rem;font-weight:800;padding:.6rem 1.25rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c;white-space:nowrap}
+    .hero-lead{font-size:1.12rem;line-height:1.72;color:#d4d1cb;margin:0 auto .8rem;max-width:520px}
+    .hero-sub{font-size:.98rem;line-height:1.65;color:#a09d96;max-width:500px;margin:0 auto 2.2rem}
     .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
     .btn{display:inline-block;padding:1rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s,transform .15s}
     .btn:hover{opacity:.88;transform:translateY(-1px)}
-    .btn-call{background:var(--ba);color:#fff;font-size:1.15rem}
-    .btn-quote{background:transparent;border:2px solid #4a4a44;color:#c8c5be}
+    .btn-call{background:var(--ba);color:#fff;font-size:1.25rem;letter-spacing:.01em}
+    .btn-quote{background:transparent;border:2px solid rgba(255,255,255,0.32);color:#fff}
 
     /* Trust bar */
-    .trust-bar{background:var(--bm);padding:1rem 1.25rem;display:flex;justify-content:center;gap:1.75rem;flex-wrap:wrap}
-    .ti{display:flex;align-items:center;gap:.45rem;font-size:.82rem;color:#908d86;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-    .ti svg{color:var(--ba);flex-shrink:0}
+    .trust-bar{background:var(--bm);padding:1.1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.86rem;color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .ti svg{flex-shrink:0;color:var(--ba)}
 
     /* Sections */
-    .sec{padding:2.5rem 1.25rem;max-width:760px;margin:0 auto}
+    .sec{padding:2.9rem 1.25rem;max-width:720px;margin:0 auto}
     .sec+.sec{border-top:1px solid var(--br)}
-    .sec-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
-    .sec h2{font-size:clamp(1.4rem,4vw,1.8rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
-    .sec p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0 0 .9rem}
+    .sl{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
+    .sec h2{font-size:clamp(1.65rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec p{font-size:1.06rem;line-height:1.8;color:var(--ts);margin:0 0 .9rem}
     .sec p:last-child{margin-bottom:0}
 
-    /* Services */
-    .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.4rem}
-    @media(max-width:400px){.svc-grid{grid-template-columns:1fr}}
-    .svc-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.1rem 1rem}
-    .svc-icon{font-size:1.5rem;display:block;margin-bottom:.5rem}
-    .svc-title{font-size:.92rem;font-weight:700;color:var(--tm);margin-bottom:.3rem}
-    .svc-desc{font-size:.84rem;line-height:1.55;color:var(--ts)}
+    /* Price box */
+    .price-box{background:var(--bw);border:2px solid #2a6b1c;border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem;text-align:center}
+    .price-num{font-size:3.6rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.25rem}
+    .price-label{font-size:1.05rem;font-weight:700;color:var(--tm);margin-bottom:.75rem}
+    .price-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
+    .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.35rem .8rem;font-size:.84rem;font-weight:600;color:var(--ts)}
+    .pi::before{content:"✓ ";color:#2a6b1c;font-weight:800}
 
-    /* Why cards */
-    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:1.4rem}
-    @media(max-width:480px){.why-grid{grid-template-columns:1fr}}
-    .wc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1rem}
-    .wc-icon{font-size:1.3rem;display:block;margin-bottom:.4rem}
-    .wc-title{font-size:.9rem;font-weight:700;color:var(--tm);margin-bottom:.25rem}
-    .wc-desc{font-size:.83rem;line-height:1.5;color:var(--ts)}
+    /* Local box */
+    .local-box{background:var(--bw);border-left:4px solid var(--ba);border-radius:0 var(--rad) var(--rad) 0;padding:1.25rem 1.25rem;margin-top:1rem}
+    .local-box p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0}
 
-    /* About */
-    .about-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1.1rem}
-    .about-card p{font-size:1rem;line-height:1.7;color:var(--ts);margin:0 0 .85rem}
-    .about-card p:last-child{margin-bottom:0}
-    .arow{display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--ts);margin-top:.6rem}
-    .arow strong{color:var(--tm)}
-    .arow a{color:var(--ba);font-weight:700;text-decoration:none}
+    /* Reason grid */
+    .reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
+    @media(max-width:480px){.reason-grid{grid-template-columns:1fr}}
+    .rc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.1rem 1rem}
+    .rc-icon{font-size:1.4rem;display:block;margin-bottom:.4rem}
+    .rc-title{font-size:.95rem;font-weight:700;color:var(--tm);margin-bottom:.25rem}
+    .rc-desc{font-size:.86rem;line-height:1.55;color:var(--ts)}
 
-    /* ── SUBURB ACCORDION ── */
+    /* Services list */
+    .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.1rem}
+    @media(max-width:380px){.svc-list{grid-template-columns:1fr}}
+    .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.75rem .9rem;font-size:.95rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
+    .sv::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
+
+    /* Reviews */
+    .reviews-grid{display:flex;flex-direction:column;gap:.85rem;margin-top:1.1rem}
+    .review-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.25rem 1.25rem}
+    .review-stars{color:#f59e0b;font-size:1.15rem;margin-bottom:.5rem;letter-spacing:.05em}
+    .review-text{font-size:.97rem;line-height:1.7;color:var(--ts);margin:0 0 .6rem;font-style:italic}
+    .review-author{font-size:.84rem;font-weight:700;color:var(--tm)}
+
+    /* Dirty flue images */
+    .dirty-flue-wrap{display:none;margin-top:1.1rem;justify-content:center;gap:.6rem}
+    .dirty-flue-item{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+    .dirty-flue-img{width:120px;height:auto;border-radius:6px}
+    .dirty-flue-cap{font-size:.72rem;color:var(--ts);margin:.45rem auto 0;max-width:300px;line-height:1.45;font-style:italic}
+    @media(max-width:640px){.dirty-flue-wrap{display:flex}}
+
+    /* Work image */
+    .work-img-wrap{display:none;margin-top:1rem;text-align:center}
+    .work-img{width:100%;height:auto;border-radius:8px}
+    @media(max-width:640px){.work-img-wrap{display:block}}
+
+    /* About with photo */
+    .about-fp{background:url('/images/fireplace.jpg') center/cover no-repeat;padding:2.5rem 1rem;margin-top:0}
+    .about-fp-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:680px;margin:0 auto}
+    .about-fp p{font-size:1.06rem;line-height:1.8;color:rgba(255,255,255,0.92);font-weight:600;margin:0 0 .9rem}
+    .about-fp p:last-child{margin-bottom:0}
+    .arow{display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:rgba(255,255,255,0.75);margin-top:.6rem}
+    .arow strong{color:#fff}
+    .arow a{color:#f0a06a;font-weight:700;text-decoration:none}
+
+    /* Suburb accordion */
     .clusters-intro{font-size:1rem;line-height:1.75;color:var(--ts);margin-bottom:1.25rem}
     .region-accordion{border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
     details.region-item{border-bottom:1px solid var(--br)}
     details.region-item:last-child{border-bottom:none}
-    details.region-item summary{
-      padding:.9rem 1.1rem;font-size:.92rem;font-weight:700;color:var(--tm);
-      cursor:pointer;list-style:none;display:flex;justify-content:space-between;
-      align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem
-    }
+    details.region-item summary{padding:.9rem 1.1rem;font-size:.92rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
     details.region-item summary::-webkit-details-marker{display:none}
     details.region-item summary:hover{background:var(--bw)}
     details.region-item[open] summary{background:var(--bw)}
@@ -292,25 +319,56 @@ const clusters = [
     .faq-answer{padding:0 1.1rem 1rem;font-size:.97rem;line-height:1.75;color:var(--ts);background:var(--wh)}
 
     /* Bottom CTA */
-    .bottom-cta{background:var(--bd);color:var(--wh);padding:3.2rem 1.25rem;text-align:center}
-    .bottom-cta h2{font-size:clamp(1.5rem,5vw,2rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .7rem}
-    .bottom-cta p{font-size:1rem;color:#6e6b64;line-height:1.6;max-width:460px;margin:0 auto 2rem}
+    .bottom-cta{background:url('/images/fireplace3.jpg') center/cover no-repeat;color:var(--wh);padding:2.8rem 1rem;text-align:center}
+    .bottom-cta-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:480px;margin:0 auto}
+    .bottom-cta-inner .btn-row{flex-direction:column;gap:.5rem;width:100%}
+    .bottom-cta-inner .btn{max-width:none;width:calc(100% - 1rem);box-sizing:border-box;padding:.9rem 1rem;font-size:1rem}
+    .bottom-cta-inner .btn-call{font-size:1rem}
+    .bottom-cta h2{font-size:clamp(1.65rem,5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
+    .bottom-cta p{font-size:1rem;color:rgba(255,255,255,0.9);margin:0 auto 1.9rem;line-height:1.6;max-width:440px;font-weight:600}
+
+    /* Blog section */
+    .blog-sec{padding:3rem 1.25rem;background:#f0e8da}
+    .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:1.25rem}
+    .blog-card{background:rgba(255,255,255,0.94);border:1px solid var(--br);border-radius:16px;padding:20px 18px;text-decoration:none;color:inherit;display:block;transition:box-shadow .2s,transform .2s}
+    .blog-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.1);transform:translateY(-2px)}
+    .blog-card-tag{font-size:.72rem;font-weight:700;color:var(--ba);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
+    .blog-card h3{font-size:.98rem;font-weight:800;color:var(--tm);line-height:1.3;margin:0 0 10px}
+    .blog-card-link{font-size:.85rem;font-weight:700;color:var(--ba)}
   </style>
 
   <!-- HERO -->
-  <section class="hub-hero">
-    <span class="eyebrow">Melbourne VIC — All Suburbs</span>
-    <h1>Chimney Sweeping<br><em>Melbourne</em></h1>
-    <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
-    <p class="lead">
-      Daves Chimney Sweeping is a local, owner-operated chimney sweep servicing homes across Melbourne and surrounding suburbs VIC. Chimney cleaning, flue cleaning, wood heater servicing and fireplace maintenance — one flat rate, every suburb.
-    </p>
-    <p class="sub">
-      No franchises. No call centres. You speak to Dave — the person who turns up and does every job himself. $199 flat rate, honest advice, tidy finish.
-    </p>
-    <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="/contact">Get a Free Quote</a>
+  <section class="hero">
+    <div class="hero-box">
+      <span class="hero-eyebrow">Melbourne VIC &mdash; All Suburbs</span>
+      <h1>Chimney Sweeping<br>Melbourne VIC</h1>
+      <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
+      <p class="hero-lead">Local, owner-operated chimney sweeping across all Melbourne suburbs. Open fireplaces, wood heaters, slow combustion units &mdash; one flat rate, done properly.</p>
+      <p class="hero-sub">$199 flat &mdash; no call-out fee, no hidden extras. You speak to Dave and Dave turns up. Every job, every suburb.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.1rem;">
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fully Insured</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; No Mess Guaranteed</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fixed $199 Price</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; 10+ Years Local</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Verbal Condition Report</span>
+      </div>
+      <div id="lb" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;">
+        <img id="lb-img" src="" alt="Enlarged photo" style="max-width:100%;max-height:90vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,0.6);" />
+      </div>
+      <div style="display:flex;gap:0.6rem;margin-bottom:1.25rem;justify-content:center;">
+        <div style="text-align:center;cursor:pointer;" onclick="document.getElementById('lb').style.display='flex';document.getElementById('lb-img').src=this.querySelector('img').src">
+          <img src="/images/chimney-before-after.jpg" alt="Chimney before and after cleaning" style="width:140px;height:100px;object-fit:cover;border-radius:8px;" loading="lazy" />
+          <p style="color:#a09d96;font-size:0.68rem;margin:0.3rem 0 0;letter-spacing:0.05em;text-transform:uppercase;font-weight:700;">Chimney Before &amp; After</p>
+        </div>
+        <div style="text-align:center;cursor:pointer;" onclick="document.getElementById('lb').style.display='flex';document.getElementById('lb-img').src=this.querySelector('img').src">
+          <img src="/images/before-and-after-flue.jpg" alt="Flue before and after cleaning" style="width:140px;height:100px;object-fit:cover;border-radius:8px;" loading="lazy" />
+          <p style="color:#a09d96;font-size:0.68rem;margin:0.3rem 0 0;letter-spacing:0.05em;text-transform:uppercase;font-weight:700;">Flue Before &amp; After</p>
+        </div>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
+        <a class="btn btn-quote" href="/contact">Get a Free Quote</a>
+      </div>
     </div>
   </section>
 
@@ -319,60 +377,121 @@ const clusters = [
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
-    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon–Sat</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon&ndash;Sat</span>
   </div>
 
-  <!-- SERVICES -->
+  <!-- PRICING -->
   <section class="sec">
-    <p class="sec-label">What we do</p>
-    <h2>Chimney &amp; Fireplace Services — $199 Flat Rate</h2>
-    <p>We cover the full range of residential chimney and heating work. Whether you have an open fireplace, a wood heater or a slow combustion unit — one visit, one price, done properly.</p>
-    <div class="svc-grid">
-      {services.map(s => (
-        <div class="svc-card">
-          <span class="svc-icon">{s.icon}</span>
-          <div class="svc-title">{s.title}</div>
-          <div class="svc-desc">{s.desc}</div>
-        </div>
-      ))}
+    <p class="sl">Pricing</p>
+    <h2>$199 &mdash; Chimney Inspection &amp; Full Clean, All Melbourne</h2>
+    <p>One flat price across every Melbourne suburb &mdash; no call-out fee, no surprise extras on the day. Here is exactly what is covered in every visit:</p>
+    <div class="price-box">
+      <div class="price-num">$199</div>
+      <div class="price-label">Chimney Inspection &amp; Full Clean &mdash; Melbourne VIC</div>
+      <div class="price-includes">
+        <span class="pi">Chimney sweep</span><span class="pi">Flue cleaning</span><span class="pi">Creosote removal</span>
+        <span class="pi">Soot &amp; ash removal</span><span class="pi">Bird nest check</span><span class="pi">Blockage clearance</span>
+        <span class="pi">Condition report</span><span class="pi">No call-out fee</span>
+      </div>
     </div>
   </section>
 
-  <!-- WHY BOOK -->
+  <!-- MELBOURNE LOCAL KNOWLEDGE -->
   <section class="sec">
-    <p class="sec-label">Common reasons to call</p>
-    <h2>Why Melbourne Homeowners Book a Chimney Sweep</h2>
-    <p>Most bookings come from one of these situations — some obvious, some people put up with too long:</p>
-    <div class="why-grid">
-      <div class="wc"><span class="wc-icon">🌫️</span><div class="wc-title">Smoke reversing inside</div><div class="wc-desc">Most common sign of a blocked or sooted flue — usually fixed with a proper clean.</div></div>
-      <div class="wc"><span class="wc-icon">💨</span><div class="wc-title">Poor draw or sluggish fire</div><div class="wc-desc">Restricted airflow from creosote buildup makes fires hard to start and maintain.</div></div>
-      <div class="wc"><span class="wc-icon">👃</span><div class="wc-title">Persistent smoky smell</div><div class="wc-desc">Burnt odour when the fire isn't on — usually creosote or old ash in the flue.</div></div>
-      <div class="wc"><span class="wc-icon">⬛</span><div class="wc-title">Heavy soot on the hearth</div><div class="wc-desc">Thick black soot visible around the firebox is a clear sign it's overdue for a clean.</div></div>
-      <div class="wc"><span class="wc-icon">📅</span><div class="wc-title">Annual pre-winter service</div><div class="wc-desc">Book in autumn before the heating season — easier to sort early than mid-winter.</div></div>
-      <div class="wc"><span class="wc-icon">🏡</span><div class="wc-title">Just moved in</div><div class="wc-desc">Inherited a fireplace or wood heater with unknown service history? Get it checked first.</div></div>
+    <p class="sl">Why Melbourne chimneys need regular attention</p>
+    <h2>Melbourne&rsquo;s Housing Stock &mdash; And Why Chimney Maintenance Matters Here</h2>
+    <div class="local-box"><p>Melbourne has one of the most varied housing stocks of any Australian city. The inner and middle suburbs are defined by Victorian, Edwardian and interwar period homes &mdash; many featuring original brick chimneys and fireplaces that were designed as the primary heat source and are now used recreationally. These older systems require careful attention: lime mortar deteriorates over time, heritage flue liners crack with thermal cycling, and narrow Victorian flue dimensions accumulate creosote faster than modern systems. The middle and outer suburbs contain a large stock of 1950s through 1990s homes, many fitted with slow combustion wood heaters that are the primary or backup heat source during Melbourne&rsquo;s cold winters. Melbourne&rsquo;s climate &mdash; cold, damp winters from May through August with regular overnight lows under 5&deg;C &mdash; means wood heaters and fireplaces work hard every season. Heavy winter use accelerates creosote buildup. The Dandenong Ranges, Yarra Valley, Mornington Peninsula and outer north-west experience particularly cold winters, with residents using wood heating more intensively than in inner Melbourne. Regular professional cleaning keeps these systems safe, efficient and compliant with home insurance requirements.</p></div>
+  </section>
+
+  <!-- SIGNS TO BOOK -->
+  <section class="sec">
+    <p class="sl">When to book</p>
+    <h2>Signs Your Melbourne Chimney Needs Cleaning</h2>
+    <p>If any of these are familiar, it is time to get it sorted before another Melbourne winter arrives:</p>
+    <div class="reason-grid">
+      <div class="rc"><span class="rc-icon">&#128293;</span><div class="rc-title">Smoke coming back in</div><div class="rc-desc">Most common sign of a blocked or heavily sooted flue. A clean usually fixes this immediately.</div></div>
+      <div class="rc"><span class="rc-icon">&#128168;</span><div class="rc-title">Persistent smoky smell</div><div class="rc-desc">Creosote or old ash in the flue causes a burnt odour even when the fire hasn&rsquo;t been lit.</div></div>
+      <div class="rc"><span class="rc-icon">&#9888;&#65039;</span><div class="rc-title">Weak or sluggish draw</div><div class="rc-desc">Fires that won&rsquo;t start easily or keep dying down &mdash; restricted airflow in the flue.</div></div>
+      <div class="rc"><span class="rc-icon">&#127810;</span><div class="rc-title">Pre-winter service</div><div class="rc-desc">Book in March&ndash;May before the rush &mdash; wait times blow out in June once winter sets in.</div></div>
+      <div class="rc"><span class="rc-icon">&#128203;</span><div class="rc-title">Overdue for annual clean</div><div class="rc-desc">Used regularly through winter? It needs cleaning once a year regardless of symptoms.</div></div>
+      <div class="rc"><span class="rc-icon">&#127968;</span><div class="rc-title">Just moved in</div><div class="rc-desc">Unknown service history on the fireplace or heater? Get it inspected before you use it.</div></div>
+    </div>
+    <div class="dirty-flue-wrap">
+      <div class="dirty-flue-item">
+        <img src="/images/dirty flue2.JPG" alt="Dirty flue before cleaning" class="dirty-flue-img" loading="lazy" />
+        <p class="dirty-flue-cap">Sooted flue lining</p>
+      </div>
+      <div class="dirty-flue-item">
+        <img src="/images/fluecap.JPG" alt="Blocked flue cap" class="dirty-flue-img" loading="lazy" />
+        <p class="dirty-flue-cap">Blocked flue cap</p>
+      </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- WHAT'S INCLUDED -->
   <section class="sec">
-    <p class="sec-label">About the service</p>
-    <h2>A Melbourne Chimney Sweep Worth Calling</h2>
-    <div class="about-card">
-      <p>Daves Chimney Sweeping is local and owner-operated. No franchise, no call centre, no subcontracting — Dave does every job himself, which means consistent quality on every visit.</p>
-      <p>You get honest advice about what your chimney or flue actually needs, a clear $199 price before work starts, and a job done properly from start to finish. Not sure if we service your suburb? Call and we'll confirm in seconds.</p>
-      <div class="arow">📞 <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
-      <div class="arow">📍 <strong>Area:</strong>&nbsp;Melbourne VIC — all suburbs</div>
-      <div class="arow">🕐 <strong>Hours:</strong>&nbsp;Mon–Sat, 8am–6pm</div>
-      <div class="arow">💰 <strong>Price:</strong>&nbsp;$199 flat rate — chimney inspection &amp; full clean</div>
+    <p class="sl">What is included</p>
+    <h2>Everything Covered in the One $199 Visit</h2>
+    <p>We service the full system &mdash; chimney, flue and heater body &mdash; in a single visit. No return trips, no extra charges:</p>
+    <div class="svc-list">
+      <span class="sv">Chimney sweep &mdash; firebox to pot</span>
+      <span class="sv">Flue liner or pipe cleaning</span>
+      <span class="sv">Wood heater service</span>
+      <span class="sv">Open fireplace cleaning</span>
+      <span class="sv">Soot &amp; creosote removal</span>
+      <span class="sv">Ash removal</span>
+      <span class="sv">Bird nest &amp; blockage clearing</span>
+      <span class="sv">Verbal condition report</span>
+    </div>
+    <div class="work-img-wrap">
+      <img src="/images/work2.png" alt="Dave's Chimney Sweeping at work in Melbourne" class="work-img" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sec">
+    <p class="sl">What customers say</p>
+    <h2>Reviews from Melbourne Homeowners</h2>
+    <p>What locals say after their $199 chimney clean:</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&ldquo;Found Dave online, wasn&rsquo;t sure what to expect. He turned up on time, put down dust sheets, cleaned the whole system and left the place spotless. Gave us a clear rundown of the condition afterwards. Highly recommend.&rdquo;</p>
+        <div class="review-author">Christine B. &mdash; Williamstown 3016</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&ldquo;Just bought a 1970s home in Eltham with a wood heater that hadn&rsquo;t been touched in years. Dave found a partially blocked flue and cleaned it out completely. The fire draws perfectly now. Great service, fair price.&rdquo;</p>
+        <div class="review-author">Andrew K. &mdash; Eltham 3095</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&ldquo;Third year running with Dave for our annual service. Always reliable, always on time, always leaves the house clean. The $199 flat rate with no extras is exactly what it sounds like. No tricks.&rdquo;</p>
+        <div class="review-author">Fiona D. &mdash; Moorabbin 3189</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT WITH PHOTO BACKGROUND -->
+  <section class="about-fp" id="about">
+    <div class="about-fp-inner">
+      <p class="sl" style="color:#e87a3a">About Us</p>
+      <h2 style="color:#fff;font-size:clamp(1.65rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin:0 0 1rem;line-height:1.2">Melbourne Chimney Sweep &mdash; Owner-Operated, 10+ Years in the Trade</h2>
+      <p>Dave&rsquo;s Chimney Sweeping is a local, owner-operated business &mdash; not a franchise, not a call centre. Dave personally handles every job across Melbourne and surrounding suburbs, from the inner east to the Dandenong Ranges and the Mornington Peninsula.</p>
+      <p>Every customer speaks directly to Dave. Every job is done by Dave. No subcontractors, no handoffs, no surprises. Just a local tradie who knows chimneys inside out, turns up when he says he will, and takes pride in doing the job properly every single time.</p>
+      <div class="arow">&#128222; <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
+      <div class="arow">&#128205; <strong>Area:</strong>&nbsp;Melbourne VIC &mdash; all suburbs</div>
+      <div class="arow">&#128336; <strong>Hours:</strong>&nbsp;Mon&ndash;Sat, 8am&ndash;6pm</div>
+      <div class="arow">&#128176; <strong>Price:</strong>&nbsp;$199 flat rate &mdash; chimney inspection &amp; full clean</div>
     </div>
   </section>
 
   <!-- SUBURB ACCORDION -->
   <section class="sec">
-    <p class="sec-label">Service coverage</p>
-    <h2>All Melbourne Suburbs — Find Yours</h2>
+    <p class="sl">Service coverage</p>
+    <h2>All Melbourne Suburbs &mdash; Find Yours</h2>
     <p class="clusters-intro">
-      We service Melbourne and all surrounding suburbs. Click a region to expand it. Suburbs shown in <strong style="color:var(--ba)">orange</strong> have a dedicated local page with area-specific details and pricing. All other suburbs are covered — call <a href="tel:0476302729" style="color:var(--ba);font-weight:700;text-decoration:none;">0476 302 729</a> to confirm.
+      We service Melbourne and all surrounding suburbs. Click a region to expand it. Suburbs shown in <strong style="color:var(--ba)">orange</strong> have a dedicated local page with area-specific details and pricing. All other suburbs are covered &mdash; call <a href="tel:0476302729" style="color:var(--ba);font-weight:700;text-decoration:none;">0476 302 729</a> to confirm.
     </p>
     <div class="region-accordion">
       {clusters.map(cluster => (
@@ -397,8 +516,8 @@ const clusters = [
 
   <!-- FAQ -->
   <section class="sec">
-    <p class="sec-label">FAQs</p>
-    <h2>Chimney Sweeping Melbourne — Common Questions</h2>
+    <p class="sl">FAQs</p>
+    <h2>Chimney Sweeping Melbourne &mdash; Common Questions</h2>
     <div class="faq-list">
       {faqs.map(({ q, a }) => (
         <details class="faq-item">
@@ -409,42 +528,70 @@ const clusters = [
     </div>
   </section>
 
+  <!-- BLOG -->
+  <div class="blog-sec">
+    <div style="max-width:720px;margin:0 auto">
+      <p class="sl">Resources</p>
+      <h2 style="font-size:clamp(1.5rem,3vw,1.9rem);font-weight:800;margin:0 0 6px;letter-spacing:-.02em;color:var(--tm)">Chimney &amp; Wood Heater Guides</h2>
+      <p style="color:var(--ts);font-size:1rem;margin:0 0 0">Practical advice for Melbourne homeowners with fireplaces and wood heaters.</p>
+      <div class="blog-grid">
+        <a href="/blog/chimney-sweep-cost-melbourne" class="blog-card">
+          <div class="blog-card-tag">Pricing</div>
+          <h3>How Much Does Chimney Sweeping Cost in Melbourne?</h3>
+          <span class="blog-card-link">Read &rarr;</span>
+        </a>
+        <a href="/blog/signs-chimney-needs-cleaning" class="blog-card">
+          <div class="blog-card-tag">Safety</div>
+          <h3>5 Warning Signs Your Chimney Needs Cleaning Right Now</h3>
+          <span class="blog-card-link">Read &rarr;</span>
+        </a>
+        <a href="/blog/what-happens-dont-clean-chimney" class="blog-card">
+          <div class="blog-card-tag">Safety</div>
+          <h3>What Happens If You Don&rsquo;t Clean Your Chimney?</h3>
+          <span class="blog-card-link">Read &rarr;</span>
+        </a>
+      </div>
+      <a href="/blog" style="display:inline-block;margin-top:1.25rem;font-size:.95rem;font-weight:700;color:var(--ba);text-decoration:none;">View all articles &rarr;</a>
+    </div>
+  </div>
+
   <!-- BOTTOM CTA -->
   <section class="bottom-cta">
-    <h2>$199 Chimney Sweep — Anywhere in Melbourne</h2>
-    <p>Call Dave directly for a fast, no-nonsense quote — or send a message and we'll get back to you the same day.</p>
-    <div class="btn-row">
-      <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
-      <a class="btn btn-quote" href="/contact">Request a Free Quote</a>
+    <div class="bottom-cta-inner">
+      <h2>$199 Chimney Sweep &mdash; Anywhere in Melbourne</h2>
+      <p>Call Dave directly or use the contact form &mdash; we&rsquo;ll get back to you the same day and confirm a time that works.</p>
+      <div class="btn-row">
+        <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
+        <a class="btn btn-quote" href="/contact">Request a Free Quote</a>
+      </div>
     </div>
   </section>
 
-  <section style="padding: 56px 20px 64px; background: #f0e8da;">
-    <div style="max-width: 1000px; margin: 0 auto;">
-      <div style="margin-bottom: 32px;">
-        <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #c8500a;">Resources</span>
-        <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin: 10px 0 6px; letter-spacing: -0.02em; color: #171717;">Chimney & Wood Heater Guides</h2>
-        <p style="color: #555; font-size: 1rem; margin: 0;">Practical advice for Melbourne homeowners with fireplaces and wood heaters.</p>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin-bottom: 28px;">
-        <a href="/blog/chimney-sweep-cost-melbourne" style="background: rgba(255,255,255,0.94); border: 1px solid #e5dbcf; border-radius: 16px; padding: 22px 20px; text-decoration: none; color: inherit; display: block; transition: box-shadow 0.2s;">
-          <div style="font-size: 0.75rem; font-weight: 700; color: #c8500a; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">Pricing</div>
-          <strong style="display: block; font-size: 1rem; font-weight: 800; color: #171717; line-height: 1.3; margin-bottom: 8px;">How Much Does Chimney Sweeping Cost in Melbourne?</strong>
-          <span style="font-size: 0.88rem; color: #c8500a; font-weight: 700;">Read →</span>
-        </a>
-        <a href="/blog/signs-chimney-needs-cleaning" style="background: rgba(255,255,255,0.94); border: 1px solid #e5dbcf; border-radius: 16px; padding: 22px 20px; text-decoration: none; color: inherit; display: block; transition: box-shadow 0.2s;">
-          <div style="font-size: 0.75rem; font-weight: 700; color: #c8500a; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">Safety</div>
-          <strong style="display: block; font-size: 1rem; font-weight: 800; color: #171717; line-height: 1.3; margin-bottom: 8px;">5 Warning Signs Your Chimney Needs Cleaning Right Now</strong>
-          <span style="font-size: 0.88rem; color: #c8500a; font-weight: 700;">Read →</span>
-        </a>
-        <a href="/blog/how-often-chimney-cleaning-melbourne" style="background: rgba(255,255,255,0.94); border: 1px solid #e5dbcf; border-radius: 16px; padding: 22px 20px; text-decoration: none; color: inherit; display: block; transition: box-shadow 0.2s;">
-          <div style="font-size: 0.75rem; font-weight: 700; color: #c8500a; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">Maintenance</div>
-          <strong style="display: block; font-size: 1rem; font-weight: 800; color: #171717; line-height: 1.3; margin-bottom: 8px;">How Often Should You Get Your Chimney Cleaned?</strong>
-          <span style="font-size: 0.88rem; color: #c8500a; font-weight: 700;">Read →</span>
-        </a>
-      </div>
-      <a href="/blog" style="font-size: 0.95rem; font-weight: 700; color: #c8500a; text-decoration: none;">View all articles →</a>
-    </div>
-  </section>
+  <!-- STICKY CALL BUTTON -->
+  <a href="tel:0476302729" id="sticky-cta" aria-label="Call or text Dave">
+    <span id="sticky-icon">&#128222;</span>
+    <span id="sticky-text">Call/Text Dave</span>
+  </a>
+
+  <style>
+    #sticky-cta{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;align-items:center;gap:.55rem;background:#c8500a;color:#fff;padding:.75rem 1.2rem .75rem 1rem;border-radius:50px;font-size:.95rem;font-weight:800;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,0.35);transition:opacity .2s,transform .2s;opacity:0;pointer-events:none;}
+    #sticky-cta.visible{opacity:1;pointer-events:auto}
+    #sticky-cta:hover{opacity:.9;transform:translateY(-2px)}
+    #sticky-icon{font-size:1.1rem;line-height:1}
+  </style>
+
+  <script is:inline>
+    (function(){
+      var btn = document.getElementById('sticky-cta');
+      var hero = document.querySelector('.hero');
+      function check(){
+        var threshold = hero ? hero.offsetHeight : 300;
+        if(window.scrollY > threshold){ btn.classList.add('visible'); }
+        else { btn.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', check, {passive:true});
+      check();
+    })();
+  </script>
 
 </MainLayout>
