@@ -71,6 +71,15 @@ const breadcrumbSchema = canonicalUrl
       <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)}></script>
     )}
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6BD3TF9LCB"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6BD3TF9LCB');
+    </script>
+
     <style>
       :root {
         --bg: #f5efe7;
