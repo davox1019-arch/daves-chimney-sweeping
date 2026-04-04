@@ -9,6 +9,7 @@ const {
   homeHref = "/",
   suppressAbout = false,
   footerArea = "Melbourne VIC",
+  isHomePage = false,
 } = Astro.props;
 
 const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
@@ -471,11 +472,15 @@ const breadcrumbSchema = canonicalUrl
 
         <div id="mobile-menu" class="mobile-menu">
           <div class="mobile-menu-card">
-            {!isSuburbPage && <a href={homeHref}>Home</a>}
-            {!isSuburbPage && <a href={servicePageHref}>{servicePageLabel}</a>}
-            {!isSuburbPage && <a href="/blog">Blog</a>}
+            {isHomePage && <a href="#about">About Us</a>}
+            {isHomePage && <a href="#areas">Service Areas</a>}
+            {isHomePage && <a href="/blog">Blog</a>}
+            {isHomePage && <a href="/contact">Contact</a>}
+            {!isSuburbPage && !isHomePage && <a href={homeHref}>Home</a>}
+            {!isSuburbPage && !isHomePage && <a href={servicePageHref}>{servicePageLabel}</a>}
+            {!isSuburbPage && !isHomePage && <a href="/blog">Blog</a>}
             {isSuburbPage && <a href="#about">About Us</a>}
-            <a href={isSuburbPage ? "#quote" : "/contact"}>Contact</a>
+            {!isHomePage && <a href={isSuburbPage ? "#quote" : "/contact"}>Contact</a>}
           </div>
         </div>
       </div>
