@@ -12,7 +12,8 @@ const {
   isHomePage = false,
 } = Astro.props;
 
-const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
+const rawCanonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
+const canonicalUrl = rawCanonical ? rawCanonical.replace(/\/$/, '') : undefined;
 const socialImage = Astro.site ? new URL("/daves-logo.png", Astro.site).toString() : undefined;
 const isSuburbPage =
   Astro.url.pathname.startsWith("/chimney-sweeping/") && Astro.url.pathname !== "/chimney-sweeping/";
