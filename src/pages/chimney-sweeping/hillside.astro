@@ -123,8 +123,8 @@ const faqs = [
     .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem}
     .hero h1{font-size:clamp(2.4rem,6.5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
     .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.9rem;font-weight:800;padding:.6rem 1.25rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c;white-space:nowrap}
-    .hero-lead{font-size:1.28rem;line-height:1.72;color:#d4d1cb;margin:0 auto .8rem;max-width:520px}
-    .hero-sub{font-size:1.06rem;line-height:1.65;color:#a09d96;max-width:500px;margin:0 auto 2.2rem}
+    .hero-lead{font-size:1.18rem;line-height:1.6;color:#d4d1cb;margin:0 auto .7rem;max-width:520px}
+    .hero-sub{font-size:1rem;line-height:1.55;color:#a09d96;max-width:500px;margin:0 auto 1.8rem}
     .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
     .btn{display:inline-block;padding:1rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s,transform .15s}
     .btn:hover{opacity:.88;transform:translateY(-1px)}
@@ -137,7 +137,7 @@ const faqs = [
     .sec+.sec{border-top:1px solid var(--br)}
     .sl{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
     .sec h2{font-size:clamp(1.8rem,5vw,2.3rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
-    .sec p{font-size:1.13rem;line-height:1.85;color:var(--ts);margin:0 0 .9rem}
+    .sec p{font-size:1.08rem;line-height:1.65;color:var(--ts);margin:0 0 .75rem}
     .sec p:last-child{margin-bottom:0}
     .price-box{background:var(--bw);border:2px solid #2a6b1c;border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem;text-align:center}
     .price-num{font-size:4.2rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.25rem}
@@ -145,26 +145,24 @@ const faqs = [
     .price-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
     .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.42rem .9rem;font-size:.93rem;font-weight:600;color:var(--ts)}
     .pi::before{content:"✓ ";color:#2a6b1c;font-weight:800}
-    .local-box{background:var(--bw);border-left:4px solid var(--ba);border-radius:0 var(--rad) var(--rad) 0;padding:1.4rem 1.4rem;margin-top:1rem}
-    .local-box p{font-size:1.08rem;line-height:1.8;color:var(--ts);margin:0}
+    .local-box{background:var(--bw);border-left:4px solid var(--ba);border-radius:0 var(--rad) var(--rad) 0;padding:1.2rem 1.25rem;margin-top:1rem}
+    .local-box p{font-size:1.05rem;line-height:1.65;color:var(--ts);margin:0}
     .reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
     @media(max-width:480px){.reason-grid{grid-template-columns:1fr}}
     .rc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.1rem 1rem}
     .rc-icon{font-size:1.4rem;display:block;margin-bottom:.4rem}
     .rc-title{font-size:1.04rem;font-weight:700;color:var(--tm);margin-bottom:.3rem}
-    .rc-desc{font-size:.95rem;line-height:1.6;color:var(--ts)}
+    .rc-desc{font-size:.94rem;line-height:1.5;color:var(--ts)}
     .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.1rem}
     @media(max-width:380px){.svc-list{grid-template-columns:1fr}}
     .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.85rem 1rem;font-size:1.02rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
     .sv::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
     .reviews-grid{display:flex;flex-direction:column;gap:.85rem;margin-top:1.1rem}
-    .review-card{background:#fff;border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.4rem;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
-    .review-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem}
-    .review-stars{color:#f59e0b;font-size:1.25rem;letter-spacing:.05em}
-    .review-google{display:flex;align-items:center;gap:.35rem;font-size:.75rem;font-weight:700;color:#5f6368;letter-spacing:.02em}
-    .review-google-dot{width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:#fff;background:#4285F4;flex-shrink:0}
-    .review-text{font-size:1.06rem;line-height:1.78;color:var(--ts);margin:0 0 .75rem;font-style:italic}
-    .review-author{font-size:.93rem;font-weight:700;color:var(--tm)}
+    .review-card{background:#fff;border:1px solid var(--br);border-radius:var(--rad);padding:1.25rem 1.25rem;box-shadow:0 2px 10px rgba(0,0,0,0.06)}
+    .review-top{display:flex;align-items:center;margin-bottom:.45rem}
+    .review-stars{color:#f59e0b;font-size:1.2rem;letter-spacing:.05em}
+    .review-text{font-size:1.03rem;line-height:1.55;color:var(--ts);margin:0 0 .5rem;font-style:italic}
+    .review-author{font-size:.92rem;font-weight:700;color:var(--tm)}
     .about-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem}
     .about-card p{font-size:1rem;line-height:1.7;color:var(--ts);margin:0 0 .85rem}
     .about-card p:last-child{margin-bottom:0}
@@ -192,7 +190,7 @@ const faqs = [
     details.faq-item summary:hover{background:var(--bw)}
     details.faq-item summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
     details.faq-item[open] summary::after{content:"−"}
-    .faq-answer{padding:.1rem 1.25rem 1.25rem;font-size:1.05rem;line-height:1.8;color:var(--ts);background:var(--wh)}
+    .faq-answer{padding:.1rem 1.25rem 1.1rem;font-size:1.03rem;line-height:1.6;color:var(--ts);background:var(--wh)}
     .suburb-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
     .suburb-chip{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.42rem .85rem;font-size:.86rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
     .suburb-chip:hover{background:var(--ba);border-color:var(--ba);color:#fff}
@@ -205,7 +203,7 @@ const faqs = [
     .bottom-cta p{font-size:1rem;color:rgba(255,255,255,0.9);margin:0 auto 1.9rem;line-height:1.6;max-width:440px;font-weight:600}
     .about-fp{background:url('/images/fireplace.jpg') center/cover no-repeat;padding:2.5rem 1rem}
     .about-fp-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:680px;margin:0 auto}
-    .about-fp p{font-size:1.14rem;line-height:1.85;color:rgba(255,255,255,0.92);font-weight:600;margin:0 0 .9rem}
+    .about-fp p{font-size:1.08rem;line-height:1.65;color:rgba(255,255,255,0.92);font-weight:600;margin:0 0 .75rem}
     .about-fp p:last-child{margin-bottom:0}
     @media(max-width:480px){.guarantee-grid{grid-template-columns:1fr!important}}
     .dirty-flue-wrap{display:none;margin-top:1.1rem;justify-content:center;gap:.6rem}
@@ -376,7 +374,6 @@ const faqs = [
       <div class="review-card">
         <div class="review-top">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <div class="review-google"><span class="review-google-dot">G</span> Google Review</div>
         </div>
         <p class="review-text">&ldquo;The slow combustion heater was struggling all last winter. Turned out the flue was almost completely sooted over. One clean and it&rsquo;s like a different heater.&rdquo;</p>
         <div class="review-author">Leanne B. &mdash; Hillside 3037</div>
@@ -384,7 +381,6 @@ const faqs = [
       <div class="review-card">
         <div class="review-top">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <div class="review-google"><span class="review-google-dot">G</span> Google Review</div>
         </div>
         <p class="review-text">&ldquo;Quick, tidy and very straightforward. Appreciated that David explained what he found rather than just doing the work and leaving.&rdquo;</p>
         <div class="review-author">Andrew F. &mdash; Hillside 3037</div>
@@ -392,7 +388,6 @@ const faqs = [
       <div class="review-card">
         <div class="review-top">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <div class="review-google"><span class="review-google-dot">G</span> Google Review</div>
         </div>
         <p class="review-text">&ldquo;Three years without a clean and the difference is noticeable. Wish I&rsquo;d done it sooner. Very happy with the service.&rdquo;</p>
         <div class="review-author">Rachel M. &mdash; Hillside 3037</div>
