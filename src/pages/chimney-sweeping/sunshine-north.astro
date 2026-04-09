@@ -1,7 +1,7 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 
-const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$199", "areaServed": ["Sunshine North VIC 3020"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/sunshine-north", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Sunshine North VIC 3020. $199 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "Sunshine North", "addressRegion": "VIC", "postalCode": "3020", "addressCountry": "AU"}};
+const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$199–$299", "areaServed": ["Sunshine North VIC 3020"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/sunshine-north", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Sunshine North VIC 3020. $199 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "Sunshine North", "addressRegion": "VIC", "postalCode": "3020", "addressCountry": "AU"}};
 const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does Dave service Sunshine North?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 Sunshine North is within Dave's regular western Melbourne service area. Call 0476 302 729 or use the form above."}}, {"@type": "Question", "name": "What does the chimney sweep include?", "acceptedAnswer": {"@type": "Answer", "text": "A full sweep of the flue, inspection of the firebox and flue condition, and a clear summary of findings. $199 flat rate, no call-out fee."}}, {"@type": "Question", "name": "Can Dave service a slow combustion heater?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 Dave services open fireplaces, slow combustion heaters and all solid fuel appliances throughout Sunshine North and surrounds."}}]};
 const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping Sunshine North VIC 3020", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "Sunshine North VIC 3020", "offers": {"@type": "Offer", "price": "199", "priceCurrency": "AUD", "description": "Chimney inspection and full clean"}, "serviceType": "Chimney Sweeping"};
 const faqs = [
@@ -33,45 +33,46 @@ const faqs = [
     .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem}
     .hero h1{font-size:clamp(2.4rem,6.5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
     .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.9rem;font-weight:800;padding:.6rem 1.25rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c;white-space:nowrap}
-    .hero-lead{font-size:1.18rem;line-height:1.72;color:#d4d1cb;margin:0 auto .8rem;max-width:520px}
-    .hero-sub{font-size:.98rem;line-height:1.65;color:#a09d96;max-width:500px;margin:0 auto 2.2rem}
+    .hero-lead{font-size:1.18rem;line-height:1.6;color:#d4d1cb;margin:0 auto .7rem;max-width:520px}
+    .hero-sub{font-size:1rem;line-height:1.55;color:#a09d96;max-width:500px;margin:0 auto 1.8rem}
     .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
     .btn{display:inline-block;padding:1rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s,transform .15s}
     .btn:hover{opacity:.88;transform:translateY(-1px)}
     .btn-call{background:var(--ba);color:#fff;font-size:1.25rem;letter-spacing:.01em}
     .btn-quote{background:transparent;border:2px solid rgba(255,255,255,0.32);color:#fff}
     .trust-bar{background:var(--bm);padding:1.1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
-    .ti{display:flex;align-items:center;gap:.4rem;font-size:.86rem;color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.93rem;color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
     .ti svg{flex-shrink:0;color:var(--ba)}
     .sec{padding:2.9rem 1.25rem;max-width:720px;margin:0 auto}
     .sec+.sec{border-top:1px solid var(--br)}
     .sl{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
-    .sec h2{font-size:clamp(1.65rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
-    .sec p{font-size:1.06rem;line-height:1.8;color:var(--ts);margin:0 0 .9rem}
+    .sec h2{font-size:clamp(1.8rem,5vw,2.3rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec p{font-size:1.08rem;line-height:1.65;color:var(--ts);margin:0 0 .75rem}
     .sec p:last-child{margin-bottom:0}
     .price-box{background:var(--bw);border:2px solid #2a6b1c;border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem;text-align:center}
-    .price-num{font-size:3.6rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.25rem}
-    .price-label{font-size:1.05rem;font-weight:700;color:var(--tm);margin-bottom:.75rem}
+    .price-num{font-size:4.2rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.25rem}
+    .price-label{font-size:1.12rem;font-weight:700;color:var(--tm);margin-bottom:.75rem}
     .price-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
-    .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.35rem .8rem;font-size:.84rem;font-weight:600;color:var(--ts)}
+    .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.42rem .9rem;font-size:.93rem;font-weight:600;color:var(--ts)}
     .pi::before{content:"✓ ";color:#2a6b1c;font-weight:800}
-    .local-box{background:var(--bw);border-left:4px solid var(--ba);border-radius:0 var(--rad) var(--rad) 0;padding:1.25rem 1.25rem;margin-top:1rem}
-    .local-box p{font-size:1rem;line-height:1.75;color:var(--ts);margin:0}
+    .local-box{background:var(--bw);border-left:4px solid var(--ba);border-radius:0 var(--rad) var(--rad) 0;padding:1.2rem 1.25rem;margin-top:1rem}
+    .local-box p{font-size:1.05rem;line-height:1.65;color:var(--ts);margin:0}
     .reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
     @media(max-width:480px){.reason-grid{grid-template-columns:1fr}}
     .rc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.1rem 1rem}
     .rc-icon{font-size:1.4rem;display:block;margin-bottom:.4rem}
-    .rc-title{font-size:.95rem;font-weight:700;color:var(--tm);margin-bottom:.25rem}
-    .rc-desc{font-size:.86rem;line-height:1.55;color:var(--ts)}
+    .rc-title{font-size:1.04rem;font-weight:700;color:var(--tm);margin-bottom:.3rem}
+    .rc-desc{font-size:.94rem;line-height:1.5;color:var(--ts)}
     .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.1rem}
     @media(max-width:380px){.svc-list{grid-template-columns:1fr}}
-    .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.75rem .9rem;font-size:.95rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
+    .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.85rem 1rem;font-size:1.02rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
     .sv::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
     .reviews-grid{display:flex;flex-direction:column;gap:.85rem;margin-top:1.1rem}
-    .review-card{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.25rem 1.25rem}
-    .review-stars{color:#f59e0b;font-size:1.15rem;margin-bottom:.5rem;letter-spacing:.05em}
-    .review-text{font-size:.97rem;line-height:1.7;color:var(--ts);margin:0 0 .6rem;font-style:italic}
-    .review-author{font-size:.84rem;font-weight:700;color:var(--tm)}
+    .review-card{background:#fff;border:1px solid var(--br);border-radius:var(--rad);padding:1.25rem 1.25rem;box-shadow:0 2px 10px rgba(0,0,0,0.06)}
+    .review-top{display:flex;align-items:center;margin-bottom:.45rem}
+    .review-stars{color:#f59e0b;font-size:1.2rem;letter-spacing:.05em}
+    .review-text{font-size:1.03rem;line-height:1.55;color:var(--ts);margin:0 0 .5rem;font-style:italic}
+    .review-author{font-size:.92rem;font-weight:700;color:var(--tm)}
     .form-wrap{background:var(--bw);border:2px solid var(--ba);border-radius:var(--rad);padding:1.75rem 1.25rem;margin-top:1rem}
     .form-wrap h3{font-size:1.15rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
     .form-sub{font-size:.9rem;color:var(--ts);margin:0 0 1.25rem}
@@ -88,18 +89,18 @@ const faqs = [
     .faq-list{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
     details.faq-item{border-bottom:1px solid var(--br)}
     details.faq-item:last-child{border-bottom:none}
-    details.faq-item summary{padding:1.1rem 1.25rem;font-size:1rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}details.faq-item summary::marker{content:"";display:none}
+    details.faq-item summary{padding:1.2rem 1.25rem;font-size:1.08rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}details.faq-item summary::marker{content:"";display:none}
     details.faq-item summary::-webkit-details-marker{display:none}
     details.faq-item summary:hover{background:var(--bw)}
     details.faq-item summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
     details.faq-item[open] summary::after{content:"−"}
-    .faq-answer{padding:.1rem 1.25rem 1.1rem;font-size:.97rem;line-height:1.75;color:var(--ts);background:var(--wh)}
+    .faq-answer{padding:.1rem 1.25rem 1.1rem;font-size:1.03rem;line-height:1.6;color:var(--ts);background:var(--wh)}
     .suburb-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
     .suburb-chip{display:inline-block;background:var(--bw);border:1px solid var(--br);border-radius:6px;padding:.42rem .85rem;font-size:.86rem;font-weight:600;color:var(--tm);text-decoration:none;transition:background .15s,border-color .15s}
     .suburb-chip:hover{background:var(--ba);border-color:var(--ba);color:#fff}
     .about-fp{background:url('/images/fireplace.jpg') center/cover no-repeat;padding:2.5rem 1rem}
     .about-fp-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:680px;margin:0 auto}
-    .about-fp p{font-size:1.06rem;line-height:1.8;color:rgba(255,255,255,0.92);font-weight:600;margin:0 0 .9rem}
+    .about-fp p{font-size:1.08rem;line-height:1.65;color:rgba(255,255,255,0.92);font-weight:600;margin:0 0 .75rem}
     .about-fp p:last-child{margin-bottom:0}
     .bottom-cta{background:url('/images/fireplace3.jpg') center/cover no-repeat;color:var(--wh);padding:2.8rem 1rem;text-align:center}
     .bottom-cta-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:480px;margin:0 auto}
@@ -111,6 +112,7 @@ const faqs = [
     .breadcrumb{font-size:.65rem;color:#6b6860;padding:.2rem 1.25rem;text-align:center;opacity:0.4;line-height:1}
     .breadcrumb a{color:#6b6860;text-decoration:none}
     .breadcrumb span{margin:0 .25rem}
+    @media(max-width:480px){.guarantee-grid{grid-template-columns:1fr!important}}
     .dirty-flue-wrap{display:none;margin-top:1.1rem;justify-content:center;gap:.6rem}
     .dirty-flue-item{display:flex;flex-direction:column;align-items:center;gap:.3rem}.dirty-flue-img{width:120px;height:auto;border-radius:6px}
     .dirty-flue-cap{font-size:.72rem;color:var(--ts);margin:.45rem auto 0;max-width:300px;line-height:1.45;font-style:italic}
@@ -122,13 +124,13 @@ const faqs = [
     <div class="hero-box">
       <span class="hero-eyebrow">Sunshine North VIC 3020</span>
       <h1>Chimney Sweeping<br>Sunshine North VIC 3020</h1>
-      <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
+      <div class="price-badge">&#10003; From $199 Chimney Inspection &amp; Full Clean</div>
       <p class="hero-lead">Local chimney &amp; flue sweeping in Sunshine North. We turn up when booked, leave your home spotless, and give you a straight verbal report before we go.</p>
-      <p class="hero-sub">$199 flat &mdash; no call-out fee, no hidden extras. Book direct with Dave.</p>
+      <p class="hero-sub">Flue &amp; wood heater from $199 &mdash; masonry brick chimney from $299. No call-out fee, no hidden extras.</p>
       <div style="display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.1rem;">
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fully Insured</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; No Mess Guaranteed</span>
-        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fixed $199 Price</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; From $199</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Owner-Operated</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Verbal Condition Report</span>
       </div>
@@ -147,13 +149,13 @@ const faqs = [
       </div>
       <div class="btn-row">
         <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
-        <a class="btn btn-quote" href="#quote">Book for $199</a>
+        <a class="btn btn-quote" href="#quote">Get a Quote</a>
       </div>
     </div>
   </section>
 
   <div class="trust-bar">
-    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>From $199</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon&ndash;Sat</span>
@@ -208,7 +210,7 @@ const faqs = [
 
   <section class="sec">
     <p class="sl">What is included</p>
-    <h2>Everything in the One $199 Visit</h2>
+    <h2>Everything in the One Visit</h2>
     <p>We cover the full system &mdash; chimney, flue and heater &mdash; in a single visit to your Sunshine North home:</p>
     <div class="svc-list">
       <span class="sv">Chimney sweep &mdash; firebox to pot</span>
@@ -228,20 +230,26 @@ const faqs = [
   <section class="sec">
     <p class="sl">What customers say</p>
     <h2>Reviews from Sunshine North and Nearby Residents</h2>
-    <p>What locals say after their $199 chimney clean:</p>
+    <p>What locals say after their chimney clean:</p>
     <div class="reviews-grid">
       <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-top">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
         <p class="review-text">&ldquo;Dave came out and sorted the chimney quickly. It hadn't been done in years and he did a thorough job clearing it. Good price and no messing around. Will use again.&rdquo;</p>
         <div class="review-author">Angelo M. &mdash; Sunshine North 3020</div>
       </div>
       <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-top">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
         <p class="review-text">&ldquo;Really happy with Dave's service. Professional, on time and very tidy. The fireplace works a lot better now. Would recommend to anyone in the area.&rdquo;</p>
         <div class="review-author">Donna P. &mdash; Sunshine North 3020</div>
       </div>
       <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-top">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
         <p class="review-text">&ldquo;Excellent work. Dave swept the chimney and gave a clear assessment of its condition. Fair price and very straightforward to deal with.&rdquo;</p>
         <div class="review-author">Colin R. &mdash; Sunshine North 3020</div>
       </div>
@@ -269,13 +277,13 @@ const faqs = [
 
   <section class="sec" id="quote">
     <p class="sl">Book now</p>
-    <h2>Book Your $199 Chimney Clean in Sunshine North</h2>
+    <h2>Book Your Chimney Clean in Sunshine North</h2>
     <div class="form-wrap">
       <h3>Quick Quote &mdash; Sunshine North</h3>
-      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your $199 booking.</p>
+      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. Flue cleaning $199 &mdash; masonry chimney $299.</p>
       <form action="https://formspree.io/f/maqlwkpr" method="POST">
         <input type="hidden" name="suburb" value="Sunshine North VIC 3020" />
-        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
+        <input type="hidden" name="price" value="chimney inspection and clean" />
         <div class="form-grid">
           <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
           <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
@@ -283,8 +291,8 @@ const faqs = [
           <div class="field"><label>Service Needed</label>
             <select name="service" required>
               <option value="">Select&hellip;</option>
-              <option value="Chimney Inspection and Clean — $199">Chimney Inspection &amp; Clean &mdash; $199</option>
-              <option>Wood Heater Service</option>
+              <option value="Flue Cleaning / Wood Heater — $199">Flue Cleaning &amp; Wood Heater &mdash; $199</option>
+              <option value="Masonry Brick Chimney Fireplace — $299">Masonry Brick Chimney &mdash; $299</option>
               <option>Flue Cleaning</option>
               <option>Blockage / Nest Removal</option>
               <option>Not sure &mdash; need advice</option>
@@ -315,11 +323,11 @@ const faqs = [
 
   <section class="bottom-cta">
     <div class="bottom-cta-inner">
-      <h2>Sunshine North Chimney Sweep &mdash; $199 Flat Rate</h2>
+      <h2>Sunshine North Chimney Sweep &mdash; From $199</h2>
       <p>Call Dave directly or use the form above. We will confirm your booking and give you a time that works.</p>
       <div class="btn-row">
         <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
-        <a class="btn btn-quote" href="#quote">Book for $199</a>
+        <a class="btn btn-quote" href="#quote">Get a Quote</a>
       </div>
     </div>
   </section>
