@@ -3,7 +3,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$199–$299", "areaServed": ["Box Hill North VIC 3129"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/box-hill-north", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Box Hill North VIC 3129. $199 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "Box Hill North", "addressRegion": "VIC", "postalCode": "3129", "addressCountry": "AU"}};
 const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you service Box Hill North VIC 3129?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 Box Hill North is part of our eastern Melbourne run. We cover Box Hill North and surrounding suburbs including Box Hill, Blackburn, Nunawading and Doncaster."}}, {"@type": "Question", "name": "How much does a chimney clean cost?", "acceptedAnswer": {"@type": "Answer", "text": "Flue cleaning and wood heater service is $199. Masonry brick chimney fireplace cleans are $299. No call-out fee, no hidden extras."}}, {"@type": "Question", "name": "Is there a call-out fee for Box Hill North?", "acceptedAnswer": {"@type": "Answer", "text": "No — flat rate pricing, no call-out charge. Flue cleaning $199, masonry chimney $299."}}]};
-const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping Box Hill North VIC 3129", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "Box Hill North VIC 3129", "offers": {"@type": "Offer", "price": "199", "priceCurrency": "AUD", "description": "Chimney inspection and full clean"}, "serviceType": "Chimney Sweeping"};
+const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping Box Hill North VIC 3129", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "Box Hill North VIC 3129", "offers": [{"@type": "Offer", "price": "199", "priceCurrency": "AUD", "description": "Flue cleaning and wood heater service"}, {"@type": "Offer", "price": "299", "priceCurrency": "AUD", "description": "Masonry brick chimney fireplace clean and inspection"}], "serviceType": "Chimney Sweeping"};
 const faqs = [
   {q:`Do you service Box Hill North VIC 3129?`,a:`Yes — Box Hill North is part of our eastern Melbourne run. We cover Box Hill North and surrounding suburbs including Box Hill, Blackburn, Nunawading and Doncaster.`},
   {q:`How much does a chimney clean cost?`,a:`Flue cleaning and wood heater service is $199. Masonry brick chimney fireplace cleans are $299. No call-out fee, no hidden extras.`},
@@ -163,23 +163,64 @@ const faqs = [
 
   <section class="sec">
     <p class="sl">Pricing</p>
-    <h2>$199 &mdash; Chimney Inspection &amp; Full Clean in Box Hill North</h2>
-    <p>One flat price. No call-out fee, no surprises on the day. Here is exactly what is covered:</p>
-    <div class="price-box">
-      <div class="price-num">$199</div>
-      <div class="price-label">Chimney Inspection &amp; Full Clean &mdash; Box Hill North</div>
-      <div class="price-includes">
-        <span class="pi">Chimney sweep</span>
-        <span class="pi">Flue cleaning</span>
-        <span class="pi">Creosote removal</span>
-        <span class="pi">Soot &amp; ash removal</span>
-        <span class="pi">Bird nest check</span>
-        <span class="pi">Blockage clearance</span>
-        <span class="pi">Condition report</span>
-        <span class="pi">No call-out fee</span>
+    <h2>Chimney &amp; Flue Cleaning Prices &mdash; Box Hill North</h2>
+    <p>Flat rate pricing. No call-out fee, no surprises on the day. Price depends on your heater or fireplace type:</p>
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem;">
+      <div class="price-box" style="flex:1;min-width:240px;max-width:340px;">
+        <div class="price-num">$199</div>
+        <div class="price-label">Flue Cleaning &amp; Wood Heater Service</div>
+        <div class="price-includes">
+          <span class="pi">Freestanding wood heater</span>
+          <span class="pi">Flue pipe cleaning</span>
+          <span class="pi">Soot &amp; creosote removal</span>
+          <span class="pi">Blockage check</span>
+          <span class="pi">Condition report</span>
+          <span class="pi">No call-out fee</span>
+        </div>
+      </div>
+      <div class="price-box" style="flex:1;min-width:240px;max-width:340px;">
+        <div class="price-num">$299</div>
+        <div class="price-label">Masonry Brick Chimney Fireplace Clean</div>
+        <div class="price-includes">
+          <span class="pi">Open brick fireplace</span>
+          <span class="pi">Full chimney sweep</span>
+          <span class="pi">Firebox to pot</span>
+          <span class="pi">Soot &amp; ash removal</span>
+          <span class="pi">Condition report</span>
+          <span class="pi">No call-out fee</span>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:.85rem;color:var(--ts);margin-top:.75rem;">Not sure which type you have? <a href="tel:0476302729" style="color:var(--acc);font-weight:700;">Call Dave</a> and he&rsquo;ll confirm before you book.</p>
+  </section>
+
+  <section class="sec">
+    <p class="sl">Our guarantee</p>
+    <h2>Dave&rsquo;s Personal Guarantee</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:1rem;">
+      <div style="background:#f0faf0;border:2px solid #2a6b1c;border-radius:10px;padding:1.2rem 1rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:.4rem;">&#129529;</div>
+        <div style="font-size:1rem;font-weight:800;color:#1a3d14;margin-bottom:.3rem;">No Mess Guarantee</div>
+        <div style="font-size:.95rem;line-height:1.55;color:#3a5a34;">We lay drop sheets, vacuum as we go, and leave your home cleaner than we found it. Every time.</div>
+      </div>
+      <div style="background:#f0faf0;border:2px solid #2a6b1c;border-radius:10px;padding:1.2rem 1rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:.4rem;">&#128338;</div>
+        <div style="font-size:1rem;font-weight:800;color:#1a3d14;margin-bottom:.3rem;">We Turn Up</div>
+        <div style="font-size:.95rem;line-height:1.55;color:#3a5a34;">Dave personally handles every job. If we book a time, we&rsquo;ll be there &mdash; no last-minute no-shows.</div>
+      </div>
+      <div style="background:#f0faf0;border:2px solid #2a6b1c;border-radius:10px;padding:1.2rem 1rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:.4rem;">&#128176;</div>
+        <div style="font-size:1rem;font-weight:800;color:#1a3d14;margin-bottom:.3rem;">Fixed Price</div>
+        <div style="font-size:.95rem;line-height:1.55;color:#3a5a34;">The price we quote is the price you pay. No surprise add-ons or call-out fees when we arrive.</div>
+      </div>
+      <div style="background:#f0faf0;border:2px solid #2a6b1c;border-radius:10px;padding:1.2rem 1rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:.4rem;">&#128172;</div>
+        <div style="font-size:1rem;font-weight:800;color:#1a3d14;margin-bottom:.3rem;">Straight Talk</div>
+        <div style="font-size:.95rem;line-height:1.55;color:#3a5a34;">You get a honest verbal report of what we found &mdash; no upselling, no scare tactics, just the facts.</div>
       </div>
     </div>
   </section>
+
 
   <section class="sec">
     <p class="sl">Local knowledge</p>

@@ -83,7 +83,7 @@ const nearbySuburbs = [
     .section p { font-size: 1.06rem; line-height: 1.8; color: var(--text-muted); margin: 0 0 0.9rem; }
     .section p:last-child { margin-bottom: 0; }
     .price-box { background: var(--brand-warm); border: 2px solid #2a6b1c; border-radius: var(--radius); padding: 1.45rem 1.25rem; margin-top: 1rem; text-align: center; }
-    .price-num { font-size: 3.6rem; font-weight: 800; color: #2a6b1c; line-height: 1; margin-bottom: 0.25rem; }
+    .price-num { font-size: 4.2rem; font-weight: 800; color: #2a6b1c; line-height: 1; margin-bottom: 0.25rem; }
     .price-label { font-size: 1.02rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem; }
     .price-includes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.75rem; }
     .pi { background: var(--brand-white); border: 1px solid var(--border); border-radius: 6px; padding: 0.35rem 0.8rem; font-size: 0.84rem; font-weight: 600; color: var(--text-muted); }
@@ -162,7 +162,7 @@ const nearbySuburbs = [
     <h1>Chimney Sweeping<br />{suburb} VIC {postcode}</h1>
     <div class="price-badge">&#10003; From $199 Chimney Inspection &amp; Full Clean</div>
     <p class="hero-lead">Local chimney &amp; flue sweeping in {suburb}. We turn up when booked, leave your home spotless, and give you a straight verbal report before we go.</p>
-    <p class="hero-sub">$199 flat — no call-out fee, no hidden extras. Book direct with Dave.</p>
+    <p class="hero-sub">Flue &amp; wood heater from $199 — masonry brick chimney from $299. No call-out fee, no hidden extras.</p>
           <div style="display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.1rem;">
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fully Insured</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; No Mess Guaranteed</span>
@@ -185,7 +185,7 @@ const nearbySuburbs = [
       </div>
 <div class="btn-row">
       <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
-      <a class="btn btn-quote" href="#quote">Book for $199</a>
+      <a class="btn btn-quote" href="#quote">Get a Quote</a>
     </div>
     </div>
   </section>
@@ -201,21 +201,64 @@ const nearbySuburbs = [
 
   <section class="section">
     <p class="section-label">Pricing</p>
-    <h2>$199 Chimney Inspection and Full Clean in {suburb}</h2>
-    <p>One flat rate for the full clean. No hidden extras, no call-out fee, and no guesswork on the day.</p>
-    <div class="price-box">
-      <div class="price-num">$199</div>
-      <div class="price-label">Chimney Inspection and Full Clean - {suburb}</div>
-      <div class="price-includes">
-        <span class="pi">Chimney sweep</span>
-        <span class="pi">Flue cleaning</span>
-        <span class="pi">Soot and ash removal</span>
-        <span class="pi">Blockage check</span>
-        <span class="pi">Condition report</span>
-        <span class="pi">No call-out fee</span>
+    <h2>Chimney &amp; Flue Cleaning Prices</h2>
+    <p>Flat rate pricing. No call-out fee, no surprises. Price depends on your heater or fireplace type:</p>
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem;">
+      <div class="price-box" style="flex:1;min-width:240px;max-width:340px;">
+        <div class="price-num">$199</div>
+        <div class="price-label">Flue Cleaning &amp; Wood Heater Service</div>
+        <div class="price-includes">
+          <span class="pi">Freestanding wood heater</span>
+          <span class="pi">Flue pipe cleaning</span>
+          <span class="pi">Soot &amp; creosote removal</span>
+          <span class="pi">Blockage check</span>
+          <span class="pi">Condition report</span>
+          <span class="pi">No call-out fee</span>
+        </div>
+      </div>
+      <div class="price-box" style="flex:1;min-width:240px;max-width:340px;">
+        <div class="price-num">$299</div>
+        <div class="price-label">Masonry Brick Chimney Fireplace Clean</div>
+        <div class="price-includes">
+          <span class="pi">Open brick fireplace</span>
+          <span class="pi">Full chimney sweep</span>
+          <span class="pi">Firebox to pot</span>
+          <span class="pi">Soot &amp; ash removal</span>
+          <span class="pi">Condition report</span>
+          <span class="pi">No call-out fee</span>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:.85rem;color:#5a5a54;margin-top:.75rem;">Not sure which type you have? <a href="tel:0476302729" style="color:#c8500a;font-weight:700;">Call Dave</a> and he&rsquo;ll confirm before you book.</p>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Our guarantee</p>
+    <h2>Dave&rsquo;s Personal Guarantee</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:1rem;">
+      <div style="background:#f0faf0;border:2px solid #2a6b1c;border-radius:10px;padding:1.2rem 1rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:.4rem;">&#129529;</div>
+        <div style="font-size:1rem;font-weight:800;color:#1a3d14;margin-bottom:.3rem;">No Mess Guarantee</div>
+        <div style="font-size:.95rem;line-height:1.55;color:#3a5a34;">We lay drop sheets, vacuum as we go, and leave your home cleaner than we found it. Every time.</div>
+      </div>
+      <div style="background:#f0faf0;border:2px solid #2a6b1c;border-radius:10px;padding:1.2rem 1rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:.4rem;">&#128338;</div>
+        <div style="font-size:1rem;font-weight:800;color:#1a3d14;margin-bottom:.3rem;">We Turn Up</div>
+        <div style="font-size:.95rem;line-height:1.55;color:#3a5a34;">Dave personally handles every job. If we book a time, we&rsquo;ll be there &mdash; no last-minute no-shows.</div>
+      </div>
+      <div style="background:#f0faf0;border:2px solid #2a6b1c;border-radius:10px;padding:1.2rem 1rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:.4rem;">&#128176;</div>
+        <div style="font-size:1rem;font-weight:800;color:#1a3d14;margin-bottom:.3rem;">Fixed Price</div>
+        <div style="font-size:.95rem;line-height:1.55;color:#3a5a34;">The price we quote is the price you pay. No surprise add-ons or call-out fees when we arrive.</div>
+      </div>
+      <div style="background:#f0faf0;border:2px solid #2a6b1c;border-radius:10px;padding:1.2rem 1rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:.4rem;">&#128172;</div>
+        <div style="font-size:1rem;font-weight:800;color:#1a3d14;margin-bottom:.3rem;">Straight Talk</div>
+        <div style="font-size:.95rem;line-height:1.55;color:#3a5a34;">You get a honest verbal report of what we found &mdash; no upselling, no scare tactics, just the facts.</div>
       </div>
     </div>
   </section>
+
 
   <section class="section">
     <p class="section-label">Local service</p>
@@ -314,8 +357,8 @@ const nearbySuburbs = [
           <div class="field"><label>Service Needed</label>
             <select name="service" required>
               <option value="">Select...</option>
-              <option value="Chimney Inspection and Clean - $199">Chimney Inspection and Clean - $199</option>
-              <option>Wood Heater Service</option>
+              <option value="Flue Cleaning / Wood Heater — $199">Flue Cleaning &amp; Wood Heater &mdash; $199</option>
+              <option value="Masonry Brick Chimney Fireplace — $299">Masonry Brick Chimney &mdash; $299</option>
               <option>Flue Cleaning</option>
               <option>Blockage / Nest Removal</option>
               <option>Not sure - need advice</option>
@@ -407,11 +450,11 @@ const nearbySuburbs = [
 
   <section class="bottom-cta">
     <div class="bottom-cta-inner">
-      <h2>{suburb} Chimney Sweep - $199 Flat Rate</h2>
+      <h2>{suburb} Chimney Sweep - From $199</h2>
       <p>Call Dave directly or use the form above. We will confirm the job and lock in a time that works.</p>
       <div class="btn-row">
         <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
-        <a class="btn btn-quote" href="#quote">Book for $199</a>
+        <a class="btn btn-quote" href="#quote">Get a Quote</a>
       </div>
     </div>
   </section>
