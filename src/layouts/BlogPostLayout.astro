@@ -54,7 +54,7 @@ const { title, description, publishDate, readTime } = Astro.props;
     .blog-body {
       max-width: 780px;
       margin: 0 auto;
-      padding: 52px 20px 72px;
+      padding: 52px 20px 0;
     }
 
     .blog-body h2 {
@@ -179,6 +179,142 @@ const { title, description, publishDate, readTime } = Astro.props;
     }
 
     .back-to-blog:hover { color: #a84008; }
+
+    /* Booking form */
+    .blog-form-section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 52px 20px 0;
+      border-top: 1px solid #e2ddd4;
+      margin-top: 52px;
+    }
+
+    .blog-form-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c8500a;
+      margin-bottom: 0.55rem;
+      display: block;
+    }
+
+    .blog-form-section h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #1a1a18;
+      margin: 0 0 1rem;
+      line-height: 1.2;
+    }
+
+    .form-wrap {
+      background: #f5f0e8;
+      border: 2px solid #c8500a;
+      border-radius: 10px;
+      padding: 1.75rem 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .form-wrap h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #1a1a18;
+      margin: 0 0 0.25rem;
+    }
+
+    .form-sub {
+      font-size: 0.9rem;
+      color: #5a5a54;
+      margin: 0 0 1.25rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+    }
+
+    @media (max-width: 500px) { .form-grid { grid-template-columns: 1fr; } }
+
+    .field { display: flex; flex-direction: column; gap: 0.3rem; }
+    .field.full { grid-column: 1 / -1; }
+
+    .field label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1a1a18;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .field input, .field select, .field textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 2px solid #e2ddd4;
+      border-radius: 8px;
+      padding: 0.72rem 0.85rem;
+      font-size: 1rem;
+      background: #fff;
+      color: #1a1a18;
+      font-family: inherit;
+      transition: border-color 0.15s;
+      outline: none;
+    }
+
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: #c8500a;
+    }
+
+    .field textarea { resize: vertical; min-height: 90px; }
+
+    .form-submit {
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+      background: #c8500a;
+      color: #fff;
+      border: none;
+      padding: 1rem;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+
+    .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* Bottom spacer */
+    .blog-bottom-pad { padding-bottom: 72px; max-width: 780px; margin: 0 auto; }
+
+    /* Sticky CTA */
+    #blog-sticky-cta {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: #c8500a;
+      color: #fff;
+      padding: 0.75rem 1.2rem 0.75rem 1rem;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+      transition: opacity 0.2s, transform 0.2s;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #blog-sticky-cta.visible { opacity: 1; pointer-events: auto; }
+    #blog-sticky-cta:hover { opacity: 0.9; transform: translateY(-2px); }
+    #blog-sticky-icon { font-size: 1.1rem; line-height: 1; }
   </style>
 
   <div class="blog-hero">
@@ -200,8 +336,60 @@ const { title, description, publishDate, readTime } = Astro.props;
       <p>Flue &amp; wood heater from $199 — masonry/brick from $299. Full clean and inspection, no call-out fee. Serving all Melbourne suburbs.</p>
       <div class="cta-buttons">
         <a href="tel:0476302729" class="btn-primary">📞 Call 0476 302 729</a>
-        <a href="/contact" class="btn-secondary">Get a Quote</a>
+        <a href="#quote" class="btn-secondary">Get a Quote</a>
       </div>
     </div>
   </div>
+
+  <section class="blog-form-section" id="quote">
+    <span class="blog-form-label">Book now</span>
+    <h2>Book Your Chimney Clean — Melbourne</h2>
+    <div class="form-wrap">
+      <h3>Quick Quote</h3>
+      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. Flue &amp; wood heater $199 — masonry/brick chimney $299.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="suburb" value="Melbourne VIC" />
+        <input type="hidden" name="source" value="blog" />
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Your Suburb</label><input type="text" name="suburb_detail" placeholder="e.g. Kew, Eltham, Werribee…" /></div>
+          <div class="field"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select…</option>
+              <option value="Flue & Wood Heater Clean — $199">Flue &amp; Wood Heater Clean — $199</option>
+              <option value="Masonry Brick Chimney Clean — $299">Masonry Brick Chimney Clean — $299</option>
+              <option>Blockage / Nest Removal</option>
+              <option>Not sure — need advice</option>
+            </select>
+          </div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Type of heater or fireplace, any issues you've noticed, when it was last cleaned…"></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">Send Booking Request ›</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="blog-bottom-pad"></div>
+
+  <a href="tel:0476302729" id="blog-sticky-cta" aria-label="Call or text Dave">
+    <span id="blog-sticky-icon">📞</span>
+    <span>Call/Text Dave</span>
+  </a>
+
+  <script is:inline>
+    (function(){
+      var btn = document.getElementById('blog-sticky-cta');
+      var hero = document.querySelector('.blog-hero');
+      function check(){
+        var threshold = hero ? hero.offsetHeight : 300;
+        if(window.scrollY > threshold){ btn.classList.add('visible'); }
+        else { btn.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', check, {passive:true});
+      check();
+    })();
+  </script>
+
 </MainLayout>
