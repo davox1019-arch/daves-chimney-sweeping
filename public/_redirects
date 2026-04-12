@@ -3,3 +3,5 @@
 # Using status 200 (rewrite) intercepts the request BEFORE that redirect fires and serves
 # the content transparently — so Google sees a clean 200 with no redirect chain.
 /chimney-sweeping/:slug /chimney-sweeping/:slug/ 200
+/blog /blog/ 200
+/blog/:slug /blog/:slug/ 200
