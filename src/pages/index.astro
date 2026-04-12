@@ -6,19 +6,19 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   name: "Daves Chimney Sweeping",
   telephone: "+61476302729",
-  priceRange: "$199",
+  priceRange: "$199–$299",
   areaServed: "Melbourne VIC",
   url: "https://daveschimneysweeping.com.au/",
-  description: "Daves Chimney Sweeping — $199 chimney inspection and full clean across all Melbourne suburbs VIC. Local, owner-operated.",
+  description: "Daves Chimney Sweeping — chimney inspection and full clean across all Melbourne suburbs VIC. Flue and wood heater cleaning from $199, masonry/brick chimney from $299. Local, owner-operated.",
   address: { "@type": "PostalAddress", addressLocality: "Melbourne", addressRegion: "VIC", addressCountry: "AU" },
   openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], opens: "08:00", closes: "18:00" }]
 };
 const schemaJson = JSON.stringify(localBusinessSchema);
 
 const faqs = [
-  { q: "How much does a chimney sweep cost?", a: "$199 flat rate — that covers a full chimney inspection and clean. No call-out fee, no hidden extras. The price is the same regardless of which Melbourne suburb you're in." },
+  { q: "How much does a chimney sweep cost?", a: "Flue cleaning and wood heater service is $199. Masonry or brick chimney cleaning is $299. No call-out fee, no hidden extras — the price is fixed regardless of which Melbourne suburb you're in." },
   { q: "How often should a chimney be swept in Melbourne?", a: "For a fireplace or wood heater used regularly through winter, once a year is the standard. If it hasn't been done in a few years — or ever — get it sorted before the cold arrives." },
-  { q: "What's included in the $199 chimney clean?", a: "Full chimney sweep from firebox to pot, flue cleaning, soot and ash removal, blockage check, bird nest clearing if needed, and a verbal condition report. Everything in one visit." },
+  { q: "What's included in the chimney clean?", a: "Full chimney sweep from firebox to pot, flue cleaning, soot and ash removal, blockage check, bird nest clearing if needed, and a verbal condition report. Everything in one visit." },
   { q: "Do you clean wood heaters as well as open fireplaces?", a: "Yes — wood heaters, slow combustion heaters and open fireplaces all covered. We clean the heater body, flue connection and chimney depending on your setup." },
   { q: "What are the signs my chimney needs cleaning?", a: "Smoke coming back into the room, a sluggish fire, a persistent burnt smell when the fire isn't on, and heavy black soot around the firebox. Over 12 months since the last clean is usually reason enough." },
   { q: "Do you service all Melbourne suburbs?", a: "We cover Melbourne's western, north-western and outer corridor — a large area of homes that rely on wood heating. Call 0476 302 729 to confirm we reach your suburb." },
@@ -358,13 +358,13 @@ const clusters = [
     <div class="hero-box">
       <span class="hero-eyebrow">Melbourne VIC &mdash; All Suburbs</span>
       <h1>Chimney Sweeping<br>Melbourne VIC</h1>
-      <div class="price-badge">&#10003; $199 Chimney Inspection &amp; Full Clean</div>
-      <p class="hero-lead">Local, owner-operated chimney sweeping across all Melbourne suburbs. Open fireplaces, wood heaters, slow combustion units &mdash; one flat rate, done properly.</p>
-      <p class="hero-sub">$199 flat &mdash; no call-out fee, no hidden extras. You speak to Dave and Dave turns up. Every job, every suburb.</p>
+      <div class="price-badge">&#10003; From $199 &mdash; Chimney Inspection &amp; Full Clean</div>
+      <p class="hero-lead">Local, owner-operated chimney sweeping across all Melbourne suburbs. Open fireplaces, wood heaters, slow combustion units &mdash; fixed prices, done properly.</p>
+      <p class="hero-sub">Flue &amp; wood heater from $199 &mdash; masonry/brick from $299. No call-out fee, no hidden extras. You speak to Dave and Dave turns up.</p>
       <div style="display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.1rem;">
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fully Insured</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; No Mess Guaranteed</span>
-        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fixed $199 Price</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Prices From $199</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; 10+ Years Local</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Verbal Condition Report</span>
       </div>
@@ -390,7 +390,7 @@ const clusters = [
 
   <!-- TRUST BAR -->
   <div class="trust-bar">
-    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>From $199</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon&ndash;Sat</span>
@@ -399,15 +399,26 @@ const clusters = [
   <!-- PRICING -->
   <section class="sec">
     <p class="sl">Pricing</p>
-    <h2>$199 &mdash; Chimney Inspection &amp; Full Clean, All Melbourne</h2>
-    <p>One flat price across every Melbourne suburb &mdash; no call-out fee, no surprise extras on the day. Here is exactly what is covered in every visit:</p>
-    <div class="price-box">
-      <div class="price-num">$199</div>
-      <div class="price-label">Chimney Inspection &amp; Full Clean &mdash; Melbourne VIC</div>
-      <div class="price-includes">
-        <span class="pi">Chimney sweep</span><span class="pi">Flue cleaning</span><span class="pi">Creosote removal</span>
-        <span class="pi">Soot &amp; ash removal</span><span class="pi">Bird nest check</span><span class="pi">Blockage clearance</span>
-        <span class="pi">Condition report</span><span class="pi">No call-out fee</span>
+    <h2>From $199 &mdash; Chimney Inspection &amp; Full Clean, All Melbourne</h2>
+    <p>Fixed prices across every Melbourne suburb &mdash; no call-out fee, no surprise extras on the day. Here is exactly what is covered in every visit:</p>
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem;">
+      <div class="price-box" style="flex:1;min-width:200px;">
+        <div class="price-num">$199</div>
+        <div class="price-label">Flue &amp; Wood Heater Clean</div>
+        <div class="price-includes">
+          <span class="pi">Flue cleaning</span><span class="pi">Creosote removal</span>
+          <span class="pi">Soot &amp; ash removal</span><span class="pi">Bird nest check</span>
+          <span class="pi">Condition report</span><span class="pi">No call-out fee</span>
+        </div>
+      </div>
+      <div class="price-box" style="flex:1;min-width:200px;">
+        <div class="price-num">$299</div>
+        <div class="price-label">Masonry &amp; Brick Chimney Clean</div>
+        <div class="price-includes">
+          <span class="pi">Full chimney sweep</span><span class="pi">Creosote removal</span>
+          <span class="pi">Soot &amp; ash removal</span><span class="pi">Bird nest check</span>
+          <span class="pi">Condition report</span><span class="pi">No call-out fee</span>
+        </div>
       </div>
     </div>
   </section>
@@ -447,7 +458,7 @@ const clusters = [
   <!-- WHAT'S INCLUDED -->
   <section class="sec">
     <p class="sl">What is included</p>
-    <h2>Everything Covered in the One $199 Visit</h2>
+    <h2>Everything Covered in Every Visit</h2>
     <p>We service the full system &mdash; chimney, flue and heater body &mdash; in a single visit. No return trips, no extra charges:</p>
     <div class="svc-list">
       <span class="sv">Chimney sweep &mdash; firebox to pot</span>
@@ -468,7 +479,7 @@ const clusters = [
   <section class="sec">
     <p class="sl">What customers say</p>
     <h2>Reviews from Melbourne Homeowners</h2>
-    <p>What locals say after their $199 chimney clean:</p>
+    <p>What locals say after their chimney clean:</p>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -498,7 +509,7 @@ const clusters = [
       <div class="arow">&#128222; <strong>Phone:</strong>&nbsp;<a href="tel:0476302729">0476 302 729</a></div>
       <div class="arow">&#128205; <strong>Area:</strong>&nbsp;Melbourne VIC &mdash; all suburbs</div>
       <div class="arow">&#128336; <strong>Hours:</strong>&nbsp;Mon&ndash;Sat, 8am&ndash;6pm</div>
-      <div class="arow">&#128176; <strong>Price:</strong>&nbsp;$199 flat rate &mdash; chimney inspection &amp; full clean</div>
+      <div class="arow">&#128176; <strong>Price:</strong>&nbsp;From $199 &mdash; flue/wood heater $199 &nbsp;|&nbsp; masonry/brick $299</div>
     </div>
   </section>
 
@@ -574,13 +585,13 @@ const clusters = [
   <!-- BOOKING FORM -->
   <section class="sec" id="quote">
     <p class="sl">Book now</p>
-    <h2>Book Your $199 Chimney Clean &mdash; Melbourne</h2>
+    <h2>Book Your Chimney Clean &mdash; Melbourne</h2>
     <div class="form-wrap">
       <h3>Quick Quote &mdash; Melbourne</h3>
-      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your $199 booking.</p>
+      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. Flue &amp; wood heater $199 &mdash; masonry/brick $299.</p>
       <form action="https://formspree.io/f/maqlwkpr" method="POST">
         <input type="hidden" name="suburb" value="Melbourne VIC" />
-        <input type="hidden" name="price" value="$199 chimney inspection and clean" />
+        <input type="hidden" name="price" value="From $199 — Flue/Wood Heater $199 | Masonry/Brick $299" />
         <div class="form-grid">
           <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
           <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
@@ -589,8 +600,8 @@ const clusters = [
           <div class="field"><label>Service Needed</label>
             <select name="service" required>
               <option value="">Select&hellip;</option>
-              <option value="Chimney Inspection and Clean — $199">Chimney Inspection &amp; Clean &mdash; $199</option>
-              <option>Wood Heater Service</option>
+              <option value="Masonry/Brick Chimney Clean — $299">Masonry &amp; Brick Chimney Clean &mdash; $299</option>
+              <option value="Flue & Wood Heater Clean — $199">Flue &amp; Wood Heater Clean &mdash; $199</option>
               <option>Flue Cleaning</option>
               <option>Blockage / Nest Removal</option>
               <option>Not sure &mdash; need advice</option>
@@ -606,7 +617,7 @@ const clusters = [
   <!-- BOTTOM CTA -->
   <section class="bottom-cta">
     <div class="bottom-cta-inner">
-      <h2>$199 Chimney Sweep &mdash; Anywhere in Melbourne</h2>
+      <h2>Chimney Sweep From $199 &mdash; Anywhere in Melbourne</h2>
       <p>Call Dave directly or use the contact form &mdash; we&rsquo;ll get back to you the same day and confirm a time that works.</p>
       <div class="btn-row">
         <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
