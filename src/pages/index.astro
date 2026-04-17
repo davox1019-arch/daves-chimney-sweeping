@@ -4,16 +4,58 @@ import MainLayout from "../layouts/MainLayout.astro";
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Daves Chimney Sweeping",
+  name: "Dave's Chimney Sweeping",
   telephone: "+61476302729",
   priceRange: "$199–$299",
-  areaServed: "Melbourne VIC",
+  areaServed: [
+    "Melbourne VIC", "Inner Melbourne", "Inner North Melbourne", "Inner East Melbourne",
+    "Inner South Melbourne", "Northern Melbourne Suburbs", "Western Melbourne Suburbs",
+    "Eastern Melbourne Suburbs", "South-East Melbourne Suburbs", "Mornington Peninsula"
+  ],
   url: "https://daveschimneysweeping.com.au/",
-  description: "Daves Chimney Sweeping — chimney inspection and full clean across all Melbourne suburbs VIC. Flue and wood heater cleaning from $199, masonry/brick chimney from $299. Local, owner-operated.",
-  address: { "@type": "PostalAddress", addressLocality: "Melbourne", addressRegion: "VIC", addressCountry: "AU" },
-  openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], opens: "08:00", closes: "18:00" }]
+  description: "Dave's Chimney Sweeping — professional chimney sweep, flue cleaning and wood heater service across all Melbourne suburbs VIC. Flue and wood heater from $199, masonry/brick chimney from $299. Local, owner-operated.",
+  address: { "@type": "PostalAddress", addressLocality: "Richmond", addressRegion: "VIC", postalCode: "3121", addressCountry: "AU" },
+  openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], opens: "08:00", closes: "18:00" }],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Chimney Sweeping Services Melbourne",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Flue & Wood Heater Cleaning Melbourne", description: "Professional flue sweep and wood heater service. Full flue cleaning, creosote removal, soot and ash removal, bird nest check and verbal condition report." },
+        price: "199",
+        priceCurrency: "AUD"
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Masonry & Brick Chimney Sweep Melbourne", description: "Full masonry chimney sweep for brick and heritage chimneys. Complete chimney clean from firebox to pot, creosote removal, soot removal, blockage check and verbal condition report." },
+        price: "299",
+        priceCurrency: "AUD"
+      }
+    ]
+  },
+  sameAs: [
+    "https://www.facebook.com/daveschimneysweeping"
+  ]
 };
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "How much does a chimney sweep cost?", acceptedAnswer: { "@type": "Answer", text: "Flue cleaning and wood heater service is $199. Masonry or brick chimney cleaning is $299. No call-out fee, no hidden extras — the price is fixed regardless of which Melbourne suburb you're in." } },
+    { "@type": "Question", name: "How often should a chimney be swept in Melbourne?", acceptedAnswer: { "@type": "Answer", text: "For a fireplace or wood heater used regularly through winter, once a year is the standard. If it hasn't been done in a few years — or ever — get it sorted before the cold arrives." } },
+    { "@type": "Question", name: "What's included in the chimney clean?", acceptedAnswer: { "@type": "Answer", text: "Full chimney sweep from firebox to pot, flue cleaning, soot and ash removal, blockage check, bird nest clearing if needed, and a verbal condition report. Everything in one visit." } },
+    { "@type": "Question", name: "Do you clean wood heaters as well as open fireplaces?", acceptedAnswer: { "@type": "Answer", text: "Yes — wood heaters, slow combustion heaters and open fireplaces all covered. We clean the heater body, flue connection and chimney depending on your setup." } },
+    { "@type": "Question", name: "What are the signs my chimney needs cleaning?", acceptedAnswer: { "@type": "Answer", text: "Smoke coming back into the room, a sluggish fire, a persistent burnt smell when the fire isn't on, and heavy black soot around the firebox. Over 12 months since the last clean is usually reason enough." } },
+    { "@type": "Question", name: "Do you service all Melbourne suburbs?", acceptedAnswer: { "@type": "Answer", text: "Yes — we cover all Melbourne suburbs from the inner city to the outer fringe. Call 0476 302 729 to confirm we reach your suburb." } },
+    { "@type": "Question", name: "How long does a chimney sweep take?", acceptedAnswer: { "@type": "Answer", text: "Between 45 minutes and an hour and a half, depending on the system and level of buildup. We'll give you a realistic estimate before we start." } },
+    { "@type": "Question", name: "Is chimney sweeping a messy job?", acceptedAnswer: { "@type": "Answer", text: "We put down dust sheets and contain everything properly. Most customers are surprised how tidy we leave it. Soot and ash removal is included as part of the service." } }
+  ]
+};
+
 const schemaJson = JSON.stringify(localBusinessSchema);
+const faqSchemaJson = JSON.stringify(faqSchema);
 
 const faqs = [
   { q: "How much does a chimney sweep cost?", a: "Flue cleaning and wood heater service is $199. Masonry or brick chimney cleaning is $299. No call-out fee, no hidden extras — the price is fixed regardless of which Melbourne suburb you're in." },
@@ -21,7 +63,7 @@ const faqs = [
   { q: "What's included in the chimney clean?", a: "Full chimney sweep from firebox to pot, flue cleaning, soot and ash removal, blockage check, bird nest clearing if needed, and a verbal condition report. Everything in one visit." },
   { q: "Do you clean wood heaters as well as open fireplaces?", a: "Yes — wood heaters, slow combustion heaters and open fireplaces all covered. We clean the heater body, flue connection and chimney depending on your setup." },
   { q: "What are the signs my chimney needs cleaning?", a: "Smoke coming back into the room, a sluggish fire, a persistent burnt smell when the fire isn't on, and heavy black soot around the firebox. Over 12 months since the last clean is usually reason enough." },
-  { q: "Do you service all Melbourne suburbs?", a: "We cover Melbourne's western, north-western and outer corridor — a large area of homes that rely on wood heating. Call 0476 302 729 to confirm we reach your suburb." },
+  { q: "Do you service all Melbourne suburbs?", a: "Yes — we cover all Melbourne suburbs, inner city to the outer fringe. Inner north, inner east, inner south, western suburbs, northern suburbs, south-east, Mornington Peninsula, Yarra Ranges and beyond. Call 0476 302 729 to confirm we reach your suburb." },
   { q: "How long does a chimney sweep take?", a: "Between 45 minutes and an hour and a half, depending on the system and level of buildup. We'll give you a realistic estimate before we start." },
   { q: "Is chimney sweeping a messy job?", a: "We put down dust sheets and contain everything properly. Most customers are surprised how tidy we leave it. Soot and ash removal is included as part of the service." }
 ];
@@ -193,8 +235,8 @@ const clusters = [
 ---
 
 <MainLayout
-  title="Chimney Sweeping Melbourne — $199 Clean & Inspect | Daves"
-  description="Daves Chimney Sweeping — $199 chimney inspection & full clean across all Melbourne suburbs VIC. Local, owner-operated. No call-out fee. Call 0476 302 729."
+  title="Chimney Sweep Melbourne — Flue & Wood Heater Cleaning | Dave's"
+  description="Dave's Chimney Sweeping Melbourne — professional chimney sweep, flue cleaning & wood heater service across all Melbourne suburbs. From $199. No call-out fee. Call 0476 302 729."
   isHomePage={true}
   clusterBase="Melbourne"
   clusterRegion="Melbourne and all surrounding suburbs"
@@ -203,6 +245,7 @@ const clusters = [
   servicePageLabel="Chimney Sweeping"
 >
   <script type="application/ld+json" is:inline set:html={schemaJson}></script>
+  <script type="application/ld+json" is:inline set:html={faqSchemaJson}></script>
 
   <style>
     :root{--bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;--bw:#f5f0e8;--wh:#ffffff;--tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px}
@@ -421,6 +464,17 @@ const clusters = [
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- SERVICES KEYWORD SECTION -->
+  <section class="sec">
+    <p class="sl">Services</p>
+    <h2>Chimney Sweep, Flue Cleaning &amp; Wood Heater Service — All Melbourne</h2>
+    <p>Dave&rsquo;s Chimney Sweeping covers every type of system across all Melbourne suburbs. Whether you need a chimney sweep for a brick or masonry fireplace, a flue sweep and service on a wood heater or slow combustion unit, or a full flue cleaning on a metal-lined system — it&rsquo;s all covered in a single visit.</p>
+    <p><strong>Chimney sweep</strong> — full clean from firebox to chimney pot for open fireplaces and masonry systems. Removes creosote, soot and blockages that build up with regular use.</p>
+    <p><strong>Flue sweep &amp; flue cleaning</strong> — flue liner or flue pipe cleaned and cleared to restore proper airflow and draw. Covers both metal flue systems and older clay or brick-lined flues.</p>
+    <p><strong>Wood heater service &amp; chimney sweep</strong> — heater body, baffle plate, flue connection and chimney all cleaned in the one visit. The most common service across Melbourne&rsquo;s middle and outer suburbs.</p>
+    <p><strong>Fireplace cleaning Melbourne</strong> — open and closed fireplace cleaning, firebox, throat, smoke chamber and flue. Covers Victorian and Edwardian-era fireplaces through to 1980s and 1990s installations.</p>
   </section>
 
   <!-- MELBOURNE LOCAL KNOWLEDGE -->
