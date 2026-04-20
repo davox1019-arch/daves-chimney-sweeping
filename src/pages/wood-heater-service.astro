@@ -193,6 +193,21 @@ const faqs = [
       <span class="sv">Verbal condition report</span>
     </div>
     <p style="margin-top:1.1rem;">Everything is contained — dust sheets go down before we start, and the heater area is left clean when we're done. Most services take 45–60 minutes.</p>
+
+    <div id="lb" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;">
+      <img id="lb-img" src="" alt="Enlarged photo" style="max-width:100%;max-height:90vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,0.6);" />
+    </div>
+
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem;">
+      <div style="flex:1;min-width:200px;cursor:pointer;text-align:center;" onclick="document.getElementById('lb').style.display='flex';document.getElementById('lb-img').src=this.querySelector('img').src">
+        <img src="/images/work2.png" alt="Dave cleaning a wood heater flue in Melbourne" style="width:100%;height:220px;object-fit:cover;border-radius:10px;border:1px solid var(--br);" loading="lazy" />
+        <p style="font-size:.75rem;color:var(--ts);margin:.5rem 0 0;font-weight:600;text-transform:uppercase;letter-spacing:.05em;">Wood heater service in progress</p>
+      </div>
+      <div style="flex:1;min-width:200px;cursor:pointer;text-align:center;" onclick="document.getElementById('lb').style.display='flex';document.getElementById('lb-img').src=this.querySelector('img').src">
+        <img src="/images/before-and-after-flue.jpg" alt="Flue before and after professional cleaning — creosote removed" style="width:100%;height:220px;object-fit:cover;border-radius:10px;border:1px solid var(--br);" loading="lazy" />
+        <p style="font-size:.75rem;color:var(--ts);margin:.5rem 0 0;font-weight:600;text-transform:uppercase;letter-spacing:.05em;">Flue before &amp; after cleaning</p>
+      </div>
+    </div>
   </section>
 
   <section class="sec">
