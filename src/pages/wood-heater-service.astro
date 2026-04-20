@@ -1,0 +1,290 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Dave's Chimney Sweeping",
+  "telephone": "+61476302729",
+  "priceRange": "$199",
+  "areaServed": "Melbourne VIC",
+  "url": "https://daveschimneysweeping.com.au/wood-heater-service",
+  "description": "Professional wood heater service Melbourne — full flue cleaning, creosote removal and condition report. Dave's Chimney Sweeping, $199 flat rate, all Melbourne suburbs."
+};
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What's included in a wood heater service?", "acceptedAnswer": { "@type": "Answer", "text": "A full flue clean from the heater connection to the chimney cap, creosote and soot removal from the flue and heater body, blockage and bird nest check, baffle plate inspection, and a verbal condition report. Everything is done in a single visit." } },
+    { "@type": "Question", "name": "How much does a wood heater service cost in Melbourne?", "acceptedAnswer": { "@type": "Answer", "text": "Wood heater flue cleaning and service is $199 flat. No call-out fee, no hidden extras. The price is the same regardless of which Melbourne suburb you're in." } },
+    { "@type": "Question", "name": "How often should a wood heater be serviced?", "acceptedAnswer": { "@type": "Answer", "text": "Once a year is the standard for a heater used regularly through winter. If your heater is used heavily or you're burning unseasoned wood, you may need it done more frequently. If it hasn't been serviced in several years, get it done before the next heating season." } },
+    { "@type": "Question", "name": "Do you do repairs on wood heaters?", "acceptedAnswer": { "@type": "Answer", "text": "We specialise in the cleaning side — flue cleaning, creosote removal, soot removal and condition inspection. We don't replace fans, door seals, glass or baffle plates. If repairs are needed, we'll flag them in the condition report so you know what to organise." } },
+    { "@type": "Question", "name": "What's the difference between a wood heater service and a chimney sweep?", "acceptedAnswer": { "@type": "Answer", "text": "They're closely related. A chimney sweep focuses on the chimney flue — common with open masonry fireplaces. A wood heater service covers the flue pipe and connection on a freestanding slow combustion or wood heater. Both involve cleaning the full system from the heater or firebox up to the chimney cap." } },
+    { "@type": "Question", "name": "How long does a wood heater service take?", "acceptedAnswer": { "@type": "Answer", "text": "Most wood heater services take 45–60 minutes. We'll give you a realistic time estimate when you book." } }
+  ]
+};
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Wood Heater Service Melbourne",
+  "provider": { "@type": "LocalBusiness", "name": "Dave's Chimney Sweeping", "telephone": "+61476302729" },
+  "areaServed": "Melbourne VIC",
+  "offers": [{ "@type": "Offer", "price": "199", "priceCurrency": "AUD", "description": "Wood heater flue cleaning and service — all Melbourne suburbs" }],
+  "serviceType": "Wood Heater Cleaning & Flue Service"
+};
+const faqs = [
+  { q: "What's included in a wood heater service?", a: "A full flue clean from the heater connection to the chimney cap, creosote and soot removal from the flue and heater body, blockage and bird nest check, baffle plate inspection, and a verbal condition report. Everything done in a single visit." },
+  { q: "How much does a wood heater service cost in Melbourne?", a: "Wood heater flue cleaning and service is $199 flat. No call-out fee, no hidden extras. The price is the same regardless of which Melbourne suburb you're in." },
+  { q: "How often should a wood heater be serviced?", a: "Once a year is the standard for a heater used regularly through winter. If your heater is used heavily or you're burning unseasoned wood, you may need it done more frequently." },
+  { q: "Do you do repairs on wood heaters?", a: "We specialise in the cleaning side — flue cleaning, creosote removal, soot removal and condition inspection. We don't replace fans, door seals, glass or baffle plates. If repairs are needed, we'll flag them in the condition report so you know what to organise." },
+  { q: "What's the difference between a wood heater service and a chimney sweep?", a: "They're closely related. A chimney sweep focuses on the chimney flue — common with open masonry fireplaces. A wood heater service covers the flue pipe and connection on a freestanding slow combustion or wood heater. Both involve cleaning the full system from the heater or firebox up to the chimney cap." },
+  { q: "How long does a wood heater service take?", a: "Most wood heater services take 45–60 minutes. We'll give you a realistic time estimate when you book." }
+];
+---
+
+<MainLayout
+  title="Wood Heater Service Melbourne — $199 Flue Clean | Dave's"
+  description="Professional wood heater service Melbourne — full flue cleaning, creosote removal & condition report. $199 flat, all Melbourne suburbs. No call-out fee. Call 0476 302 729."
+  clusterBase="Melbourne"
+  clusterRegion="Melbourne and all surrounding suburbs"
+  homeHref="/"
+  servicePageHref="/"
+  servicePageLabel="Chimney Sweeping Melbourne"
+  suppressAbout={true}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
+
+  <style>
+    :root{--bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;--bw:#f5f0e8;--wh:#ffffff;--tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px}
+    .hero{background:linear-gradient(160deg,#18120a 0%,#2c1a0c 55%,#1a1a18 100%);color:var(--wh);padding:3.8rem 1.25rem 3.4rem;text-align:center}
+    @media(max-width:640px){.hero{background:url('/images/firehome.jpg') center/cover no-repeat;padding:.5rem}.hero-box{background:rgba(10,6,4,0.72);border-radius:14px;padding:1.25rem .75rem;max-width:480px;margin:0 auto}.hero-box .btn-row{flex-direction:column;gap:.5rem;width:100%}.hero-box .btn{max-width:none;width:calc(100% - 1rem);padding:.9rem 1rem;font-size:1rem}.hero-box .btn-call{font-size:1rem}.hero-lead{font-weight:700;color:#fff!important}.hero-sub{font-weight:600;color:#fff!important}}
+    .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem}
+    .hero h1{font-size:clamp(2.4rem,6.5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
+    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.9rem;font-weight:800;padding:.6rem 1.25rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c;white-space:nowrap}
+    .hero-lead{font-size:1.18rem;line-height:1.6;color:#d4d1cb;margin:0 auto .7rem;max-width:520px}
+    .hero-sub{font-size:1rem;line-height:1.55;color:#a09d96;max-width:500px;margin:0 auto 1.8rem}
+    .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+    .btn{display:inline-block;padding:1rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s,transform .15s}
+    .btn:hover{opacity:.88;transform:translateY(-1px)}
+    .btn-call{background:var(--ba);color:#fff;font-size:1.25rem;letter-spacing:.01em}
+    .btn-quote{background:transparent;border:2px solid rgba(255,255,255,0.32);color:#fff}
+    .trust-bar{background:var(--bm);padding:1.1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.93rem;color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .ti svg{flex-shrink:0;color:var(--ba)}
+    .sec{padding:2.9rem 1.25rem;max-width:720px;margin:0 auto}
+    .sec+.sec{border-top:1px solid var(--br)}
+    .sl{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
+    .sec h2{font-size:clamp(1.8rem,5vw,2.3rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec p{font-size:1.08rem;line-height:1.65;color:var(--ts);margin:0 0 .75rem}
+    .sec p:last-child{margin-bottom:0}
+    .price-box{background:var(--bw);border:2px solid #2a6b1c;border-radius:var(--rad);padding:1.5rem 1.25rem;margin-top:1rem;text-align:center;max-width:380px;margin-left:auto;margin-right:auto}
+    .price-num{font-size:4.2rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.25rem}
+    .price-label{font-size:1.12rem;font-weight:700;color:var(--tm);margin-bottom:.75rem}
+    .price-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.75rem}
+    .pi{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:.42rem .9rem;font-size:.93rem;font-weight:600;color:var(--ts)}
+    .pi::before{content:"✓ ";color:#2a6b1c;font-weight:800}
+    .not-included{background:#fff8f5;border:1px solid #f0c4a8;border-radius:var(--rad);padding:1.1rem 1.25rem;margin-top:1rem}
+    .not-included p{font-size:.97rem;line-height:1.6;color:var(--ts);margin:0}
+    .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.1rem}
+    @media(max-width:380px){.svc-list{grid-template-columns:1fr}}
+    .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.85rem 1rem;font-size:1.02rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
+    .sv::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
+    .reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
+    @media(max-width:480px){.reason-grid{grid-template-columns:1fr}}
+    .rc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.1rem 1rem}
+    .rc-icon{font-size:1.4rem;display:block;margin-bottom:.4rem}
+    .rc-title{font-size:1.04rem;font-weight:700;color:var(--tm);margin-bottom:.3rem}
+    .rc-desc{font-size:.94rem;line-height:1.5;color:var(--ts)}
+    .faq-list{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
+    details.faq-item{border-bottom:1px solid var(--br)}
+    details.faq-item:last-child{border-bottom:none}
+    details.faq-item summary{padding:1.2rem 1.25rem;font-size:1.08rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
+    details.faq-item summary::-webkit-details-marker{display:none}
+    details.faq-item summary:hover{background:var(--bw)}
+    details.faq-item summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
+    details.faq-item[open] summary::after{content:"−"}
+    .faq-answer{padding:.1rem 1.25rem 1.1rem;font-size:1.03rem;line-height:1.6;color:var(--ts);background:var(--wh)}
+    .form-wrap{background:var(--bw);border:2px solid var(--ba);border-radius:var(--rad);padding:1.75rem 1.25rem;margin-top:1rem}
+    .form-wrap h3{font-size:1.15rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
+    .form-sub{font-size:.9rem;color:var(--ts);margin:0 0 1.25rem}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+    @media(max-width:500px){.form-grid{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;gap:.3rem}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.8rem;font-weight:700;color:var(--tm);letter-spacing:.03em;text-transform:uppercase}
+    .field input,.field select,.field textarea{width:100%;box-sizing:border-box;border:2px solid var(--br);border-radius:8px;padding:.72rem .85rem;font-size:1rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ba)}
+    .field textarea{resize:vertical;min-height:90px}
+    .form-submit{display:block;width:100%;margin-top:1rem;background:var(--ba);color:#fff;border:none;padding:1rem;border-radius:var(--rad);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s,transform .15s}
+    .form-submit:hover{opacity:.88;transform:translateY(-1px)}
+    .bottom-cta{background:url('/images/fireplace3.jpg') center/cover no-repeat;color:var(--wh);padding:2.8rem 1rem;text-align:center}
+    .bottom-cta-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:480px;margin:0 auto}
+    .bottom-cta-inner .btn-row{flex-direction:column;gap:.5rem;width:100%}
+    .bottom-cta-inner .btn{max-width:none;width:calc(100% - 1rem);box-sizing:border-box;padding:.9rem 1rem;font-size:1rem}
+    .bottom-cta-inner .btn-call{font-size:1rem}
+    .bottom-cta h2{font-size:clamp(1.65rem,5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
+    .bottom-cta p{font-size:1rem;color:rgba(255,255,255,0.9);margin:0 auto 1.9rem;line-height:1.6;max-width:440px;font-weight:600}
+  </style>
+
+  <section class="hero">
+    <div class="hero-box">
+      <span class="hero-eyebrow">Melbourne VIC — All Suburbs</span>
+      <h1>Wood Heater Service<br>Melbourne</h1>
+      <div class="price-badge">&#10003; $199 — Full Flue Clean &amp; Service</div>
+      <p class="hero-lead">Professional wood heater flue cleaning and annual service across all Melbourne suburbs. Freestanding heaters and slow combustion units — full clean done in a single visit.</p>
+      <p class="hero-sub">$199 flat rate. No call-out fee, no hidden extras. You speak to Dave and Dave turns up.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.8rem;">
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fully Insured</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; No Mess Guaranteed</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; $199 Flat Rate</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Verbal Condition Report</span>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
+        <a class="btn btn-quote" href="#quote">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>$199 flat rate</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>All Melbourne suburbs</span>
+  </div>
+
+  <section class="sec">
+    <p class="sl">Pricing</p>
+    <h2>Wood Heater Service — $199 Flat Rate</h2>
+    <p>One fixed price for a complete wood heater flue clean and service, regardless of which Melbourne suburb you're in:</p>
+    <div class="price-box">
+      <div class="price-num">$199</div>
+      <div class="price-label">Wood Heater Flue Clean &amp; Service</div>
+      <div class="price-includes">
+        <span class="pi">Full flue clean</span>
+        <span class="pi">Creosote removal</span>
+        <span class="pi">Soot &amp; ash removal</span>
+        <span class="pi">Heater body clean</span>
+        <span class="pi">Baffle plate inspection</span>
+        <span class="pi">Blockage &amp; nest check</span>
+        <span class="pi">Verbal condition report</span>
+        <span class="pi">No call-out fee</span>
+      </div>
+    </div>
+    <div class="not-included">
+      <p><strong>What's not included:</strong> We specialise in the cleaning side. We don't replace fans, door seals, rope gaskets, glass or baffle plates. If anything needs attention during the service, we'll flag it in the condition report so you know what to organise separately.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">What's involved</p>
+    <h2>What a Wood Heater Service Actually Covers</h2>
+    <p>A proper annual wood heater service is more than just a quick brush through the flue. Here's what's done on every visit:</p>
+    <div class="svc-list">
+      <span class="sv">Flue pipe clean — full length</span>
+      <span class="sv">Creosote scrubbing &amp; removal</span>
+      <span class="sv">Soot removal from heater body</span>
+      <span class="sv">Firebox &amp; baffle area clean</span>
+      <span class="sv">Baffle plate inspection</span>
+      <span class="sv">Bird nest &amp; blockage check</span>
+      <span class="sv">Chimney cap inspection</span>
+      <span class="sv">Verbal condition report</span>
+    </div>
+    <p style="margin-top:1.1rem;">Everything is contained — dust sheets go down before we start, and the heater area is left clean when we're done. Most services take 45–60 minutes.</p>
+  </section>
+
+  <section class="sec">
+    <p class="sl">Why it matters</p>
+    <h2>Why Annual Wood Heater Servicing Is Essential</h2>
+    <p>Every fire leaves behind creosote — a tar-like residue that coats the inside of your flue pipe. Over a season of regular use, that buildup restricts airflow, reduces the efficiency of your heater, and creates a genuine fire risk. Creosote is highly flammable. A chimney fire caused by creosote ignition burns at temperatures that can damage the flue lining and spread to the structure of your home.</p>
+    <p>Beyond fire risk, a dirty flue is the most common cause of smoke coming back into the room, poor draw, fires that won't stay alight, and a persistent burning smell in the house when the heater isn't running.</p>
+    <p>Annual servicing removes the buildup before it reaches dangerous levels, keeps the heater running efficiently, and is a requirement under most home insurance policies for wood heater coverage to be valid.</p>
+
+    <div class="reason-grid" style="margin-top:1.5rem;">
+      <div class="rc"><span class="rc-icon">&#128293;</span><div class="rc-title">Fire safety</div><div class="rc-desc">Creosote is the primary cause of chimney fires. Regular cleaning keeps it at safe levels.</div></div>
+      <div class="rc"><span class="rc-icon">&#128168;</span><div class="rc-title">Better performance</div><div class="rc-desc">A clean flue draws properly — fires light faster and burn more efficiently.</div></div>
+      <div class="rc"><span class="rc-icon">&#128203;</span><div class="rc-title">Insurance compliance</div><div class="rc-desc">Most policies require annual servicing for fire-related claims to be valid.</div></div>
+      <div class="rc"><span class="rc-icon">&#128172;</span><div class="rc-title">Condition report</div><div class="rc-desc">You get a straight verbal report on the state of the flue and heater — no upselling, just facts.</div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="sl">When to book</p>
+    <h2>When Should You Get Your Wood Heater Serviced?</h2>
+    <p>The best time is autumn — April through May — before the heating season starts. This means your heater is clean, inspected and ready to go when the cold arrives in late May. You also beat the winter rush, when booking availability tightens up significantly.</p>
+    <p>If you've missed the autumn window and the heater is already running, you can still book mid-season — but don't leave it until the end of winter when buildup is at its worst and risk is highest.</p>
+    <p>If the heater hasn't been serviced in more than a year, or you've moved into a home with an unknown service history, book before the next time you use it.</p>
+  </section>
+
+  <section class="sec">
+    <p class="sl">FAQs</p>
+    <h2>Wood Heater Service Melbourne — Common Questions</h2>
+    <div class="faq-list">
+      {faqs.map(({q,a}) => (
+        <details class="faq-item"><summary>{q}</summary><div class="faq-answer">{a}</div></details>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec" id="quote">
+    <p class="sl">Book now</p>
+    <h2>Book Your Wood Heater Service — Melbourne</h2>
+    <div class="form-wrap">
+      <h3>Quick Quote — Wood Heater Service</h3>
+      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. $199 flat rate, all Melbourne suburbs.</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <input type="hidden" name="service_type" value="Wood Heater Service" />
+        <input type="hidden" name="price" value="$199 — Wood Heater Flue Clean & Service" />
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="0400 000 000" /></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="Optional" /></div>
+          <div class="field"><label>Your Suburb</label><input type="text" name="suburb_detail" placeholder="e.g. Eltham, Ringwood, Essendon…" /></div>
+          <div class="field"><label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select&hellip;</option>
+              <option value="Wood Heater Flue Clean & Service — $199">Wood Heater Flue Clean &amp; Service &mdash; $199</option>
+              <option value="Masonry/Brick Chimney Clean — $299">Masonry &amp; Brick Chimney Clean &mdash; $299</option>
+              <option>Blockage / Nest Removal</option>
+              <option>Not sure &mdash; need advice</option>
+            </select>
+          </div>
+          <div class="field full"><label>Any Details</label><textarea name="message" placeholder="Heater brand/model if known, any issues you've noticed, when it was last serviced&hellip;"></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">Send Booking Request &rsaquo;</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="bottom-cta">
+    <div class="bottom-cta-inner">
+      <h2>Wood Heater Service Melbourne — $199</h2>
+      <p>Call Dave directly or use the form above — same day response, flexible scheduling across all Melbourne suburbs.</p>
+      <div class="btn-row">
+        <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
+        <a class="btn btn-quote" href="#quote">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <a href="tel:0476302729" id="sticky-cta" aria-label="Call or text Dave">
+    <span id="sticky-icon">&#128222;</span>
+    <span id="sticky-text">Call/Text Dave</span>
+  </a>
+  <style>
+    #sticky-cta{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;align-items:center;gap:.55rem;background:#c8500a;color:#fff;padding:.75rem 1.2rem .75rem 1rem;border-radius:50px;font-size:.95rem;font-weight:800;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,0.35);transition:opacity .2s,transform .2s;opacity:0;pointer-events:none;}
+    #sticky-cta.visible{opacity:1;pointer-events:auto}
+    #sticky-cta:hover{opacity:.9;transform:translateY(-2px)}
+  </style>
+  <script is:inline>
+    (function(){
+      var btn=document.getElementById('sticky-cta');
+      var hero=document.querySelector('.hero');
+      function check(){var t=hero?hero.offsetHeight:300;if(window.scrollY>t){btn.classList.add('visible');}else{btn.classList.remove('visible');}}
+      window.addEventListener('scroll',check,{passive:true});check();
+    })();
+  </script>
+
+</MainLayout>
