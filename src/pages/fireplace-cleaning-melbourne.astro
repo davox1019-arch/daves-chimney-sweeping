@@ -1,0 +1,331 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Dave's Chimney Sweeping",
+  "telephone": "+61476302729",
+  "priceRange": "$199-$299",
+  "areaServed": "Melbourne VIC",
+  "url": "https://daveschimneysweeping.com.au/fireplace-cleaning-melbourne",
+  "description": "Professional fireplace cleaning Melbourne — open fireplace and chimney flue cleaning, creosote removal, soot removal and condition report. Dave's Chimney Sweeping, all Melbourne suburbs."
+};
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How much does fireplace cleaning cost in Melbourne?", "acceptedAnswer": { "@type": "Answer", "text": "Fireplace cleaning in Melbourne costs $199 for a flue and wood heater clean, or $299 for a masonry brick chimney clean. No call-out fee, no hidden extras. The price is the same regardless of suburb." } },
+    { "@type": "Question", "name": "How often should a fireplace be cleaned?", "acceptedAnswer": { "@type": "Answer", "text": "Once a year is the recommended minimum for a regularly used fireplace. If you use your fireplace heavily through winter or burn a lot of wood, twice a year is worth considering. If it hasn't been cleaned in several years, get it done before the next use." } },
+    { "@type": "Question", "name": "What's included in a professional fireplace clean?", "acceptedAnswer": { "@type": "Answer", "text": "A full chimney flue clean from the firebox to the chimney cap, creosote and soot removal, blockage and bird nest check, firebox clean, chimney cap inspection, and a verbal condition report. Dust sheets go down before we start — the area is left clean when we're done." } },
+    { "@type": "Question", "name": "Is it safe to use a fireplace that hasn't been cleaned?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on how long it's been since the last clean and how heavily it's been used. Creosote buildup is flammable and is the main cause of chimney fires. If you don't know when the fireplace was last cleaned, get it done before using it." } },
+    { "@type": "Question", "name": "Do you clean open fireplaces as well as wood heaters?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we clean both open masonry fireplaces (brick chimneys) and freestanding wood heaters with flue pipes. Open fireplace and masonry chimney cleaning is $299. Wood heater flue cleaning is $199." } },
+    { "@type": "Question", "name": "How long does a fireplace clean take?", "acceptedAnswer": { "@type": "Answer", "text": "Most fireplace cleans take 45–75 minutes depending on the type of system and the level of buildup. We'll give you a realistic time estimate when you book." } }
+  ]
+};
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Fireplace Cleaning Melbourne",
+  "provider": { "@type": "LocalBusiness", "name": "Dave's Chimney Sweeping", "telephone": "+61476302729" },
+  "areaServed": "Melbourne VIC",
+  "offers": [
+    { "@type": "Offer", "price": "199", "priceCurrency": "AUD", "description": "Flue and wood heater fireplace clean — all Melbourne suburbs" },
+    { "@type": "Offer", "price": "299", "priceCurrency": "AUD", "description": "Masonry brick chimney and open fireplace clean — all Melbourne suburbs" }
+  ],
+  "serviceType": "Fireplace Cleaning & Chimney Flue Service"
+};
+const faqs = [
+  { q: "How much does fireplace cleaning cost in Melbourne?", a: "Fireplace cleaning in Melbourne costs $199 for a flue and wood heater clean, or $299 for a masonry brick chimney clean. No call-out fee, no hidden extras. The price is the same regardless of suburb." },
+  { q: "How often should a fireplace be cleaned?", a: "Once a year is the recommended minimum for a regularly used fireplace. If you use your fireplace heavily through winter or burn a lot of wood, twice a year is worth considering. If it hasn't been cleaned in several years, get it done before the next use." },
+  { q: "What's included in a professional fireplace clean?", a: "A full chimney flue clean from the firebox to the chimney cap, creosote and soot removal, blockage and bird nest check, firebox clean, chimney cap inspection, and a verbal condition report. Dust sheets go down before we start — the area is left clean when we're done." },
+  { q: "Is it safe to use a fireplace that hasn't been cleaned?", a: "It depends on how long it's been since the last clean and how heavily it's been used. Creosote buildup is flammable and is the main cause of chimney fires. If you don't know when the fireplace was last cleaned, get it done before using it." },
+  { q: "Do you clean open fireplaces as well as wood heaters?", a: "Yes — we clean both open masonry fireplaces (brick chimneys) and freestanding wood heaters with flue pipes. Open fireplace and masonry chimney cleaning is $299. Wood heater flue cleaning is $199." },
+  { q: "How long does a fireplace clean take?", a: "Most fireplace cleans take 45–75 minutes depending on the type of system and the level of buildup. We'll give you a realistic time estimate when you book." }
+];
+---
+
+<MainLayout
+  title="Fireplace Cleaning Melbourne — From $199 | Dave's Chimney Sweeping"
+  description="Professional fireplace cleaning Melbourne — open fireplace & chimney flue cleaning, creosote removal & condition report. From $199. All Melbourne suburbs. No call-out fee. Call 0476 302 729."
+  suppressAbout={true}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)}></script>
+
+  <style>
+    :root{--bd:#1a1a18;--bm:#2c2c29;--ba:#c8500a;--bw:#f5f0e8;--wh:#ffffff;--tm:#1a1a18;--ts:#5a5a54;--br:#e2ddd4;--rad:10px}
+    .hero{background:linear-gradient(160deg,#18120a 0%,#2c1a0c 55%,#1a1a18 100%);color:var(--wh);padding:3.8rem 1.25rem 3.4rem;text-align:center}
+    @media(max-width:640px){.hero{background:url('/images/firehome.jpg') center/cover no-repeat;padding:.5rem}.hero-box{background:rgba(10,6,4,0.72);border-radius:14px;padding:1.25rem .75rem;max-width:480px;margin:0 auto}.hero-box .btn-row{flex-direction:column;gap:.5rem;width:100%}.hero-box .btn{max-width:none;width:calc(100% - 1rem);padding:.9rem 1rem;font-size:1rem}.hero-box .btn-call{font-size:1rem}.hero-lead{font-weight:700;color:#fff!important}.hero-sub{font-weight:600;color:#fff!important}}
+    .hero-eyebrow{display:inline-block;background:var(--ba);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem}
+    .hero h1{font-size:clamp(2.4rem,6.5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 .9rem;color:var(--wh)}
+    .price-badge{display:inline-flex;align-items:center;gap:.5rem;background:#1e4d14;color:#7edd5a;font-size:.9rem;font-weight:800;padding:.6rem 1.25rem;border-radius:20px;margin-bottom:1rem;border:1px solid #2a6b1c;white-space:nowrap}
+    .hero-lead{font-size:1.18rem;line-height:1.6;color:#d4d1cb;margin:0 auto .7rem;max-width:520px}
+    .hero-sub{font-size:1rem;line-height:1.55;color:#a09d96;max-width:500px;margin:0 auto 1.8rem}
+    .btn-row{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+    .btn{display:inline-block;padding:1rem 2rem;border-radius:var(--rad);font-size:1rem;font-weight:700;text-decoration:none;text-align:center;width:100%;max-width:320px;transition:opacity .15s,transform .15s}
+    .btn:hover{opacity:.88;transform:translateY(-1px)}
+    .btn-call{background:var(--ba);color:#fff;font-size:1.25rem;letter-spacing:.01em}
+    .btn-quote{background:transparent;border:2px solid rgba(255,255,255,0.32);color:#fff}
+    .trust-bar{background:var(--bm);padding:1.1rem 1.25rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+    .ti{display:flex;align-items:center;gap:.4rem;font-size:.93rem;color:#fff;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .ti svg{flex-shrink:0;color:var(--ba)}
+    .sec{padding:2.9rem 1.25rem;max-width:720px;margin:0 auto}
+    .sec+.sec{border-top:1px solid var(--br)}
+    .sl{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ba);margin-bottom:.55rem}
+    .sec h2{font-size:clamp(1.8rem,5vw,2.3rem);font-weight:800;letter-spacing:-.02em;color:var(--tm);margin:0 0 1rem;line-height:1.2}
+    .sec p{font-size:1.08rem;line-height:1.65;color:var(--ts);margin:0 0 .75rem}
+    .sec p:last-child{margin-bottom:0}
+    .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+    @media(max-width:500px){.pricing-grid{grid-template-columns:1fr}}
+    .price-card{background:var(--bw);border:2px solid var(--br);border-radius:var(--rad);padding:1.4rem 1.1rem;text-align:center}
+    .price-card.featured{border-color:#2a6b1c}
+    .price-num{font-size:3.2rem;font-weight:800;color:#2a6b1c;line-height:1;margin-bottom:.2rem}
+    .price-label{font-size:1rem;font-weight:700;color:var(--tm);margin-bottom:.6rem}
+    .price-desc{font-size:.9rem;color:var(--ts);line-height:1.5}
+    .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.1rem}
+    @media(max-width:380px){.svc-list{grid-template-columns:1fr}}
+    .sv{background:var(--bw);border:1px solid var(--br);border-radius:8px;padding:.85rem 1rem;font-size:1.02rem;font-weight:600;color:var(--ts);display:flex;align-items:center;gap:.5rem}
+    .sv::before{content:"✓";color:var(--ba);font-weight:800;flex-shrink:0}
+    .type-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.1rem}
+    @media(max-width:500px){.type-grid{grid-template-columns:1fr}}
+    .tc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.2rem 1rem}
+    .tc-icon{font-size:1.6rem;display:block;margin-bottom:.5rem}
+    .tc-title{font-size:1.05rem;font-weight:700;color:var(--tm);margin-bottom:.3rem}
+    .tc-desc{font-size:.93rem;line-height:1.5;color:var(--ts)}
+    .tc-price{display:inline-block;margin-top:.6rem;background:#2a6b1c;color:#fff;font-size:.82rem;font-weight:700;padding:.28rem .7rem;border-radius:6px}
+    .reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
+    @media(max-width:480px){.reason-grid{grid-template-columns:1fr}}
+    .rc{background:var(--bw);border:1px solid var(--br);border-radius:var(--rad);padding:1.1rem 1rem}
+    .rc-icon{font-size:1.4rem;display:block;margin-bottom:.4rem}
+    .rc-title{font-size:1.04rem;font-weight:700;color:var(--tm);margin-bottom:.3rem}
+    .rc-desc{font-size:.94rem;line-height:1.5;color:var(--ts)}
+    .faq-list{margin-top:1.25rem;border:1px solid var(--br);border-radius:var(--rad);overflow:hidden}
+    details.faq-item{border-bottom:1px solid var(--br)}
+    details.faq-item:last-child{border-bottom:none}
+    details.faq-item summary{padding:1.2rem 1.25rem;font-size:1.08rem;font-weight:700;color:var(--tm);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;background:var(--wh);transition:background .15s;gap:1rem}
+    details.faq-item summary::-webkit-details-marker{display:none}
+    details.faq-item summary:hover{background:var(--bw)}
+    details.faq-item summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--ba);flex-shrink:0}
+    details.faq-item[open] summary::after{content:"−"}
+    .faq-answer{padding:.1rem 1.25rem 1.1rem;font-size:1.03rem;line-height:1.6;color:var(--ts);background:var(--wh)}
+    .form-wrap{background:var(--bw);border:2px solid var(--ba);border-radius:var(--rad);padding:1.75rem 1.25rem;margin-top:1rem}
+    .form-wrap h3{font-size:1.15rem;font-weight:800;color:var(--tm);margin:0 0 .25rem}
+    .form-sub{font-size:.9rem;color:var(--ts);margin:0 0 1.25rem}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+    @media(max-width:500px){.form-grid{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;gap:.3rem}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.8rem;font-weight:700;color:var(--tm);letter-spacing:.03em;text-transform:uppercase}
+    .field input,.field select,.field textarea{width:100%;box-sizing:border-box;border:2px solid var(--br);border-radius:8px;padding:.72rem .85rem;font-size:1rem;background:var(--wh);color:var(--tm);font-family:inherit;transition:border-color .15s;outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ba)}
+    .field textarea{resize:vertical;min-height:90px}
+    .form-submit{display:block;width:100%;margin-top:1rem;background:var(--ba);color:#fff;border:none;padding:1rem;border-radius:var(--rad);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .15s,transform .15s}
+    .form-submit:hover{opacity:.88;transform:translateY(-1px)}
+    .photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.1rem}
+    @media(max-width:480px){.photo-pair{grid-template-columns:1fr}}
+    .photo-pair img{width:100%;border-radius:10px;display:block;cursor:pointer}
+    .bottom-cta{background:url('/images/fireplace3.jpg') center/cover no-repeat;color:var(--wh);padding:2.8rem 1rem;text-align:center}
+    .bottom-cta-inner{background:rgba(10,6,4,0.62);border-radius:14px;padding:1.75rem 1.5rem;max-width:480px;margin:0 auto}
+    .bottom-cta-inner .btn-row{flex-direction:column;gap:.5rem;width:100%}
+    .bottom-cta-inner .btn{max-width:none;width:calc(100% - 1rem);box-sizing:border-box;padding:.9rem 1rem;font-size:1rem}
+    .bottom-cta-inner .btn-call{font-size:1rem}
+    .bottom-cta h2{font-size:clamp(1.65rem,5vw,2.1rem);font-weight:800;letter-spacing:-.02em;color:var(--wh);margin:0 0 .65rem}
+    .bottom-cta p{font-size:1rem;color:rgba(255,255,255,0.9);margin:0 auto 1.9rem;line-height:1.6;max-width:440px;font-weight:600}
+    .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:var(--ba);color:#fff;text-align:center;padding:.85rem 1rem;font-size:1.05rem;font-weight:800;text-decoration:none;z-index:999;display:none;letter-spacing:.01em}
+    @media(max-width:640px){.sticky-cta{display:block}}
+  </style>
+
+  <a class="sticky-cta" href="tel:0476302729">📞 Call Dave — 0476 302 729</a>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-box">
+      <span class="hero-eyebrow">Melbourne VIC — All Suburbs</span>
+      <h1>Fireplace Cleaning<br>Melbourne</h1>
+      <div class="price-badge">&#10003; From $199 — No Call-Out Fee</div>
+      <p class="hero-lead">Professional fireplace cleaning across all Melbourne suburbs. Open fireplaces, wood heaters and masonry chimneys — full clean, creosote removal and condition report in a single visit.</p>
+      <p class="hero-sub">$199 for flue &amp; wood heater. $299 for masonry brick chimney. You speak to Dave and Dave turns up.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.8rem;">
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fully Insured</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; No Mess Guaranteed</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fixed Pricing</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Condition Report</span>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
+        <a class="btn btn-quote" href="#quote">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>From $199</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>All Melbourne suburbs</span>
+  </div>
+
+  <!-- Fireplace types -->
+  <section class="sec">
+    <p class="sl">What we clean</p>
+    <h2>Open Fireplaces &amp; Wood Heaters — Both Covered</h2>
+    <p>Melbourne homes have two main types of fireplace system. We clean both, with fixed pricing for each:</p>
+    <div class="type-grid">
+      <div class="tc">
+        <span class="tc-icon">🧱</span>
+        <div class="tc-title">Open Fireplace &amp; Masonry Chimney</div>
+        <div class="tc-desc">Traditional brick or stone fireplaces with a full masonry chimney. Common in Victorian, Edwardian and Federation-era Melbourne homes. Full flue clean from firebox to chimney cap.</div>
+        <span class="tc-price">$299</span>
+      </div>
+      <div class="tc">
+        <span class="tc-icon">🔥</span>
+        <div class="tc-title">Wood Heater &amp; Flue Pipe</div>
+        <div class="tc-desc">Freestanding slow combustion or wood heaters with a metal flue pipe. Full clean from the heater body through the full length of the flue to the cap.</div>
+        <span class="tc-price">$199</span>
+      </div>
+    </div>
+    <p style="margin-top:1.1rem;">Not sure which type you have? Call or text 0476 302 729 and describe what you've got — we'll confirm pricing before we book.</p>
+  </section>
+
+  <!-- What's included -->
+  <section class="sec">
+    <p class="sl">What's included</p>
+    <h2>What a Professional Fireplace Clean Covers</h2>
+    <p>Every fireplace clean includes the full system — not just a brush through the flue:</p>
+    <div class="svc-list">
+      <span class="sv">Full chimney flue clean</span>
+      <span class="sv">Creosote scrubbing &amp; removal</span>
+      <span class="sv">Soot removal from firebox</span>
+      <span class="sv">Heater body clean</span>
+      <span class="sv">Bird nest &amp; blockage check</span>
+      <span class="sv">Chimney cap inspection</span>
+      <span class="sv">Dust sheets — no mess</span>
+      <span class="sv">Verbal condition report</span>
+    </div>
+    <p style="margin-top:1.1rem;">Everything is contained and the area is left clean when we're done. Most fireplace cleans take 45–75 minutes from start to finish.</p>
+
+    <!-- Photos -->
+    <div class="photo-pair" style="margin-top:1.4rem;">
+      <div>
+        <img src="/images/work2.png" alt="Professional fireplace cleaning Melbourne" />
+        <p style="font-size:.8rem;color:#888;margin:.4rem 0 0;text-align:center;">Professional fireplace flue cleaning Melbourne</p>
+      </div>
+      <div>
+        <img src="/images/before-and-after-flue.jpg" alt="Fireplace flue before and after cleaning" />
+        <p style="font-size:.8rem;color:#888;margin:.4rem 0 0;text-align:center;">Before and after — creosote removed from flue</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why clean -->
+  <section class="sec">
+    <p class="sl">Why it matters</p>
+    <h2>Why Fireplace Cleaning Isn't Optional</h2>
+    <p>Every fire you burn deposits creosote — a dark, sticky byproduct of combustion — on the inside walls of the flue. Over time it builds up. Creosote is highly flammable and is the leading cause of chimney fires in Australia.</p>
+    <p>A chimney fire can reach over 1,000°C. Many happen silently overnight. By the time there's visible damage, the fire has already cracked flue liners, warped metal, and potentially spread to roof timbers. A $199–$299 annual clean removes the risk entirely.</p>
+    <div class="reason-grid">
+      <div class="rc">
+        <span class="rc-icon">🔥</span>
+        <div class="rc-title">Chimney fire prevention</div>
+        <div class="rc-desc">Creosote buildup is the main cause of chimney fires. Annual cleaning removes it before it accumulates to a dangerous level.</div>
+      </div>
+      <div class="rc">
+        <span class="rc-icon">💨</span>
+        <div class="rc-title">Better draw &amp; performance</div>
+        <div class="rc-desc">A clean flue draws better. Fires light easier, burn hotter and produce less smoke back into the room.</div>
+      </div>
+      <div class="rc">
+        <span class="rc-icon">🏠</span>
+        <div class="rc-title">Building inspection ready</div>
+        <div class="rc-desc">A clean, serviced fireplace passes building inspections. An unserviced one is flagged — and that matters at sale time.</div>
+      </div>
+      <div class="rc">
+        <span class="rc-icon">📋</span>
+        <div class="rc-title">Insurance compliance</div>
+        <div class="rc-desc">Many insurers require evidence of regular maintenance. An annual clean receipt is your documentation if a claim is ever needed.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas -->
+  <section class="sec">
+    <p class="sl">Service area</p>
+    <h2>Fireplace Cleaning Across All Melbourne Suburbs</h2>
+    <p>We clean fireplaces across all of Melbourne — inner suburbs, outer suburbs, and surrounding regions. No call-out fee regardless of where you are.</p>
+    <p>Inner Melbourne: Richmond, South Yarra, Fitzroy, Collingwood, Carlton, Hawthorn, Kew, Toorak, St Kilda, Prahran, Windsor, Albert Park, Port Melbourne, Northcote, Brunswick, Thornbury.</p>
+    <p>Eastern suburbs: Box Hill, Balwyn, Camberwell, Doncaster, Glen Waverley, Ringwood, Croydon, Lilydale, Healesville, Belgrave, Upwey, Ferntree Gully.</p>
+    <p>Southern suburbs: Brighton, Sandringham, Mentone, Cheltenham, Moorabbin, Bentleigh, Caulfield, Glen Iris, Malvern, Elsternwick.</p>
+    <p>Northern suburbs: Eltham, Diamond Creek, Greensborough, Bundoora, Epping, Whittlesea, Craigieburn, Sunbury, Gisborne.</p>
+    <p>Western suburbs: Footscray, Sunshine, Williamstown, Altona, Werribee, Hoppers Crossing, Melton, Bacchus Marsh.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="faq">
+    <p class="sl">Common questions</p>
+    <h2>Fireplace Cleaning — Frequently Asked Questions</h2>
+    <div class="faq-list">
+      {faqs.map(f => (
+        <details class="faq-item">
+          <summary>{f.q}</summary>
+          <div class="faq-answer">{f.a}</div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- Quote form -->
+  <section class="sec" id="quote">
+    <p class="sl">Book a clean</p>
+    <h2>Get a Free Quote</h2>
+    <p>Fill in your details below and Dave will get back to you with pricing and availability. Or call/text directly on 0476 302 729.</p>
+    <div class="form-wrap">
+      <h3>Book Your Fireplace Clean</h3>
+      <p class="form-sub">From $199 — all Melbourne suburbs — no call-out fee</p>
+      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="04xx xxx xxx" required />
+          </div>
+          <div class="field">
+            <label for="suburb">Suburb</label>
+            <input type="text" id="suburb" name="suburb" placeholder="e.g. Richmond" required />
+          </div>
+          <div class="field">
+            <label for="type">Fireplace Type</label>
+            <select id="type" name="fireplace_type">
+              <option value="">Select type</option>
+              <option value="wood-heater">Wood heater / flue pipe ($199)</option>
+              <option value="masonry">Open fireplace / brick chimney ($299)</option>
+              <option value="unsure">Not sure</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="message">Anything else we should know?</label>
+            <textarea id="message" name="message" placeholder="e.g. last cleaned 2 years ago, two-storey home, have a dog..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Send Quote Request →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <div class="bottom-cta">
+    <div class="bottom-cta-inner">
+      <h2>Ready to Book?</h2>
+      <p>Fireplace cleaning from $199. All Melbourne suburbs. Call or text Dave directly — no office, no hold music.</p>
+      <div class="btn-row">
+        <a class="btn btn-call" href="tel:0476302729">📞 Call 0476 302 729</a>
+        <a class="btn btn-quote" href="#quote">Get a Free Quote</a>
+      </div>
+    </div>
+  </div>
+
+</MainLayout>
