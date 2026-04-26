@@ -111,12 +111,25 @@ const { title, description, publishDate, readTime } = Astro.props;
     }
 
     .blog-cta {
-      background: linear-gradient(135deg, #2c1a0c, #1a1a18);
+      background: url('/images/fireplace3.jpg') center/cover no-repeat;
       color: white;
       border-radius: 20px;
       padding: 36px 32px;
       margin: 48px 0 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 6, 4, 0.72);
+      border-radius: 20px;
+    }
+    .blog-cta > * {
+      position: relative;
+      z-index: 1;
     }
 
     .blog-cta h3 {
