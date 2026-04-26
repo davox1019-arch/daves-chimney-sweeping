@@ -117,21 +117,25 @@ const { title, description, publishDate, readTime } = Astro.props;
       gap: .75rem;
       margin: 1.75rem 0;
     }
-    @media(max-width:500px){ .photo-proof { grid-template-columns: 1fr; } }
     .photo-proof-item { display: flex; flex-direction: column; gap: .4rem; }
     .photo-proof img {
       width: 100%;
-      height: 210px;
+      height: 200px;
       object-fit: cover;
       border-radius: 10px;
       display: block;
     }
     .photo-proof-cap {
-      font-size: .78rem;
+      font-size: .75rem;
       color: #888;
       font-style: italic;
       text-align: center;
       line-height: 1.4;
+    }
+    @media(max-width:540px){
+      .photo-proof { grid-template-columns: 1fr 1fr; gap: .4rem; }
+      .photo-proof img { height: 120px; border-radius: 8px; }
+      .photo-proof-cap { font-size: .68rem; }
     }
     .photo-full {
       width: 100%;
@@ -146,8 +150,11 @@ const { title, description, publishDate, readTime } = Astro.props;
       gap: .4rem;
       margin: 1.5rem 0;
     }
-    .photo-single img { width: 100%; height: auto; border-radius: 12px; display: block; }
-    .photo-single-cap { font-size: .78rem; color: #888; font-style: italic; text-align: center; }
+    .photo-single img { width: 100%; height: auto; max-height: 260px; object-fit: cover; border-radius: 12px; display: block; }
+    .photo-single-cap { font-size: .75rem; color: #888; font-style: italic; text-align: center; }
+    @media(max-width:540px){
+      .photo-single img { max-height: 180px; border-radius: 8px; }
+    }
 
     /* Mid-content CTA banner */
     .mid-cta {
