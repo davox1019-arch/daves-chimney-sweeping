@@ -1,0 +1,431 @@
+---
+import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How often should a chimney be swept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A chimney should be swept at least once a year for regular use — ideally before each heating season. Heavy users (5+ fires per week), those burning unseasoned wood, or properties in wet climates like the Dandenong Ranges should sweep every season or twice a year. Light users burning only well-seasoned hardwood can stretch to every 18–24 months, but annual is strongly recommended."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should a wood heater flue be cleaned?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A wood heater flue should be cleaned once a year at minimum. Slow combustion heaters and wood heaters used regularly through winter accumulate creosote quickly — especially if the fire is frequently smouldered rather than run hot. If you use your wood heater more than 3–4 times per week throughout winter, consider cleaning every season."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often does an open fireplace need to be swept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An open fireplace should be swept once a year if it gets regular use. Open fireplaces burn at lower efficiency than enclosed wood heaters, which means more incomplete combustion and more soot and creosote deposited in the chimney. Annual sweeping keeps the flue clear and catches any structural deterioration in the mortar, bricks or damper."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a chimney need sweeping if it's not used much?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Even a rarely-used chimney should be inspected at least every two years. Bird nests, possum activity, debris and moisture damage can block or deteriorate a flue even when it's not being used. If you haven't used the fireplace in 12+ months, have it checked before lighting it again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should a holiday home chimney be swept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Holiday homes and weekender properties should be swept at least once a year — the same as a main residence. Irregular use (heavy for a week, then idle for months) is actually one of the worst patterns for creosote buildup because the flue never gets a chance to warm up properly and tar condenses on the liner. Annual cleaning is important even if the total number of fires is low."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Australian Standard AS/NZS 2918 say about chimney cleaning frequency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Australian Standard AS/NZS 2918:2018 (Domestic solid fuel burning appliances — Installation) recommends that solid fuel heating appliances and their flue systems be inspected and cleaned at least annually. Most home insurance policies for properties with wood heaters also require evidence of regular maintenance — annual cleaning is the standard benchmark insurers use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know when my chimney needs sweeping?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Key signs your chimney needs sweeping: smoke coming back into the room; a persistent smoky smell when the fire is off; fires that are slow to start or hard to keep alight; heavily blackened glass on your wood heater door; visible soot or debris falling into the firebox; or a rumbling or roaring sound (possible chimney fire). If any of these apply, don't wait for your annual clean — book immediately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does burning unseasoned wood mean I need to sweep more often?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, significantly. Unseasoned or green wood contains high moisture content — it burns cooler and produces far more creosote than properly dried hardwood. If you've been regularly burning unseasoned wood, your flue could need cleaning after a single season rather than annually. Switch to seasoned hardwood (moisture content below 20%) and your chimney will stay cleaner for longer."
+      }
+    }
+  ]
+};
+---
+
+<BlogPostLayout
+  title="How Often Should a Chimney Be Swept? The Complete Guide"
+  description="The short answer: once a year. But the right frequency depends on your heater type, how often you use it, what you burn, and where you live. Here's the full breakdown."
+  publishDate="April 2026"
+  readTime="8 min"
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>
+
+  <style>
+    .answer-box {
+      background: #1e4d14;
+      border-radius: 14px;
+      padding: 1.5rem 1.5rem 1.25rem;
+      margin: 0 0 2rem;
+    }
+    .answer-box-label {
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #7edd5a;
+      margin-bottom: .5rem;
+      display: block;
+    }
+    .answer-box p {
+      color: #fff !important;
+      font-size: 1.1rem !important;
+      line-height: 1.65 !important;
+      margin: 0 !important;
+      font-weight: 600;
+    }
+    .freq-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0 1.5rem;
+      font-size: .97rem;
+    }
+    .freq-table th {
+      background: #2c1a0c;
+      color: #fff;
+      text-align: left;
+      padding: .75rem 1rem;
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .freq-table td {
+      padding: .75rem 1rem;
+      border-bottom: 1px solid #e2ddd4;
+      color: #333;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .freq-table tr:nth-child(even) td { background: #f9f6f1; }
+    .freq-table tr:last-child td { border-bottom: none; }
+    .freq-badge {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 800;
+      padding: .22rem .65rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .freq-annual { background: #d1fae5; color: #065f46; }
+    .freq-more { background: #fff3cd; color: #92400e; }
+    .freq-urgent { background: #fee2e2; color: #991b1b; }
+    .warning-box {
+      background: #fff8f0;
+      border: 2px solid #c8500a;
+      border-radius: 12px;
+      padding: 1.25rem 1.25rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: .85rem;
+      align-items: flex-start;
+    }
+    .warning-box-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1.3; }
+    .warning-box-body { font-size: 1rem; line-height: 1.65; color: #333; }
+    .warning-box-body strong { color: #1a1a18; }
+    .type-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+      margin: 1.25rem 0;
+    }
+    @media(max-width:540px){ .type-grid { grid-template-columns: 1fr; } }
+    .type-card {
+      background: #f5f0e8;
+      border: 1px solid #e2ddd4;
+      border-radius: 10px;
+      padding: 1.1rem 1rem;
+    }
+    .type-card-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #1a1a18;
+      margin-bottom: .35rem;
+    }
+    .type-card-freq {
+      font-size: .82rem;
+      font-weight: 800;
+      color: #2a6b1c;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: .4rem;
+    }
+    .type-card p {
+      font-size: .94rem !important;
+      line-height: 1.55 !important;
+      color: #5a5a54 !important;
+      margin: 0 !important;
+    }
+    details.faq-item {
+      border-bottom: 1px solid #e2ddd4;
+    }
+    details.faq-item:last-child { border-bottom: none; }
+    .faq-wrap {
+      border: 1px solid #e2ddd4;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1.25rem 0;
+    }
+    details.faq-item summary {
+      padding: 1.1rem 1.25rem;
+      font-size: 1.04rem;
+      font-weight: 700;
+      color: #1a1a18;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      background: #fff;
+      transition: background .15s;
+      gap: 1rem;
+    }
+    details.faq-item summary::marker { content: ""; display: none; }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary:hover { background: #f5f0e8; }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: #c8500a; flex-shrink: 0; }
+    details.faq-item[open] summary::after { content: "−"; }
+    .faq-answer { padding: .1rem 1.25rem 1.1rem; font-size: 1.02rem; line-height: 1.65; color: #5a5a54; background: #fff; }
+    .sign-list { list-style: none; padding: 0; margin: 1rem 0; }
+    .sign-list li {
+      padding: .6rem 0 .6rem 1.75rem;
+      border-bottom: 1px solid #e2ddd4;
+      font-size: 1.04rem;
+      line-height: 1.6;
+      color: #333;
+      position: relative;
+    }
+    .sign-list li:last-child { border-bottom: none; }
+    .sign-list li::before { content: "⚠"; position: absolute; left: 0; color: #c8500a; }
+  </style>
+
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>A chimney should be swept <strong>at least once a year</strong> — ideally before each heating season. Heavy users, anyone burning unseasoned wood, or properties in wetter climates should sweep every season. Light users burning only well-seasoned hardwood can stretch to 18–24 months, but annual is the standard recommendation across Australia.</p>
+  </div>
+
+  <p>It's one of the most common questions a chimney sweep gets asked. The honest answer is that "once a year" is the right answer for most households — but there are real situations where that's not enough, and a few where you can safely go a little longer. This guide covers every scenario so you know exactly where you stand.</p>
+
+  <h2>The Standard: Once a Year, Before the Heating Season</h2>
+
+  <p>For a regularly-used fireplace or wood heater, annual sweeping is the industry standard across Australia, the UK, and North America. <strong>Australian Standard AS/NZS 2918:2018</strong> — which covers the installation of domestic solid fuel burning appliances — recommends that the flue system be inspected and cleaned at least annually. Most home insurance policies for properties with wood heaters use annual cleaning as their maintenance benchmark too.</p>
+
+  <p>The timing matters as much as the frequency. <strong>Autumn is the ideal window</strong> — after the summer break, before you need the fire running. Booking in March, April or May means:</p>
+  <ul>
+    <li>Any bird or possum nests built over summer are removed before you light up</li>
+    <li>Creosote from the previous winter is cleared before it has another season to harden</li>
+    <li>If there's a structural issue, you find out while the weather is still mild — not on the first cold night of June</li>
+    <li>You avoid the autumn booking rush when every sweep in Melbourne is flat out</li>
+  </ul>
+
+  <h2>How Often by Heater or Fireplace Type</h2>
+
+  <div class="type-grid">
+    <div class="type-card">
+      <div class="type-card-title">🔥 Wood Heater / Slow Combustion</div>
+      <div class="type-card-freq">Once a year minimum</div>
+      <p>Enclosed slow combustion heaters are the most efficient but also the most prone to creosote buildup — especially if the fire is frequently run at low smoulder. Heavy users (5+ fires per week through winter) should consider every season.</p>
+    </div>
+    <div class="type-card">
+      <div class="type-card-title">🧱 Open Brick Fireplace</div>
+      <div class="type-card-freq">Once a year</div>
+      <p>Open fireplaces burn less efficiently than enclosed heaters, meaning more soot and creosote per fire. Annual sweeping is essential. The masonry also needs to be checked — mortar deteriorates over time and older chimneys are prone to cracking.</p>
+    </div>
+    <div class="type-card">
+      <div class="type-card-title">🏕️ Fireplace Insert</div>
+      <div class="type-card-freq">Once a year</div>
+      <p>Inserts share the same flue as the original masonry chimney but burn more like a wood heater. The connection point between the insert and the flue liner is a common area for creosote accumulation and needs annual attention.</p>
+    </div>
+    <div class="type-card">
+      <div class="type-card-title">⛽ Gas Fireplace / Log Fire</div>
+      <div class="type-card-freq">Every 2 years / as needed</div>
+      <p>Gas appliances don't produce creosote but the flue can still collect debris and the burner and seals need periodic inspection. Every two years is a reasonable guide, or annually if it's a heavily used appliance.</p>
+    </div>
+  </div>
+
+  <h2>Quick Reference: How Often By Situation</h2>
+
+  <table class="freq-table">
+    <thead>
+      <tr><th>Your Situation</th><th>Recommended Frequency</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Regular use (3–5 fires/week), seasoned hardwood</td>
+        <td><span class="freq-badge freq-annual">Once a year</span></td>
+      </tr>
+      <tr>
+        <td>Heavy use (5+ fires/week through winter)</td>
+        <td><span class="freq-badge freq-more">Every season</span></td>
+      </tr>
+      <tr>
+        <td>Burning unseasoned or green wood</td>
+        <td><span class="freq-badge freq-more">Every season minimum</span></td>
+      </tr>
+      <tr>
+        <td>Occasional use (weekends only, seasoned wood)</td>
+        <td><span class="freq-badge freq-annual">Once a year</span></td>
+      </tr>
+      <tr>
+        <td>Holiday home / weekender property</td>
+        <td><span class="freq-badge freq-annual">Once a year</span></td>
+      </tr>
+      <tr>
+        <td>Wet climate (e.g. Dandenong Ranges, Yarra Valley)</td>
+        <td><span class="freq-badge freq-more">Once a year minimum</span></td>
+      </tr>
+      <tr>
+        <td>Light use, well-seasoned hardwood only</td>
+        <td><span class="freq-badge freq-annual">Every 18–24 months</span></td>
+      </tr>
+      <tr>
+        <td>Not used in 12+ months</td>
+        <td><span class="freq-badge freq-urgent">Before next use</span></td>
+      </tr>
+      <tr>
+        <td>Just moved in — history unknown</td>
+        <td><span class="freq-badge freq-urgent">Before first use</span></td>
+      </tr>
+      <tr>
+        <td>Noticing smoke, smell, or performance issues</td>
+        <td><span class="freq-badge freq-urgent">Now — don't wait</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>When Once a Year Isn't Enough</h2>
+
+  <h3>You're burning a lot of wood</h3>
+  <p>A household running the fire five or six nights a week from May through September is generating considerably more creosote than one using it occasionally. If you're burning 3 or more trailer loads of wood per winter, consider getting the flue checked mid-season as well as before it starts. The cost of an extra clean is far less than a chimney fire.</p>
+
+  <h3>You've been burning unseasoned or green wood</h3>
+  <p>This is the single biggest driver of excessive creosote. Freshly cut or poorly dried wood contains high moisture content — it burns cooler and produces thick, sticky creosote that coats the flue walls much faster than properly seasoned hardwood. If you've been burning green wood, you likely need a clean after a single winter regardless of when the last one was done.</p>
+
+  <div class="callout">
+    <p>Properly seasoned firewood has a moisture content below 20%. Wood sold as "firewood" isn't always properly dried — especially if it was cut recently. Split wood needs at least 12 months of covered, ventilated storage before it's ready to burn efficiently.</p>
+  </div>
+
+  <h3>You frequently run the fire low or smoulder overnight</h3>
+  <p>Slow combustion heaters are designed to be run hot — around 150–200°C at the flue outlet. When the fire is damped down to a slow smoulder, the flue temperature drops and moisture and tar condense out of the smoke onto the liner. People who regularly bank the fire down overnight are accelerating their creosote buildup significantly.</p>
+
+  <h3>You live in the Dandenong Ranges or Yarra Valley</h3>
+  <p>The Dandenong Ranges receive up to 1,400mm of rainfall per year in some areas — one of the wettest parts of Victoria. The persistent ambient moisture, combined with the tendency to burn locally-sourced wood that may not be fully seasoned, means flues in this area accumulate creosote faster than in drier Melbourne suburbs. Annual cleaning here should be treated as a firm rule rather than a rough guide.</p>
+
+  <h2>Holiday Homes and Weekender Properties</h2>
+
+  <p>Many people assume a holiday home chimney needs less frequent cleaning because it gets fewer fires. The opposite is often true. Irregular use — heavy for a week over winter, then idle for months — is actually one of the harder patterns on a flue:</p>
+  <ul>
+    <li>The flue never fully warms up from cold, so condensation and creosote form more readily in the first few fires of each visit</li>
+    <li>Idle periods allow moisture and wildlife access — bird nests and debris are common in properties that sit empty for extended periods</li>
+    <li>Owners aren't present to notice early warning signs like smoke spillage or deteriorating performance</li>
+  </ul>
+  <p>Annual cleaning is the right call for holiday homes, even if the total number of fires per year is relatively low.</p>
+
+  <h2>Just Moved Into a Property? Do This First</h2>
+
+  <p>If you've just bought or rented a home with a fireplace or wood heater, <strong>get the chimney inspected before you use it</strong> — regardless of when it was last cleaned or what the previous owners say. A standard building inspection doesn't include a proper chimney assessment. What can be missed without looking up the flue:</p>
+  <ul>
+    <li>Bird or possum nests blocking the upper flue</li>
+    <li>Heavy creosote deposits from years of unseasoned wood use</li>
+    <li>Cracked flue liner or damaged mortar joints</li>
+    <li>Missing or damaged flue cap</li>
+    <li>Debris from roof work or renovation</li>
+  </ul>
+  <p>None of these are visible from the firebox. A sweep before first use is cheap insurance.</p>
+
+  <h2>Signs Your Chimney Needs Sweeping Now — Regardless of Schedule</h2>
+
+  <p>These are the warning signs that mean you should book immediately, not wait for your annual clean:</p>
+
+  <ul class="sign-list">
+    <li><strong>Smoke coming back into the room</strong> — the most obvious sign of a blocked, restricted or damaged flue</li>
+    <li><strong>Persistent smoky smell when the fire is off</strong> — creosote deposits or old ash holding odour in the flue</li>
+    <li><strong>Fire difficult to start or won't stay alight</strong> — restricted airflow from buildup or blockage</li>
+    <li><strong>Glass on the wood heater door going heavily black</strong> — indicates incomplete combustion, often from creosote-narrowed flue or wet wood</li>
+    <li><strong>Visible soot or debris falling into the firebox</strong> — a sign of loose deposits, possible nesting material, or structural movement</li>
+    <li><strong>Rumbling or roaring sound from the chimney</strong> — this can indicate a chimney fire and requires immediate action</li>
+    <li><strong>Fire hasn't been used in over a year</strong> — inspect before lighting again, especially if you're in a tree-lined area</li>
+  </ul>
+
+  <div class="warning-box">
+    <div class="warning-box-icon">🔴</div>
+    <div class="warning-box-body"><strong>If you hear a roaring or rumbling sound from your chimney while a fire is burning, extinguish the fire immediately and call 000.</strong> This is a likely chimney fire — burning creosote deposits inside the flue. Don't use the fireplace until a sweep has inspected the full system for damage.</div>
+  </div>
+
+  <h2>What Happens If You Don't Sweep Regularly?</h2>
+
+  <p>Skipping annual sweeping isn't just an inconvenience — the risks are real and escalating:</p>
+
+  <p><strong>Chimney fire.</strong> Creosote is highly flammable. As it builds up on the flue walls, the risk of it igniting from a hot flue gas increases sharply. A chimney fire can reach temperatures above 1,000°C — hot enough to crack the flue liner, damage the masonry, and ignite nearby timbers. Many house fires originate in the chimney.</p>
+
+  <p><strong>Carbon monoxide risk.</strong> A blocked or deteriorating flue can force combustion gases — including carbon monoxide — back into the living space. CO is colourless and odourless and can be fatal. Restricted airflow from creosote buildup is one of the most common causes of CO incidents in homes with wood heaters.</p>
+
+  <p><strong>Insurance issues.</strong> If a chimney fire or CO incident occurs and you can't demonstrate regular maintenance, your insurer may refuse or reduce your claim. Annual sweeping creates a clear maintenance record.</p>
+
+  <p><strong>Structural deterioration.</strong> Acidic combustion byproducts attack mortar and flue liners over time. Catching deterioration early — at the annual clean — is far cheaper than a full flue reline or chimney rebuild.</p>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-wrap">
+    <details class="faq-item">
+      <summary>How often should a wood heater flue be cleaned?</summary>
+      <div class="faq-answer">A wood heater flue should be cleaned once a year at minimum. Slow combustion heaters used regularly through winter accumulate creosote quickly — especially if the fire is frequently smouldered at low temperatures rather than run hot. If you use your wood heater more than 3–4 times per week throughout winter, consider cleaning every season.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Does a chimney need sweeping if I barely use it?</summary>
+      <div class="faq-answer">Yes. Even a rarely-used chimney should be inspected every one to two years. Bird nests, possum activity, debris and moisture damage can block or deteriorate a flue even when it's not being used. If the fireplace has sat idle for 12 or more months, have it checked before the next fire.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How often for a holiday home or short-stay rental?</summary>
+      <div class="faq-answer">Once a year — the same as a main residence. Irregular use (heavy for short stays, then idle for months) is actually harder on a flue than regular consistent use, because the system never properly warms up and creosote condenses more readily. Annual cleaning is important even if the total number of fires per year is modest.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Does burning unseasoned wood mean I need to sweep more often?</summary>
+      <div class="faq-answer">Yes, significantly. Unseasoned or green wood contains high moisture and burns cooler, producing far more creosote than properly dried hardwood. If you've been regularly burning unseasoned wood, your flue could need cleaning after a single season. Switch to properly seasoned hardwood (moisture content below 20%) and you'll notice cleaner glass, better draw, and less frequent cleaning needed.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What does Australian Standard AS/NZS 2918 say?</summary>
+      <div class="faq-answer">Australian Standard AS/NZS 2918:2018 (Domestic solid fuel burning appliances — Installation) recommends that solid fuel heating appliances and their flue systems be inspected and cleaned at least annually. Most home insurance policies for properties with wood heaters also require evidence of regular maintenance — annual cleaning is the standard benchmark.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What time of year should I get my chimney swept?</summary>
+      <div class="faq-answer">Autumn is the ideal time — March, April or May in Victoria. This is before the heating season starts, after any summer bird nesting activity, and before the autumn booking rush when chimney sweeps fill up fast. Getting it done in autumn means your fire is ready to use the moment you need it.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How long does a chimney sweep take?</summary>
+      <div class="faq-answer">Most jobs take 45–75 minutes depending on the system type and how much buildup there is. A standard flue and wood heater clean is typically around 45–60 minutes. A masonry brick chimney with a deep smoke chamber can take up to 90 minutes if it hasn't been done in several years.</div>
+    </details>
+  </div>
+
+</BlogPostLayout>
