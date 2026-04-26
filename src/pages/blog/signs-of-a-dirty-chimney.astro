@@ -1,0 +1,407 @@
+---
+import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the signs of a dirty chimney?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The main signs of a dirty chimney are: smoke coming back into the room when the fire is lit; a persistent smoky or burnt smell even when the fire is off; fires that are slow to start or hard to keep going; heavily blackened glass on your wood heater door; visible soot or debris falling into the firebox; a dark oily staining around the fireplace opening; and reduced draw or a sluggish, struggling fire. Any of these signs means your chimney needs sweeping."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my chimney needs cleaning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The clearest signs your chimney needs cleaning are smoke spilling back into the room, a smoky smell when the fire isn't burning, glass that goes black quickly, fires that struggle to draw, and visible soot or debris in the firebox. If you can't remember when it was last cleaned — or if it's been more than a year — it needs doing regardless of whether you've noticed any symptoms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a dirty chimney make you sick?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A blocked or heavily sooted flue can force carbon monoxide and other combustion gases back into your living space. Carbon monoxide is colourless, odourless and potentially fatal. Symptoms of CO exposure include headache, nausea, dizziness and fatigue — often mistaken for a cold or flu. If you suspect CO is entering your home from a fireplace or wood heater, ventilate immediately and don't use the appliance until the flue has been inspected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does creosote look like in a chimney?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Creosote appears in three stages: Stage 1 is a light, flaky grey or black soot that brushes off easily. Stage 2 is a harder, tar-like black crust that sticks to the flue liner. Stage 3 is a shiny, glassy black coating that is extremely hard, difficult to remove, and highly flammable. Most homeowners will see evidence of Stage 1 or 2 as black deposits around the firebox opening or on the glass — Stage 3 requires professional removal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my fireplace smell even when it's not on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A smoky or burnt smell from a fireplace when it's not in use is almost always caused by creosote or old ash deposits in the flue. The smell intensifies in humid weather or when air pressure draws air down the chimney rather than up. It's a clear sign the chimney needs sweeping. In older homes it can also indicate a cracked flue liner allowing flue gases to seep into wall cavities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my wood heater glass go black?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wood heater glass goes black from incomplete combustion — unburnt particles deposit on the glass instead of going up the flue. The most common causes are burning wet or unseasoned wood, running the fire too low or damped down, or a restricted flue that isn't drawing properly. A dirty, sooted-up flue reduces airflow and directly causes glass blackening. A clean flue and dry hardwood should keep the glass relatively clear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a little soot in the fireplace normal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A small amount of fine grey ash in the firebox is normal. However, thick black soot deposits, oily black residue around the fireplace opening, or soot falling from inside the flue are not normal and indicate a dirty or restricted chimney that needs cleaning. Any black staining on the ceiling or walls near the fireplace is a serious sign of smoke spillage and requires immediate attention."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if you don't clean a dirty chimney?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An uncleaned chimney progressively restricts airflow, reducing heating efficiency and increasing smoke spillage. More seriously, creosote buildup is the primary cause of chimney fires — which can reach over 1,000°C and cause structural damage or house fires. A blocked flue also creates carbon monoxide risk. Insurance policies for properties with wood heaters typically require annual maintenance, so an uncleaned chimney can affect your ability to make a claim."
+      }
+    }
+  ]
+};
+---
+
+<BlogPostLayout
+  title="Signs of a Dirty Chimney: 8 Warning Signs You Shouldn't Ignore"
+  description="Smoke coming back in, black glass, a persistent smoky smell — here are the key signs your chimney needs cleaning, and what each one means."
+  publishDate="April 2026"
+  readTime="7 min"
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>
+
+  <style>
+    .answer-box {
+      background: #1e4d14;
+      border-radius: 14px;
+      padding: 1.5rem 1.5rem 1.25rem;
+      margin: 0 0 2rem;
+    }
+    .answer-box-label {
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #7edd5a;
+      margin-bottom: .5rem;
+      display: block;
+    }
+    .answer-box p {
+      color: #fff !important;
+      font-size: 1.1rem !important;
+      line-height: 1.65 !important;
+      margin: 0 !important;
+      font-weight: 600;
+    }
+    .sign-card {
+      border: 1px solid #e2ddd4;
+      border-radius: 12px;
+      padding: 1.25rem 1.25rem 1.1rem;
+      margin: 1rem 0;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .sign-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: .85rem;
+      margin-bottom: .65rem;
+    }
+    .sign-card-icon { font-size: 1.6rem; flex-shrink: 0; line-height: 1.2; }
+    .sign-card-title { font-size: 1.08rem; font-weight: 800; color: #1a1a18; line-height: 1.3; }
+    .sign-card-urgency {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: .18rem .6rem;
+      border-radius: 20px;
+      margin-top: .25rem;
+    }
+    .urgent { background: #fee2e2; color: #991b1b; }
+    .high { background: #fff3cd; color: #92400e; }
+    .moderate { background: #e0f2fe; color: #0369a1; }
+    .sign-card p { font-size: 1.02rem !important; line-height: 1.65 !important; color: #5a5a54 !important; margin: 0 !important; }
+    .warning-box {
+      background: #fff8f0;
+      border: 2px solid #c8500a;
+      border-radius: 12px;
+      padding: 1.25rem 1.25rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: .85rem;
+      align-items: flex-start;
+    }
+    .warning-box-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1.3; }
+    .warning-box-body { font-size: 1rem; line-height: 1.65; color: #333; }
+    .warning-box-body strong { color: #1a1a18; }
+    .creosote-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: .75rem;
+      margin: 1.25rem 0;
+    }
+    @media(max-width:560px){ .creosote-grid { grid-template-columns: 1fr; } }
+    .creosote-card {
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .creosote-stage { font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .35rem; }
+    .creosote-name { font-size: 1rem; font-weight: 800; margin-bottom: .4rem; }
+    .creosote-desc { font-size: .9rem; line-height: 1.55; }
+    .stage1 { background: #f0faf0; color: #1a3d14; }
+    .stage1 .creosote-stage { color: #2a6b1c; }
+    .stage2 { background: #fff8f0; color: #2c1a0c; }
+    .stage2 .creosote-stage { color: #c8500a; }
+    .stage3 { background: #fee2e2; color: #7f1d1d; }
+    .stage3 .creosote-stage { color: #991b1b; }
+    .checklist {
+      background: #f5f0e8;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+    .checklist-title { font-size: 1rem; font-weight: 800; color: #1a1a18; margin-bottom: .85rem; }
+    .checklist ul { list-style: none; padding: 0; margin: 0; }
+    .checklist li {
+      padding: .45rem 0 .45rem 1.75rem;
+      border-bottom: 1px solid #e2ddd4;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: #333;
+      position: relative;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li::before { content: "✓"; position: absolute; left: 0; color: #2a6b1c; font-weight: 800; }
+    .faq-wrap {
+      border: 1px solid #e2ddd4;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1.25rem 0;
+    }
+    details.faq-item { border-bottom: 1px solid #e2ddd4; }
+    details.faq-item:last-child { border-bottom: none; }
+    details.faq-item summary {
+      padding: 1.1rem 1.25rem;
+      font-size: 1.04rem;
+      font-weight: 700;
+      color: #1a1a18;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      background: #fff;
+      transition: background .15s;
+      gap: 1rem;
+    }
+    details.faq-item summary::marker { content: ""; display: none; }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary:hover { background: #f5f0e8; }
+    details.faq-item summary::after { content: "+"; font-size: 1.3rem; font-weight: 400; color: #c8500a; flex-shrink: 0; }
+    details.faq-item[open] summary::after { content: "−"; }
+    .faq-answer { padding: .1rem 1.25rem 1.1rem; font-size: 1.02rem; line-height: 1.65; color: #5a5a54; background: #fff; }
+  </style>
+
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>The main signs of a dirty chimney are: <strong>smoke coming back into the room</strong>, a <strong>persistent smoky smell</strong> when the fire is off, <strong>heavily blackened glass</strong> on your wood heater, <strong>fires that struggle to draw</strong>, and <strong>visible soot or debris</strong> falling into the firebox. Any one of these means your chimney needs sweeping. If it's been over a year since the last clean, book it regardless of symptoms.</p>
+  </div>
+
+  <p>Some chimney problems announce themselves loudly — smoke pouring back into the room is hard to ignore. Others are easy to miss until they become serious. Here are the eight key warning signs to know, what each one means, and how urgent each one is.</p>
+
+  <h2>The 8 Warning Signs</h2>
+
+  <div class="sign-card">
+    <div class="sign-card-header">
+      <div class="sign-card-icon">💨</div>
+      <div>
+        <div class="sign-card-title">1. Smoke Coming Back Into the Room</div>
+        <span class="sign-card-urgency urgent">Stop using — book now</span>
+      </div>
+    </div>
+    <p>This is the most obvious sign and the one that sends people straight to the phone. When smoke spills back into the living space instead of going up the flue, it means the chimney can't do its job — either because the flue is blocked, heavily restricted with creosote, or there's a pressure problem preventing proper draw. Don't keep lighting the fire while this is happening. Repeated smoke spillage fills your home with carbon monoxide and fine particulates. Get it swept before the next fire.</p>
+  </div>
+
+  <div class="sign-card">
+    <div class="sign-card-header">
+      <div class="sign-card-icon">👃</div>
+      <div>
+        <div class="sign-card-title">2. Smoky or Burnt Smell When the Fire Isn't On</div>
+        <span class="sign-card-urgency high">Needs attention soon</span>
+      </div>
+    </div>
+    <p>A chimney that smells of smoke or old fire when there's no fire burning is telling you there's creosote or ash buildup sitting in the flue. The smell is more noticeable in humid weather, after rain, or when air pressure draws air down the chimney rather than up. It can also indicate a cracked flue liner in an older home, where flue gases are seeping into wall cavities. Either way, it needs a sweep and inspection.</p>
+  </div>
+
+  <div class="sign-card">
+    <div class="sign-card-header">
+      <div class="sign-card-icon">⬛</div>
+      <div>
+        <div class="sign-card-title">3. Heavily Blackened Glass on the Wood Heater Door</div>
+        <span class="sign-card-urgency high">Book before next season</span>
+      </div>
+    </div>
+    <p>Some glass darkening during a fire is normal — but if the glass goes heavily black quickly, or stays black between fires and is difficult to clean, that's a sign of incomplete combustion. The most common causes are a restricted or dirty flue reducing airflow, burning wet or unseasoned wood, or running the fire too low. A clean flue and dry hardwood should keep glass relatively clear. If yours isn't, the flue needs attention.</p>
+  </div>
+
+  <div class="sign-card">
+    <div class="sign-card-header">
+      <div class="sign-card-icon">🔥</div>
+      <div>
+        <div class="sign-card-title">4. Fires Are Slow to Start or Hard to Keep Alight</div>
+        <span class="sign-card-urgency high">Book before next season</span>
+      </div>
+    </div>
+    <p>A well-maintained chimney draws air up naturally, creating a draught that feeds the fire oxygen. When the flue is narrowed by creosote buildup, that draught weakens — fires become harder to start, struggle to catch, and die down easily. If you find yourself fighting the fire every time you light it, or having to leave the door ajar to keep it going, a restricted flue is likely the cause.</p>
+  </div>
+
+  <div class="sign-card">
+    <div class="sign-card-header">
+      <div class="sign-card-icon">🪨</div>
+      <div>
+        <div class="sign-card-title">5. Soot or Debris Falling Into the Firebox</div>
+        <span class="sign-card-urgency urgent">Stop using — book now</span>
+      </div>
+    </div>
+    <p>Finding flakes of soot, chunks of creosote, or loose debris falling into the firebox from above is a serious warning sign. It can indicate loose, hardened creosote deposits that are starting to detach from the flue liner, nesting material from birds or possums, or structural movement in the chimney mortar or liner. In all cases, stop using the fireplace until it's been inspected — debris in the flue can cause a blockage or chimney fire.</p>
+  </div>
+
+  <div class="sign-card">
+    <div class="sign-card-header">
+      <div class="sign-card-icon">🌑</div>
+      <div>
+        <div class="sign-card-title">6. Dark Oily Staining Around the Fireplace Opening</div>
+        <span class="sign-card-urgency high">Needs attention soon</span>
+      </div>
+    </div>
+    <p>Black or dark brown oily staining on the wall, surround or mantle around the fireplace opening — especially if it's appeared gradually — is a sign of smoke spillage. Even if you haven't noticed smoke coming into the room, small amounts of creosote-laden smoke can seep out during lighting or when the fire is running low, depositing a residue around the opening over time. If you see this, the flue needs sweeping and the draw needs checking.</p>
+  </div>
+
+  <div class="sign-card">
+    <div class="sign-card-header">
+      <div class="sign-card-icon">🔊</div>
+      <div>
+        <div class="sign-card-title">7. Rumbling, Roaring or Crackling From the Chimney</div>
+        <span class="sign-card-urgency urgent">Emergency — call 000</span>
+      </div>
+    </div>
+    <p>This one is in a different category entirely. A loud rumbling, roaring or intense crackling sound coming from the chimney while the fire is lit is the sound of a chimney fire — creosote deposits inside the flue have ignited. Chimney fires can reach over 1,000°C and cause rapid structural damage. If you hear this: extinguish the fire immediately if safe to do so, get everyone out, and call 000. Don't use the fireplace again until a sweep has inspected the full system for damage to the liner and structure.</p>
+  </div>
+
+  <div class="sign-card">
+    <div class="sign-card-header">
+      <div class="sign-card-icon">📅</div>
+      <div>
+        <div class="sign-card-title">8. You Can't Remember When It Was Last Cleaned</div>
+        <span class="sign-card-urgency moderate">Book this season</span>
+      </div>
+    </div>
+    <p>This is the most common situation Dave encounters. No obvious symptoms — the fire seems to work fine — but the last clean was two, three, maybe five years ago. The problem with creosote is that it builds up gradually and silently. By the time you notice a problem, you already have a significant deposit. Annual cleaning isn't about fixing a problem you can see — it's about preventing one before it becomes dangerous. If you can't remember the last clean, that's your answer.</p>
+  </div>
+
+  <div class="warning-box">
+    <div class="warning-box-icon">🔴</div>
+    <div class="warning-box-body"><strong>Carbon monoxide warning:</strong> A dirty or blocked chimney can force CO back into your living space. CO is colourless and odourless. Symptoms include headache, nausea, dizziness and fatigue — often mistaken for a cold. If multiple people in the home feel unwell when the fire is running, ventilate immediately, extinguish the fire, and don't use it again until the flue has been inspected. Fit a CO alarm near any solid fuel appliance.</div>
+  </div>
+
+  <h2>Understanding Creosote — What's Actually Building Up in There</h2>
+
+  <p>Most of the signs above are caused by creosote — the tar-like byproduct of burning wood that deposits on the inside of your flue as smoke cools. It comes in three stages:</p>
+
+  <div class="creosote-grid">
+    <div class="creosote-card stage1">
+      <div class="creosote-stage">Stage 1</div>
+      <div class="creosote-name">Flaky Soot</div>
+      <div class="creosote-desc">Light, dry, grey-black powder. Easy to brush off. Normal in a regularly-used chimney. Removed easily in a standard sweep.</div>
+    </div>
+    <div class="creosote-card stage2">
+      <div class="creosote-stage">Stage 2</div>
+      <div class="creosote-name">Tar Crust</div>
+      <div class="creosote-desc">Hard, crunchy black deposits that stick to the liner. Requires firm brushing to remove. Sign of cooler flue temperatures or unseasoned wood.</div>
+    </div>
+    <div class="creosote-card stage3">
+      <div class="creosote-stage">Stage 3</div>
+      <div class="creosote-name">Glazed Tar</div>
+      <div class="creosote-desc">Shiny, rock-hard, glassy coating. Extremely flammable. Very difficult to remove. Requires specialist treatment — a standard sweep won't shift it.</div>
+    </div>
+  </div>
+
+  <p>Stage 3 creosote is what causes the most dangerous chimney fires. It typically only develops when a chimney has gone multiple years without cleaning while being used regularly — or when unseasoned wood has been burned consistently. Getting to the annual clean while you're at Stage 1 is infinitely easier, cheaper and safer than letting it progress.</p>
+
+  <h2>Quick Checklist — Does Your Chimney Need Sweeping?</h2>
+
+  <div class="checklist">
+    <div class="checklist-title">Tick any that apply — one or more means book a sweep:</div>
+    <ul>
+      <li>Smoke comes back into the room when the fire is lit</li>
+      <li>Smoky or burnt smell when the fire is off</li>
+      <li>Glass on the wood heater goes heavily black</li>
+      <li>Fires are slow to start or hard to keep going</li>
+      <li>Soot or debris falling into the firebox</li>
+      <li>Black staining around the fireplace opening or on walls nearby</li>
+      <li>Heard a rumbling or roaring from the chimney during a fire</li>
+      <li>Can't remember when it was last cleaned</li>
+      <li>It's been more than 12 months since the last sweep</li>
+      <li>Just moved into the property and don't know the history</li>
+    </ul>
+  </div>
+
+  <h2>What to Do If You Notice These Signs</h2>
+
+  <p>For most of the signs above — blackened glass, smoky smell, sluggish draw — it's fine to keep using the fire cautiously while you arrange a booking. Book before the next heating season if possible, and in the meantime burn only dry hardwood with the air controls open to keep the flue temperature up.</p>
+
+  <p>For the more serious signs — smoke actively spilling into the room, debris falling into the firebox, or any sound suggesting a chimney fire — stop using the fireplace entirely until it's been swept and inspected. These aren't signs of a minor inconvenience; they're signs the flue is compromised.</p>
+
+  <div class="callout">
+    <p>The best time to book is <strong>autumn — March, April or May</strong> in Victoria — before the heating season begins. This is when a sweep can catch any bird nesting from summer, clear last winter's creosote before it hardens further, and make sure your fire is ready to go the moment you need it.</p>
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-wrap">
+    <details class="faq-item">
+      <summary>How do I know if my chimney needs cleaning?</summary>
+      <div class="faq-answer">The clearest signs are smoke spilling back into the room, a smoky smell when the fire isn't burning, glass that goes black quickly, fires that struggle to draw, and visible soot or debris in the firebox. If you can't remember when it was last cleaned — or if it's been more than a year — it needs doing regardless of whether you've noticed any symptoms.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Can a dirty chimney make you sick?</summary>
+      <div class="faq-answer">Yes. A blocked or heavily sooted flue can force carbon monoxide and other combustion gases back into your living space. CO is colourless, odourless and potentially fatal. Symptoms include headache, nausea, dizziness and fatigue — often mistaken for a cold or flu. If you suspect CO is entering your home from a fireplace or wood heater, ventilate immediately and don't use the appliance until the flue has been inspected.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What does creosote look like?</summary>
+      <div class="faq-answer">Creosote comes in three stages. Stage 1 is a light, flaky grey or black soot that brushes off easily. Stage 2 is a harder, tar-like black crust that sticks to the flue liner. Stage 3 is a shiny, glassy black coating that is extremely hard and highly flammable. Most homeowners see evidence of Stage 1 or 2 as black deposits around the firebox or on the glass. Stage 3 requires specialist removal.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Why does my fireplace smell when it's not on?</summary>
+      <div class="faq-answer">A smoky or burnt smell from a fireplace when it's not in use is almost always creosote or old ash deposits in the flue. The smell intensifies in humid weather or when air pressure draws air down the chimney. It's a clear sign the chimney needs sweeping. In older homes it can also indicate a cracked flue liner allowing flue gases to seep into wall cavities.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Why does my wood heater glass go black?</summary>
+      <div class="faq-answer">Glass goes black from incomplete combustion — unburnt particles deposit on the glass instead of going up the flue. The most common causes are wet or unseasoned wood, running the fire too low, or a restricted flue that isn't drawing properly. A dirty, sooted flue reduces airflow and directly causes glass blackening. A clean flue and dry hardwood should keep the glass relatively clear.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Is a little soot in the fireplace normal?</summary>
+      <div class="faq-answer">A small amount of fine grey ash in the firebox is normal. However, thick black soot deposits, oily black residue around the fireplace opening, or soot falling from inside the flue are not normal and indicate a dirty or restricted chimney. Any black staining on the ceiling or walls near the fireplace is a serious sign of smoke spillage and requires immediate attention.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What happens if you don't clean a dirty chimney?</summary>
+      <div class="faq-answer">An uncleaned chimney progressively restricts airflow, reducing heating efficiency and increasing smoke spillage. More seriously, creosote buildup is the primary cause of chimney fires — which can reach over 1,000°C and cause structural damage or house fires. A blocked flue also creates carbon monoxide risk. Insurance policies for properties with wood heaters typically require annual maintenance, so an uncleaned chimney can also affect your ability to make a claim.</div>
+    </details>
+  </div>
+
+</BlogPostLayout>
