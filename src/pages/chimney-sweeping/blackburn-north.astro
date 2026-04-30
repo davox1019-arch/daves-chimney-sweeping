@@ -1,19 +1,19 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 
-const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$199–$299", "areaServed": ["Blackburn North VIC 3130"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/blackburn-north", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Blackburn North VIC 3130. $199 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "Blackburn North", "addressRegion": "VIC", "postalCode": "3130", "addressCountry": "AU"}};
-const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long does a chimney sweep take in Blackburn North?", "acceptedAnswer": {"@type": "Answer", "text": "Most jobs take around 45 minutes to an hour. Dave will let you know if he finds anything that needs further attention."}}, {"@type": "Question", "name": "Do I need to do anything to prepare before Dave arrives?", "acceptedAnswer": {"@type": "Answer", "text": "Clear the area around the fireplace and make sure the fire hasn't been lit for at least 24 hours. Dave takes care of the rest."}}, {"@type": "Question", "name": "How much does a chimney clean cost?", "acceptedAnswer": {"@type": "Answer", "text": "Flue cleaning and wood heater service is $199. Masonry brick chimney fireplace cleans are $299. No call-out fee, no hidden extras."}}]};
-const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping Blackburn North VIC 3130", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "Blackburn North VIC 3130", "offers": [{"@type": "Offer", "price": "199", "priceCurrency": "AUD", "description": "Flue cleaning and wood heater service"}, {"@type": "Offer", "price": "299", "priceCurrency": "AUD", "description": "Masonry brick chimney fireplace clean and inspection"}], "serviceType": "Chimney Sweeping"};
+const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$249–$349", "areaServed": ["Blackburn North VIC 3130"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/blackburn-north", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Blackburn North VIC 3130. $249 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "Blackburn North", "addressRegion": "VIC", "postalCode": "3130", "addressCountry": "AU"}};
+const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long does a chimney sweep take in Blackburn North?", "acceptedAnswer": {"@type": "Answer", "text": "Most jobs take around 45 minutes to an hour. Dave will let you know if he finds anything that needs further attention."}}, {"@type": "Question", "name": "Do I need to do anything to prepare before Dave arrives?", "acceptedAnswer": {"@type": "Answer", "text": "Clear the area around the fireplace and make sure the fire hasn't been lit for at least 24 hours. Dave takes care of the rest."}}, {"@type": "Question", "name": "How much does a chimney clean cost?", "acceptedAnswer": {"@type": "Answer", "text": "Flue cleaning and wood heater service is $249. Masonry brick chimney fireplace cleans are $349. No call-out fee, no hidden extras."}}]};
+const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping Blackburn North VIC 3130", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "Blackburn North VIC 3130", "offers": [{"@type": "Offer", "price": "249", "priceCurrency": "AUD", "description": "Flue cleaning and wood heater service"}, {"@type": "Offer", "price": "349", "priceCurrency": "AUD", "description": "Masonry brick chimney fireplace clean and inspection"}], "serviceType": "Chimney Sweeping"};
 const faqs = [
   {q:`How long does a chimney sweep take in Blackburn North?`,a:`Most jobs take around 45 minutes to an hour. Dave will let you know if he finds anything that needs further attention.`},
   {q:`Do I need to do anything to prepare before Dave arrives?`,a:`Clear the area around the fireplace and make sure the fire hasn't been lit for at least 24 hours. Dave takes care of the rest.`},
-  {q:`How much does a chimney clean cost?`,a:`Flue cleaning and wood heater service is $199. Masonry brick chimney fireplace cleans are $299. No call-out fee, no hidden extras.`}
+  {q:`How much does a chimney clean cost?`,a:`Flue cleaning and wood heater service is $249. Masonry brick chimney fireplace cleans are $349. No call-out fee, no hidden extras.`}
 ];
 ---
 
 <MainLayout
-  title="Chimney Sweep Blackburn North VIC 3130 &mdash; $199 Clean &amp; Inspect"
-  description="Chimney sweeping Blackburn North VIC 3130 &mdash; $199 chimney inspection &amp; full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
+  title="Chimney Sweep Blackburn North VIC 3130 &mdash; $249 Clean &amp; Inspect"
+  description="Chimney sweeping Blackburn North VIC 3130 &mdash; $249 chimney inspection &amp; full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
   clusterBase="Melbourne's Eastern Suburbs"
   clusterRegion="Melbourne's east"
   homeHref="/"
@@ -130,13 +130,13 @@ const faqs = [
     <div class="hero-box">
       <span class="hero-eyebrow">Blackburn North VIC 3130</span>
       <h1>Chimney Sweeping<br>Blackburn North VIC 3130</h1>
-      <div class="price-badge">&#10003; From $199 Chimney Inspection &amp; Full Clean</div>
+      <div class="price-badge">&#10003; From $249 Chimney Inspection &amp; Full Clean</div>
       <p class="hero-lead">Local chimney &amp; flue sweeping in Blackburn North. We turn up when booked, leave your home spotless, and give you a straight verbal report before we go.</p>
-      <p class="hero-sub">Flue &amp; wood heater from $199 &mdash; masonry brick chimney from $299. No call-out fee, no hidden extras.</p>
+      <p class="hero-sub">Flue &amp; wood heater from $249 &mdash; masonry brick chimney from $349. No call-out fee, no hidden extras.</p>
       <div style="display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.1rem;">
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fully Insured</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; No Mess Guaranteed</span>
-        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; From $199</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; From $249</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Owner-Operated</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Verbal Condition Report</span>
           <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Before &amp; After Photos</span>
@@ -162,7 +162,7 @@ const faqs = [
   </section>
 
   <div class="trust-bar">
-    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>From $199</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>From $249</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon&ndash;Sat</span>
@@ -174,7 +174,7 @@ const faqs = [
     <p>Flat rate pricing. No call-out fee, no surprises on the day. Price depends on your heater or fireplace type:</p>
     <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem;">
       <div class="price-box" style="flex:1;min-width:240px;max-width:340px;">
-        <div class="price-num">$199</div>
+        <div class="price-num">$249</div>
         <div class="price-label">Flue Cleaning &amp; Wood Heater Service</div>
         <div class="price-includes">
           <span class="pi">Freestanding wood heater</span>
@@ -186,7 +186,7 @@ const faqs = [
         </div>
       </div>
       <div class="price-box" style="flex:1;min-width:240px;max-width:340px;">
-        <div class="price-num">$299</div>
+        <div class="price-num">$349</div>
         <div class="price-label">Masonry Brick Chimney Fireplace Clean</div>
         <div class="price-includes">
           <span class="pi">Open brick fireplace</span>
@@ -328,7 +328,7 @@ const faqs = [
     <h2>Book Your Chimney Clean in Blackburn North</h2>
     <div class="form-wrap">
       <h3>Quick Quote &mdash; Blackburn North</h3>
-      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. Flue cleaning $199 &mdash; masonry chimney $299.</p>
+      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. Flue cleaning $249 &mdash; masonry chimney $349.</p>
       <form action="https://formspree.io/f/maqlwkpr" method="POST">
         <input type="hidden" name="suburb" value="Blackburn North VIC 3130" />
         <input type="hidden" name="price" value="chimney inspection and clean" />
@@ -339,8 +339,8 @@ const faqs = [
           <div class="field"><label>Service Needed</label>
             <select name="service" required>
               <option value="">Select&hellip;</option>
-              <option value="Flue Cleaning / Wood Heater — $199">Flue Cleaning &amp; Wood Heater &mdash; $199</option>
-              <option value="Masonry Brick Chimney Fireplace — $299">Masonry Brick Chimney &mdash; $299</option>
+              <option value="Flue Cleaning / Wood Heater — $249">Flue Cleaning &amp; Wood Heater &mdash; $249</option>
+              <option value="Masonry Brick Chimney Fireplace — $349">Masonry Brick Chimney &mdash; $349</option>
               <option>Flue Cleaning</option>
               <option>Blockage / Nest Removal</option>
               <option>Not sure &mdash; need advice</option>
@@ -371,7 +371,7 @@ const faqs = [
 
   <section class="bottom-cta">
     <div class="bottom-cta-inner">
-      <h2>Blackburn North Chimney Sweep &mdash; From $199</h2>
+      <h2>Blackburn North Chimney Sweep &mdash; From $249</h2>
       <p>Call Dave directly or use the form above. We will confirm your booking and give you a time that works.</p>
       <div class="btn-row">
         <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
