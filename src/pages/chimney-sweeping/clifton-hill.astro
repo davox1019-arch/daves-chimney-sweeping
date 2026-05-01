@@ -1,19 +1,19 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 
-const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$249–$349", "areaServed": ["Clifton Hill VIC 3068"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/clifton-hill", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Clifton Hill VIC 3068. $249 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "Clifton Hill", "addressRegion": "VIC", "postalCode": "3068", "addressCountry": "AU"}};
-const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you service Clifton Hill VIC 3068?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 Clifton Hill is part of our inner northern Melbourne run. We cover Clifton Hill and surrounding suburbs including Fitzroy North, Northcote, Collingwood and Brunswick."}}, {"@type": "Question", "name": "How much does a chimney clean cost?", "acceptedAnswer": {"@type": "Answer", "text": "Flue cleaning and wood heater service is $249. Masonry brick chimney fireplace cleans are $349. No call-out fee, no hidden extras."}}, {"@type": "Question", "name": "Is there a call-out fee for Clifton Hill?", "acceptedAnswer": {"@type": "Answer", "text": "No — flat rate pricing, no call-out charge. Flue cleaning $249, masonry chimney $349."}}]};
-const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping Clifton Hill VIC 3068", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "Clifton Hill VIC 3068", "offers": [{"@type": "Offer", "price": "249", "priceCurrency": "AUD", "description": "Flue cleaning and wood heater service"}, {"@type": "Offer", "price": "349", "priceCurrency": "AUD", "description": "Masonry brick chimney fireplace clean and inspection"}], "serviceType": "Chimney Sweeping"};
+const schema = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729", "priceRange": "$229–$329", "areaServed": ["Clifton Hill VIC 3068"], "url": "https://daveschimneysweeping.com.au/chimney-sweeping/clifton-hill", "description": "Daves Chimney Sweeping provides chimney sweeping, flue cleaning and wood heater cleaning in Clifton Hill VIC 3068. $229 chimney inspection and clean.", "address": {"@type": "PostalAddress", "addressLocality": "Clifton Hill", "addressRegion": "VIC", "postalCode": "3068", "addressCountry": "AU"}};
+const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you service Clifton Hill VIC 3068?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 Clifton Hill is part of our inner northern Melbourne run. We cover Clifton Hill and surrounding suburbs including Fitzroy North, Northcote, Collingwood and Brunswick."}}, {"@type": "Question", "name": "How much does a chimney clean cost?", "acceptedAnswer": {"@type": "Answer", "text": "Flue cleaning and wood heater service is $229. Masonry brick chimney fireplace cleans are $329. No call-out fee, no hidden extras."}}, {"@type": "Question", "name": "Is there a call-out fee for Clifton Hill?", "acceptedAnswer": {"@type": "Answer", "text": "No — flat rate pricing, no call-out charge. Flue cleaning $229, masonry chimney $329."}}]};
+const serviceSchema = {"@context": "https://schema.org", "@type": "Service", "name": "Chimney Sweeping Clifton Hill VIC 3068", "provider": {"@type": "LocalBusiness", "name": "Daves Chimney Sweeping", "telephone": "+61476302729"}, "areaServed": "Clifton Hill VIC 3068", "offers": [{"@type": "Offer", "price": "229", "priceCurrency": "AUD", "description": "Flue cleaning and wood heater service"}, {"@type": "Offer", "price": "329", "priceCurrency": "AUD", "description": "Masonry brick chimney fireplace clean and inspection"}], "serviceType": "Chimney Sweeping"};
 const faqs = [
   {q:`Do you service Clifton Hill VIC 3068?`,a:`Yes — Clifton Hill is part of our inner northern Melbourne run. We cover Clifton Hill and surrounding suburbs including Fitzroy North, Northcote, Collingwood and Brunswick.`},
-  {q:`How much does a chimney clean cost?`,a:`Flue cleaning and wood heater service is $249. Masonry brick chimney fireplace cleans are $349. No call-out fee, no hidden extras.`},
-  {q:`Is there a call-out fee for Clifton Hill?`,a:`No — flat rate pricing, no call-out charge. Flue cleaning $249, masonry chimney $349.`}
+  {q:`How much does a chimney clean cost?`,a:`Flue cleaning and wood heater service is $229. Masonry brick chimney fireplace cleans are $329. No call-out fee, no hidden extras.`},
+  {q:`Is there a call-out fee for Clifton Hill?`,a:`No — flat rate pricing, no call-out charge. Flue cleaning $229, masonry chimney $329.`}
 ];
 ---
 
 <MainLayout
-  title="Chimney Sweep Clifton Hill VIC 3068 &mdash; $249 Clean &amp; Inspect"
-  description="Chimney sweeping Clifton Hill VIC 3068 &mdash; $249 chimney inspection &amp; full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
+  title="Chimney Sweep Clifton Hill VIC 3068 &mdash; $229 Clean &amp; Inspect"
+  description="Chimney sweeping Clifton Hill VIC 3068 &mdash; $229 chimney inspection &amp; full clean. Daves Chimney Sweeping: flue cleaning, wood heater service. Call 0476 302 729."
   clusterBase="Melbourne's Inner Northern Suburbs"
   clusterRegion="Melbourne's inner northern suburbs"
   homeHref="/"
@@ -130,13 +130,13 @@ const faqs = [
     <div class="hero-box">
       <span class="hero-eyebrow">Clifton Hill VIC 3068</span>
       <h1>Chimney Sweeping<br>Clifton Hill VIC 3068</h1>
-      <div class="price-badge">&#10003; From $249 Chimney Inspection &amp; Full Clean</div>
+      <div class="price-badge">&#10003; From $229 Chimney Inspection &amp; Full Clean</div>
       <p class="hero-lead">Local chimney &amp; flue sweeping in Clifton Hill. We turn up when booked, leave your home spotless, and give you a straight verbal report before we go.</p>
-      <p class="hero-sub">Flue &amp; wood heater from $249 &mdash; masonry brick chimney from $349. No call-out fee, no hidden extras.</p>
+      <p class="hero-sub">Flue &amp; wood heater from $229 &mdash; masonry brick chimney from $329. No call-out fee, no hidden extras.</p>
       <div style="display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.1rem;">
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Fully Insured</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; No Mess Guaranteed</span>
-        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; From $249</span>
+        <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; From $229</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Owner-Operated</span>
         <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Verbal Condition Report</span>
           <span style="display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:.32rem .75rem;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.03em;">&#10003; Before &amp; After Photos</span>
@@ -162,7 +162,7 @@ const faqs = [
   </section>
 
   <div class="trust-bar">
-    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>From $249</span>
+    <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>From $229</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Owner-operated</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>No call-out fee</span>
     <span class="ti"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mon&ndash;Sat</span>
@@ -174,7 +174,7 @@ const faqs = [
     <p>Flat rate pricing. No call-out fee, no surprises on the day. Price depends on your heater or fireplace type:</p>
     <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem;">
       <div class="price-box" style="flex:1;min-width:240px;max-width:340px;">
-        <div class="price-num">$249</div>
+        <div class="price-num">$229</div>
         <div class="price-label">Flue Cleaning &amp; Wood Heater Service</div>
         <div class="price-includes">
           <span class="pi">Freestanding wood heater</span>
@@ -186,7 +186,7 @@ const faqs = [
         </div>
       </div>
       <div class="price-box" style="flex:1;min-width:240px;max-width:340px;">
-        <div class="price-num">$349</div>
+        <div class="price-num">$329</div>
         <div class="price-label">Masonry Brick Chimney Fireplace Clean</div>
         <div class="price-includes">
           <span class="pi">Open brick fireplace</span>
@@ -329,7 +329,7 @@ const faqs = [
     <h2>Book Your Chimney Clean in Clifton Hill</h2>
     <div class="form-wrap">
       <h3>Quick Quote &mdash; Clifton Hill</h3>
-      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. Flue cleaning $249 &mdash; masonry chimney $349.</p>
+      <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. Flue cleaning $229 &mdash; masonry chimney $329.</p>
       <form action="https://formspree.io/f/maqlwkpr" method="POST">
         <input type="hidden" name="suburb" value="Clifton Hill VIC 3068" />
         <input type="hidden" name="price" value="chimney inspection and clean" />
@@ -340,8 +340,8 @@ const faqs = [
           <div class="field"><label>Service Needed</label>
             <select name="service" required>
               <option value="">Select&hellip;</option>
-              <option value="Flue Cleaning / Wood Heater — $249">Flue Cleaning &amp; Wood Heater &mdash; $249</option>
-              <option value="Masonry Brick Chimney Fireplace — $349">Masonry Brick Chimney &mdash; $349</option>
+              <option value="Flue Cleaning / Wood Heater — $229">Flue Cleaning &amp; Wood Heater &mdash; $229</option>
+              <option value="Masonry Brick Chimney Fireplace — $329">Masonry Brick Chimney &mdash; $329</option>
               <option>Flue Cleaning</option>
               <option>Blockage / Nest Removal</option>
               <option>Not sure &mdash; need advice</option>
@@ -372,7 +372,7 @@ const faqs = [
 
   <section class="bottom-cta">
     <div class="bottom-cta-inner">
-      <h2>Clifton Hill Chimney Sweep &mdash; From $249</h2>
+      <h2>Clifton Hill Chimney Sweep &mdash; From $229</h2>
       <p>Call Dave directly or use the form above. We will confirm your booking and give you a time that works.</p>
       <div class="btn-row">
         <a class="btn btn-call" href="tel:0476302729">&#128222; Call/Text 0476 302 729</a>
