@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power Sweeping Comparison — Preview</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: #faf7f4; color: #1a0a04; padding: 1rem; }
+  :root {
+    --ba: #c0581a; --tm: #1a0a04; --ts: #4a2e18; --bw: #f5ede3;
+    --br: rgba(0,0,0,0.1); --wh: #fff; --rad: 14px;
+  }
+  .sec { max-width: 680px; margin: 0 auto; padding: 2.5rem 1.25rem; }
+  .sl { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ba); margin-bottom: .45rem; }
+  h2 { font-size: clamp(1.55rem, 5vw, 2rem); font-weight: 800; color: var(--tm); letter-spacing: -.02em; margin-bottom: .6rem; line-height: 1.15; }
+  p { font-size: 1.05rem; line-height: 1.75; color: var(--ts); }
+
+  /* Power sweeping comparison */
+  .sweep-visual { display: flex; gap: 0; margin-top: 1.5rem; align-items: flex-start; border: 1px solid var(--br); border-radius: var(--rad); overflow: hidden; }
+  .sweep-col { flex: 1; padding: 1rem .85rem 1.1rem; display: flex; flex-direction: column; align-items: center; }
+  .sweep-col--power { background: #f7fdf9; }
+  .sweep-col--manual { background: #fdf7f7; }
+  .sweep-col-header { display: flex; flex-direction: column; align-items: center; gap: .25rem; margin-bottom: .75rem; text-align: center; }
+  .sweep-badge { font-size: .82rem; font-weight: 800; padding: .3rem .75rem; border-radius: 20px; letter-spacing: .01em; }
+  .sweep-badge--power { background: #2c7a4b; color: #fff; }
+  .sweep-badge--manual { background: #c0392b; color: #fff; }
+  .sweep-sub { font-size: .72rem; font-weight: 600; color: var(--ts); opacity: .75; }
+  .sweep-svg { width: 100%; max-width: 160px; height: auto; }
+  .sweep-points { margin: .75rem 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: .45rem; width: 100%; }
+  .sweep-points li { font-size: .78rem; line-height: 1.5; color: var(--ts); padding-left: 1.1rem; position: relative; }
+  .sweep-points li::before { content: "✓"; position: absolute; left: 0; color: #2c7a4b; font-weight: 800; }
+  .sweep-points--manual li::before { content: "✗"; color: #c0392b; }
+  .sweep-divider { display: flex; align-items: center; justify-content: center; font-size: .85rem; font-weight: 800; color: var(--ts); background: var(--bw); border-left: 1px solid var(--br); border-right: 1px solid var(--br); padding: .5rem .4rem; writing-mode: vertical-rl; letter-spacing: .1em; opacity: .6; }
+  .sweep-verdict { margin-top: 1.1rem; background: var(--bw); border-left: 3px solid var(--ba); border-radius: 0 8px 8px 0; padding: .85rem 1rem; font-size: .92rem; line-height: 1.65; color: var(--ts); }
+  .sweep-verdict strong { color: var(--tm); }
+  @media(min-width:500px) {
+    .sweep-points li { font-size: .83rem; }
+    .sweep-badge { font-size: .85rem; }
+  }
+</style>
+</head>
+<body>
+<section class="sec" id="power-sweeping">
+  <p class="sl">Why it matters</p>
+  <h2>Power Sweeping vs Manual Brushes</h2>
+  <p>Most chimney companies still use the same manual rod-and-brush method that's been around for decades. Dave uses professional rotary power sweeping equipment — an electric drill-powered rotary head that spins the brush at high speed, the same gear used by commercial operators. Here's the difference:</p>
+
+  <div class="sweep-visual">
+    <div class="sweep-col sweep-col--power">
+      <div class="sweep-col-header sweep-col-header--power">
+        <span class="sweep-badge sweep-badge--power">✓ Power Sweeping</span>
+        <span class="sweep-sub">Electric drill-powered — what Dave uses</span>
+      </div>
+      <svg viewBox="0 0 160 220" xmlns="http://www.w3.org/2000/svg" class="sweep-svg" aria-label="Power sweeping equipment diagram">
+        <!-- Chimney outline -->
+        <rect x="55" y="10" width="50" height="150" rx="4" fill="#2d1a0e" opacity="0.12"/>
+        <!-- Flue walls -->
+        <rect x="60" y="14" width="40" height="142" rx="2" fill="#1a0a04" opacity="0.18"/>
+        <!-- Motor unit at top -->
+        <rect x="48" y="2" width="64" height="20" rx="5" fill="#c0392b"/>
+        <text x="80" y="15" text-anchor="middle" font-size="7" fill="#fff" font-family="sans-serif" font-weight="700">ELECTRIC DRILL</text>
+        <!-- Spinning head — rotary brush -->
+        <circle cx="80" cy="38" r="14" fill="none" stroke="#e87a3a" stroke-width="2.5" stroke-dasharray="4 2"/>
+        <circle cx="80" cy="38" r="3" fill="#e87a3a"/>
+        <!-- Rotary bristles radiating out -->
+        <line x1="80" y1="24" x2="80" y2="18" stroke="#e87a3a" stroke-width="1.5"/>
+        <line x1="80" y1="52" x2="80" y2="58" stroke="#e87a3a" stroke-width="1.5"/>
+        <line x1="66" y1="38" x2="60" y2="38" stroke="#e87a3a" stroke-width="1.5"/>
+        <line x1="94" y1="38" x2="100" y2="38" stroke="#e87a3a" stroke-width="1.5"/>
+        <line x1="70" y1="28" x2="65" y2="23" stroke="#e87a3a" stroke-width="1.5"/>
+        <line x1="90" y1="28" x2="95" y2="23" stroke="#e87a3a" stroke-width="1.5"/>
+        <line x1="70" y1="48" x2="65" y2="53" stroke="#e87a3a" stroke-width="1.5"/>
+        <line x1="90" y1="48" x2="95" y2="53" stroke="#e87a3a" stroke-width="1.5"/>
+        <!-- Rotation arrows -->
+        <path d="M 68 27 A 14 14 0 0 1 93 27" fill="none" stroke="#e87a3a" stroke-width="1" opacity="0.6"/>
+        <polygon points="93,27 96,22 98,28" fill="#e87a3a" opacity="0.6"/>
+        <!-- Flexible rod -->
+        <rect x="78" y="52" width="4" height="80" rx="2" fill="#555"/>
+        <!-- Soot particles being dislodged -->
+        <circle cx="62" cy="45" r="2" fill="#333" opacity="0.5"/>
+        <circle cx="100" cy="50" r="1.5" fill="#333" opacity="0.4"/>
+        <circle cx="65" cy="60" r="1" fill="#333" opacity="0.35"/>
+        <circle cx="97" cy="65" r="2" fill="#333" opacity="0.4"/>
+        <circle cx="63" cy="75" r="1.5" fill="#333" opacity="0.3"/>
+        <!-- HEPA vacuum connection indicator -->
+        <rect x="88" y="155" width="34" height="12" rx="3" fill="#2c7a4b"/>
+        <text x="105" y="164" text-anchor="middle" font-size="5.5" fill="#fff" font-family="sans-serif" font-weight="700">HEPA VAC</text>
+        <line x1="80" y1="132" x2="88" y2="161" stroke="#2c7a4b" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <!-- Labels -->
+        <text x="80" y="185" text-anchor="middle" font-size="7" fill="#333" font-family="sans-serif">Rotary head dislodges</text>
+        <text x="80" y="195" text-anchor="middle" font-size="7" fill="#333" font-family="sans-serif">all built-up creosote</text>
+        <text x="80" y="210" text-anchor="middle" font-size="7" fill="#2c7a4b" font-family="sans-serif" font-weight="700">Captured by HEPA vac</text>
+      </svg>
+      <ul class="sweep-points">
+        <li><strong>Electric drill spins the brush</strong> at high RPM — scrubs all sides simultaneously</li>
+        <li><strong>Removes hardened creosote</strong> — not just loose soot</li>
+        <li><strong>HEPA-filtered vacuum</strong> captures particles before they enter the room</li>
+        <li><strong>Takes 45–90 min</strong> for a thorough result</li>
+      </ul>
+    </div>
+
+    <div class="sweep-divider">VS</div>
+
+    <div class="sweep-col sweep-col--manual">
+      <div class="sweep-col-header sweep-col-header--manual">
+        <span class="sweep-badge sweep-badge--manual">✗ Manual Brushes</span>
+        <span class="sweep-sub">The old way</span>
+      </div>
+      <svg viewBox="0 0 160 220" xmlns="http://www.w3.org/2000/svg" class="sweep-svg" aria-label="Manual brush diagram">
+        <!-- Chimney outline -->
+        <rect x="55" y="10" width="50" height="150" rx="4" fill="#2d1a0e" opacity="0.12"/>
+        <!-- Flue walls -->
+        <rect x="60" y="14" width="40" height="142" rx="2" fill="#1a0a04" opacity="0.18"/>
+        <!-- Stiff rod -->
+        <rect x="78" y="14" width="4" height="100" rx="2" fill="#888"/>
+        <!-- Round brush head — smaller than flue -->
+        <ellipse cx="80" cy="120" rx="10" ry="10" fill="none" stroke="#888" stroke-width="2"/>
+        <line x1="72" y1="112" x2="70" y2="108" stroke="#888" stroke-width="1.5"/>
+        <line x1="88" y1="112" x2="90" y2="108" stroke="#888" stroke-width="1.5"/>
+        <line x1="72" y1="128" x2="70" y2="132" stroke="#888" stroke-width="1.5"/>
+        <line x1="88" y1="128" x2="90" y2="132" stroke="#888" stroke-width="1.5"/>
+        <!-- Gap indicators showing brush doesn't reach walls -->
+        <line x1="60" y1="115" x2="70" y2="115" stroke="#c0392b" stroke-width="1" stroke-dasharray="2 1"/>
+        <line x1="90" y1="115" x2="100" y2="115" stroke="#c0392b" stroke-width="1" stroke-dasharray="2 1"/>
+        <text x="55" y="113" text-anchor="end" font-size="5" fill="#c0392b" font-family="sans-serif">gap</text>
+        <text x="105" y="113" text-anchor="start" font-size="5" fill="#c0392b" font-family="sans-serif">gap</text>
+        <!-- Creosote buildup on walls -->
+        <rect x="60" y="30" width="5" height="110" fill="#1a0a04" opacity="0.4"/>
+        <rect x="95" y="30" width="5" height="110" fill="#1a0a04" opacity="0.4"/>
+        <!-- No vacuum — soot falls down -->
+        <circle cx="68" cy="145" r="2" fill="#333" opacity="0.6"/>
+        <circle cx="80" cy="148" r="2.5" fill="#333" opacity="0.55"/>
+        <circle cx="92" cy="145" r="2" fill="#333" opacity="0.6"/>
+        <circle cx="74" cy="152" r="1.5" fill="#333" opacity="0.5"/>
+        <circle cx="86" cy="155" r="2" fill="#333" opacity="0.45"/>
+        <!-- No HEPA label -->
+        <rect x="93" y="155" width="29" height="12" rx="3" fill="#c0392b" opacity="0.8"/>
+        <text x="107" y="164" text-anchor="middle" font-size="5" fill="#fff" font-family="sans-serif" font-weight="700">NO VAC</text>
+        <!-- Labels -->
+        <text x="80" y="185" text-anchor="middle" font-size="7" fill="#333" font-family="sans-serif">Brush misses the edges</text>
+        <text x="80" y="195" text-anchor="middle" font-size="7" fill="#333" font-family="sans-serif">creosote stays on walls</text>
+        <text x="80" y="210" text-anchor="middle" font-size="7" fill="#c0392b" font-family="sans-serif" font-weight="700">Soot falls into room</text>
+      </svg>
+      <ul class="sweep-points sweep-points--manual">
+        <li><strong>Brush smaller than the flue</strong> — edges and corners missed</li>
+        <li><strong>Won't shift hardened creosote</strong> — the most flammable buildup</li>
+        <li><strong>No containment</strong> — soot and debris falls into your home</li>
+        <li><strong>Quicker job</strong>, but less of the flue is actually cleaned</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sweep-verdict">
+    <strong>The bottom line:</strong> Power sweeping removes more buildup in a single visit, which means a safer chimney and better draw. It's standard practice in the UK and increasingly expected in Australia.
+  </div>
+</section>
+</body>
+</html>
