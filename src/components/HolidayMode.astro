@@ -1,0 +1,249 @@
+---
+import { HOLIDAY_MODE } from "../config/holiday";
+---
+
+{HOLIDAY_MODE && (
+  <Fragment>
+    {/*
+      Every tel: link starts hidden and is only revealed once the script below has
+      rewritten it into an enquiry link. If the script never runs, the links simply
+      stay hidden — the number is never shown either way.
+    */}
+    <style is:inline>
+      a[href^="tel:"] { visibility: hidden; }
+      .hm-hidden { display: none !important; }
+    </style>
+
+    <script is:inline>
+      (function () {
+        var LABEL = 'Send an Enquiry';
+        var INLINE_LABEL = 'send an enquiry';
+
+        // Trailing "call", "call/text Dave directly on", etc. left dangling in a
+        // sentence once the number itself is replaced.
+        var TRAILING_CALL =
+          /\b(?:call|text|call\/text|text\/call)(?:\s+dave)?(?:\s+us)?(?:\s+directly)?(?:\s+on)?\s*$/i;
+
+        var CTA_SELECTOR =
+          '.btn, .btn-call, .btn-primary, .btn-o, .sticky-cta, [id$="sticky-cta"]';
+
+        function matches(el, sel) {
+          return el.matches ? el.matches(sel) : false;
+        }
+
+        // A link is a standalone CTA if it carries a button/sticky class, or if its
+        // parent holds nothing but links (a button row, a footer link list).
+        function isStandalone(link) {
+          if (matches(link, CTA_SELECTOR)) return true;
+          var parent = link.parentElement;
+          if (!parent) return false;
+          var text = parent.textContent || '';
+          var linkText = '';
+          var links = parent.querySelectorAll('a');
+          for (var i = 0; i < links.length; i++) linkText += links[i].textContent || '';
+          return text.replace(/\s| /g, '') === linkText.replace(/\s| /g, '');
+        }
+
+        function setLabel(link, label) {
+          var icon = link.querySelector('span[id$="icon"]');
+          if (icon) {
+            while (icon.nextSibling) link.removeChild(icon.nextSibling);
+            icon.textContent = '✉️';
+            link.appendChild(document.createTextNode(' ' + label));
+          } else {
+            link.textContent = /^\s*[☎✉📞]/.test(link.textContent || '')
+              ? '✉️ ' + label
+              : label;
+          }
+        }
+
+        // Unlinked mentions, e.g. "Call 0476 302 729 to confirm we reach your suburb."
+        var NUMBER_PHRASE =
+          /(?:\b(?:call|text|phone|ring|call\/text|text\/call)(?:\s+or\s+text)?(?:\s+dave)?(?:\s+us)?(?:\s+directly)?(?:\s+on)?\s+)?(?:\u{1F4DE}\s*)?0476\s*302\s*729/giu;
+
+        function scrubText(value) {
+          return value
+            .replace(NUMBER_PHRASE, function (match, offset, whole) {
+              var before = whole.slice(0, offset);
+              var atSentenceStart = !/\S/.test(before) || /[.!?]["')\]]?\s*$/.test(before);
+              return atSentenceStart ? 'Send an enquiry' : 'send an enquiry';
+            })
+            // "Call X or use the contact form" would otherwise become
+            // "Send an enquiry or use the contact form" — two ways to say one thing.
+            .replace(/\b(S|s)end an enquiry or use the contact form\b/g, function (m, c) {
+              return (c === 'S' ? 'U' : 'u') + 'se the contact form';
+            });
+        }
+
+        // Keep the FAQ JSON-LD in step with the visible answers, so structured data
+        // never claims text the page no longer shows. `telephone` is deliberately
+        // left intact — it is the business NAP signal, not page copy.
+        function scrubSchema() {
+          var blocks = document.querySelectorAll('script[type="application/ld+json"]');
+          for (var i = 0; i < blocks.length; i++) {
+            var raw = blocks[i].textContent;
+            if (!/0476\s*302\s*729/.test(raw)) continue;
+
+            try {
+              var data = JSON.parse(raw);
+            } catch (err) {
+              continue;
+            }
+
+            var changed = false;
+            (function walk(node) {
+              if (!node || typeof node !== 'object') return;
+              for (var key in node) {
+                if (!Object.prototype.hasOwnProperty.call(node, key)) continue;
+                if (key === 'telephone') continue;
+                var val = node[key];
+                if (typeof val === 'string') {
+                  var next = scrubText(val);
+                  if (next !== val) { node[key] = next; changed = true; }
+                } else if (typeof val === 'object') {
+                  walk(val);
+                }
+              }
+            })(data);
+
+            if (changed) blocks[i].textContent = JSON.stringify(data);
+          }
+        }
+
+        function scrubProse() {
+          var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+          var pending = [];
+          var node;
+
+          while ((node = walker.nextNode())) {
+            var parent = node.parentElement;
+            if (!parent || parent.closest('script, style')) continue;
+            if (!/0476\s*302\s*729/.test(node.nodeValue)) continue;
+            pending.push(node);
+          }
+
+          for (var i = 0; i < pending.length; i++) {
+            pending[i].nodeValue = scrubText(pending[i].nodeValue);
+          }
+        }
+
+        function apply() {
+          // Give the form a stable anchor so every rewritten link can point at it.
+          var form = document.querySelector('form[action*="formspree"]');
+          var target = '/contact';
+          if (form) {
+            if (!document.getElementById('quote')) form.id = 'quote';
+            target = '#quote';
+          }
+
+          var links = document.querySelectorAll('a[href^="tel:"]');
+
+          for (var i = 0; i < links.length; i++) {
+            var link = links[i];
+            var parent = link.parentElement;
+            var parentText = parent ? parent.textContent || '' : '';
+
+            // "Phone: 0476 302 729" rows — hide the whole row, since relabelling
+            // would leave a "Phone:" label pointing at nothing.
+            if (/phone\s*:/i.test(parentText) && !isStandalone(link)) {
+              if (parent) parent.classList.add('hm-hidden');
+              link.setAttribute('href', target);
+              continue;
+            }
+
+            // The big footer number is a pure phone display; the footer already has
+            // its own "Send a Message" link, so drop this one rather than duplicate.
+            if (link.classList.contains('footer-phone')) {
+              link.classList.add('hm-hidden');
+              link.setAttribute('href', target);
+              continue;
+            }
+
+            if (isStandalone(link)) {
+              // If a neighbouring link already points at the form ("Get a Quote",
+              // "Send a Message"), drop this one rather than show two identical CTAs.
+              // Only within a real CTA group — a sticky bar hangs off <body>, where
+              // every other form link on the page would look like a twin.
+              var twin = null;
+              var canDedupe =
+                parent &&
+                parent.tagName !== 'BODY' &&
+                !matches(link, '.sticky-cta, [id$="sticky-cta"]');
+
+              if (canDedupe) {
+                var siblings = parent.querySelectorAll('a[href="' + target + '"]');
+                for (var j = 0; j < siblings.length; j++) {
+                  if (siblings[j] !== link) { twin = siblings[j]; break; }
+                }
+              }
+
+              if (twin) {
+                link.classList.add('hm-hidden');
+              } else {
+                setLabel(link, LABEL);
+              }
+            } else {
+              // Inline in a sentence: strip any dangling "call ..." wording that
+              // preceded the number, then match the surrounding capitalisation.
+              var prev = link.previousSibling;
+              var label = INLINE_LABEL;
+              var before = '';
+
+              if (prev && prev.nodeType === 3) {
+                prev.nodeValue = prev.nodeValue.replace(TRAILING_CALL, '');
+                before = prev.nodeValue;
+              } else if (parent) {
+                before = parentText.split(link.textContent || '')[0] || '';
+              }
+
+              if (!/\S/.test(before) || /[.!?]["')\]]?\s*$/.test(before)) {
+                label = label.charAt(0).toUpperCase() + label.slice(1);
+              }
+
+              setLabel(link, label);
+            }
+
+            link.setAttribute('href', target);
+            if (link.getAttribute('aria-label')) {
+              link.setAttribute('aria-label', 'Send an enquiry');
+            }
+          }
+
+          scrubProse();
+          scrubSchema();
+        }
+
+        // Backstop: focus the form when an enquiry link lands on an anchor the
+        // browser has already navigated to.
+        function onClick(e) {
+          var t = e.target;
+          var link = t && t.closest ? t.closest('a[href="#quote"]') : null;
+          if (!link) return;
+
+          var section = document.getElementById('quote');
+          if (!section) return;
+
+          if (window.location.hash === '#quote') {
+            e.preventDefault();
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+
+          var first = section.querySelector('input, select, textarea');
+          if (first) {
+            setTimeout(function () {
+              try { first.focus({ preventScroll: true }); } catch (err) { first.focus(); }
+            }, 600);
+          }
+        }
+
+        document.addEventListener('click', onClick, true);
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', apply);
+        } else {
+          apply();
+        }
+      })();
+    </script>
+  </Fragment>
+)}

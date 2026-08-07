@@ -1,4 +1,6 @@
 ---
+import HolidayMode from "../components/HolidayMode.astro";
+
 const {
   title = "Daves Chimney Sweeping",
   description = "Local chimney sweeping, flue cleaning and wood heater cleaning in Melbourne.",
@@ -75,6 +77,8 @@ const breadcrumbSchema = canonicalUrl
     {breadcrumbSchema && (
       <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)}></script>
     )}
+
+    <HolidayMode />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6BD3TF9LCB"></script>
