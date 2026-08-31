@@ -17,5 +17,10 @@
 // snippets) and in the Google Business Profile. Those are deliberately left alone —
 // editing them is what would actually cost rankings.
 //
-// Set this back to false when Dave is home and calls should ring through again.
-export const HOLIDAY_MODE = true;
+// Currently off: calls ring through again. The floating sticky button is a separate
+// thing — it now lives in the page markup as a permanent "Send an Enquiry" link to
+// #quote, independent of this flag. To make it a call button again, change the
+// #sticky-cta / #blog-sticky-cta anchors back to href="tel:0476302729".
+//
+// Set this back to true when Dave goes away and calls should stop ringing.
+export const HOLIDAY_MODE = false;
