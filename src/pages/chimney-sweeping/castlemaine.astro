@@ -336,7 +336,8 @@ const faqs = [
     <div class="form-wrap">
       <h3>Quick Quote &mdash; Castlemaine</h3>
       <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. Flue cleaning $220 &mdash; masonry chimney $320.</p>
-      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+      <form action="/api/enquiry" method="POST">
+        <input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="suburb" value="Castlemaine VIC 3450" />
         <div class="form-grid">
           <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Your name" /></div>

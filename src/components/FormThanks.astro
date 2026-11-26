@@ -1,13 +1,26 @@
 ---
-// Submits the Formspree forms in the background so visitors stay on the page and
-// see a thank-you in place of the form, instead of being sent to Formspree's own
-// confirmation page.
+// Submits the booking forms in the background so visitors stay on the page and
+// see a thank-you in place of the form, instead of being sent to a confirmation
+// page of their own.
 //
 // If JavaScript fails, nothing is intercepted and the form posts normally — the
-// visitor still reaches Formspree, so an enquiry is never lost.
+// enquiry still reaches /api/enquiry and the visitor lands on /thanks, so a lead
+// is never lost.
 ---
 
 <style is:inline>
+  /* The honeypot every form carries. Off-screen rather than display:none,
+     because some bots skip anything a browser wouldn't render at all — and
+     hidden from assistive tech and the tab order so no real person meets it. */
+  .hp-field {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
   .ft-thanks {
     border: 1px solid #e2ddd4;
     border-left: 4px solid #c8500a;
@@ -47,7 +60,7 @@
 
 <script is:inline>
   (function () {
-    var SELECTOR = 'form[action*="formspree"]';
+    var SELECTOR = 'form[action="/api/enquiry"]';
 
     function thanksPanel() {
       var box = document.createElement('div');
@@ -119,10 +132,14 @@
               .json()
               .catch(function () { return null; })
               .then(function (data) {
+                // The enquiry endpoint answers with a single `error`; the shape
+                // with a list is Formspree's, kept for a page cached from
+                // before the forms moved across.
                 var message =
-                  data && data.errors && data.errors.length
+                  (data && data.error) ||
+                  (data && data.errors && data.errors.length
                     ? data.errors.map(function (x) { return x.message; }).join(', ')
-                    : "Sorry — that didn't send. Please check your details and try again.";
+                    : "Sorry — that didn't send. Please check your details and try again.");
                 restore();
                 showError(form, message);
               });

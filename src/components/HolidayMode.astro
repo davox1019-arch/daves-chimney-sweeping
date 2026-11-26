@@ -129,7 +129,7 @@ import { HOLIDAY_MODE } from "../config/holiday";
 
         function apply() {
           // Give the form a stable anchor so every rewritten link can point at it.
-          var form = document.querySelector('form[action*="formspree"]');
+          var form = document.querySelector('form[action="/api/enquiry"]');
           var target = '/contact';
           if (form) {
             if (!document.getElementById('quote')) form.id = 'quote';

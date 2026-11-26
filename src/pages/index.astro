@@ -784,7 +784,8 @@ const clusters = [
     <div class="form-wrap">
       <h3>Quick Quote &mdash; Melbourne</h3>
       <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. Flue &amp; wood heater $220 &mdash; masonry/brick $320.</p>
-      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+      <form action="/api/enquiry" method="POST">
+        <input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="suburb" value="Melbourne VIC" />
         <input type="hidden" name="price" value="From $220 — Flue/Wood Heater $220 | Masonry/Brick $320" />
         <div class="form-grid">

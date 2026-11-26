@@ -332,7 +332,8 @@ Annual professional chimney sweeping is standard maintenance for households in O
     <div class="form-wrap">
       <h3>Quick Quote &mdash; Oakleigh South</h3>
       <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. Flue cleaning $220 &mdash; masonry chimney $320.</p>
-      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+      <form action="/api/enquiry" method="POST">
+        <input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="suburb" value="Oakleigh South VIC 3167" />
         <input type="hidden" name="price" value="chimney inspection and clean" />
         <div class="form-grid">

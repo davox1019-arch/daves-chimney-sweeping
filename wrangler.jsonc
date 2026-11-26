@@ -9,5 +9,33 @@
 	},
 	"observability": {
 		"enabled": true
+	},
+
+	// The same database the gutter-cleaning site writes its leads to, so both
+	// businesses' enquiries show up in the one admin page:
+	//   https://davidsguttercleaning.com.au/quote-admin/
+	// Chimney rows are tagged `business = 'chimney'`; see src/pages/api/enquiry.ts.
+	//
+	// It is bound by id, not created here — the gutter site owns it. Before this
+	// site is deployed, the `business` column has to exist on it, which is
+	// `worker/migrations/006-business.sql` in the gutter repository.
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "david-gutter-cleaning-quotes",
+			"database_id": "d313b98c-ed8d-48f4-8d6e-577d8297b7ce"
+		}
+	],
+
+	// Secrets (never committed) — set with `npx wrangler secret put <NAME>`:
+	//   RESEND_API_KEY     from resend.com, for the alert emails
+	//   ALERT_EMAIL_TO     the address alerts are sent to
+	//   VAPID_PUBLIC_KEY   same pair the gutter site uses, because the phones
+	//   VAPID_PRIVATE_JWK  subscribed there and the keys have to match
+	//
+	// Leads save and reach the admin page without any of these; they only decide
+	// whether David also gets an email and a phone alert.
+	"vars": {
+		"ALERT_EMAIL_FROM": "onboarding@resend.dev"
 	}
 }

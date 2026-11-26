@@ -435,7 +435,8 @@ const faqs = [
     <div class="form-wrap">
       <h3>Book Your Fireplace Clean</h3>
       <p class="form-sub">From $220 — all Melbourne suburbs — no call-out fee</p>
-      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+      <form action="/api/enquiry" method="POST">
+        <input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="form-grid">
           <div class="field">
             <label for="name">Your Name</label>

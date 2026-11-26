@@ -399,7 +399,8 @@ const faqs = [
     <div class="form-wrap">
       <h3>Quick Quote — Wood Heater Service</h3>
       <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. $220 flat rate, all Melbourne suburbs.</p>
-      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+      <form action="/api/enquiry" method="POST">
+        <input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="service_type" value="Wood Heater Service" />
         <input type="hidden" name="price" value="$220 — Wood Heater Flue Clean & Service" />
         <div class="form-grid">

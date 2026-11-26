@@ -27,7 +27,8 @@ servicePageLabel="Chimney Sweeping"
   <section class="card">
     <h2>Request a Quote</h2>
 
-    <form action="https://formspree.io/f/maqlwkpr" method="POST" class="quote-form">
+    <form action="/api/enquiry" method="POST" class="quote-form">
+        <input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <div class="form-grid">
         <div class="field">
           <label for="name">Full Name</label>

@@ -332,7 +332,8 @@ We service Kew East as part of our inner eastern Melbourne run, alongside Kew, B
     <div class="form-wrap">
       <h3>Quick Quote &mdash; Kew East</h3>
       <p class="form-sub">Fill in your details and Dave will get back to you to confirm your booking. Flue cleaning $220 &mdash; masonry chimney $320.</p>
-      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+      <form action="/api/enquiry" method="POST">
+        <input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="suburb" value="Kew East VIC 3102" />
         <input type="hidden" name="price" value="chimney inspection and clean" />
         <div class="form-grid">

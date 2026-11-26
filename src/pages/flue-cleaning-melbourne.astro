@@ -964,7 +964,8 @@ const faqs = [
     <div class="form-wrap">
       <h3>Flue Cleaning Quote &mdash; Melbourne</h3>
       <p class="form-sub">Wood heater flue $220 &mdash; masonry chimney $320 &mdash; no call-out fee &mdash; all Melbourne suburbs</p>
-      <form action="https://formspree.io/f/maqlwkpr" method="POST">
+      <form action="/api/enquiry" method="POST">
+        <input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="page" value="flue-cleaning-melbourne" />
         <div class="form-grid">
           <div class="field">
