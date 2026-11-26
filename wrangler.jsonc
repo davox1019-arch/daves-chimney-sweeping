@@ -33,14 +33,14 @@
 	],
 
 	// Secrets (never committed) — set with `npx wrangler secret put <NAME>`:
-	//   RESEND_API_KEY     from resend.com, for the alert emails
-	//   ALERT_EMAIL_TO     the address alerts are sent to
-	//   VAPID_PUBLIC_KEY   same pair the gutter site uses, because the phones
-	//   VAPID_PRIVATE_JWK  subscribed there and the keys have to match
+	//   NOTIFY_SECRET   shared with the gutter Worker, which raises the alerts
 	//
-	// Leads save and reach the admin page without any of these; they only decide
-	// whether David also gets an email and a phone alert.
+	// Alerts are not sent from here. The Resend key and the push signing key are
+	// secrets on the gutter Worker, and Cloudflare secrets cannot be read back out
+	// to be copied across — so that Worker sends the email and the phone alert on
+	// this site's behalf, via NOTIFY_URL below. Leads still save and reach the
+	// admin page if this is unset; only the alert goes missing.
 	"vars": {
-		"ALERT_EMAIL_FROM": "onboarding@resend.dev"
+		"NOTIFY_URL": "https://davidsguttercleaning.com.au/api/notify"
 	}
 }

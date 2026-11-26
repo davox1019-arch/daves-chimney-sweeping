@@ -87,128 +87,39 @@ function newToken(): string {
   return [...bytes].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
-const escapeHtml = (s: unknown) =>
-  String(s).replace(
-    /[&<>"']/g,
-    (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!
-  );
-
 /**
- * Alerts are best-effort: a failing mail provider must never lose a lead, so
- * send errors are swallowed once the row is safely written. Without the secrets
- * set this does nothing and the lead still reaches the admin page.
+ * Ask the gutter site's Worker to raise the alert.
+ *
+ * It cannot be done from here: the Resend key and the push signing key are
+ * Cloudflare secrets on that Worker, and secrets cannot be read back out to be
+ * copied into this one. Regenerating a pair for both would mean David
+ * re-registering every phone, and two copies of the one private key afterwards —
+ * so the Worker that already holds them sends on this site's behalf.
+ *
+ * Best-effort by design, and called after the row is safely written: a lead that
+ * is saved but un-alerted is recoverable from the admin page, a lost one is not.
  */
-async function sendAlert(env: any, subject: string, lines: string[]) {
-  if (!env.RESEND_API_KEY || !env.ALERT_EMAIL_TO) return;
-  const html = lines.map((l) => `<p style="margin:0 0 8px">${escapeHtml(l)}</p>`).join('');
-  try {
-    await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        authorization: `Bearer ${env.RESEND_API_KEY}`,
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: env.ALERT_EMAIL_FROM || 'onboarding@resend.dev',
-        to: env.ALERT_EMAIL_TO,
-        subject,
-        html,
-      }),
-    });
-  } catch (err) {
-    console.error('alert email failed', err);
-  }
-}
-
-const b64url = (buf: ArrayBuffer) =>
-  btoa(String.fromCharCode.apply(null, Array.from(new Uint8Array(buf))))
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=+$/, '');
-
-let signingKey: Promise<CryptoKey> | null = null;
-function vapidKey(env: any) {
-  if (!signingKey) {
-    signingKey = crypto.subtle.importKey(
-      'jwk',
-      JSON.parse(env.VAPID_PRIVATE_JWK),
-      { name: 'ECDSA', namedCurve: 'P-256' },
-      false,
-      ['sign']
-    );
-  }
-  return signingKey;
-}
-
-/** VAPID proves to the push service that the send came from David's keys. The
- *  keys are the gutter site's, because the phones subscribed over there — which
- *  is also why the same subscription rows are reused rather than re-collected. */
-async function vapidHeader(env: any, endpoint: string) {
-  const enc = new TextEncoder();
-  const header = b64url(enc.encode(JSON.stringify({ typ: 'JWT', alg: 'ES256' })));
-  const claims = b64url(
-    enc.encode(
-      JSON.stringify({
-        aud: new URL(endpoint).origin,
-        exp: Math.floor(Date.now() / 1000) + 12 * 3600,
-        sub: 'mailto:' + (env.ALERT_EMAIL_TO || 'noreply@daveschimneysweeping.com.au'),
-      })
-    )
-  );
-  const sig = await crypto.subtle.sign(
-    { name: 'ECDSA', hash: 'SHA-256' },
-    await vapidKey(env),
-    enc.encode(header + '.' + claims)
-  );
-  return `vapid t=${header}.${claims}.${b64url(sig)}, k=${env.VAPID_PUBLIC_KEY}`;
-}
-
-/**
- * Pushes carry no payload — the notification says a lead arrived, the admin
- * page says who from. Subscriptions live in the shared database, so a phone
- * registered on the gutter admin is alerted about chimney leads too.
- */
-async function sendPush(env: any) {
-  if (!env.VAPID_PRIVATE_JWK || !env.VAPID_PUBLIC_KEY) return;
-  let rows: any[] = [];
-  try {
-    const r = await env.DB.prepare('SELECT endpoint FROM push_subs').all();
-    rows = r.results || [];
-  } catch (err) {
-    console.error('push: could not read subscriptions', err);
+async function notify(env: any, lead: Record<string, string>) {
+  const endpoint = env.NOTIFY_URL || 'https://davidsguttercleaning.com.au/api/notify';
+  if (!env.NOTIFY_SECRET) {
+    console.error('enquiry: NOTIFY_SECRET is not set — no alert sent');
     return;
   }
 
-  for (const row of rows) {
-    // One retry, because a transient failure here means David simply never
-    // hears about a lead.
-    for (let attempt = 0; attempt < 2; attempt++) {
-      try {
-        const res = await fetch(row.endpoint, {
-          method: 'POST',
-          headers: {
-            Authorization: await vapidHeader(env, row.endpoint),
-            Urgency: 'high',
-            TTL: '14400',
-          },
-        });
-
-        // The device has uninstalled or the subscription expired — stop trying.
-        // The gutter worker prunes these too; whichever sends first clears it.
-        if (res.status === 404 || res.status === 410) {
-          await env.DB.prepare('DELETE FROM push_subs WHERE endpoint = ?')
-            .bind(row.endpoint)
-            .run();
-          break;
-        }
-        if (res.ok) break;
-
-        console.error('push rejected', res.status, (await res.text()).slice(0, 200));
-        if (res.status < 500) break; // client error — retrying won't help
-      } catch (err) {
-        console.error('push failed', err);
-      }
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'x-notify-secret': env.NOTIFY_SECRET,
+      },
+      body: JSON.stringify({ business: 'chimney', ...lead }),
+    });
+    if (!res.ok) {
+      console.error('enquiry: alert rejected', res.status, (await res.text()).slice(0, 200));
     }
+  } catch (err) {
+    console.error('enquiry: could not reach the alert endpoint', err);
   }
 }
 
@@ -374,18 +285,7 @@ export const POST: APIRoute = async ({ request, locals, url }) => {
     }
   }
 
-  const alerts = Promise.all([
-    sendAlert(cfEnv, `New chimney enquiry — ${name}, ${suburb}`, [
-      `Name: ${name}`,
-      `Phone: ${phone}`,
-      email ? `Email: ${email}` : 'No email left.',
-      `Suburb: ${suburb}`,
-      service ? `Service: ${service}` : 'No service picked.',
-      note ? `Note: ${note}` : 'No note left.',
-      'See it here: https://davidsguttercleaning.com.au/quote-admin/',
-    ]),
-    sendPush(cfEnv),
-  ]);
+  const alerts = notify(cfEnv, { name, phone, email, suburb, service, note });
   // Without a context to hand the sends to, wait for them here rather than
   // letting the response cancel them — a slow alert beats a silent one.
   if (cfContext?.waitUntil) cfContext.waitUntil(alerts);
